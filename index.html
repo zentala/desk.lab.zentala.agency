@@ -20,8 +20,12 @@
       </div>
       <div class="row">
         <div class="col">
-          <a href="https://github.com/zentala/open-smart-desk" class="btn btn-primary btn-lg m-2" role="button"><i class="bi bi-github"></i> GitHub</a>
-          <a href="https://discord.com/invite/7s7P9Kga" class="btn btn-primary btn-lg m-2" role="button"><i class="bi bi-discord"></i> Discord</a>          
+          <a href="https://github.com/zentala/open-smart-desk" class="btn btn-primary btn-lg m-2" role="button" style="background: #333;">
+            <i class="bi bi-github"  style="position: relative; top: -2px"></i> GitHub
+          </a>
+          <a href="https://discord.com/invite/7s7P9Kga" class="btn btn-primary btn-lg m-2" role="button" style="background: #5865f2;">
+            <i class="bi bi-discord"  style="position: relative; top: -1px"></i> Discord
+          </a>
         </div>
       </div>
     </div>
@@ -55,27 +59,168 @@
     <section class="container py-2">
       <h2>Hardware</h2>
       <p>RPi4 + 4 relays board + PIR + laser range sensor + plexi laser cutted enclousure</p>
-      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <i class="bi bi-gear"></i> Show detailed parts list
-      </a>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          <ul style="list-style-type: square;">
-            <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?variant=raspberry-pi-4-model-b-4gb">Raspbery Pi 4 model B (4GB)</a></li>
-            <li><a href="https://www.waveshare.com/rpi-relay-board.htm">Waveshare RPi Relay Board (11638)</a></li>
-            <li><a href="https://www.amazon.com/Gowoops-VL53L0X-Breakout-GY-VL53L0XV2-Distance/dp/B07F3RH7TC/">Laser metter VL53L0X</a></li>
-            <li><a href="https://components101.com/hc-sr501-pir-sensor">Motion sensor PIR HC-SR501</a></li>
-            <li><a href="https://www.reichelt.com/pl/en/power-supply-5-v-6-a-eps-35-5-p170940.html">Power supply EPS-35-5 (5V, 6A)</a></li>
-            <li><a href="https://www.tme.eu/pl/en/details/sp2112_s4/weipu-connectors/weipu/">SP2112/S4 female panel socket</a></li>
-            <li><a href="https://www.tme.eu/pl/en/details/sp2110_p4/weipu-connectors/weipu/sp2110-p4-ii-1n/">SP2110/P4II male plug</a></li>
-            <li><a href="https://allegro.pl/oferta/nakretka-nakretki-niska-czarna-oksyda-m3-10szt-6904944393">4x low nut M3 (black, oxidized, 3mm height)</a></li>
-            <li><a href="https://allegro.pl/oferta/sruba-kulista-czarna-m3x8-gniazdo-imbus-10szt-5315915867">6x spherical screw M3x8 (black, hex socket)</a></li>
-            <li>C14 male panel socket</li>
-            <li>C13 female cable (regular PC power cable)</li>
-            <li>microSD card 32GB</li>
-            <li>plexi laser cutted enclousre</li>
-          </ul>
-        </div>
+      <div class="mb-5">
+        <!-- <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseParts1" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <i class="bi bi-gear" style="position: relative; top: -1px; margin-right: 3px;"></i> Show detailed parts list <i class="bi bi-arrow-down" style="position: relative; top: -2px; margin-left: 3px"></i>
+        </a> -->
+        <!-- <div class="collapse mt-2" id="collapseParts1"> -->
+          <h3>Detailed parts list</h3>
+          <div class="card card-body">
+
+            <div class="row">
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://www.mouser.pl/images/riotboard/lrg/RPI4-MODBP-8GB-BULK_DSL.JPG" class="card-img-top mt-2" alt="Raspbery Pi 4 model B (4GB)">
+                  <div class="card-body">
+                    <h5 class="card-title">Raspbery Pi 4 model B (4GB)</h5>
+                    <p class="card-text">This is a bit overkill. I am planning to use RPi0 in next version.</p>
+                    <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?variant=raspberry-pi-4-model-b-4gb" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$90</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://cdn1.botland.com.pl/107181/rpi-relay-board-3-przekazniki-nakladka-dla-raspberry-pi-waveshare-11638.jpg" class="card-img-top" alt="Waveshare RPi Relay Board (11638)">
+                  <div class="card-body">
+                    <h5 class="card-title">Waveshare RPi Relay Board (11638)</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.waveshare.com/rpi-relay-board.htm" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$16</span></a>
+                  </div>
+                </div>    
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://a.allegroimg.com/s720/11a56e/cf29467c47b9bbbc1236ff01ba76/Czujnik-odleglosci-VL53L0X-ToF-dokladny-do-2m" class="card-img-top mt-2" alt="Laser metter VL53L0X">
+                  <div class="card-body">
+                    <h5 class="card-title">Laser metter VL53L0X</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.amazon.com/Gowoops-VL53L0X-Breakout-GY-VL53L0XV2-Distance/dp/B07F3RH7TC/" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$10</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://cdn3.botland.com.pl/60765-large_default/czujnik-ruchu-pir-hc-sr501-zielony.jpg" class="card-img-top mt-2" alt="Motion sensor PIR HC-SR501">
+                  <div class="card-body">
+                    <h5 class="card-title">Motion sensor PIR HC-SR501</h5>
+                    <p class="card-text"></p>
+                    <a href="https://components101.com/hc-sr501-pir-sensor" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$3</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://cdn-reichelt.de/bilder/web/artikel_ws/D400/EPS-35.jpg" class="card-img-top mt-2" alt="Power supply EPS-35-5 (5V, 6A)">
+                  <div class="card-body">
+                    <h5 class="card-title">Power supply EPS-35-5 (5V, 6A)</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.reichelt.com/pl/en/power-supply-5-v-6-a-eps-35-5-p170940.html" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$17</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://ce8dc832c.cloudimg.io/v7/_cdn_/33/9D/50/00/0/383283_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=695351e97009a463e94182a54a2d0adc88dcf921" class="card-img-top mt-2" alt="SP2112/S4 female panel socket">
+                  <div class="card-body">
+                    <h5 class="card-title">SP2112/S4 female panel socket</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.tme.eu/pl/en/details/sp2112_s4/weipu-connectors/weipu/" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$5</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://ce8dc832c.cloudimg.io/v7/_cdn_/2D/AA/50/00/0/371410_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=d1c6726914132fd1fb1c161bcc0c8ffeba112f6a" class="card-img-top mt-2" alt="SP2110/P4II male plug">
+                  <div class="card-body">
+                    <h5 class="card-title">SP2110/P4II male plug</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.tme.eu/pl/en/details/sp2110_p4/weipu-connectors/weipu/sp2110-p4-ii-1n/" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$5</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://b.allegroimg.com/s1440/01c0f6/85b088054fa4a82202db2198a1fb/Nakretka-Nakretki-niska-czarna-oksyda-M3-10szt-Liczba-sztuk-w-opakowaniu-10-szt" class="card-img-top mt-2" alt="4x low nut M3 (black, oxidized, 3mm height)">
+                  <div class="card-body">
+                    <h5 class="card-title">4x low nut M3 (black, oxidized, 3mm height)</h5>
+                    <p class="card-text"></p>
+                    <a href="https://allegro.pl/oferta/nakretka-nakretki-niska-czarna-oksyda-m3-10szt-6904944393" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$1</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://f.allegroimg.com/original/0147d7/a00b1e824bd1ad95a4ab0e45c0ff/Sruba-kulista-czarna-M3x8-gniazdo-imbus-10szt" class="card-img-top mt-2" alt="6x spherical screw M3x8 (black, hex socket)">
+                  <div class="card-body">
+                    <h5 class="card-title">6x spherical screw M3x8 (black, hex socket)</h5>
+                    <p class="card-text"></p>
+                    <a href="https://allegro.pl/oferta/sruba-kulista-czarna-m3x8-gniazdo-imbus-10szt-5315915867" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$1</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://ce8dc832c.cloudimg.io/v7/_cdn_/28/2C/50/00/0/377474_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=83445eaa0056afaffd43356c316aeddfd9c0fd9a" class="card-img-top mt-2" alt="C14 male panel socket">
+                  <div class="card-body">
+                    <h5 class="card-title">C14 male panel socket</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.tme.eu/pl/details/6100.3200/zlacza-iec-60320/schurter/" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$2</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://ce8dc832c.cloudimg.io/v7/_cdn_/69/9C/B0/00/1/772502_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=f82814d709a215ee5bb31709f8ae5a769a52d8d2" class="card-img-top mt-2" alt="C13 female cable">
+                  <div class="card-body">
+                    <h5 class="card-title">C13 female cable</h5>
+                    <p class="card-text">Regular PC power cable</p>
+                    <a href="https://www.tme.eu/pl/details/ak-pc-01a/kable-zasil-komputerowe-i-uniwersalne/akyga/" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$3</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://dronavista.pl/21621/karta-pamieci-sandisk-extreme-microsdhc-32gb.jpg" class="card-img-top mt-2" alt="microSD card 32GB">
+                  <div class="card-body">
+                    <h5 class="card-title">microSD card 32GB</h5>
+                    <p class="card-text"></p>
+                    <!-- <a href="" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$10</span></a> -->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <ul style="list-style-type: square;">
+              <!-- <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?variant=raspberry-pi-4-model-b-4gb">Raspbery Pi 4 model B (4GB)</a></li> -->
+              <!-- <li><a href="https://www.waveshare.com/rpi-relay-board.htm">Waveshare RPi Relay Board (11638)</a></li> -->
+              <!-- <li><a href="https://www.amazon.com/Gowoops-VL53L0X-Breakout-GY-VL53L0XV2-Distance/dp/B07F3RH7TC/">Laser metter VL53L0X</a></li> -->
+              <!-- <li><a href="https://components101.com/hc-sr501-pir-sensor">Motion sensor PIR HC-SR501</a></li> -->
+              <!-- <li><a href="https://www.reichelt.com/pl/en/power-supply-5-v-6-a-eps-35-5-p170940.html">Power supply EPS-35-5 (5V, 6A)</a></li> -->
+              <!-- <li><a href="https://www.tme.eu/pl/en/details/sp2112_s4/weipu-connectors/weipu/">SP2112/S4 female panel socket</a></li> -->
+              <!-- <li><a href="https://www.tme.eu/pl/en/details/sp2110_p4/weipu-connectors/weipu/sp2110-p4-ii-1n/">SP2110/P4II male plug</a></li> -->
+              <!-- <li><a href="https://allegro.pl/oferta/nakretka-nakretki-niska-czarna-oksyda-m3-10szt-6904944393">4x low nut M3 (black, oxidized, 3mm height)</a></li> -->
+              <!-- <li><a href="https://allegro.pl/oferta/sruba-kulista-czarna-m3x8-gniazdo-imbus-10szt-5315915867">6x spherical screw M3x8 (black, hex socket)</a></li> -->
+              <!-- <li>C14 male panel socket</li> -->
+              <!-- <li>C13 female cable (regular PC power cable)</li> -->
+              <!-- <li>microSD card 32GB</li> -->
+              <li>plexi laser cutted enclousre</li>
+            </ul>
+            
+          </div>
+        <!-- </div> -->
       </div>
       <h3>Control Unit</h3>
       <h4>v0.1</h4>
@@ -146,7 +291,9 @@
       </p>
       <div class="vr"></div>
       <p class="mb-0" style="font-size: 0.85rem;">
-        <a href="https://github.com/zentala/desk.zentala.io/blob/master/index.html">Edit this page</a>
+        <a class="icon-link" href="https://github.com/zentala/desk.zentala.io/blob/master/index.html" target="_blank">
+          <i class="bi bi-github" style="position: relative; top: -3px"></i>Edit this page 
+        </a>
       </p>
     </div>
   </footer>
