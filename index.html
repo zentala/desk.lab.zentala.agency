@@ -269,16 +269,22 @@
       <h4>v0.1</h4>
       <div class="row">
         <div class="col">
-          <img src="images/plexi-cutted.jpg" class="img-fluid" alt="Plexi Cutted">
-          <p class="small">Ordered online, CNC laser cutted plexiglass 5mm for the housing.</p>
+          <figure class="figure">
+            <img src="images/plexi-cutted.jpg" class="figure-img img-fluid rounded" alt="Plexi Cutted">
+            <figcaption class="figure-caption">Ordered online, CNC laser cutted plexiglass for the housing.</figcaption>
+          </figure>
         </div>
         <div class="col">
-          <img src="images/wiring.jpg" class="img-fluid" alt="Wiring">
-          <p class="small">First assembly of Control Unit...</p>
+          <figure class="figure">
+            <img src="images/wiring.jpg" class="figure-img img-fluid rounded" alt="Wiring">
+            <figcaption class="figure-caption">First assembly of Control Unit...</figcaption>
+          </figure>
         </div>
         <div class="col">
-          <img src="images/wiring-explained.jpg" class="img-fluid" alt="Wiring Explained">
-          <p class="small">...described what's inside.</p>
+          <figure class="figure">
+            <img src="images/wiring-explained.jpg" class="figure-img img-fluid rounded" alt="Wiring Explained">
+            <figcaption class="figure-caption">..described what's inside.</figcaption>
+          </figure>
         </div>
       </div>
       <p>I don't recommend this housing design. No air flow provided, so electronics is overheating. Must be redesigned.
@@ -287,30 +293,48 @@
       <p>In this version I just replaced power supply with smaller one. <!-- TODO add info about model & link --></p>
       <div class="row">
         <div class="col">
-          <img src="images/20230628_032916.jpg" class="img-fluid" alt="Control Unit">
-          <p class="small">Control Unit</p>
+          <figure class="figure">
+            <img src="images/20230628_032916.jpg" class="figure-img img-fluid rounded" alt="Control Unit">
+            <figcaption class="figure-caption">Control Unit</figcaption>
+          </figure>
         </div>
         <div class="col">
-          <img src="images/20230628_033107.jpg" class="img-fluid" alt="4-pin plug and socket for motor control">
-          <p class="small">4-pin plug and socket for motor control (+230V UP, +230V DOWN, Neutral, GND)</p>
+          <figure class="figure">
+            <img src="images/20230628_033107.jpg" class="figure-img img-fluid rounded" alt="4-pin plug and socket for motor control">
+            <figcaption class="figure-caption">4-pin plug and socket for motor control (+230V UP, +230V DOWN, Neutral, GND)</figcaption>
+          </figure>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <img src="images/20230628_033525.jpg" class="img-fluid" alt="Control Unit with PIR sensor (movement detector)">
-          <p class="small">Control Unit with PIR sensor (movement detector)</p>
+          <figure class="figure">
+            <img src="images/20230628_033525.jpg" class="figure-img img-fluid rounded" alt="Control Unit with PIR sensor (movement detector)">
+            <figcaption class="figure-caption">Control Unit with PIR sensor (movement detector)</figcaption>
+          </figure>
         </div>
         <div class="col">
-          <img src="images/20230628_033548.jpg" class="img-fluid" alt="Inside of control unit (v2 with smaller power supply)">
-          <p class="small">Inside of control unit (v2 with smaller power supply)</p>
+          <figure class="figure">
+            <img src="images/20230628_033548.jpg" class="figure-img img-fluid rounded" alt="Inside of control unit (v2 with smaller power supply)">
+            <figcaption class="figure-caption">Inside of control unit (v2 with smaller power supply)</figcaption>
+          </figure>
         </div>
       </div>
       <p>In next version I plan to replace PRi4 with RPi0. I am just not sure if VS Studio SSH Remote will support it.</p>
       <h3>User Panel</h3>
       <p>I have never finished this component. Elements doesn't fit enclosure - not enough space to connect electronic components together. PCB and 3D printed enclosure are required remodeling.</p>      
       <div class="row">
-        <div class="col"><img src="images/20230628_033806.jpg" class="img-fluid" alt="User Panel"></div>
-        <div class="col"><img src="images/20230628_043425.jpg" class="img-fluid" alt="User Panel"></div>
+        <div class="col">
+          <figure class="figure">
+            <img src="images/20230628_033806.jpg" class="figure-img img-fluid rounded" alt="User Panel">
+            <!-- <figcaption class="figure-caption">A caption for the above image.</figcaption> -->
+          </figure>
+        </div>
+        <div class="col">
+          <figure class="figure">
+            <img src="images/20230628_043425.jpg" class="figure-img img-fluid rounded" alt="User Panel">
+            <!-- <figcaption class="figure-caption">A caption for the above image.</figcaption> -->
+          </figure>
+        </div>
       </div>
       <p>Netherless I have planned to use:</p>
       <ul>
@@ -323,7 +347,10 @@
     <section class="container py-2">
       <h2>Software</h2>
       <p>I conducted experiments using both <a href="https://github.com/zentala/open-smart-desk">Node.js</a> (more extensive version) and <a href="https://github.com/zentala/open-smart-desk-python-experiment">Python</a>. While working with Python, I encountered some serious threading issues that I wasn't qualified to solve, so I decided to abandon this approach. In the Node.js version, I ended up with a web interface that replicates the physical controller. It processes data from the laser meter and can switch relays.</p>
-      <img src="images/web.png" class="img-fluid mx-auto d-block" alt="Web interface of Open Smart Desk">
+      <figure class="figure">
+        <img src="images/web.png" class="figure-img img-fluid rounded" alt="Web interface of Open Smart Desk">
+        <figcaption class="figure-caption text-center">Web interface of Open Smart Desk</figcaption>
+      </figure>
     </section>
     <section class="container py-2">
       <h2>Goals and Challenges</h2>
