@@ -26,6 +26,16 @@ Click in badge above to start ready-to-code development workspace on GitPod or d
 
 The project is configured for automatic deployment to GitHubPages upon pushing code to the main branch using GitHubActions.
 
+## Code quality status
+
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=zentala_desk.zentala.io&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=zentala_desk.zentala.io)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=zentala_desk.zentala.io&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=zentala_desk.zentala.io)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=zentala_desk.zentala.io&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=zentala_desk.zentala.io)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=zentala_desk.zentala.io&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=zentala_desk.zentala.io) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=zentala_desk.zentala.io&metric=bugs)](https://sonarcloud.io/summary/new_code?id=zentala_desk.zentala.io)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=zentala_desk.zentala.io&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=zentala_desk.zentala.io)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=zentala_desk.zentala.io&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=zentala_desk.zentala.io) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=zentala_desk.zentala.io&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=zentala_desk.zentala.io) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=zentala_desk.zentala.io&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=zentala_desk.zentala.io)
+
+
 ## 🤝 **Join the Smart Desk Community!**
 Project is open-source, inviting collaboration and contributions. Join a global experiment in combating sedentary lifestyles. Contribute to the Smart Desk project: customize code, enhance UI/UX, improve presence analytics, experiment with electronics, and collaborate worldwide. Redefine how we work and prioritize health. Ready to elevate your workspace? Join the Smart Desk community today!
 
