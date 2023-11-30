@@ -1,8 +1,6 @@
 #  Open Smart Desk Website [![stability-alpha](https://img.shields.io/badge/stability-alpha-f4d03f.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#alpha) 
 ## 🌏 Repository Overview
-Welcome to the official repository of the Open Smart Desk project website accessible at [desk.zentala.io](https://desk.zentala.io/). 
-
-This static website serves as an introduction guide to the innovative Smart Desk, designed to transform and enhance your workspace:
+Welcome to the official repository of the Open Smart Desk project website accessible at [desk.zentala.io](https://desk.zentala.io/). This static website serves as an introduction guide to the innovative Smart Desk, designed to transform and enhance your workspace:
 
 ### 🚀 Smart Desk Project Features
 - **Innovative Height Adjustment:** Experience a desk that adapts to your needs, promoting a dynamic and health-conscious work environment.
