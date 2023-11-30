@@ -50,4 +50,4 @@ Share visionary ideas, propose and discuss future features.
 Define, refine, discuss and pick up some tasks for your to enhance the project. 
 
 🛠️ **[Discord Engineers Hub](https://discord.com/invite/7s7P9Kga):**
-Engage in real-time developer discussions, share ideas, and stay updated on the latest features.
+Engage in real-time contributors discussions, supporting each other and colaborating together.
