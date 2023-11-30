@@ -37,6 +37,9 @@ The project is configured for automatic deployment to GitHubPages upon pushing c
 ## 🤝 **Join the Smart Desk Community!**
 Project is open-source, inviting collaboration and contributions. Join a global experiment in combating sedentary lifestyles. Contribute to the Smart Desk project: customize code, enhance UI/UX, improve presence analytics, experiment with electronics, and collaborate worldwide. Redefine how we work and prioritize health. Ready to elevate your workspace? Join the Smart Desk community today!
 
+📚 **[Smart Desk Website](https://desk.zentala.io/):**
+Your go-to for hardware modules setup guides, software, and setup instructions.
+
 📚 **[GitHub Wiki](https://github.com/zentala/open-smart-desk/wiki):**
 Explore structured technical knowledge about the project, vision, R&D, modules, configurations, and more. 
 
@@ -44,8 +47,7 @@ Explore structured technical knowledge about the project, vision, R&D, modules, 
 Share visionary ideas, propose and discuss future features.
 
 💼 **[GitHub Project](https://github.com/zentala/desk.zentala.io/projects):**
-Contribute and track project progress.
+Define, refine, discuss and pick up some tasks for your to enhance the project. 
 
 🛠️ **[Discord Engineers Hub](https://discord.com/invite/7s7P9Kga):**
 Engage in real-time developer discussions, share ideas, and stay updated on the latest features.
-
