@@ -1,0 +1,15 @@
+.wrapper {
+  border-radius: 10px; background-color: #f8f9fa; border: 1px solid #eee; position: relative; padding: 80px 50px 40px 50px;
+}
+
+.wrapper h2 {
+  position: absolute; top: 20px; left: 30px; text-transform: uppercase; font-weight: bold; color: #ddd; font-size: 5em; z-index: 1
+}
+
+.wrapper .content {
+  z-index: 2; position: relative;
+}
+
+.wrapper .c3 {
+  column-count: 3; column-gap: 40px;
+}
