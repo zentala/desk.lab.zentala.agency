@@ -11,11 +11,13 @@ Zbudowalem wersje 0.1 inteligentnego biurka. Dziala: potrafi podnosic i opuszcza
 - Pomiar wysokosci.
 - Czujniki obecnosci.
 - Prototyp w jednej obudowie (Raspberry Pi + sterowanie + czujniki).
+- Nazwa robocza projektu: **SmartDesk**.
 
 ## 2. Najwazniejszy wniosek: over-engineering
 - Zbudowalem zbyt skomplikowany system, by rozwiazac zbyt prosty problem.
 - W1 byla bardziej demonstracja moich umiejetnosci IoT niz realne wsparcie zdrowych nawykow.
 - **Prawdziwy problem**: jak zaprojektowac komunikacje, ktora zmienia zachowanie czlowieka.
+- Duza czesc bledow to **zla alokacja zasobow** na rzeczy niekrytyczne dla celu.
 
 ## 3. Architektura modularna zamiast "jednego pudelka"
 Wniosek: system musi byc **modularny**.
@@ -58,9 +60,17 @@ Zeby to dzialalo w skali, potrzebny jest **otwarty protokol**.
 ## 8. Sprzetowe detale z W1
 - Raspberry Pi przegrzewa sie w obudowie (potrzeba lepszego chlodzenia).
 - Przekazniki potrafia sie sklejac (ryzyko awarii i zlego UX).
+- PIR czujnik obecnosci zawodzil (falszywe sygnaly, rozlaczenia, slaba kalibracja).
+- Kontroler biurka (LCD + przyciski 1/2 + gora/dol) nie powstal: zle poprowadzony zakres i niedowieziona praca zleceniobiorcy.
+- Bledny wybor sprzetu: duze Raspberry Pi pod potrzeby deweloperskie (VS Code Remote), a nie pod docelowego uzytkownika.
+- Bledna decyzja: projekt pod stare biurko i jego obudowe zamiast uniwersalnego kontrolera.
+- Alternatywa: zamiast customowego kontrolera mozna uzyc urzadzenia typu Steam Deck jako cyfrowego panelu sterowania.
 
 ## 9. Podsumowanie
 Wersja 0.1 to dla mnie zamkniety rozdzial i studium bledow. Najwieksza lekcja: **to nie hardware zmienia zachowania, tylko UX i system motywacyjny**. Kolejny krok to zapisanie wnioskow, stworzenie otwartego protokolu i zaproszenie spolecznosci do dalszej dyskusji.
+
+## 10. Koszty (W1)
+- Szacunkowo ok. **700 PLN / 200 USD** (bez kosztow V2).
 
 ---
 
@@ -83,6 +93,5 @@ Wersja 0.1 to dla mnie zamkniety rozdzial i studium bledow. Najwieksza lekcja: *
 2. Jakie byly 1-2 rzeczy, ktore mimo wszystko zadzialaly?
 3. Czy chcesz, zeby artykul byl bardziej osobisty (story) czy bardziej techniczny (whitepaper)?
 4. Czy wprowadzamy nazwy wlasne (np. nazwa protokolu, nazwa systemu)?
-5. Czy chcesz podac przyblizony koszt W1 lub jego komponentow?
-6. Jakie masz zdjecia, screeny, schematy, ktore mozemy wstawic?
+5. Jakie masz zdjecia, screeny, schematy, ktore mozemy wstawic?
 

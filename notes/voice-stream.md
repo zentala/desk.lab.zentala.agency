@@ -58,6 +58,9 @@
 ## Sprzetowe wnioski
 - Raspberry Pi w obudowie sie przegrzewa (lepszy radiator na zewnatrz).
 - Przekazniki moga sie sklejac (ryzyko awarii i zle UX).
+- PIR czujnik obecnosci zawodzil (falszywe sygnaly, rozlaczenia, slaba kalibracja przy nieruchomosci).
+- Kontroler przyciskow i LCD nie powstal (niedowieziony zleceniobiorca, zly nadzor i rozmyty zakres).
+- Zla decyzja architektoniczna: dwie plytki (front + PCB) zamiast jednej uniwersalnej.
 
 ## W1: ocena i zamkniecie rozdzialu
 - W1 nie zmotywowala do wstawania, brak skutecznego systemu motywacji.
@@ -72,4 +75,27 @@
 - Otwartym standardem mozna zbudowac ekosystem aplikacji i integracji.
 - Aplikacja moze dostarczac spersonalizowane rekomendacje (np. zdrowotne) i reklamy dopasowane do danych.
 - Potencjalny model: nie sprzedaz hardware, a wartosc w danych + aplikacji.
+
+## W1: porazki (doprecyzowane)
+- Obudowa z plexi powodowala przegrzewanie Raspberry Pi; musialem pracowac na rozebranym urzadzeniu (ryzyko porazenia, kurz).
+- Brak skutecznego UX i gamifikacji: projekt nie aktywizowal mnie w praktyce.
+- Sklejajace sie przekazniki przy zalaczaniu silnikow starego biurka (potrzebne konsultacje elektryczne lub lepsze rozwiazanie).
+- PIR czujnik obecnosci nie spelnil roli (falszywe odczyty, trudna kalibracja).
+- Niewypalony kontroler biurka (LCD + przyciski 1/2 + gora/dol): zleceniobiorca nie dowiozl, zakres zbyt szeroki, brak nadzoru.
+- Zly wybor celu: projekt pod stare biurko i obudowe zamiast uniwersalnego sterownika.
+- Zly dobór sprzetu: duze Raspberry Pi w obudowie pod dev (VS Code Remote), a nie pod docelowego uzytkownika.
+
+## W1: co dzialalo
+- Sterowanie biurkiem gora-dol z komputera/telefonu.
+- Pomiar wysokosci (laserowy czujnik).
+- Panel administracyjny z podstawowymi danymi o biurku.
+- Sam fakt zbudowania POC i wyciagniecie wnioskow.
+- Konstrukcja plexi byla estetyczna i skladna (poza problemem wentylacji).
+
+## Koszty (szacunki)
+- W1 ok. 700 PLN / 200 USD (czesci z Chin, obudowa wycinana w PL).
+- Bez kosztow V2 (nie podajemy).
+
+## Nazewnictwo
+- Robocza nazwa systemu: Smart Desk / iDesk.
 

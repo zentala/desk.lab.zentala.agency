@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartDesk R&D</title>
+  <meta name="description" content="SmartDesk is a smart height-adjustable desk project focused on behavior change, modular architecture, and an open communication standard.">
+  <meta name="keywords" content="SmartDesk, smart height-adjustable desk, height adjustable desk, smart desk, ergonomics, behavior change, standing desk">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="jumbotron jumbotron-fluid text-center" style="background-color: #f8f9fa; border-bottom: 1px solid #eee;">
+    <div class="container py-5">
+      <div class="row">
+        <p class="text-center">
+          <!-- https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md -->
+          <img src="https://img.shields.io/badge/stability-wip-lightgrey.svg" alt="WIP">
+
+          <!-- https://shields.io/badges/git-hub-repo-stars -->
+          <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zentala/open-smart-desk">
+
+          <!-- https://shields.io/badges/git-hub-watchers -->
+          <!-- <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/zentala/open-smart-desk"> -->
+
+          <!-- https://shields.io/badges/git-hub-forks -->
+          <!-- <img alt="GitHub forks" src="https://img.shields.io/github/forks/zentala/open-smart-desk"> -->
+
+          <!-- https://shields.io/badges/git-hub -->
+          <img alt="GitHub" src="https://img.shields.io/github/license/zentala/open-smart-desk">
+        </p>
+        <h1 class="display-6" style="font-size: 180%">Public Research & Development Project</h1>
+        <h1 class="display-4">SmartDesk — Smart Height-Adjustable Desk</h1>
+      </div>
+      <div class="row justify-content-center ">
+        <p class="lead col-lg-7 ">An innovative, <strong>sensor-equipped</strong> desk that adjusts its height based on the user's time spent in front of the computer. It <strong>can suggest breaks or raise itself autonomously</strong> to encourage standing work.</p>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a href="https://github.com/zentala/open-smart-desk" class="btn btn-primary btn-lg m-2" role="button" style="background: #333;">
+            <i class="bi bi-github"  style="position: relative; top: -2px"></i> GitHub
+          </a>
+          <a href="https://discord.com/invite/7s7P9Kga" class="btn btn-primary btn-lg m-2" role="button" style="background: #5865f2;">
+            <i class="bi bi-discord"  style="position: relative; top: -1px"></i> Discord
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <main class="container my-5">
+    <section class="container wrapper mb-5">
+      <h2>Wersja 0.1 — wnioski i podsumowanie</h2>
+      <div class="content">
+        <p>
+          Wersja 0.1 byla proof-of-conceptem. Udalo sie zbudowac dzialajace sterowanie gora-dol
+          i pomiar wysokosci, ale to nie zmienilo moich nawykow. Najwiekszy wniosek: to nie hardware,
+          tylko <strong>UX i system motywacyjny</strong> decyduja o sukcesie.
+        </p>
+        <p>
+          SmartDesk powinien byc modularny i zintegrowany ze smart home. Zamiast jednego pudelka
+          potrzebujemy niezaleznych modulow i wspolnego protokolu komunikacji.
+        </p>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Najwieksze porazki W1</h3>
+            <ul>
+              <li>Przegrzewanie Raspberry Pi w obudowie z plexi (brak wentylacji).</li>
+              <li>Brak skutecznego UX i gamifikacji — system nie aktywizowal mnie w praktyce.</li>
+              <li>Sklejajace sie przekazniki przy zalaczaniu silnikow starego biurka.</li>
+              <li>PIR czujnik obecnosci zawodzil (falszywe sygnaly i trudna kalibracja).</li>
+              <li>Niepowstal kontroler (LCD + przyciski 1/2 + gora/dol) — zleceniobiorca nie dowiozl.</li>
+              <li>Zla alokacja zasobow: projekt pod stare biurko i obudowe zamiast uniwersalnego kontrolera.</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h3>Co zadzialalo</h3>
+            <ul>
+              <li>Sterowanie biurkiem gora-dol z komputera lub telefonu.</li>
+              <li>Pomiar wysokosci biurka czujnikiem laserowym.</li>
+              <li>Panel administracyjny z podstawowymi danymi o biurku.</li>
+              <li>Sprawdzona mozliwosc integracji starych biurek z systemem sterowania.</li>
+            </ul>
+            <h3 class="mt-4">Koszt W1</h3>
+            <p>Szacunkowo ok. <strong>700 PLN / 200 USD</strong>. Kosztow V2 nie podajemy.</p>
+          </div>
+        </div>
+        <p>
+          Wnioski dodatkowe: zamiast budowac customowy kontroler, mozna zastosowac gotowe urzadzenie
+          (np. Steam Deck) jako cyfrowy panel sterowania z przyciskami i ekranem.
+        </p>
+      </div>
+    </section>
+    <section class="container my-5 wrapper">
+      <h2>Mission</h2>
+      <div class="content c3">
+        <h3>A Health Imperative: Addressing Sedentary Lifestyle</h3>
+        <p>In the modern world, an increasing number of people are working remotely, spending their work hours in front of a computer. After work, they continue to use computers for shopping, handling administrative matters, and entertainment. Many of us, especially during the COVID-19 pandemic, have experienced spending the entire day in front of a screen, from the moment we wake up until we go to bed. This lifestyle, if unchecked, can lead to health issues.</p>
+        <p>A sedentary lifestyle can lead to serious health problems, including spinal and joint diseases, resulting in mobility issues. These civilization diseases not only generate significant costs for the global economy but also cause tremendous inconvenience for those affected.</p>
+        <p>Height-adjustable desks were theoretically designed to combat the sedentary lifestyle. However, in practice, many of us don't utilize them to their full potential. We often forget or lack the motivation to change positions, enduring the discomfort that comes with it. This realization inspired the idea for the Open Smart Desk.</p>
+        <p>This project was initiated to change that. The goal is to develop smart features that monitor our presence and desk height, in order to motivate us to lead a healthier lifestyle. This is intended to achieved through a gamification system that makes the process engaging and fun.</p>
+        <p>The dream is to create a communication and control system for the desk that makes daily position changes in front of the computer a pleasant, natural, and non-invasive experience. The hope is that one day, the solutions developed here will become widespread worldwide, helping to ward off the specter of civilization diseases for millions of intellectual workers.</p>
+        <!-- <h2>Mission</h2> -->
+        <!-- <h3>Preventing Health Problems Associated with Sedentary Lifestyle</h3> -->
+        <!-- <p>A sedentary lifestyle can lead to serious health problems, such as spinal and joint diseases, which can result in mobility issues. These are civilization diseases that can generate significant costs for the global economy and cause tremendous inconvenience for those affected by these problems. This project is an attempt to take on the challenge and find a solution to this problem. </p> -->
+        <!-- <p>Theoretically, height-adjustable desks were designed to address the problem of a sedentary lifestyle. However, in practice, most of us don't use them - we forget or lack the motivation to endure the discomfort of changing positions. I initiated this project to develop smart features that will monitor our posture and motivate us to lead a healthier lifestyle through a gamification system. I dream of creating a communication and control system for the desk that makes daily position changes in front of the computer pleasant, natural, and non-invasive. I hope that one day the solutions developed here will become widespread worldwide, warding off the specter of civilization diseases for millions of intellectual workers.</p> -->
+      </div>
+    </section>
+    <section class="container py-2">
+      <h2>Hardware</h2>
+      <p>RPi4 + 4 relays board + PIR + laser range sensor + plexi laser cutted enclousure</p>
+      <div class="mb-5">
+        <!-- <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseParts1" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <i class="bi bi-gear" style="position: relative; top: -1px; margin-right: 3px;"></i> Show detailed parts list <i class="bi bi-arrow-down" style="position: relative; top: -2px; margin-left: 3px"></i>
+        </a> -->
+        <!-- <div class="collapse mt-2" id="collapseParts1"> -->
+          <h3>Detailed parts list</h3>
+          <div class="card card-body">
+
+            <div class="row">
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://www.mouser.pl/images/riotboard/lrg/RPI4-MODBP-8GB-BULK_DSL.JPG" class="card-img-top mt-2" alt="Raspbery Pi 4 model B (4GB)">
+                  <div class="card-body">
+                    <h5 class="card-title">Raspbery Pi 4 model B (4GB)</h5>
+                    <p class="card-text">This is a bit overkill. I am planning to use RPi0 in next version.</p>
+                    <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?variant=raspberry-pi-4-model-b-4gb" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$90</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://cdn3.botland.com.pl/49150-pdt_540/raspberry-pi-zero-w-512mb-ram-wifi-bt-41.jpg" class="card-img-top mt-2" alt="Raspberry Pi Zero W 512MB RAM - WiFi + BT 4.1">
+                  <div class="card-body">
+                    <h5 class="card-title">Raspberry Pi Zero W 512MB RAM - WiFi + BT 4.1</h5>
+                    <p class="card-text">Cheaper replacement of RPi4. Still I am missing ETH port.
+                    </p>
+                    <a href="https://botland.com.pl/moduly-i-zestawy-raspberry-pi-zero/8330-raspberry-pi-zero-w-512mb-ram-wifi-bt-41-5904422311513.html" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$21</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://cdn1.botland.com.pl/107181/rpi-relay-board-3-przekazniki-nakladka-dla-raspberry-pi-waveshare-11638.jpg" class="card-img-top" alt="Waveshare RPi Relay Board (11638)">
+                  <div class="card-body">
+                    <h5 class="card-title">Waveshare RPi Relay Board (11638)</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.waveshare.com/rpi-relay-board.htm" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$16</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://a.allegroimg.com/s720/11a56e/cf29467c47b9bbbc1236ff01ba76/Czujnik-odleglosci-VL53L0X-ToF-dokladny-do-2m" class="card-img-top mt-2" alt="Laser metter VL53L0X">
+                  <div class="card-body">
+                    <h5 class="card-title">Laser metter VL53L0X</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.amazon.com/Gowoops-VL53L0X-Breakout-GY-VL53L0XV2-Distance/dp/B07F3RH7TC/" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$10</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://cdn3.botland.com.pl/60765-large_default/czujnik-ruchu-pir-hc-sr501-zielony.jpg" class="card-img-top mt-2" alt="Motion sensor PIR HC-SR501">
+                  <div class="card-body">
+                    <h5 class="card-title">Motion sensor PIR HC-SR501</h5>
+                    <p class="card-text"></p>
+                    <a href="https://components101.com/hc-sr501-pir-sensor" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$3</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://cdn-reichelt.de/bilder/web/artikel_ws/D400/EPS-35.jpg" class="card-img-top mt-2" alt="Power supply EPS-35-5 (5V, 6A)">
+                  <div class="card-body">
+                    <h5 class="card-title">Power supply EPS-35-5 (5V, 6A)</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.reichelt.com/pl/en/power-supply-5-v-6-a-eps-35-5-p170940.html" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$17</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="images/H221d5e0c0a714b4797efeeab160bc71fy.jpg" class="card-img-top mt-2" alt="Power supply AC-DC 5V, 2A">
+                  <div class="card-body">
+                    <h5 class="card-title">Power supply AC-DC 5V, 2A </h5>
+                    <p class="card-text">Cheaper & smaller replacement of previuous, expensive power supply. Found on AliExpress.</p>
+                    <a href="https://pl.aliexpress.com/item/10000159007917.html?spm=a2g0o.order_list.order_list_main.244.21ef1c24OHwaqb&gatewayAdapt=glo2pol" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$5</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://ce8dc832c.cloudimg.io/v7/_cdn_/33/9D/50/00/0/383283_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=695351e97009a463e94182a54a2d0adc88dcf921" class="card-img-top mt-2" alt="SP2112/S4 female panel socket">
+                  <div class="card-body">
+                    <h5 class="card-title">SP2112/S4 female panel socket</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.tme.eu/pl/en/details/sp2112_s4/weipu-connectors/weipu/" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$5</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://ce8dc832c.cloudimg.io/v7/_cdn_/2D/AA/50/00/0/371410_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=d1c6726914132fd1fb1c161bcc0c8ffeba112f6a" class="card-img-top mt-2" alt="SP2110/P4II male plug">
+                  <div class="card-body">
+                    <h5 class="card-title">SP2110/P4II male plug</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.tme.eu/pl/en/details/sp2110_p4/weipu-connectors/weipu/sp2110-p4-ii-1n/" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$5</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://b.allegroimg.com/s1440/01c0f6/85b088054fa4a82202db2198a1fb/Nakretka-Nakretki-niska-czarna-oksyda-M3-10szt-Liczba-sztuk-w-opakowaniu-10-szt" class="card-img-top mt-2" alt="4x low nut M3 (black, oxidized, 3mm height)">
+                  <div class="card-body">
+                    <h5 class="card-title">4x low nut M3 (black, oxidized, 3mm height)</h5>
+                    <p class="card-text"></p>
+                    <a href="https://allegro.pl/oferta/nakretka-nakretki-niska-czarna-oksyda-m3-10szt-6904944393" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$1</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://f.allegroimg.com/original/0147d7/a00b1e824bd1ad95a4ab0e45c0ff/Sruba-kulista-czarna-M3x8-gniazdo-imbus-10szt" class="card-img-top mt-2" alt="6x spherical screw M3x8 (black, hex socket)">
+                  <div class="card-body">
+                    <h5 class="card-title">6x spherical screw M3x8 (black, hex socket)</h5>
+                    <p class="card-text"></p>
+                    <a href="https://allegro.pl/oferta/sruba-kulista-czarna-m3x8-gniazdo-imbus-10szt-5315915867" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$1</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://ce8dc832c.cloudimg.io/v7/_cdn_/28/2C/50/00/0/377474_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=83445eaa0056afaffd43356c316aeddfd9c0fd9a" class="card-img-top mt-2" alt="C14 male panel socket">
+                  <div class="card-body">
+                    <h5 class="card-title">C14 male panel socket</h5>
+                    <p class="card-text"></p>
+                    <a href="https://www.tme.eu/pl/details/6100.3200/zlacza-iec-60320/schurter/" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$2</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://ce8dc832c.cloudimg.io/v7/_cdn_/69/9C/B0/00/1/772502_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=f82814d709a215ee5bb31709f8ae5a769a52d8d2" class="card-img-top mt-2" alt="C13 female cable">
+                  <div class="card-body">
+                    <h5 class="card-title">C13 female cable</h5>
+                    <p class="card-text">Regular PC power cable</p>
+                    <a href="https://www.tme.eu/pl/details/ak-pc-01a/kable-zasil-komputerowe-i-uniwersalne/akyga/" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$3</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="https://dronavista.pl/21621/karta-pamieci-sandisk-extreme-microsdhc-32gb.jpg" class="card-img-top mt-2" alt="microSD card 32GB">
+                  <div class="card-body">
+                    <h5 class="card-title">microSD card 32GB</h5>
+                    <p class="card-text"></p>
+                    <!-- <a href="" class="btn btn-primary stretched-link" target="_blank">Buy <span class="badge text-bg-secondary">US$10</span></a> -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4" style="width: 100%;">
+                  <img src="images/plexi-cutted.jpg" class="card-img-top mt-2" alt="CNC laser cutted plexiglass">
+                  <div class="card-body">
+                    <h5 class="card-title">CNC laser cutted plexiglass</h5>
+                    <p class="card-text"></p>
+                    <a href="enclosure/v1/plexi_5mm_40x20cm.dxf" class="btn btn-primary stretched-link" target="_blank">Download DXF <span class="badge text-bg-secondary">US$10</span></a>
+                  </div>
+                </div>
+              </div> -->
+
+            </div>
+
+            <ul style="list-style-type: square;">
+              <!-- <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?variant=raspberry-pi-4-model-b-4gb">Raspbery Pi 4 model B (4GB)</a></li> -->
+              <!-- <li><a href="https://www.waveshare.com/rpi-relay-board.htm">Waveshare RPi Relay Board (11638)</a></li> -->
+              <!-- <li><a href="https://www.amazon.com/Gowoops-VL53L0X-Breakout-GY-VL53L0XV2-Distance/dp/B07F3RH7TC/">Laser metter VL53L0X</a></li> -->
+              <!-- <li><a href="https://components101.com/hc-sr501-pir-sensor">Motion sensor PIR HC-SR501</a></li> -->
+              <!-- <li><a href="https://www.reichelt.com/pl/en/power-supply-5-v-6-a-eps-35-5-p170940.html">Power supply EPS-35-5 (5V, 6A)</a></li> -->
+              <!-- <li><a href="https://www.tme.eu/pl/en/details/sp2112_s4/weipu-connectors/weipu/">SP2112/S4 female panel socket</a></li> -->
+              <!-- <li><a href="https://www.tme.eu/pl/en/details/sp2110_p4/weipu-connectors/weipu/sp2110-p4-ii-1n/">SP2110/P4II male plug</a></li> -->
+              <!-- <li><a href="https://allegro.pl/oferta/nakretka-nakretki-niska-czarna-oksyda-m3-10szt-6904944393">4x low nut M3 (black, oxidized, 3mm height)</a></li> -->
+              <!-- <li><a href="https://allegro.pl/oferta/sruba-kulista-czarna-m3x8-gniazdo-imbus-10szt-5315915867">6x spherical screw M3x8 (black, hex socket)</a></li> -->
+              <!-- <li>C14 male panel socket</li> -->
+              <!-- <li>C13 female cable (regular PC power cable)</li> -->
+              <!-- <li>microSD card 32GB</li> -->
+              <li>plexi laser cutted enclousre: <a href="enclosure/v1/plexi_5mm_40x20cm.dxf">plexi_5mm_40x20cm.dxf</a> & <a href="enclosure/v1/plexi_smoked_graphite_3mm_9x13.5cm.dxf">plexi_dymiona_grafit_3mm_9x13.5cm.dxf</a></li>
+            </ul>
+
+          </div>
+        <!-- </div> -->
+      </div>
+      <h3>Control Unit</h3>
+      <h4>v0.1</h4>
+      <div class="row">
+        <div class="col">
+          <figure class="figure">
+            <img src="images/plexi-cutted.jpg" class="figure-img img-fluid rounded" alt="Plexi Cutted">
+            <figcaption class="figure-caption">Ordered online, CNC laser cutted plexiglass for the housing.</figcaption>
+          </figure>
+        </div>
+        <div class="col">
+          <figure class="figure">
+            <img src="images/wiring.jpg" class="figure-img img-fluid rounded" alt="Wiring">
+            <figcaption class="figure-caption">First assembly of Control Unit...</figcaption>
+          </figure>
+        </div>
+        <div class="col">
+          <figure class="figure">
+            <img src="images/wiring-explained.jpg" class="figure-img img-fluid rounded" alt="Wiring Explained">
+            <figcaption class="figure-caption">..described what's inside.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <p>I don't recommend this housing design. No air flow provided, so electronics is overheating. Must be redesigned.
+      </p>
+      <h4>v0.1.1</h4>
+      <p>In this version I just replaced power supply with smaller one. <!-- TODO add info about model & link --></p>
+      <div class="row">
+        <div class="col">
+          <figure class="figure">
+            <img src="images/20230628_032916.jpg" class="figure-img img-fluid rounded" alt="Control Unit">
+            <figcaption class="figure-caption">Control Unit</figcaption>
+          </figure>
+        </div>
+        <div class="col">
+          <figure class="figure">
+            <img src="images/20230628_033107.jpg" class="figure-img img-fluid rounded" alt="4-pin plug and socket for motor control">
+            <figcaption class="figure-caption">4-pin plug and socket for motor control (+230V UP, +230V DOWN, Neutral, GND)</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <figure class="figure">
+            <img src="images/20230628_033525.jpg" class="figure-img img-fluid rounded" alt="Control Unit with PIR sensor (movement detector)">
+            <figcaption class="figure-caption">Control Unit with PIR sensor (movement detector)</figcaption>
+          </figure>
+        </div>
+        <div class="col">
+          <figure class="figure">
+            <img src="images/20230628_033548.jpg" class="figure-img img-fluid rounded" alt="Inside of control unit (v2 with smaller power supply)">
+            <figcaption class="figure-caption">Inside of control unit (v2 with smaller power supply)</figcaption>
+          </figure>
+        </div>
+      </div>
+      <p>In next version I plan to replace PRi4 with RPi0. I am just not sure if VS Studio SSH Remote will support it.</p>
+      <h3>User Panel</h3>
+      <p>I have never finished this component. Elements doesn't fit enclosure - not enough space to connect electronic components together. PCB and 3D printed enclosure are required remodeling.</p>
+      <div class="row">
+        <div class="col">
+          <figure class="figure">
+            <img src="images/20230628_033806.jpg" class="figure-img img-fluid rounded" alt="User Panel">
+            <!-- <figcaption class="figure-caption">A caption for the above image.</figcaption> -->
+          </figure>
+        </div>
+        <div class="col">
+            <figure class="figure">
+              <img src="images/20230628_043425.jpg" class="figure-img img-fluid rounded" alt="User Panel">
+              <!-- <figcaption class="figure-caption">A caption for the above image.</figcaption> -->
+            </figure>
+        </div>
+      </div>
+      <p>Netherless I have planned to use:</p>
+      <ul>
+        <li>ATMega / ATTiny as microcontroller that will send and receive commands from RPi via USB-UART</li>
+        <li>shft register to handle 7-segment display, that would show some simple messages (eg. <code>err</code>) and current height</li>
+        <li>4 buttons: <code>UP</code>, <code>DOWN</code>, <code>MEM 1</code> & <code>MEM 2</code></li>
+        <li>buzzer (not on the photo)</li>
+      </ul>
+    </section>
+    <section class="container py-2">
+      <h2>Software</h2>
+      <p>I conducted experiments using both <a href="https://github.com/zentala/open-smart-desk">Node.js</a> (more extensive version) and <a href="https://github.com/zentala/open-smart-desk-python-experiment">Python</a>. While working with Python, I encountered some serious threading issues that I wasn't qualified to solve, so I decided to abandon this approach. In the Node.js version, I ended up with a web interface that replicates the physical controller. It processes data from the laser meter and can switch relays.</p>
+      <div class="text-center">
+        <figure class="figure">
+          <img src="images/web.png" class="figure-img img-fluid rounded" alt="Web interface of Open Smart Desk">
+          <figcaption class="figure-caption text-center">Web interface of Open Smart Desk</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="container wrapper mb-5">
+      <h2>Goals & Challenges</h2>
+      <div class="content">
+        <div class="row">
+          <div class="col">
+            <h3>Seamless and Engaging User Experience</h3>
+            <p>A crucial part of the research process is to develop a way of encouraging the user to take a break or work standing up that won't be irritating or distracting during meetings. In order to create a seamless experience, it's important to gather information about users, their needs, and preferences, as well as to collect various ideas on how to approach this challenge from the community. The goal is to make the intelligent desk feel like an extension of the user, much like a driver feels their car.</p>
+          </div>
+          <div class="col">
+            <h3>Shipping in on the market</h3>
+            <p>We aim to build a business model that allows us to integrate our IoT solution with already existing desks in the market. We don't intend to compete with desk manufacturers, but rather to be a supplier of an IoT solution that can be integrated with existing market solutions. At the same time, we need funding to develop the product so that it's intuitive and ergonomic, and can be widely adopted to help people. How can we achieve this?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container wrapper mb-5">
+      <h2>Licensing</h2>
+      <div class="content">
+        <div class="h3">Open HSP</div>
+        <p><strong>Open Smart Desk</strong> is an <strong>Open HSP</strong> initiative where everything is open on <a href="https://github.com/zentala/open-smart-desk/blob/master/LICENSE.md" target="_blank">GPL-3.0 License</a>:</p>
+        <ul>
+          <li><strong>H</strong> (Hardware) stands for projects of electronic boards which you can print yourself</li>
+          <li><strong>S</strong> (Software) stands for ready to use firmware you can use on printed hardware</li>
+          <li><strong>P</strong> (Printables) stands for cases and other plastic elements you can print on a 3D printer and use with our hardware</li>
+        </ul>
+        <p>With all elements in place, you can assemble a complete device. You can use it as-is or fork and modify it for your needs.</p>
+      </div>
+    </section>
+
+    <section class="container wrapper">
+      <h2>Join us!</h2>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-8">
+            <h3>Become a Part of the Working Group!</h3>
+            <p>
+              For now I have only built a prototype of the device that measures time,
+              controls the motors, and has a physical interface (buttons and display).
+              But it isn't finshed and still requires a lot of experiments, ideas, developement and improvements.
+            </p>
+          </div>
+          <div class="col-md-2 offset-md-2">
+            <!--<p class="lead">Join Discord working group<br/>and become part of this journey:</p>-->
+            <div class="">
+              <a href="https://discord.com/invite/7s7P9Kga" class="btn btn-primary btn-lg btn-lg mt-3" role="button" style="background: #5865f2; scale: 180%">
+                <i class="bi bi-discord"  style="position: relative; top: -1px"></i> Discord
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="jumbotron jumbotron-fluid text-center" style="background: #ddd; border-top: 1px solid #ccc;">
+    <div class="container py-4 hstack gap-3">
+      <p class="mb-0" style="font-size: 0.85rem;">
+        &copy; Paweł Żentała 2023
+      </p>
+      <div class="vr"></div>
+      <p class="mb-0" style="font-size: 0.85rem;">
+        <a class="icon-link" href="https://github.com/zentala/desk.zentala.io/blob/master/index.html" target="_blank">
+          <i class="bi bi-github" style="position: relative; top: -3px"></i>Edit this page
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JS for Bootstrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZ6M9DBGYJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BZ6M9DBGYJ');
+  </script>
+</body>
+</html>
