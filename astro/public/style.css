@@ -36,6 +36,46 @@
   object-fit: contain;
 }
 
+.parts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 1200px) {
+  .parts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.parts-row {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.parts-thumb {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.parts-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.parts-buy .btn {
+  white-space: nowrap;
+}
+
 .hero {
   background: #f8f9fa;
   border-bottom: 1px solid #eee;
