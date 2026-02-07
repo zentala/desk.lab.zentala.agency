@@ -7,7 +7,7 @@ export default function HardwareAppendix() {
         <h3>Detailed parts list</h3>
         <div className="card card-body">
           <div className="row">
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://www.mouser.pl/images/riotboard/lrg/RPI4-MODBP-8GB-BULK_DSL.JPG"
@@ -29,7 +29,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://cdn3.botland.com.pl/49150-pdt_540/raspberry-pi-zero-w-512mb-ram-wifi-bt-41.jpg"
@@ -51,7 +51,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://cdn1.botland.com.pl/107181/rpi-relay-board-3-przekazniki-nakladka-dla-raspberry-pi-waveshare-11638.jpg"
@@ -73,7 +73,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://a.allegroimg.com/s720/11a56e/cf29467c47b9bbbc1236ff01ba76/Czujnik-odleglosci-VL53L0X-ToF-dokladny-do-2m"
@@ -95,7 +95,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://cdn3.botland.com.pl/60765-large_default/czujnik-ruchu-pir-hc-sr501-zielony.jpg"
@@ -117,7 +117,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://cdn-reichelt.de/bilder/web/artikel_ws/D400/EPS-35.jpg"
@@ -139,7 +139,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img src="images/H221d5e0c0a714b4797efeeab160bc71fy.jpg" className="card-img-top mt-2" alt="Power supply AC-DC 5V, 2A" />
                 <div className="card-body">
@@ -157,7 +157,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://ce8dc832c.cloudimg.io/v7/_cdn_/33/9D/50/00/0/383283_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=695351e97009a463e94182a54a2d0adc88dcf921"
@@ -179,7 +179,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://ce8dc832c.cloudimg.io/v7/_cdn_/2D/AA/50/00/0/371410_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=d1c6726914132fd1fb1c161bcc0c8ffeba112f6a"
@@ -201,7 +201,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://b.allegroimg.com/s1440/01c0f6/85b088054fa4a82202db2198a1fb/Nakretka-Nakretki-niska-czarna-oksyda-M3-10szt-Liczba-sztuk-w-opakowaniu-10-szt"
@@ -223,7 +223,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://f.allegroimg.com/original/0147d7/a00b1e824bd1ad95a4ab0e45c0ff/Sruba-kulista-czarna-M3x8-gniazdo-imbus-10szt"
@@ -245,7 +245,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://ce8dc832c.cloudimg.io/v7/_cdn_/28/2C/50/00/0/377474_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=83445eaa0056afaffd43356c316aeddfd9c0fd9a"
@@ -267,7 +267,7 @@ export default function HardwareAppendix() {
               </div>
             </div>
 
-            <div className="col-sm-6 col-md-4 col-lg-3">
+            <div className="col-sm-6 col-md-4 col-lg-2">
               <div className="card mb-4" style={{ width: '100%' }}>
                 <img
                   src="https://ce8dc832c.cloudimg.io/v7/_cdn_/69/9C/B0/00/1/772502_1.jpg?width=640&height=480&wat=1&wat_url=_tme-wrk_%2Ftme_new.png&wat_scale=100p&ci_sign=f82814d709a215ee5bb31709f8ae5a769a52d8d2"
