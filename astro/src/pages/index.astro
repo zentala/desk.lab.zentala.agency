@@ -54,45 +54,77 @@
 
   <main class="container my-5">
     <section class="container wrapper mb-5">
-      <h2>Wersja 0.1 — wnioski i podsumowanie</h2>
+      <h2>Version 0.1 — Post‑Mortem & Conclusions</h2>
       <div class="content">
         <p>
-          Wersja 0.1 byla proof-of-conceptem. Udalo sie zbudowac dzialajace sterowanie gora-dol
-          i pomiar wysokosci, ale to nie zmienilo moich nawykow. Najwiekszy wniosek: to nie hardware,
-          tylko <strong>UX i system motywacyjny</strong> decyduja o sukcesie.
+          Version 0.1 was a proof‑of‑concept. It <strong>worked mechanically</strong> (up/down control and height sensing),
+          but it <strong>failed behaviorally</strong>—it did not change my daily habits. The key takeaway:
+          success depends on <strong>UX and motivation</strong>, not on raw hardware complexity.
         </p>
-        <p>
-          SmartDesk powinien byc modularny i zintegrowany ze smart home. Zamiast jednego pudelka
-          potrzebujemy niezaleznych modulow i wspolnego protokolu komunikacji.
-        </p>
+
         <div class="row">
           <div class="col-md-6">
-            <h3>Najwieksze porazki W1</h3>
+            <h3>What Worked (Proofs)</h3>
             <ul>
-              <li>Przegrzewanie Raspberry Pi w obudowie z plexi (brak wentylacji).</li>
-              <li>Brak skutecznego UX i gamifikacji — system nie aktywizowal mnie w praktyce.</li>
-              <li>Sklejajace sie przekazniki przy zalaczaniu silnikow starego biurka.</li>
-              <li>PIR czujnik obecnosci zawodzil (falszywe sygnaly i trudna kalibracja).</li>
-              <li>Niepowstal kontroler (LCD + przyciski 1/2 + gora/dol) — zleceniobiorca nie dowiozl.</li>
-              <li>Zla alokacja zasobow: projekt pod stare biurko i obudowe zamiast uniwersalnego kontrolera.</li>
+              <li>Desk height control via PC/phone commands.</li>
+              <li>Reliable height measurement using a laser sensor.</li>
+              <li>Admin panel with basic telemetry.</li>
+              <li>Feasibility confirmed: legacy desks can be digitized.</li>
+            </ul>
+            <h3 class="mt-4">Cost (W1)</h3>
+            <p>Estimated total: <strong>~700 PLN / 200 USD</strong>. V2 costs are not disclosed.</p>
+          </div>
+          <div class="col-md-6">
+            <h3>What Failed (Root Causes)</h3>
+            <ul>
+              <li>Plexi enclosure overheated the Raspberry Pi (no airflow).</li>
+              <li>Relays occasionally stuck under motor load (safety/UX risk).</li>
+              <li>PIR presence sensor produced false signals and was hard to calibrate.</li>
+              <li>LCD + button controller never shipped (outsourcing + scope drift).</li>
+              <li>Architecture optimized for my old desk instead of a universal controller.</li>
+              <li>Over‑engineering: dev‑oriented hardware (RPi + VS Code Remote) instead of user‑oriented hardware.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <h3>Core Architectural Lesson</h3>
+            <ul>
+              <li>Separate modules: motor control, height sensing, presence sensing, physical controls, decision engine.</li>
+              <li>Make each module replaceable and vendor‑agnostic.</li>
+              <li>Move the “brain” to the smart‑home/server layer (not inside the desk).</li>
             </ul>
           </div>
           <div class="col-md-6">
-            <h3>Co zadzialalo</h3>
+            <h3>Protocol First</h3>
             <ul>
-              <li>Sterowanie biurkiem gora-dol z komputera lub telefonu.</li>
-              <li>Pomiar wysokosci biurka czujnikiem laserowym.</li>
-              <li>Panel administracyjny z podstawowymi danymi o biurku.</li>
-              <li>Sprawdzona mozliwosc integracji starych biurek z systemem sterowania.</li>
+              <li>A universal communication protocol is the real product.</li>
+              <li>mDNS / DNS‑SD discovery enables plug‑and‑play desks (`desk.local`).</li>
+              <li>Once standardized, desks become a native part of the smart‑home ecosystem.</li>
             </ul>
-            <h3 class="mt-4">Koszt W1</h3>
-            <p>Szacunkowo ok. <strong>700 PLN / 200 USD</strong>. Kosztow V2 nie podajemy.</p>
           </div>
         </div>
-        <p>
-          Wnioski dodatkowe: zamiast budowac customowy kontroler, mozna zastosowac gotowe urzadzenie
-          (np. Steam Deck) jako cyfrowy panel sterowania z przyciskami i ekranem.
-        </p>
+
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <h3>Behavioral UX (The Real Challenge)</h3>
+            <ul>
+              <li>People disable annoying nudges. UX must be non‑intrusive and rewarding.</li>
+              <li>Gamification needs research: timing, wording, rewards, and escalation.</li>
+              <li>Desktop tray app is more practical than physical buttons.</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h3>Next Version Direction (V2)</h3>
+            <ul>
+              <li>Modular architecture + open protocol first.</li>
+              <li>Integrate with smart‑home sensors (radar presence, ceiling‑mounted).</li>
+              <li>Focus on UX experiments before expanding hardware.</li>
+              <li>Optional control surface: use existing devices (e.g., Steam Deck) instead of custom panels.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
     <section class="container my-5 wrapper">
@@ -110,9 +142,9 @@
         <!-- <p>Theoretically, height-adjustable desks were designed to address the problem of a sedentary lifestyle. However, in practice, most of us don't use them - we forget or lack the motivation to endure the discomfort of changing positions. I initiated this project to develop smart features that will monitor our posture and motivate us to lead a healthier lifestyle through a gamification system. I dream of creating a communication and control system for the desk that makes daily position changes in front of the computer pleasant, natural, and non-invasive. I hope that one day the solutions developed here will become widespread worldwide, warding off the specter of civilization diseases for millions of intellectual workers.</p> -->
       </div>
     </section>
-    <section class="container py-2">
+    <section class="container py-2 hardware">
       <h2>Hardware</h2>
-      <p>RPi4 + 4 relays board + PIR + laser range sensor + plexi laser cutted enclousure</p>
+      <p>RPi4 + 4‑relay board + PIR + ToF laser sensor + laser‑cut plexi enclosure</p>
       <div class="mb-5">
         <!-- <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseParts1" role="button" aria-expanded="false" aria-controls="collapseExample">
           <i class="bi bi-gear" style="position: relative; top: -1px; margin-right: 3px;"></i> Show detailed parts list <i class="bi bi-arrow-down" style="position: relative; top: -2px; margin-left: 3px"></i>
