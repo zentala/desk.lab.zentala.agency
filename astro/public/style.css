@@ -35,3 +35,132 @@
   max-height: 120px;
   object-fit: contain;
 }
+
+.hero {
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.hero-badges img {
+  margin: 0 6px;
+}
+
+.hero-title {
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.hero-lead {
+  color: #374151;
+}
+
+.stats .stat-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+  margin-bottom: 16px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.summary {
+  font-size: 1.05rem;
+  color: #374151;
+}
+
+.infobox {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  min-height: 240px;
+}
+
+.infobox h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.infobox.success {
+  border-color: #b6e3c8;
+  background: #f0fdf4;
+}
+
+.infobox.danger {
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.infobox.learn {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.module-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px 12px;
+  background: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.protocol {
+  border-left: 4px solid #111827;
+  padding-left: 16px;
+  margin-top: 12px;
+}
+
+.flow {
+  padding-left: 20px;
+}
+
+.cta .cta-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px 24px;
+  background: #111827;
+  color: #f9fafb;
+}
+
+.cta .cta-box p {
+  margin: 0;
+  color: #d1d5db;
+}
+
+.cta .cta-actions .btn {
+  background: #f9fafb;
+  color: #111827;
+  border: none;
+}
