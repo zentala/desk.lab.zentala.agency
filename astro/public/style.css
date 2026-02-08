@@ -127,11 +127,14 @@
   position: relative;
   overflow: hidden;
   border-radius: 12px;
+  width: 100%;
+  display: block;
 }
 
 .swap-figure {
   aspect-ratio: 4 / 3;
   background: #111;
+  width: 100%;
 }
 
 .swap-figure .swap-img {
