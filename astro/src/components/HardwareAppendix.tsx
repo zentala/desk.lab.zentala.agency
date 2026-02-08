@@ -176,21 +176,21 @@ export default function HardwareAppendix() {
       <h4>v0.1</h4>
       <div className="row">
         <div className="col">
-          <figure className="figure">
+          <figure className="figure figure-hover">
             <img src="images/plexi-cutted.jpg" className="figure-img img-fluid rounded" alt="Plexi Cutted" />
-            <figcaption className="figure-caption">Ordered online, CNC laser cutted plexiglass for the housing.</figcaption>
+            <figcaption className="figure-caption hover-caption">Ordered online, CNC laser cutted plexiglass for the housing.</figcaption>
           </figure>
         </div>
         <div className="col">
-          <figure className="figure">
+          <figure className="figure figure-hover">
             <img src="images/wiring.jpg" className="figure-img img-fluid rounded" alt="Wiring" />
-            <figcaption className="figure-caption">First assembly of Control Unit...</figcaption>
+            <figcaption className="figure-caption hover-caption">First assembly of Control Unit...</figcaption>
           </figure>
         </div>
         <div className="col">
-          <figure className="figure">
+          <figure className="figure figure-hover">
             <img src="images/wiring-explained.jpg" className="figure-img img-fluid rounded" alt="Wiring Explained" />
-            <figcaption className="figure-caption">..described what's inside.</figcaption>
+            <figcaption className="figure-caption hover-caption">..described what's inside.</figcaption>
           </figure>
         </div>
       </div>

@@ -123,6 +123,32 @@
   padding: 4px 8px;
 }
 
+.figure-hover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.hover-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 10px 12px;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 160ms ease, transform 160ms ease;
+  font-size: 0.9rem;
+}
+
+.figure-hover:hover .hover-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .hero {
   background: #f8f9fa;
   border-bottom: 1px solid #eee;
