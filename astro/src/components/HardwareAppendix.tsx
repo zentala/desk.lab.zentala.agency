@@ -185,6 +185,7 @@ export default function HardwareAppendix() {
           <figure className="figure figure-hover swap-figure">
             <img src="images/wiring.jpg" className="figure-img img-fluid rounded swap-img base" alt="Wiring" />
             <img src="images/wiring-explained.jpg" className="figure-img img-fluid rounded swap-img hover" alt="Wiring Explained" />
+            <figcaption className="figure-caption hover-caption">First assembly of Control Unit → hover to see wiring explained.</figcaption>
           </figure>
         </div>
       </div>
