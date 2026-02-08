@@ -182,15 +182,10 @@ export default function HardwareAppendix() {
           </figure>
         </div>
         <div className="col">
-          <figure className="figure figure-hover">
-            <img src="images/wiring.jpg" className="figure-img img-fluid rounded" alt="Wiring" />
-            <figcaption className="figure-caption hover-caption">First assembly of Control Unit...</figcaption>
-          </figure>
-        </div>
-        <div className="col">
-          <figure className="figure figure-hover">
-            <img src="images/wiring-explained.jpg" className="figure-img img-fluid rounded" alt="Wiring Explained" />
-            <figcaption className="figure-caption hover-caption">..described what's inside.</figcaption>
+          <figure className="figure figure-hover swap-figure">
+            <img src="images/wiring.jpg" className="figure-img img-fluid rounded swap-img base" alt="Wiring" />
+            <img src="images/wiring-explained.jpg" className="figure-img img-fluid rounded swap-img hover" alt="Wiring Explained" />
+            <figcaption className="figure-caption hover-caption">First assembly of Control Unit → hover to see wiring explained.</figcaption>
           </figure>
         </div>
       </div>

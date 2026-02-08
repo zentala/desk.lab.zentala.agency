@@ -129,6 +129,29 @@
   border-radius: 12px;
 }
 
+.swap-figure {
+  min-height: 220px;
+}
+
+.swap-figure .swap-img {
+  display: block;
+}
+
+.swap-figure .swap-img.hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.swap-figure:hover .swap-img.hover {
+  opacity: 1;
+}
+
+.swap-figure:hover .swap-img.base {
+  opacity: 0;
+}
+
 .hover-caption {
   position: absolute;
   left: 0;
