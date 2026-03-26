@@ -1,21 +1,30 @@
 /**
- * Pricing section — 3-tier product cards with pre-order threshold progress bars.
- * Reads from canonical pricing config (hardcoded here, sourced from pricing.json).
+ * Pricing section — 3-tier product cards with Stripe checkout links,
+ * pre-order counters fetched from /preorder-count.json, and total raised summary.
  */
+import { useState, useEffect } from 'react';
+
+// Replace with real Stripe Payment Links after Stripe account setup
+const STRIPE_LINKS: Record<string, string> = {
+  basic: 'https://checkout.stripe.com/placeholder-basic',
+  pro: 'https://checkout.stripe.com/placeholder-pro',
+  founder: 'https://checkout.stripe.com/placeholder-founder',
+};
 
 interface Tier {
+  key: string;
   name: string;
   price: number;
   tagline: string;
   contents: string[];
   threshold: number | null;
   thresholdNote?: string;
-  currentOrders: number;
   highlighted?: boolean;
 }
 
 const tiers: Tier[] = [
   {
+    key: 'basic',
     name: 'Basic Kit',
     price: 49,
     tagline: 'Awareness — know how much you actually sit',
@@ -27,9 +36,9 @@ const tiers: Tier[] = [
       'Desktop app (open source)',
     ],
     threshold: 200,
-    currentOrders: 0,
   },
   {
+    key: 'pro',
     name: 'Pro Kit',
     price: 79,
     tagline: 'Active Coaching — your desk nudges you',
@@ -39,10 +48,10 @@ const tiers: Tier[] = [
       'Presence sensor (desk activity detection)',
     ],
     threshold: 500,
-    currentOrders: 0,
     highlighted: true,
   },
   {
+    key: 'founder',
     name: "Founder's Edition",
     price: 149,
     tagline: 'Full Investment — fund the future of desk ergonomics',
@@ -57,11 +66,28 @@ const tiers: Tier[] = [
     ],
     threshold: null,
     thresholdNote: 'Ships with Pro batch',
-    currentOrders: 0,
   },
 ];
 
+interface PreorderCounts {
+  basic: number;
+  pro: number;
+  founder: number;
+}
+
 export default function Pricing() {
+  const [counts, setCounts] = useState<PreorderCounts>({ basic: 0, pro: 0, founder: 0 });
+
+  useEffect(() => {
+    fetch('/preorder-count.json')
+      .then((res) => res.json())
+      .then((data: PreorderCounts) => setCounts(data))
+      .catch(() => {});
+  }, []);
+
+  const totalRaised =
+    counts.basic * 49 + counts.pro * 79 + counts.founder * 149;
+
   return (
     <section id="pricing" className="py-24 border-t border-gray-800/50">
       <div className="section-container">
@@ -75,11 +101,17 @@ export default function Pricing() {
 
         <div className="mt-16 grid gap-8 lg:grid-cols-3">
           {tiers.map((tier) => (
-            <TierCard key={tier.name} tier={tier} />
+            <TierCard
+              key={tier.key}
+              tier={tier}
+              orderCount={counts[tier.key as keyof PreorderCounts]}
+            />
           ))}
         </div>
 
-        <p className="mt-12 text-center text-sm text-gray-500">
+        <TotalRaised amount={totalRaised} />
+
+        <p className="mt-8 text-center text-sm text-gray-500">
           All prices include sensor hardware + open source app.
           Shipping calculated at checkout. EU shipping from Poland.
         </p>
@@ -88,9 +120,23 @@ export default function Pricing() {
   );
 }
 
-function TierCard({ tier }: { tier: Tier }) {
+function TotalRaised({ amount }: { amount: number }) {
+  const formatted = amount.toLocaleString('en-US');
+  return (
+    <div className="mt-12 text-center">
+      <p className="text-2xl font-bold text-gray-100">
+        Total raised: <span className="text-brand-green">&euro;{formatted}</span>
+      </p>
+      <p className="mt-1 text-sm text-muted">
+        Every pre-order brings us closer to production
+      </p>
+    </div>
+  );
+}
+
+function TierCard({ tier, orderCount }: { tier: Tier; orderCount: number }) {
   const progressPercent = tier.threshold
-    ? Math.min(100, Math.round((tier.currentOrders / tier.threshold) * 100))
+    ? Math.min(100, Math.round((orderCount / tier.threshold) * 100))
     : null;
 
   return (
@@ -114,7 +160,7 @@ function TierCard({ tier }: { tier: Tier }) {
 
       <div className="mb-6">
         <span className="text-4xl font-extrabold text-gray-100">
-          €{tier.price}
+          &euro;{tier.price}
         </span>
         <span className="ml-1 text-muted">one-time</span>
       </div>
@@ -122,18 +168,17 @@ function TierCard({ tier }: { tier: Tier }) {
       <ul className="mb-8 flex-1 space-y-3">
         {tier.contents.map((item) => (
           <li key={item} className="flex items-start gap-2 text-sm text-gray-300">
-            <span className="mt-0.5 text-brand-green">✓</span>
+            <span className="mt-0.5 text-brand-green">&#10003;</span>
             {item}
           </li>
         ))}
       </ul>
 
-      {/* Threshold progress bar */}
       {tier.threshold !== null && progressPercent !== null && (
         <div className="mb-6">
           <div className="flex justify-between text-xs text-muted mb-1">
-            <span>{tier.currentOrders} pre-orders</span>
-            <span>{tier.threshold} needed</span>
+            <span>{orderCount} / {tier.threshold} pre-orders</span>
+            <span>{progressPercent}%</span>
           </div>
           <div className="h-2 rounded-full bg-dark-900">
             <div
@@ -147,13 +192,18 @@ function TierCard({ tier }: { tier: Tier }) {
         <p className="mb-6 text-xs text-muted">{tier.thresholdNote}</p>
       )}
 
-      <button className={`w-full rounded-full py-3 font-semibold transition-all ${
-        tier.highlighted
-          ? 'bg-brand-green text-dark-900 hover:bg-brand-greenLight'
-          : 'border border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white'
-      }`}>
-        Pre-order — €{tier.price}
-      </button>
+      <a
+        href={STRIPE_LINKS[tier.key]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`block w-full rounded-full py-3 text-center font-semibold transition-all ${
+          tier.highlighted
+            ? 'bg-brand-green text-dark-900 hover:bg-brand-green-light'
+            : 'border border-gray-600 text-gray-300 hover:border-gray-400 hover:text-white'
+        }`}
+      >
+        Pre-order &mdash; &euro;{tier.price}
+      </a>
     </div>
   );
 }
