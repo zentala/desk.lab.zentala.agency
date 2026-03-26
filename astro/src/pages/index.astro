@@ -1,15 +1,14 @@
 ---
 import Hero from '../components/Hero.tsx';
-import Stats from '../components/Stats.tsx';
-import PostMortem from '../components/PostMortem.tsx';
-import Architecture from '../components/Architecture.tsx';
-import Behavior from '../components/Behavior.tsx';
-import Background from '../components/Background.tsx';
-import HardwareAppendix from '../components/HardwareAppendix.tsx';
-import Software from '../components/Software.tsx';
-import Goals from '../components/Goals.tsx';
-import Licensing from '../components/Licensing.tsx';
-import CTA from '../components/CTA.tsx';
+import Problem from '../components/Problem.tsx';
+import Story from '../components/Story.tsx';
+import HowItWorks from '../components/HowItWorks.tsx';
+import Features from '../components/Features.tsx';
+import Screenshots from '../components/Screenshots.tsx';
+import Pricing from '../components/Pricing.tsx';
+import FAQ from '../components/FAQ.tsx';
+import Footer from '../components/Footer.tsx';
+import '../styles/global.css';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -17,26 +16,24 @@ import CTA from '../components/CTA.tsx';
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartDesk R&D</title>
-  <meta name="description" content="SmartDesk is a smart height-adjustable desk project focused on behavior change, modular architecture, and an open communication standard.">
-  <meta name="keywords" content="SmartDesk, smart height-adjustable desk, height adjustable desk, smart desk, ergonomics, behavior change, standing desk">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/style.css">
+  <title>Desk Sensor — Your standing desk is useless if you never stand</title>
+  <meta name="description" content="Open source desk sensor that tracks sitting and standing time and actually gets you to move. Built by a developer who sat 10+ hours a day. Pre-order from €49.">
+  <meta name="keywords" content="standing desk sensor, sit stand tracker, desk ergonomics, posture tracker, open source, desk height sensor, ergonomic reminder">
+  <meta property="og:title" content="Desk Sensor — Your standing desk is useless if you never stand">
+  <meta property="og:description" content="A tiny sensor that mounts under your desk, tracks your sitting time, and actually gets you to stand up. Open source. No cloud. From €49.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://desk.zentala.io">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
 <body>
   <Hero />
-  <Stats />
-  <main class="container my-5">
-    <PostMortem />
-    <Architecture />
-    <Behavior />
-    <Background />
-    <CTA />
-    <HardwareAppendix />
-    <Software />
-    <Goals />
-    <Licensing />
-  </main>
+  <Problem />
+  <Story />
+  <HowItWorks />
+  <Features />
+  <Screenshots />
+  <Pricing />
+  <FAQ />
+  <Footer />
 </body>
 </html>

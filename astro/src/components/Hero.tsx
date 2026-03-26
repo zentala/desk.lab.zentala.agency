@@ -1,43 +1,43 @@
+/**
+ * Hero section — primary headline, subheadline, and two CTAs.
+ * First impression: challenge the assumption that owning a standing desk = healthy.
+ */
 export default function Hero() {
   return (
-    <div className="jumbotron jumbotron-fluid text-center hero">
-      <div className="container py-5">
-        <div className="row">
-          <p className="text-center hero-badges">
-            <img src="https://img.shields.io/badge/stability-wip-lightgrey.svg" alt="WIP" />
-            <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zentala/open-smart-desk" />
-            <img alt="GitHub" src="https://img.shields.io/github/license/zentala/open-smart-desk" />
-          </p>
-          <h1 className="display-6 hero-subtitle">Public Research & Development Project</h1>
-          <h1 className="display-4 hero-title">SmartDesk — Smart Height-Adjustable Desk</h1>
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* Background gradient accents */}
+      <div className="absolute -right-40 top-20 h-96 w-96 rounded-full bg-brand-green/5 blur-3xl" />
+      <div className="absolute -left-40 bottom-20 h-80 w-80 rounded-full bg-emerald-500/5 blur-3xl" />
+
+      <div className="section-container py-20 text-center">
+        <p className="mb-6 text-sm font-medium uppercase tracking-[0.3em] text-brand-green">
+          Open Source Desk Sensor
+        </p>
+
+        <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
+          Your standing desk is{' '}
+          <span className="text-brand-green">useless</span>{' '}
+          if you never stand.
+        </h1>
+
+        <p className="mx-auto mt-8 max-w-2xl text-lg text-muted sm:text-xl">
+          A tiny sensor that mounts under your desk, tracks your sitting and standing time,
+          and actually gets you to move. Built by a developer who sat 10+ hours a day.
+        </p>
+
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="#pricing" className="btn-primary text-lg">
+            Pre-order — €49
+          </a>
+          <a href="#how-it-works" className="btn-secondary text-lg">
+            See How It Works ↓
+          </a>
         </div>
-        <div className="row justify-content-center">
-          <p className="lead col-lg-8 hero-lead">
-            A behavioral + IoT experiment focused on <strong>habit change</strong>, modular architecture,
-            and an <strong>open communication standard</strong> for height‑adjustable desks.
-          </p>
-        </div>
-        <div className="row">
-          <div className="col">
-            <a
-              href="https://github.com/zentala/open-smart-desk"
-              className="btn btn-primary btn-lg m-2"
-              role="button"
-              style={{ background: '#333' }}
-            >
-              <i className="bi bi-github" style={{ position: 'relative', top: '-2px' }}></i> GitHub
-            </a>
-            <a
-              href="https://discord.com/invite/7s7P9Kga"
-              className="btn btn-primary btn-lg m-2"
-              role="button"
-              style={{ background: '#5865f2' }}
-            >
-              <i className="bi bi-discord" style={{ position: 'relative', top: '-1px' }}></i> Discord
-            </a>
-          </div>
-        </div>
+
+        <p className="mt-6 text-sm text-gray-500">
+          Ships when we hit 200 pre-orders · EU shipping from Poland
+        </p>
       </div>
-    </div>
+    </section>
   );
 }

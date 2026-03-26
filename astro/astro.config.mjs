@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 
-// https://astro.build/config
+// Tailwind v4 uses @tailwindcss/postcss directly — no Astro integration needed
 export default defineConfig({
   integrations: [react()],
 });
