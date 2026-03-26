@@ -21,6 +21,7 @@ interface Tier {
   threshold: number | null;
   thresholdNote?: string;
   highlighted?: boolean;
+  urgencyLabel?: string;
 }
 
 const tiers: Tier[] = [
@@ -37,6 +38,7 @@ const tiers: Tier[] = [
       'Desktop app (open source)',
     ],
     threshold: 200,
+    urgencyLabel: 'Early bird pricing — limited to first 200 orders',
   },
   {
     key: 'pro',
@@ -174,6 +176,18 @@ function TierCard({ tier, orderCount }: { tier: Tier; orderCount: number }) {
           </li>
         ))}
       </ul>
+
+      {/* Urgency elements */}
+      {tier.urgencyLabel && (
+        <p className="mb-3 text-xs font-medium text-amber-400">
+          {tier.urgencyLabel}
+        </p>
+      )}
+      {tier.threshold !== null && orderCount > 0 && (
+        <p className="mb-3 text-xs font-semibold text-brand-green">
+          Only {tier.threshold - orderCount} spots left
+        </p>
+      )}
 
       {tier.threshold !== null && progressPercent !== null && (
         <div className="mb-6">
