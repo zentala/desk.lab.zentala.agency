@@ -3,6 +3,7 @@
  * pre-order counters fetched from /preorder-count.json, and total raised summary.
  */
 import { useState, useEffect } from 'react';
+import { trackEvent } from '../utils/analytics';
 
 // Replace with real Stripe Payment Links after Stripe account setup
 const STRIPE_LINKS: Record<string, string> = {
@@ -196,6 +197,7 @@ function TierCard({ tier, orderCount }: { tier: Tier; orderCount: number }) {
         href={STRIPE_LINKS[tier.key]}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackEvent('preorder-click', { tier: tier.key })}
         className={`block w-full rounded-full py-3 text-center font-semibold transition-all ${
           tier.highlighted
             ? 'bg-brand-green text-dark-900 hover:bg-brand-green-light'

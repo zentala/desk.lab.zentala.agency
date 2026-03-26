@@ -25,6 +25,8 @@ import '../styles/global.css';
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://desk.zentala.io">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <!-- Plausible Analytics — privacy-first, no cookies, GDPR-compliant -->
+  <script defer data-domain="desk.zentala.io" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <Hero />
@@ -39,7 +41,7 @@ import '../styles/global.css';
   <Features />
   <Screenshots />
   <Pricing client:load />
-  <FAQ />
+  <FAQ client:load />
   <Footer client:load />
 </body>
 </html>

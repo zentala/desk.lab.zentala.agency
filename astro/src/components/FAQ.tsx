@@ -50,6 +50,12 @@ const faqs: FAQItem[] = [
   },
 ];
 
+function trackFaqExpand() {
+  if (typeof window !== 'undefined' && (window as any).plausible) {
+    (window as any).plausible('faq-expand');
+  }
+}
+
 export default function FAQ() {
   return (
     <section className="py-24 border-t border-gray-800/50">
@@ -63,6 +69,7 @@ export default function FAQ() {
             <details
               key={faq.question}
               className="group rounded-2xl border border-gray-800 bg-dark-800"
+              onToggle={(e) => { if ((e.target as HTMLDetailsElement).open) trackFaqExpand(); }}
             >
               <summary className="flex cursor-pointer items-center justify-between p-6 text-lg font-semibold text-gray-100 [&::-webkit-details-marker]:hidden">
                 {faq.question}

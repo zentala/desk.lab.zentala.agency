@@ -3,6 +3,7 @@
  * Placed after Hero section and in the Footer.
  */
 import { useState, type FormEvent } from 'react';
+import { trackEvent } from '../utils/analytics';
 
 /** Placeholder endpoint — Cloudflare Worker to be built later */
 const WAITLIST_ENDPOINT = 'https://waitlist.desk.zentala.io/api/signup';
@@ -31,9 +32,7 @@ export default function WaitlistForm({ compact = false }: Props) {
         body: JSON.stringify({ email }),
       });
       setStatus('success');
-      if (typeof window !== 'undefined' && (window as any).plausible) {
-        (window as any).plausible('waitlist-signup');
-      }
+      trackEvent('waitlist-signup');
     } catch {
       setStatus('success'); // Show success anyway — endpoint not built yet
     }

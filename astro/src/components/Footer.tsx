@@ -2,6 +2,7 @@
  * Footer — links, badges, waitlist form, and legal.
  */
 import WaitlistForm from './WaitlistForm';
+import { trackEvent } from '../utils/analytics';
 
 export default function Footer() {
   return (
@@ -42,6 +43,7 @@ export default function Footer() {
                   className="text-muted transition-colors hover:text-white"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('diy-click')}
                 >
                   GitHub
                 </a>
