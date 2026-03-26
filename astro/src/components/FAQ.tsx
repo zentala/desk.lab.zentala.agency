@@ -1,6 +1,7 @@
 /**
  * FAQ section — common questions about the product, shipping, and business model.
  */
+import { trackEvent } from '../utils/analytics';
 
 interface FAQItem {
   question: string;
@@ -51,9 +52,7 @@ const faqs: FAQItem[] = [
 ];
 
 function trackFaqExpand() {
-  if (typeof window !== 'undefined' && (window as any).plausible) {
-    (window as any).plausible('faq-expand');
-  }
+  trackEvent('faq-expand');
 }
 
 export default function FAQ() {

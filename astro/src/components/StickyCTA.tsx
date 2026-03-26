@@ -4,6 +4,7 @@
  */
 import { useState, useEffect } from 'react';
 import { trackEvent } from '../utils/analytics';
+import { PRICING } from '../data/pricing';
 
 export default function StickyCTA() {
   const [visible, setVisible] = useState(false);
@@ -43,7 +44,7 @@ export default function StickyCTA() {
             onClick={() => trackEvent('preorder-click', { source: 'sticky-bar' })}
             className="rounded-full bg-brand-green px-6 py-2 text-sm font-semibold text-dark-900 transition-all hover:bg-brand-green-light"
           >
-            Pre-order Dev Kit &mdash; &euro;49
+            Pre-order Dev Kit &mdash; &euro;{PRICING.basic.price}
           </a>
           <a
             href="#waitlist"

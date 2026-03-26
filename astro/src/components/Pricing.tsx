@@ -4,6 +4,7 @@
  */
 import { useState, useEffect } from 'react';
 import { trackEvent } from '../utils/analytics';
+import { PRICING, type TierKey } from '../data/pricing';
 
 // Replace with real Stripe Payment Links after Stripe account setup
 const STRIPE_LINKS: Record<string, string> = {
@@ -27,8 +28,8 @@ interface Tier {
 const tiers: Tier[] = [
   {
     key: 'basic',
-    name: 'Basic Kit',
-    price: 49,
+    name: PRICING.basic.name,
+    price: PRICING.basic.price,
     tagline: 'Awareness — know how much you actually sit',
     contents: [
       'VL53L1X ToF sensor on carrier PCB',
@@ -37,26 +38,26 @@ const tiers: Tier[] = [
       'Mounting tape',
       'Desktop app (open source)',
     ],
-    threshold: 200,
-    urgencyLabel: 'Early bird pricing — limited to first 200 orders',
+    threshold: PRICING.basic.threshold,
+    urgencyLabel: `Early bird pricing — limited to first ${PRICING.basic.threshold} orders`,
   },
   {
     key: 'pro',
-    name: 'Pro Kit',
-    price: 79,
+    name: PRICING.pro.name,
+    price: PRICING.pro.price,
     tagline: 'Active Coaching — your desk nudges you',
     contents: [
       'Everything in Basic',
       'Vibration motor (haptic alerts)',
       'Presence sensor (desk activity detection)',
     ],
-    threshold: 500,
+    threshold: PRICING.pro.threshold,
     highlighted: true,
   },
   {
     key: 'founder',
-    name: "Founder's Edition",
-    price: 149,
+    name: PRICING.founder.name,
+    price: PRICING.founder.price,
     tagline: 'Full Investment — fund the future of desk ergonomics',
     contents: [
       'Everything in Pro',
@@ -67,7 +68,7 @@ const tiers: Tier[] = [
       'Name in credits',
       'Beta access to new features',
     ],
-    threshold: null,
+    threshold: PRICING.founder.threshold,
     thresholdNote: 'Ships with Pro batch',
   },
 ];
@@ -89,7 +90,7 @@ export default function Pricing() {
   }, []);
 
   const totalRaised =
-    counts.basic * 49 + counts.pro * 79 + counts.founder * 149;
+    counts.basic * PRICING.basic.price + counts.pro * PRICING.pro.price + counts.founder * PRICING.founder.price;
 
   return (
     <section id="pricing" className="py-24 border-t border-gray-800/50">

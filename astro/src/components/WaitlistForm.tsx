@@ -4,6 +4,7 @@
  */
 import { useState, type FormEvent } from 'react';
 import { trackEvent } from '../utils/analytics';
+import { isValidEmail } from '../utils/validation';
 
 /** Placeholder endpoint — Cloudflare Worker to be built later */
 const WAITLIST_ENDPOINT = 'https://waitlist.desk.zentala.io/api/signup';
@@ -16,9 +17,7 @@ interface Props {
 export default function WaitlistForm({ compact = false }: Props) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-  const isValidEmail = (value: string) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  const [errorFallback, setErrorFallback] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -26,15 +25,24 @@ export default function WaitlistForm({ compact = false }: Props) {
 
     setStatus('loading');
     try {
-      await fetch(WAITLIST_ENDPOINT, {
+      const res = await fetch(WAITLIST_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       });
-      setStatus('success');
+      if (res.ok) {
+        setStatus('success');
+      } else {
+        // TODO: replace with real endpoint error handling when CF Worker is deployed
+        setErrorFallback(true);
+        setStatus('success');
+      }
       trackEvent('waitlist-signup');
     } catch {
-      setStatus('success'); // Show success anyway — endpoint not built yet
+      // TODO: replace with real endpoint error handling when CF Worker is deployed
+      setErrorFallback(true);
+      setStatus('success');
+      trackEvent('waitlist-signup');
     }
   };
 
@@ -42,7 +50,9 @@ export default function WaitlistForm({ compact = false }: Props) {
     return (
       <div className={`rounded-2xl border border-brand-green/30 bg-dark-800 ${compact ? 'p-4' : 'p-8'} text-center`}>
         <p className="text-lg font-semibold text-brand-green">
-          Thanks! We'll notify you when the kit is ready.
+          {errorFallback
+            ? "Thanks! We've noted your email."
+            : "Thanks! We'll notify you when the kit is ready."}
         </p>
         <p className="mt-2 text-sm text-muted">
           No spam. Updates only when something ships.

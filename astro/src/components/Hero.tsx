@@ -2,6 +2,8 @@
  * Hero section — primary headline, subheadline, and two CTAs.
  * First impression: challenge the assumption that owning a standing desk = healthy.
  */
+import { PRICING } from '../data/pricing';
+
 export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
@@ -27,7 +29,7 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a href="#pricing" className="btn-primary text-lg">
-            Pre-order — €49
+            Pre-order — {PRICING.basic.currency}{PRICING.basic.price}
           </a>
           <a href="#how-it-works" className="btn-secondary text-lg">
             See How It Works ↓
@@ -35,7 +37,7 @@ export default function Hero() {
         </div>
 
         <p className="mt-6 text-sm text-gray-500">
-          Ships when we hit 200 pre-orders · EU shipping from Poland
+          Ships when we hit {PRICING.basic.threshold} pre-orders · EU shipping from Poland
         </p>
       </div>
     </section>

@@ -1,41 +1,57 @@
 # CLAUDE.md - Agent Guidance for desk.zentala.io
 
-## Project Type
-Astro-based blog and project website for the Open Smart Desk project.
+## Purpose
+Landing page and blog for the zntlDesk open source sit/stand desk sensor project.
+Pre-order validation site with waitlist, pricing tiers, and content marketing.
+
+## Target User
+Potential customers evaluating the desk sensor kit (developers, remote workers, ergonomics enthusiasts).
+
+## Stack
+- **Framework**: Astro 5 (static site generator)
+- **Styling**: Tailwind CSS v4 (dark theme)
+- **Components**: React (TSX) for interactive sections
+- **Analytics**: Plausible (privacy-first, no cookies)
+- **Blog**: Astro Content Collections (Markdown)
+- **Deployment**: GitHub Pages (push to `main` branch)
 
 ## Development
-- Local development: `cd astro-desk && npm run dev`
-- Build: `cd astro-desk && npm run build`
-- Preview build: `cd astro-desk && npm run preview`
-- Deploy: Push to master branch (auto-deploys via GitHub Pages)
-
-## Code Style Guidelines
-- Astro: Use Astro components for page structure and layout
-- HTML: HTML5 semantic tags, maintain consistent indentation
-- CSS: Follow Bootstrap conventions, use Bootstrap classes when possible
-- JavaScript: Minimal JS, keep functionality simple and accessible
-- Markdown: Use clean, well-structured Markdown for blog content
-- Components: Reuse components when possible for consistency
+- Local development: `cd astro && npm run dev`
+- Build: `cd astro && npm run build`
+- Preview build: `cd astro && npm run preview`
+- Package manager: **npm** (not pnpm)
 
 ## File Structure
-- astro-desk/: Main Astro project
-  - src/: Source files
-    - pages/: Page templates (index.astro, vision.astro, build.astro, contribute.astro)
-    - components/: Reusable UI components
-    - content/blog/: Blog posts in Markdown format
-    - styles/: Global styles
-  - public/: Static assets
-    - images/: Project photos and diagrams
-    - enclosure/: Design files for physical components
+- `astro/` — main Astro project
+  - `src/pages/` — page routes (`index.astro`, `blog/`)
+  - `src/components/` — React components (Hero, Pricing, FAQ, WaitlistForm, ExitPopup, StickyCTA, etc.)
+  - `src/layouts/` — page layouts (`BlogPost.astro`)
+  - `src/data/` — shared config (`pricing.ts` — canonical pricing source)
+  - `src/utils/` — shared utilities (`analytics.ts`, `validation.ts`)
+  - `src/content/blog/` — blog posts (Markdown with frontmatter)
+  - `src/styles/` — global CSS (Tailwind)
+  - `public/` — static assets (images, favicon)
 
-## Blog Content Guidelines
-- Technical posts: Include code snippets, diagrams, and clear explanations
-- Progress updates: Show before/after comparisons when possible
-- Post images: Use high-quality images, optimize for web
-- Tags: Use consistent tags for categorization
+## Key Components
+| Component | Purpose |
+|-----------|---------|
+| `Hero.tsx` | Primary headline + CTAs |
+| `Pricing.tsx` | 3-tier product cards with pre-order progress |
+| `WaitlistForm.tsx` | Email capture (hero + footer) |
+| `ExitPopup.tsx` | Exit-intent email popup (desktop) |
+| `StickyCTA.tsx` | Fixed bottom bar with pre-order link |
+| `FAQ.tsx` | Expandable Q&A section |
+| `ReferralProgram.tsx` | Share & save referral mechanic |
+| `Story.tsx` | Founder story section |
+| `SocialProof.tsx` | Trust signals |
 
-## Additional Notes
-- This is a documentation and progress tracking site for a hardware project
-- Maintain visual consistency with the existing design
-- Focus on clear communication of technical concepts
-- Site should be responsive and mobile-friendly
+## Conventions
+- Prices imported from `src/data/pricing.ts` — never hardcoded in components
+- Analytics via `trackEvent()` from `src/utils/analytics.ts`
+- Email validation via `isValidEmail()` from `src/utils/validation.ts`
+- All code, comments, and docs in English
+
+## Blog Content
+- Posts in `src/content/blog/` as Markdown
+- Frontmatter: title, description, date, author, tags
+- Schema defined in `src/content.config.ts`

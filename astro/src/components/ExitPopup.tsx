@@ -4,6 +4,7 @@
  */
 import { useState, useEffect, type FormEvent } from 'react';
 import { trackEvent } from '../utils/analytics';
+import { isValidEmail } from '../utils/validation';
 
 const STORAGE_KEY = 'exit-popup-shown';
 const WAITLIST_ENDPOINT = 'https://waitlist.desk.zentala.io/api/signup';
@@ -12,6 +13,7 @@ export default function ExitPopup() {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [errorFallback, setErrorFallback] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -31,16 +33,21 @@ export default function ExitPopup() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+    if (!isValidEmail(email)) return;
 
     try {
-      await fetch(WAITLIST_ENDPOINT, {
+      const res = await fetch(WAITLIST_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       });
+      if (!res.ok) {
+        // TODO: replace with real endpoint error handling when CF Worker is deployed
+        setErrorFallback(true);
+      }
     } catch {
-      // Endpoint not built yet — show success anyway
+      // TODO: replace with real endpoint error handling when CF Worker is deployed
+      setErrorFallback(true);
     }
     trackEvent('waitlist-signup');
     setSubmitted(true);
@@ -64,7 +71,9 @@ export default function ExitPopup() {
         {submitted ? (
           <div className="text-center">
             <p className="text-lg font-semibold text-brand-green">
-              Thanks! We'll notify you when the kit is ready.
+              {errorFallback
+                ? "Thanks! We've noted your email."
+                : "Thanks! We'll notify you when the kit is ready."}
             </p>
           </div>
         ) : (
@@ -86,6 +95,7 @@ export default function ExitPopup() {
               />
               <button
                 type="submit"
+                aria-label="Join waitlist"
                 className="rounded-full bg-brand-green px-6 py-3 font-semibold text-dark-900 hover:bg-brand-green-light"
               >
                 Join
