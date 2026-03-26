@@ -58,6 +58,11 @@ export default function Footer() {
                   How It Works
                 </a>
               </li>
+              <li>
+                <a href="/blog" className="text-muted transition-colors hover:text-white">
+                  Blog
+                </a>
+              </li>
             </ul>
           </div>
 
