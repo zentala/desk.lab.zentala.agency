@@ -8,6 +8,7 @@ import Screenshots from '../components/Screenshots.tsx';
 import Pricing from '../components/Pricing.tsx';
 import FAQ from '../components/FAQ.tsx';
 import Footer from '../components/Footer.tsx';
+import WaitlistForm from '../components/WaitlistForm.tsx';
 import '../styles/global.css';
 ---
 <!DOCTYPE html>
@@ -27,6 +28,11 @@ import '../styles/global.css';
 </head>
 <body>
   <Hero />
+  <section class="py-12 border-t border-gray-800/50">
+    <div class="section-container max-w-2xl">
+      <WaitlistForm client:load />
+    </div>
+  </section>
   <Problem />
   <Story />
   <HowItWorks />
@@ -34,6 +40,6 @@ import '../styles/global.css';
   <Screenshots />
   <Pricing client:load />
   <FAQ />
-  <Footer />
+  <Footer client:load />
 </body>
 </html>

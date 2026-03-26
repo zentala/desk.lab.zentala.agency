@@ -1,10 +1,17 @@
 /**
- * Footer — links, badges, and legal.
+ * Footer — links, badges, waitlist form, and legal.
  */
+import WaitlistForm from './WaitlistForm';
+
 export default function Footer() {
   return (
     <footer className="border-t border-gray-800/50 py-16">
       <div className="section-container">
+        {/* Waitlist form */}
+        <div className="mx-auto mb-12 max-w-xl">
+          <WaitlistForm compact />
+        </div>
+
         <div className="grid gap-12 sm:grid-cols-3">
           {/* Brand */}
           <div>
