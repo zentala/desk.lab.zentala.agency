@@ -17,16 +17,70 @@ import '../styles/global.css';
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desk Sensor — Your standing desk is useless if you never stand</title>
-  <meta name="description" content="Open source desk sensor that tracks sitting and standing time and actually gets you to move. Built by a developer who sat 10+ hours a day. Pre-order from €49.">
+
+  <!-- SEO: Title & Description -->
+  <title>zntlDesk — Automatic Sit/Stand Tracker for Height-Adjustable Desks</title>
+  <meta name="description" content="A tiny sensor that mounts under your desk, tracks your sitting and standing time, and actually gets you to move. Open source. No cloud. Pre-order from €49.">
   <meta name="keywords" content="standing desk sensor, sit stand tracker, desk ergonomics, posture tracker, open source, desk height sensor, ergonomic reminder">
-  <meta property="og:title" content="Desk Sensor — Your standing desk is useless if you never stand">
+  <link rel="canonical" href="https://desk.zentala.io">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="zntlDesk — Automatic Sit/Stand Tracker for Height-Adjustable Desks">
   <meta property="og:description" content="A tiny sensor that mounts under your desk, tracks your sitting time, and actually gets you to stand up. Open source. No cloud. From €49.">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="product">
   <meta property="og:url" content="https://desk.zentala.io">
+  <meta property="og:image" content="https://desk.zentala.io/images/og-cover.png">
+  <meta property="og:site_name" content="zntlDesk">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="zntlDesk — Automatic Sit/Stand Tracker for Height-Adjustable Desks">
+  <meta name="twitter:description" content="A tiny sensor that mounts under your desk, tracks your sitting time, and actually gets you to stand up. Open source. No cloud. From €49.">
+  <meta name="twitter:image" content="https://desk.zentala.io/images/og-cover.png">
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
   <!-- Plausible Analytics — privacy-first, no cookies, GDPR-compliant -->
   <script defer data-domain="desk.zentala.io" src="https://plausible.io/js/script.js"></script>
+
+  <!-- Schema.org Product JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "zntlDesk — Sit/Stand Desk Sensor",
+    "description": "Open source desk sensor that tracks sitting and standing time and nudges you to move. Mounts under any height-adjustable desk.",
+    "brand": { "@type": "Brand", "name": "zntlDesk" },
+    "url": "https://desk.zentala.io",
+    "image": "https://desk.zentala.io/images/og-cover.png",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Basic Kit",
+        "price": "49.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/PreOrder",
+        "url": "https://desk.zentala.io/#pricing"
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro Kit",
+        "price": "79.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/PreOrder",
+        "url": "https://desk.zentala.io/#pricing"
+      },
+      {
+        "@type": "Offer",
+        "name": "Founder's Edition",
+        "price": "149.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/PreOrder",
+        "url": "https://desk.zentala.io/#pricing"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <Hero />
