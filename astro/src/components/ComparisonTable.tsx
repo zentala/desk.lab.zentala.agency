@@ -2,6 +2,7 @@
  * Comparison table — zntlDesk vs alternative tracking solutions.
  * Horizontally scrollable on mobile, dark card styling.
  */
+import { PRICING } from '../data/pricing';
 
 interface ComparisonRow {
   feature: string;
@@ -56,7 +57,7 @@ const rows: ComparisonRow[] = [
   },
   {
     feature: 'Price',
-    zntlDesk: '\u20ac49 one-time',
+    zntlDesk: `${PRICING.basic.currency}${PRICING.basic.price} one-time`,
     manualApps: 'Free\u2013$10/mo',
     fitnessWatch: '$200\u2013400',
     deskTimer: '$20\u201350',
