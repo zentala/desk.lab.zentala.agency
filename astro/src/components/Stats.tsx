@@ -1,22 +1,15 @@
-const stats = [
-  { label: 'W1 Cost', value: '~700 PLN / 200 USD' },
-  { label: 'Core Lesson', value: 'UX > Hardware Complexity' },
-  { label: 'Status', value: 'W1 archived, insights published' },
-];
+import Section from './ui/Section';
+import StatCard from './ui/StatCard';
+import { stats } from '../data/stats';
 
 export default function Stats() {
   return (
-    <section className="container my-4">
-      <div className="row stats">
+    <Section className="pt-6">
+      <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-3">
         {stats.map((item) => (
-          <div className="col-md-4" key={item.label}>
-            <div className="stat-card">
-              <div className="stat-label">{item.label}</div>
-              <div className="stat-value">{item.value}</div>
-            </div>
-          </div>
+          <StatCard key={item.label} label={item.label} value={item.value} />
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
