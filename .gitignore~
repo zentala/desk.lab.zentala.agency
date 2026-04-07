@@ -6,4 +6,3 @@ deploy/
 yarn*
 SESSION.md
 .plan/.error-counts.tmp
-.wrangler/
