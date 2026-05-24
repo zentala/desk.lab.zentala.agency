@@ -1,48 +1,33 @@
----
-pm-onboarded: "2026-05-24"
-pm-version: "0.1.0"
----
-
 # CLAUDE.md - Agent Guidance for desk.zentala.io
 
 ## Purpose
-Repository for the zntlDesk website work.
-It currently contains both a legacy website in `legacy/` and a newer Astro website.
+
+Landing page and blog for the zntlDesk open source sit/stand desk sensor project.
+Pre-order validation site with waitlist, pricing tiers, and content marketing.
 
 ## Target User
+
 Potential customers evaluating the desk sensor kit (developers, remote workers, ergonomics enthusiasts).
 
 ## Stack
-- **Active app**: Astro 5 static site in `astro/`
-- **Styling**: Tailwind CSS v4
+
+- **Framework**: Astro 5 (static site generator)
+- **Styling**: Tailwind CSS v4 (dark theme)
 - **Components**: React (TSX) for interactive sections
-- **Analytics**: Plausible
+- **Analytics**: Plausible (privacy-first, no cookies)
 - **Blog**: Astro Content Collections (Markdown)
-- **Legacy app**: preserved in `legacy/`
-
-## Current Repository State
-
-- `astro/` is the actively developed website.
-- The old static website has been moved into `legacy/`.
-- Legacy content should be preserved until migration decisions are complete.
-- Root docs are partially outdated and may still describe the legacy site instead of the Astro app.
-- Astro build is working locally.
-- Production deployment for Astro is not yet confirmed in documentation.
-
-## CLAUDE File Layout
-
-- root `CLAUDE.md` describes repository-level structure and coordination
-- `astro/CLAUDE.md` describes the active Astro app
-- `legacy/CLAUDE.md` describes the preserved legacy site and archive rules
+- **Deployment**: GitHub Pages (push to `main` branch)
 
 ## Development
+
 - Local development: `cd astro && npm run dev`
 - Build: `cd astro && npm run build`
 - Preview build: `cd astro && npm run preview`
 - Package manager: **npm** (not pnpm)
 
 ## File Structure
-- `astro/` — active Astro project
+
+- `astro/` — main Astro project
   - `src/pages/` — page routes (`index.astro`, `blog/`)
   - `src/components/` — React components (Hero, Pricing, FAQ, WaitlistForm, ExitPopup, StickyCTA, etc.)
   - `src/layouts/` — page layouts (`BlogPost.astro`)
@@ -51,14 +36,9 @@ Potential customers evaluating the desk sensor kit (developers, remote workers, 
   - `src/content/blog/` — blog posts (Markdown with frontmatter)
   - `src/styles/` — global CSS (Tailwind)
   - `public/` — static assets (images, favicon)
-- `legacy/` — preserved legacy website generation and supporting assets
-
-## Project Management
-
-This repo now uses the `.plan/` and `.arch/` structure for persistent planning and architecture notes.
-Use `TASKS.md` for a quick human-readable entry point and `.plan/` for working state.
 
 ## Key Components
+
 | Component | Purpose |
 |-----------|---------|
 | `Hero.tsx` | Primary headline + CTAs |
@@ -72,12 +52,14 @@ Use `TASKS.md` for a quick human-readable entry point and `.plan/` for working s
 | `SocialProof.tsx` | Trust signals |
 
 ## Conventions
+
 - Prices imported from `src/data/pricing.ts` — never hardcoded in components
 - Analytics via `trackEvent()` from `src/utils/analytics.ts`
 - Email validation via `isValidEmail()` from `src/utils/validation.ts`
 - All code, comments, and docs in English
 
 ## Blog Content
+
 - Posts in `src/content/blog/` as Markdown
 - Frontmatter: title, description, date, author, tags
 - Schema defined in `src/content.config.ts`

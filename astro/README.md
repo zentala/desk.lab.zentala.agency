@@ -1,43 +1,35 @@
-# Astro Starter Kit: Minimal
+# Astro Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+This is the active website implementation for `desk.zentala.io`.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Stack
 
-## 🚀 Project Structure
+- Astro 5
+- React 19 islands
+- Tailwind CSS v4
+- static blog content collections
+- Plausible analytics
 
-Inside of your Astro project, you'll see the following folders and files:
+## Commands
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Run from `astro/`:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+| Command | Action |
+| :------ | :----- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start local development server |
+| `npm run build` | Build the production bundle into `dist/` |
+| `npm run preview` | Preview the production build locally |
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Current State
 
-Any static assets, like images, can be placed in the `public/` directory.
+- This is the only website currently built by the repository deployment workflow.
+- The old root-level static site has been moved to `../legacy/`.
+- Deployment and documentation are still being clarified before the Astro app is treated as the confirmed live production site.
 
-## 🧞 Commands
+## Near-Term Work
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- clean up repository docs after the legacy split
+- confirm preview or production domain strategy
+- replace placeholder waitlist integration
+- add linting, tests, and a developer-quality pipeline
