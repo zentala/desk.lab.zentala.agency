@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Open Smart Desk — User Research: Real Quotes from Real Sources
+  Collected: 2026-06-25
+  Purpose: Market validation, understanding user pain points and desires
+           around standing desk automation, presence detection, health tracking.
+
+  Categories:
+    - forget_to_stand     : user admits to not using the standing feature
+    - automation_wish     : user wants automated position changes
+    - health_impact       : user mentions health benefits or problems from sitting
+    - hardware_limitation : user complains about dumb/basic desk controllers
+    - presence_detection  : user discusses detecting presence at desk
+    - product_review      : review of competing/adjacent product
+    - project_motivation  : why someone built a DIY smart desk solution
+-->
+<research>
+  <meta>
+    <project>Open Smart Desk</project>
+    <collected>2026-06-25</collected>
+    <collector>Claude Code (AI assistant)</collector>
+    <purpose>Market research — user pain points and authentic quotes from public forums and product reviews</purpose>
+    <sources_searched>
+      <source>Home Assistant Community Forum</source>
+      <source>Hackaday.com comments</source>
+      <source>Medium.com articles</source>
+      <source>homeautomationguy.io</source>
+      <source>Ergodriven.com product reviews</source>
+      <source>bradcerasani.me/projects/pi-desk</source>
+    </sources_searched>
+  </meta>
+
+  <quotes>
+
+    <!-- ═══════════════════════════════════════════════════
+         SOURCE: Ergodriven Tempo product reviews
+         URL: https://ergodriven.com/products/tempo-the-smart-handset-for-standing-desks
+         Context: Reviews for a competing smart desk handset product (presence detection + automation)
+         ═══════════════════════════════════════════════════ -->
+
+    <quote id="1">
+      <text>Like many, I purchased a standing desk only to sit at it 99% of the time.</text>
+      <author>Joshua D.</author>
+      <source_name>Ergodriven Tempo — Product Reviews</source_name>
+      <source_url>https://ergodriven.com/products/tempo-the-smart-handset-for-standing-desks</source_url>
+      <categories>
+        <category>forget_to_stand</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="2">
+      <text>I'd simply forget, and then realize I'd gone all day (or week) without standing.</text>
+      <author>Riley</author>
+      <source_name>Ergodriven Tempo — Product Reviews</source_name>
+      <source_url>https://ergodriven.com/products/tempo-the-smart-handset-for-standing-desks</source_url>
+      <categories>
+        <category>forget_to_stand</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="3">
+      <text>I used them all, but not as frequently as I'd like — I'd simply forget.</text>
+      <author>Riley</author>
+      <source_name>Ergodriven Tempo — Product Reviews</source_name>
+      <source_url>https://ergodriven.com/products/tempo-the-smart-handset-for-standing-desks</source_url>
+      <categories>
+        <category>forget_to_stand</category>
+        <category>automation_wish</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="4">
+      <text>automate the things a human forgets</text>
+      <author>Riley</author>
+      <source_name>Ergodriven Tempo — Product Reviews</source_name>
+      <source_url>https://ergodriven.com/products/tempo-the-smart-handset-for-standing-desks</source_url>
+      <categories>
+        <category>automation_wish</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="5">
+      <text>After years of having a standing desk, I'm finally using it because of Tempo.</text>
+      <author>Evan</author>
+      <source_name>Ergodriven Tempo — Product Reviews</source_name>
+      <source_url>https://ergodriven.com/products/tempo-the-smart-handset-for-standing-desks</source_url>
+      <categories>
+        <category>forget_to_stand</category>
+        <category>product_review</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="6">
+      <text>No brainer, just get it.</text>
+      <author>Evan</author>
+      <source_name>Ergodriven Tempo — Product Reviews</source_name>
+      <source_url>https://ergodriven.com/products/tempo-the-smart-handset-for-standing-desks</source_url>
+      <categories>
+        <category>product_review</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="7">
+      <text>Currently the only product I know that has solved this problem.</text>
+      <author>Joshua D.</author>
+      <source_name>Ergodriven Tempo — Product Reviews</source_name>
+      <source_url>https://ergodriven.com/products/tempo-the-smart-handset-for-standing-desks</source_url>
+      <categories>
+        <category>product_review</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="8">
+      <text>Now I stand at my desk 2+ hours a day, 20 minutes out of most working hours.</text>
+      <author>Riley</author>
+      <source_name>Ergodriven Tempo — Product Reviews</source_name>
+      <source_url>https://ergodriven.com/products/tempo-the-smart-handset-for-standing-desks</source_url>
+      <categories>
+        <category>health_impact</category>
+        <category>product_review</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <!-- ═══════════════════════════════════════════════════
+         SOURCE: Medium — David Kong
+         URL: https://medium.com/@davidkongfilm/how-i-hacked-my-standing-desk-with-a-raspberry-pi-a50ed14c7f6f
+         Context: Developer documenting their RPi-based standing desk automation project
+         ═══════════════════════════════════════════════════ -->
+
+    <quote id="9">
+      <text>I quickly found myself sitting all day, in spite of the fancy desk.</text>
+      <author>David Kong</author>
+      <source_name>Medium — How I Hacked My Standing Desk With a Raspberry Pi</source_name>
+      <source_url>https://medium.com/@davidkongfilm/how-i-hacked-my-standing-desk-with-a-raspberry-pi-a50ed14c7f6f</source_url>
+      <categories>
+        <category>forget_to_stand</category>
+        <category>project_motivation</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="10">
+      <text>I found it strangely hard to build a habit of standing.</text>
+      <author>David Kong</author>
+      <source_name>Medium — How I Hacked My Standing Desk With a Raspberry Pi</source_name>
+      <source_url>https://medium.com/@davidkongfilm/how-i-hacked-my-standing-desk-with-a-raspberry-pi-a50ed14c7f6f</source_url>
+      <categories>
+        <category>forget_to_stand</category>
+        <category>project_motivation</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="11">
+      <text>It was too easy to ignore, and too easy to say 'I'm tired right now. I'll stand in a few minutes.'</text>
+      <author>David Kong</author>
+      <source_name>Medium — How I Hacked My Standing Desk With a Raspberry Pi</source_name>
+      <source_url>https://medium.com/@davidkongfilm/how-i-hacked-my-standing-desk-with-a-raspberry-pi-a50ed14c7f6f</source_url>
+      <categories>
+        <category>forget_to_stand</category>
+        <category>automation_wish</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="12">
+      <text>The healthy cadence happens automatically.</text>
+      <author>David Kong</author>
+      <source_name>Medium — How I Hacked My Standing Desk With a Raspberry Pi</source_name>
+      <source_url>https://medium.com/@davidkongfilm/how-i-hacked-my-standing-desk-with-a-raspberry-pi-a50ed14c7f6f</source_url>
+      <categories>
+        <category>automation_wish</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="13">
+      <text>I'm now spending a lot more of my day standing, which has a great impact on my back pain.</text>
+      <author>David Kong</author>
+      <source_name>Medium — How I Hacked My Standing Desk With a Raspberry Pi</source_name>
+      <source_url>https://medium.com/@davidkongfilm/how-i-hacked-my-standing-desk-with-a-raspberry-pi-a50ed14c7f6f</source_url>
+      <categories>
+        <category>health_impact</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <!-- ═══════════════════════════════════════════════════
+         SOURCE: homeautomationguy.io
+         URL: https://www.homeautomationguy.io/blog/automating-my-ikea-standing-desk
+         Context: Developer automating IKEA standing desk with Home Assistant
+         ═══════════════════════════════════════════════════ -->
+
+    <quote id="14">
+      <text>But then I got lazy, and for the better part of the last 3 years I don't think it went into the standing position once.</text>
+      <author>Home Automation Guy (anonymous)</author>
+      <source_name>Home Automation Guy — Automating my IKEA Standing Desk</source_name>
+      <source_url>https://www.homeautomationguy.io/blog/automating-my-ikea-standing-desk</source_url>
+      <categories>
+        <category>forget_to_stand</category>
+        <category>project_motivation</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="15">
+      <text>I found myself spending hours just slobbing in my chair with terrible posture.</text>
+      <author>Home Automation Guy (anonymous)</author>
+      <source_name>Home Automation Guy — Automating my IKEA Standing Desk</source_name>
+      <source_url>https://www.homeautomationguy.io/blog/automating-my-ikea-standing-desk</source_url>
+      <categories>
+        <category>health_impact</category>
+        <category>forget_to_stand</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="16">
+      <text>When I first got it I used to stand up most afternoons, and I found that it helped reduce my headaches and the knots in my shoulders - it was really beneficial.</text>
+      <author>Home Automation Guy (anonymous)</author>
+      <source_name>Home Automation Guy — Automating my IKEA Standing Desk</source_name>
+      <source_url>https://www.homeautomationguy.io/blog/automating-my-ikea-standing-desk</source_url>
+      <categories>
+        <category>health_impact</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="17">
+      <text>This gave me the idea to create an automation that detected if I had been sitting down at my desk for too long and force me to stand up!</text>
+      <author>Home Automation Guy (anonymous)</author>
+      <source_name>Home Automation Guy — Automating my IKEA Standing Desk</source_name>
+      <source_url>https://www.homeautomationguy.io/blog/automating-my-ikea-standing-desk</source_url>
+      <categories>
+        <category>automation_wish</category>
+        <category>project_motivation</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="18">
+      <text>It works really well, and has helped me get back into the good habits that I was in before! I've felt noticeably less stiff and have had less back and shoulder pain.</text>
+      <author>Home Automation Guy (anonymous)</author>
+      <source_name>Home Automation Guy — Automating my IKEA Standing Desk</source_name>
+      <source_url>https://www.homeautomationguy.io/blog/automating-my-ikea-standing-desk</source_url>
+      <categories>
+        <category>health_impact</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <!-- ═══════════════════════════════════════════════════
+         SOURCE: Home Assistant Community — FlexiSpot thread
+         URL: https://community.home-assistant.io/t/turn-your-loctekmotion-flexispot-standing-desk-into-a-smart-desk/294650
+         Context: HA community thread for making FlexiSpot desks smart
+         ═══════════════════════════════════════════════════ -->
+
+    <quote id="19">
+      <text>How cool would it be if I can pull statistics to understand if I stand too less. (like with my manual IKEA desk that I have used twice in four years…)</text>
+      <author>imick</author>
+      <source_name>Home Assistant Community — Turn your LoctekMotion/FlexiSpot standing desk into a smart desk</source_name>
+      <source_url>https://community.home-assistant.io/t/turn-your-loctekmotion-flexispot-standing-desk-into-a-smart-desk/294650</source_url>
+      <categories>
+        <category>forget_to_stand</category>
+        <category>automation_wish</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="20">
+      <text>Unfortunately i only have a flexispot with a basic keypad that only does up and down and has no RJ45 port. has anybody ever looked into making one of those smart? could be a matter of just closing certain circuits depending on which direction you want to go?</text>
+      <author>tombom</author>
+      <source_name>Home Assistant Community — Turn your LoctekMotion/FlexiSpot standing desk into a smart desk</source_name>
+      <source_url>https://community.home-assistant.io/t/turn-your-loctekmotion-flexispot-standing-desk-into-a-smart-desk/294650</source_url>
+      <categories>
+        <category>hardware_limitation</category>
+        <category>automation_wish</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <!-- ═══════════════════════════════════════════════════
+         SOURCE: Home Assistant Community — Presence detection thread
+         URL: https://community.home-assistant.io/t/my-first-project-desk-presence-detection/376689
+         Context: HA community thread about detecting presence at a desk
+         ═══════════════════════════════════════════════════ -->
+
+    <quote id="21">
+      <text>I'm looking for desk presence detection. My desk is in my open plan living area. And I walk past my desk regularly!</text>
+      <author>Mahko_Mahko</author>
+      <source_name>Home Assistant Community — My first project: desk presence detection</source_name>
+      <source_url>https://community.home-assistant.io/t/my-first-project-desk-presence-detection/376689</source_url>
+      <categories>
+        <category>presence_detection</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="22">
+      <text>There is a chance that they will detect you as away if you aren't moving regularly (perhaps reading on screen etc).</text>
+      <author>Mahko_Mahko</author>
+      <source_name>Home Assistant Community — My first project: desk presence detection</source_name>
+      <source_url>https://community.home-assistant.io/t/my-first-project-desk-presence-detection/376689</source_url>
+      <categories>
+        <category>presence_detection</category>
+        <category>hardware_limitation</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="23">
+      <text>I have a sit-stand desk! Another reason why I was thinking about using my keyboard tray or monitor power draw [for presence detection].</text>
+      <author>Mahko_Mahko</author>
+      <source_name>Home Assistant Community — My first project: desk presence detection</source_name>
+      <source_url>https://community.home-assistant.io/t/my-first-project-desk-presence-detection/376689</source_url>
+      <categories>
+        <category>presence_detection</category>
+        <category>automation_wish</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <!-- ═══════════════════════════════════════════════════
+         SOURCE: Hackaday — Upsy Desky article
+         URL: https://hackaday.com/2022/08/28/automate-your-desk-with-the-upsy-desky/
+         Context: Comments on article about open-source desk automation controller
+         ═══════════════════════════════════════════════════ -->
+
+    <quote id="24">
+      <text>Having one that would encourage me to get up when I sit too long would be pretty cool.</text>
+      <author>James F.</author>
+      <source_name>Hackaday — Automate Your Desk With The Upsy Desky</source_name>
+      <source_url>https://hackaday.com/2022/08/28/automate-your-desk-with-the-upsy-desky/</source_url>
+      <categories>
+        <category>automation_wish</category>
+        <category>forget_to_stand</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <quote id="25">
+      <text>I've been meaning to build something like [this] already for my standing desk.</text>
+      <author>Alan</author>
+      <source_name>Hackaday — Automate Your Desk With The Upsy Desky</source_name>
+      <source_url>https://hackaday.com/2022/08/28/automate-your-desk-with-the-upsy-desky/</source_url>
+      <categories>
+        <category>automation_wish</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+    <!-- ═══════════════════════════════════════════════════
+         SOURCE: bradcerasani.me — PiDesk project
+         URL: https://bradcerasani.me/projects/pi-desk
+         Context: Developer built RPi-based controller for IKEA BEKANT
+         ═══════════════════════════════════════════════════ -->
+
+    <quote id="26">
+      <text>The desk worked fine, but the controller was very basic and didn't have height presets, so I decided to make my own.</text>
+      <author>Brad Cerasani</author>
+      <source_name>bradcerasani.me — PiDesk</source_name>
+      <source_url>https://bradcerasani.me/projects/pi-desk</source_url>
+      <categories>
+        <category>hardware_limitation</category>
+        <category>project_motivation</category>
+      </categories>
+      <date_retrieved>2026-06-25</date_retrieved>
+    </quote>
+
+  </quotes>
+
+  <related_projects>
+    <project>
+      <name>UpSy Desky</name>
+      <description>Open-source ESPHome-based controller for standing desks. Auto-raises if user sat too long, detects presence.</description>
+      <url>https://hackaday.com/2022/08/28/automate-your-desk-with-the-upsy-desky/</url>
+    </project>
+    <project>
+      <name>ha-flexispot-standing-desk</name>
+      <description>Home Assistant integration for FlexiSpot desks in MicroPython.</description>
+      <url>https://github.com/grssmnn/ha-flexispot-standing-desk</url>
+    </project>
+    <project>
+      <name>hackant</name>
+      <description>Control IKEA BEKANT sit/stand desk via Raspberry Pi Pico.</description>
+      <url>https://github.com/KappaDistributive/hackant</url>
+    </project>
+    <project>
+      <name>PiDesk</name>
+      <description>Raspberry Pi controller for IKEA BEKANT with height presets.</description>
+      <url>https://bradcerasani.me/projects/pi-desk</url>
+    </project>
+    <project>
+      <name>IKEA Idasen — Home Assistant integration</name>
+      <description>Native HA integration for IKEA Idåsen desks via Bluetooth.</description>
+      <url>https://www.home-assistant.io/integrations/idasen_desk/</url>
+    </project>
+    <project>
+      <name>Ergodriven Tempo</name>
+      <description>Commercial smart handset for standing desks — presence detection + automation. Competing product.</description>
+      <url>https://ergodriven.com/products/tempo-the-smart-handset-for-standing-desks</url>
+    </project>
+  </related_projects>
+
+</research>
