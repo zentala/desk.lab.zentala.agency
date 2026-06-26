@@ -9,6 +9,15 @@ and the **website** (`astro/` active, `legacy/` preserved).
 
 ## Next up
 
+- [ ] **Standalone data logger — osobny proces, startuje z systemem**
+      Oddzielony od głównej apki — crash developmentu nie zatrzymuje zbierania danych.
+      Minimalne: śledzi aktywność myszy/klawiatury → append-only CSV, flush co linię.
+      Opcjonalnie: jeśli sensor podłączony → dodaje posture (sitting/standing).
+      Działa na każdym komputerze (pracowy bez sensora = partial data, lepsza niż zero).
+      Startuje automatycznie z systemem (autostart), nie wymaga uruchomienia apki.
+      Stack: osobny skrypt Node.js/Python, systemd/Task Scheduler, plik CSV w home dir.
+      → Zbieraj dane od siebie przez 30 dni zanim napiszesz cokolwiek innego.
+
 - [ ] **Design notification algorithm as state machine** — before writing any code.
       Sit with Claude and map: states (sitting/standing/away), transitions, timing rules,
       edge cases (meetings, short stands, night mode).
