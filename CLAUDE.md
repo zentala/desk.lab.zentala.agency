@@ -3,16 +3,108 @@ pm-onboarded: "2026-05-24"
 pm-version: "0.1.0"
 ---
 
-# CLAUDE.md - Agent Guidance for desk.zentala.io
+# CLAUDE.md — Agent Guidance for desk.zentala.io
 
-## Purpose
-Repository for the zntlDesk website work.
-It currently contains both a legacy website in `legacy/` and a newer Astro website.
+## What this repo is
 
-## Target User
-Potential customers evaluating the desk sensor kit (developers, remote workers, ergonomics enthusiasts).
+The **research, vision and website repo** for the **Open Smart Desk** project —
+an open-source hardware + software system that helps knowledge workers build
+a habit of alternating between sitting and standing at their desk.
+
+**This is NOT a desk product. It is a nudge/motivation system.**
+The desk raises manually — the user presses the button themselves.
+The system detects posture and sends non-annoying, Duolingo-style notifications.
+
+Read the vision before touching anything: [research/vision/MISSION.md](research/vision/MISSION.md)
+
+## Two tracks
+
+| Track | Where | What it is |
+|---|---|---|
+| **Product** | `PRD.md`, `research/` | Hardware + app design. Research and specs only — no code yet. |
+| **Website** | `astro/` (active), `legacy/` (preserved) | The public site for the project. |
+
+The two tracks are independent: website work does not block product work.
+
+---
+
+## Read these first (priority order)
+
+1. **[PRD.md](PRD.md)** — product requirements: what, why, for whom, out of scope
+2. **[TASKS.md](TASKS.md)** — what needs to be done, in order (both tracks)
+3. **[research/SESSION-2026-06-25.md](research/SESSION-2026-06-25.md)** — session handoff, open questions
+4. **[research/vision/MISSION.md](research/vision/MISSION.md)** — philosophy, why this exists, who it's for
+5. **[research/algorithm/NOTIFICATION-ALGORITHM.md](research/algorithm/NOTIFICATION-ALGORITHM.md)** — state machine, read before touching notification logic
+6. **[research/architecture/REPO-ARCHITECTURE.md](research/architecture/REPO-ARCHITECTURE.md)** — sensor-daemon + WS + Electron, build order
+
+---
+
+# Product track
+
+## Research & Vision tree
+
+```
+research/
+├── SESSION-2026-06-25.md        ← session handoff, open questions, next steps
+├── user-quotes.xml              ← 26 real user quotes from forums (market validation)
+├── hardware-v2-spec.md          ← RP2040-Tiny + VL53L0X spec, BOM, wiring
+│
+├── vision/
+│   ├── MISSION.md               ← philosophy, personas, what we are NOT building
+│   ├── ECOSYSTEM.md             ← OEM per-unit model, consortium, flywheel
+│   ├── ROADMAP.md               ← Stage 0→5: MVP → Habit Engine → Standard
+│   ├── RESEARCH-PLAN.md         ← academic partnership (PW), validation metrics
+│   └── LONG-TERM-VISION.md      ← Smart Move, Smart Life, AI health companion
+│
+├── algorithm/
+│   └── NOTIFICATION-ALGORITHM.md  ← state machine (AWAY/SITTING/STANDING/ALERT/SNOOZED)
+│
+└── architecture/
+    ├── REPO-ARCHITECTURE.md     ← monorepo structure, tech stack, build order
+    └── FIRMWARE-SPEC.md         ← USB Serial protocol, MicroPython skeleton, I2C wiring
+```
+
+## Product summary
+
+**Hardware v2:** RP2040-Tiny (~20 PLN) + VL53L0X laser sensor (~20 PLN) → USB to PC
+
+**Two data sources:**
+- Desk height from laser → knows if sitting or standing
+- Mouse + keyboard OS events → knows if user is at computer
+
+**App:** Electron tray app (TypeScript), OS-native notifications
+
+**Core differentiator:** Knows if you ACTUALLY stood up (not just ignored the notification).
+All other reminder apps are blind to whether you acted. We have the sensor.
+
+**Business model:** Open source software + OEM sensor kit sold to desk manufacturers
+per unit (recurring revenue). See [research/vision/ECOSYSTEM.md](research/vision/ECOSYSTEM.md).
+
+## What to build next
+
+**Immediate (before any code):**
+1. Review [research/algorithm/NOTIFICATION-ALGORITHM.md](research/algorithm/NOTIFICATION-ALGORITHM.md) with the creator
+2. Agree on sitting threshold, snooze duration, max repeats
+
+**Then (in order):**
+1. New repo: `smart-desk` (monorepo — firmware + shared + app)
+2. Start with `packages/shared/src/types.ts` (shared TypeScript types)
+3. Then `packages/app/src/engine/state-machine.ts` (pure logic, write tests first)
+4. See full build order: [research/architecture/REPO-ARCHITECTURE.md](research/architecture/REPO-ARCHITECTURE.md)
+
+---
+
+# Website track
+
+## Current state
+
+- `astro/` is the actively developed website. The build works locally.
+- The old static website has been moved into `legacy/` and is preserved until
+  migration decisions are complete.
+- Production deployment for the Astro site is not yet confirmed — see `TASKS.md`.
 
 ## Stack
+
 - **Active app**: Astro 5 static site in `astro/`
 - **Styling**: Tailwind CSS v4
 - **Components**: React (TSX) for interactive sections
@@ -20,28 +112,15 @@ Potential customers evaluating the desk sensor kit (developers, remote workers, 
 - **Blog**: Astro Content Collections (Markdown)
 - **Legacy app**: preserved in `legacy/`
 
-## Current Repository State
-
-- `astro/` is the actively developed website.
-- The old static website has been moved into `legacy/`.
-- Legacy content should be preserved until migration decisions are complete.
-- Root docs are partially outdated and may still describe the legacy site instead of the Astro app.
-- Astro build is working locally.
-- Production deployment for Astro is not yet confirmed in documentation.
-
-## CLAUDE File Layout
-
-- root `CLAUDE.md` describes repository-level structure and coordination
-- `astro/CLAUDE.md` describes the active Astro app
-- `legacy/CLAUDE.md` describes the preserved legacy site and archive rules
-
 ## Development
+
 - Local development: `cd astro && npm run dev`
 - Build: `cd astro && npm run build`
 - Preview build: `cd astro && npm run preview`
 - Package manager: **npm** (not pnpm)
 
-## File Structure
+## File structure
+
 - `astro/` — active Astro project
   - `src/pages/` — page routes (`index.astro`, `blog/`)
   - `src/components/` — React components (Hero, Pricing, FAQ, WaitlistForm, ExitPopup, StickyCTA, etc.)
@@ -53,12 +132,8 @@ Potential customers evaluating the desk sensor kit (developers, remote workers, 
   - `public/` — static assets (images, favicon)
 - `legacy/` — preserved legacy website generation and supporting assets
 
-## Project Management
+## Key components
 
-This repo now uses the `.plan/` and `.arch/` structure for persistent planning and architecture notes.
-Use `TASKS.md` for a quick human-readable entry point and `.plan/` for working state.
-
-## Key Components
 | Component | Purpose |
 |-----------|---------|
 | `Hero.tsx` | Primary headline + CTAs |
@@ -72,12 +147,30 @@ Use `TASKS.md` for a quick human-readable entry point and `.plan/` for working s
 | `SocialProof.tsx` | Trust signals |
 
 ## Conventions
+
 - Prices imported from `src/data/pricing.ts` — never hardcoded in components
 - Analytics via `trackEvent()` from `src/utils/analytics.ts`
 - Email validation via `isValidEmail()` from `src/utils/validation.ts`
 - All code, comments, and docs in English
 
-## Blog Content
+## Blog content
+
 - Posts in `src/content/blog/` as Markdown
 - Frontmatter: title, description, date, author, tags
 - Schema defined in `src/content.config.ts`
+
+**Content caveat:** the site still describes v1 hardware (relay board) — outdated
+versus the product vision above. Updating it is not a priority until the app ships.
+
+---
+
+## CLAUDE file layout
+
+- root `CLAUDE.md` (this file) — repository-level structure and coordination
+- `astro/CLAUDE.md` — the active Astro app
+- `legacy/CLAUDE.md` — the preserved legacy site and archive rules
+
+## Project management
+
+This repo uses the `.plan/` structure for persistent planning and architecture notes.
+Use `TASKS.md` as the quick human-readable entry point and `.plan/` for working state.
