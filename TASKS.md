@@ -9,13 +9,15 @@ and the **website** (`astro/` active, `legacy/` preserved).
 
 ## Next up
 
-- [ ] **Standalone data logger — osobny proces, startuje z systemem**
-      Oddzielony od głównej apki — crash developmentu nie zatrzymuje zbierania danych.
-      Minimalne: śledzi aktywność myszy/klawiatury → append-only CSV, flush co linię.
-      Opcjonalnie: jeśli sensor podłączony → dodaje posture (sitting/standing).
-      Działa na każdym komputerze (pracowy bez sensora = partial data, lepsza niż zero).
-      Startuje automatycznie z systemem (autostart), nie wymaga uruchomienia apki.
-      Stack: osobny skrypt Node.js/Python, systemd/Task Scheduler, plik CSV w home dir.
+- [ ] **Sensor-daemon — packages/daemon — priority #1**
+      Oddzielony od apki Electron — crash developmentu nie zatrzymuje zbierania danych.
+      Architektura: jeden proces Node.js (bez Electron) który:
+        (1) czyta USB Serial z RP2040-Tiny (protokół JSON Lines, 115200 baud)
+        (2) loguje do ~/.smart-desk/desk.log (append-only CSV, flush co linię)
+        (3) serwuje dane przez WebSocket ws://localhost:3847
+      Apka Electron łączy się jako klient WS — nie ma dostępu do portu USB bezpośrednio.
+      Startuje automatycznie z systemem: Task Scheduler (Win) / systemd (Linux) / LaunchAgent (macOS).
+      Szczegóły: [research/architecture/REPO-ARCHITECTURE.md](research/architecture/REPO-ARCHITECTURE.md)
       → Zbieraj dane od siebie przez 30 dni zanim napiszesz cokolwiek innego.
 
 - [ ] **Design notification algorithm as state machine** — before writing any code.
@@ -58,6 +60,10 @@ and the **website** (`astro/` active, `legacy/` preserved).
   - `research/vision/ECOSYSTEM.md` — model biznesowy, konsorcjum, OEM per-unit
   - `research/vision/ROADMAP.md` — Stage 0→5, Smart Desk→Smart Move→Standard
   - `research/vision/RESEARCH-PLAN.md` — plan badań, PW, granty UE
+- [x] Notification algorithm designed → `research/algorithm/NOTIFICATION-ALGORITHM.md`
+- [x] Architecture designed (sensor-daemon + WS + Electron) → `research/architecture/REPO-ARCHITECTURE.md`
+- [x] Firmware protocol spec → `research/architecture/FIRMWARE-SPEC.md`
+- [x] PRD written → `PRD.md`
 
 ---
 

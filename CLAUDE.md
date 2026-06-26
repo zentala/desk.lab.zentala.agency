@@ -26,13 +26,27 @@ Read the vision before touching anything: [research/vision/MISSION.md](research/
 
 The two tracks are independent: website work does not block product work.
 
+## Document status
+
+| What | Where | Status |
+|---|---|---|
+| **PRD** | `PRD.md` | Product requirements document — start here |
+| Hardware v2 spec | `research/hardware-v2-spec.md` | Done |
+| Vision & strategy | `research/vision/` | Done |
+| Notification algorithm | `research/algorithm/` | Designed, not coded yet |
+| App architecture | `research/architecture/` | Designed, not coded yet — includes sensor-daemon |
+| Session handoff | `research/SESSION-2026-06-25.md` | Read this to catch up |
+| Task list | `TASKS.md` | Read this for next steps |
+| User research quotes | `research/user-quotes.xml` | 26 real quotes from forums |
+| Website | `astro/` | Active, builds locally — deployment unconfirmed |
+
 ---
 
 ## Read these first (priority order)
 
 1. **[PRD.md](PRD.md)** — product requirements: what, why, for whom, out of scope
 2. **[TASKS.md](TASKS.md)** — what needs to be done, in order (both tracks)
-3. **[research/SESSION-2026-06-25.md](research/SESSION-2026-06-25.md)** — session handoff, open questions
+3. **[research/SESSION-2026-06-25.md](research/SESSION-2026-06-25.md)** — full session handoff, open questions
 4. **[research/vision/MISSION.md](research/vision/MISSION.md)** — philosophy, why this exists, who it's for
 5. **[research/algorithm/NOTIFICATION-ALGORITHM.md](research/algorithm/NOTIFICATION-ALGORITHM.md)** — state machine, read before touching notification logic
 6. **[research/architecture/REPO-ARCHITECTURE.md](research/architecture/REPO-ARCHITECTURE.md)** — sensor-daemon + WS + Electron, build order

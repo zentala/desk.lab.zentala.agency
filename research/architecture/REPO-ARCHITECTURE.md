@@ -10,6 +10,30 @@
 
 ---
 
+## System architecture
+
+```
+RP2040-Tiny + VL53L0X
+      │ USB Serial (JSON Lines, 115200 baud)
+      ▼
+[sensor-daemon]                    ← packages/daemon — owns USB port exclusively
+  - reads height from laser (1Hz)
+  - appends to ~/.smart-desk/desk.log CSV  (crash-safe, flush per line)
+  - serves WebSocket ws://localhost:3847
+  - starts with OS (autostart — Task Scheduler / systemd / LaunchAgent)
+  - minimal deps: Node.js only, no Electron
+      │ WebSocket (localhost:3847)
+      ▼
+[Electron tray app]                ← packages/app — can crash freely, daemon continues
+  - connects to WS on startup
+  - reads OS mouse/keyboard events (presence detection)
+  - runs notification state machine
+  - sends OS-native notifications
+  - shows today's timeline in tray popup
+```
+
+---
+
 ## Repository structure
 
 ```
@@ -25,9 +49,21 @@ smart-desk/
 │   │
 │   ├── shared/                # shared TypeScript types
 │   │   ├── src/
-│   │   │   ├── types.ts       # SensorReading, DeskState, UserState...
-│   │   │   └── constants.ts   # defaults, thresholds
+│   │   │   ├── types.ts       # SensorReading, DeskState, UserState, WsMessage...
+│   │   │   └── constants.ts   # defaults, thresholds, WS_PORT=3847
 │   │   └── package.json
+│   │
+│   ├── daemon/                # sensor-daemon — standalone process
+│   │   ├── src/
+│   │   │   ├── index.ts       # entry point
+│   │   │   ├── serial.ts      # USB Serial reader (serialport)
+│   │   │   ├── logger.ts      # append-only CSV logger, flush per line
+│   │   │   └── ws-server.ts   # WebSocket server on localhost:3847
+│   │   ├── package.json
+│   │   └── install/
+│   │       ├── windows.ts     # Task Scheduler autostart registration
+│   │       ├── linux.ts       # systemd unit file generator
+│   │       └── macos.ts       # LaunchAgent plist generator
 │   │
 │   └── app/                   # Electron tray application
 │       ├── src/
@@ -36,10 +72,10 @@ smart-desk/
 │       │   │   ├── tray.ts    # system tray icon + menu
 │       │   │   └── ipc.ts     # IPC handlers
 │       │   │
-│       │   ├── sensor/        # hardware abstraction
-│       │   │   ├── serial.ts  # USB Serial reader (RP2040 communication)
-│       │   │   ├── mock.ts    # mock sensor for dev without hardware
-│       │   │   └── index.ts   # exports unified SensorStream
+│       │   ├── sensor/        # sensor data source abstraction
+│       │   │   ├── ws-client.ts  # WebSocket client → daemon
+│       │   │   ├── mock.ts       # mock sensor for dev without hardware
+│       │   │   └── index.ts      # exports unified SensorStream
 │       │   │
 │       │   ├── activity/      # OS-level activity detection
 │       │   │   ├── mouse.ts   # mouse + keyboard event listener
@@ -84,7 +120,24 @@ This means:
 - Engine can run in Node.js for CLI testing
 - Engine is portable if we ever move to a different shell
 
-### 2. Two sensor modes via unified interface
+### 2. Sensor-daemon owns the USB port exclusively
+
+The daemon is a separate Node.js process — minimal deps, no Electron.
+It owns the USB Serial port and is the only process that reads from it.
+It exposes data over WebSocket (ws://localhost:3847) to any subscriber.
+
+**Why separate process:**
+- App can crash during development — daemon keeps logging
+- No USB port conflict (one exclusive owner)
+- Daemon survives OS sessions, starts with system
+- App reconnects automatically on startup
+
+**Why WebSocket over localhost:**
+- Native to Node.js (no IPC plumbing)
+- Multiple clients can subscribe (future: CLI tools, web UI)
+- Standard protocol, easy to debug with any WS client
+
+### 3. Two sensor modes via unified interface
 
 ```typescript
 // packages/app/src/sensor/index.ts
@@ -94,14 +147,15 @@ interface SensorStream {
   stop(): void;
 }
 
-// hardware mode: reads from USB Serial
-class HardwareSensor implements SensorStream { ... }
+// hardware mode: connects to daemon WebSocket
+class DaemonSensor implements SensorStream { ... }
 
 // software-only mode: returns null height (unknown posture)
 class SoftwareSensor implements SensorStream { ... }
 ```
 
-App detects at startup which mode to use. User can override in settings.
+App detects at startup which mode to use. If daemon is running → hardware mode.
+If daemon not reachable → software-only mode (graceful fallback).
 
 ### 3. State machine as explicit enum + transition function
 
@@ -180,13 +234,14 @@ mpremote connect /dev/ttyUSB0 run main.py
 
 ## First milestone (what to build in order)
 
-1. `packages/shared` — types only, no logic
-2. `packages/app/src/engine/state-machine.ts` — pure logic, write tests first
-3. `packages/app/src/activity/mouse.ts` — OS activity detection
-4. `packages/app/src/notifications/sender.ts` — OS notification
-5. Wire it together in `main/index.ts` — working software-only mode
-6. `packages/firmware/main.py` — firmware sending height readings
-7. `packages/app/src/sensor/serial.ts` — USB Serial reader
-8. Hardware mode works end-to-end
+1. `packages/shared` — types only, no logic (SensorReading, DeskState, WsMessage)
+2. `packages/daemon` — USB Serial reader + CSV logger + WebSocket server
+   → run it, verify data flows to `desk.log`, verify WS messages arrive
+3. `packages/app/src/engine/state-machine.ts` — pure logic, write tests first
+4. `packages/app/src/activity/mouse.ts` — OS activity detection
+5. `packages/app/src/sensor/ws-client.ts` — connect to daemon WebSocket
+6. `packages/app/src/notifications/sender.ts` — OS notification
+7. Wire it together in `main/index.ts` — hardware mode working end-to-end
+8. Fallback: if daemon not reachable → software-only mode
 9. `packages/app/src/storage/` — persist sessions to SQLite
 10. Tray icon + basic popup UI
