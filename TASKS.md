@@ -73,6 +73,99 @@ and the **website** (`astro/` active, `legacy/` preserved).
 
 # Website — astro/ + legacy/
 
+## 🎯 THE PLAN: article-only site (decided 2026-07-15)
+
+**Goal.** `dev` becomes the site. Its homepage is **the W1 article** — nothing else.
+Every stage-2 marketing page (blog, pricing, FAQ, waitlist) is **hidden**. Keep the
+Astro machinery, drop the fabricated content. The article is real; the marketing is not.
+
+**Why.** Stage-2 content isn't ready and is largely invented (see Pre-launch blockers
+below). The article IS ready in draft. Shipping one honest page beats shipping a
+fake funnel. This also makes most Pre-launch blockers moot — you delete the
+components rather than fix them.
+
+**Source material — the draft already exists:** [`legacy/notes/article-draft.md`](legacy/notes/article-draft.md)
+— *"Wersja 0.1 inteligentnego biurka: wnioski, bledy i dlaczego najwazniejszy jest UX"*.
+10 sections, complete enough to publish after an editing pass. It ends with 5 editorial
+questions to the owner — answer them first. Polish text; decide PL or EN before porting.
+
+> Supersedes `.plan/STATE.md`'s "Parked by the owner: writing an article… Not now."
+> Unparked 2026-07-15.
+
+### ⚠️ Reality check — the site is not live anywhere (verified 2026-07-15)
+
+Do not assume any deploy path works. All four are broken:
+
+| Target | State |
+|---|---|
+| `desk.lab.zentala.agency` (CNAME on `master`, singular) | **SSL fail — dead** |
+| `desk.labs.zentala.agency` (plural) | 200, but serves **`Hello world`** — an 11-byte placeholder Cloudflare Worker |
+| `lp.desk.labs.zentala.agency` | **NXDOMAIN** — never wired |
+| `desk-zentala-io.pages.dev` | **404** — the Pages project has never had a deployment |
+
+Root causes, all three live at once:
+- **GitHub Pages was disabled** — `has_pages: false`, `/pages` API → 404. Last successful
+  `pages build and deployment` on `master`: 2026-07-15 **02:04**, i.e. around the branch move.
+  `.plan/STATE.md` still claims "master — the live GitHub Pages site". **That is now false.**
+- **`CLOUDFLARE_API_TOKEN` repo secret is not set** — `.github/workflows/deploy.yml` builds
+  fine then dies at `wrangler pages deploy` with *"In a non-interactive environment, it's
+  necessary to set a CLOUDFLARE_API_TOKEN"*. This deploy **has never once succeeded**.
+- **No custom domain on the Pages project** — account config, not repo config.
+
+### Task order
+
+**Phase 0 — make deploy exist** (nothing else matters until a push shows up somewhere)
+
+- [ ] Set repo secret `CLOUDFLARE_API_TOKEN` (+ `CLOUDFLARE_ACCOUNT_ID` if the action needs it)
+- [ ] Push to `dev` → confirm `desk-zentala-io.pages.dev` stops 404ing
+- [ ] **Decide `lab` vs `labs`** — blocks the domain wiring. Repo is named `desk.labs…`,
+      `homepage` is `desk.labs…`, `astro.config.mjs` has `lp.desk.labs…`, `master`'s CNAME
+      says `desk.lab…`. Three spellings, one site. Pick one, fix the rest.
+- [ ] Wire the custom domain to the Pages project + DNS record
+- [ ] Remove/replace the `Hello world` Worker squatting on the chosen hostname
+
+**Phase 1 — the article becomes the homepage**
+
+- [ ] Answer the 5 editorial questions at the bottom of `legacy/notes/article-draft.md`
+- [ ] Decide language (PL / EN / both) and personal-story vs whitepaper tone (question 3)
+- [ ] Edit the draft to final. Restore Polish diacritics — the draft has none
+      (`wnioski, bledy` → `błędy`). Slugs stay transliterated: `ł→l`, `ż→z`, `ó→o`.
+- [ ] Port it into `astro/src/pages/index.astro`, replacing the ~16 marketing components
+      (`Hero`, `Problem`, `Story`, `HowItWorks`, `Features`, `Screenshots`, `SocialProof`,
+      `ComparisonTable`, `Pricing`, `ReferralProgram`, `SocialWall`, `FAQ`, `WaitlistForm`,
+      `StickyCTA`, `ExitPopup`). Keep `Footer`.
+- [ ] **This is not a copy-paste.** Stage 1 is Bootstrap, stage 2 is Tailwind v4. Either
+      re-author the content against the existing Tailwind setup (preferred — keeps the
+      Astro shell meaningful), or serve legacy HTML/CSS verbatim from `astro/public/`
+      and bypass components (faster, throws the shell away). Pick one, write it down.
+- [ ] Images: `legacy/images/` and `astro/public/images/` already hold the same filenames,
+      so references port directly. Owner also wanted them shrunk — do it here or defer.
+
+**Phase 2 — hide stage 2**
+
+- [ ] Remove/unroute `astro/src/pages/blog/index.astro`, `blog/[slug].astro`, `blog/rss.xml.ts`
+- [ ] Strip nav/footer links to blog, pricing, FAQ
+- [ ] **Delete** the fabricated components — do not just unmount them. See Pre-launch
+      blockers below; once the page no longer imports them, deleting is free and stops
+      them coming back.
+- [ ] Keep the 2 existing blog posts as files (`astro/src/content/blog/`) — unrouted, not deleted
+
+**Phase 3 — go public**
+
+- [ ] Remove `noindex` **last**, only once the page is the article and nothing fabricated
+      renders: `robots.txt` (`Disallow: /` → `Allow: /` + Sitemap) and the meta tags in
+      `index.astro`, `blog/index.astro`, `layouts/BlogPost.astro`
+- [ ] Point Plausible `data-domain` at the final host, or drop the script
+- [ ] Decide what `master` becomes — archival, fallback, or delete. Open item below.
+      Backup tag `backup/master-pre-move` is **local-only and dies with mATX** — push it
+      if it matters.
+
+### Open decision (owner)
+
+- [ ] **Does the article replace the landing, or sit beside a hidden landing?**
+      Written above as **replace** — that is the assumption in Phase 1. Say otherwise and
+      Phase 1 changes shape.
+
 ## Pre-launch blockers — MUST clear before the site goes public
 
 The Astro site is deployed to **lp.desk.labs.zentala.agency** as a dev preview only.
