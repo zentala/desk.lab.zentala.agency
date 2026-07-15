@@ -5,6 +5,13 @@ node_modules/
 deploy/
 yarn*
 
-# Astro build output — see CLAUDE.md for the astro-desk source project
+# Astro build output, orphaned onto this branch.
+# The Astro project lives on `dev` at astro/ — source and its own astro/.gitignore
+# are tracked there, not here. Building on `dev` then checking out master leaves
+# astro/dist, astro/.astro and astro/node_modules behind as untracked dirs, because
+# git only removes tracked files and dev's astro/.gitignore goes away with them.
+# These entries keep master's working tree clean across that switch. There is no
+# Astro source on master and nothing here ever builds it.
 astro/dist/
 astro/.astro/
+astro/node_modules/
