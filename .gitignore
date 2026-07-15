@@ -4,3 +4,7 @@
 node_modules/
 deploy/
 yarn*
+
+# Astro build output — see CLAUDE.md for the astro-desk source project
+astro/dist/
+astro/.astro/
