@@ -1,10 +1,22 @@
 ---
 updated: 2026-07-15
-focus: Astro site wired to a noindex dev preview; product track is design-only, no code yet.
-next: Decide whether to push `dev` (triggers Cloudflare deploy), resolve `lab` vs `labs`, wire the custom domain.
+focus: E001 site rebuild planned and approved — epic files and article MDX not written yet.
+next: Answer blockers (lab vs labs, is the 8% figure real), then write the E001 epic + the article.
+handoff: HANDOFF.md
 ---
 
 # State
+
+> **Full context: [../HANDOFF.md](../HANDOFF.md)** — read that first. This file is the short version.
+
+## Approved but not started: E001 site rebuild
+
+One Astro app, one domain. Homepage becomes a versioned engineering status report aimed at
+CTOs/hiring managers; the pre-order funnel moves to `/lp` behind Cloudflare Access. Repo
+consolidates to one branch; `master` gets frozen. Plan lives at
+`~/.claude/plans/strona-ma-by-artyku-em-keen-hopcroft.md`, summarised in `HANDOFF.md` §5.
+
+Next session's first job: write `.plan/epics/E001-2026-07-15-site-rebuild/` and the article draft.
 
 ## Branches — read this first
 

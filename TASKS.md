@@ -1,5 +1,9 @@
 # desk.zentala.io — Tasks
 
+> **Start here: [HANDOFF.md](HANDOFF.md)** — full context dump from the 2026-07-15 session.
+> Current repo state, the approved E001 site-rebuild plan, what's already built and reusable,
+> and the open blockers. Read it before picking up any task below.
+
 This repo covers two tracks: the **product** (Open Smart Desk hardware + app research)
 and the **website** (`astro/` active, `legacy/` preserved).
 

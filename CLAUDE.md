@@ -44,6 +44,8 @@ The two tracks are independent: website work does not block product work.
 
 ## Read these first (priority order)
 
+0. **[HANDOFF.md](HANDOFF.md)** — session context dump: current repo state, the approved
+   E001 site-rebuild plan, reusable assets, open blockers. **Read before touching anything.**
 1. **[PRD.md](PRD.md)** — product requirements: what, why, for whom, out of scope
 2. **[TASKS.md](TASKS.md)** — what needs to be done, in order (both tracks)
 3. **[research/SESSION-2026-06-25.md](research/SESSION-2026-06-25.md)** — full session handoff, open questions
