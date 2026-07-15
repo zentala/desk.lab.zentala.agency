@@ -21,10 +21,12 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Dev preview: not for indexing. Remove before launch — see TASKS.md "Pre-launch blockers". -->
+  <meta name="robots" content="noindex, nofollow">
   <title>{title} — zntlDesk Blog</title>
   <meta name="description" content={description || title}>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <script defer data-domain="desk.zentala.io" src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="lp.desk.labs.zentala.agency" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <article class="mx-auto max-w-[720px] px-4 py-16">

@@ -1,4 +1,6 @@
+# Dev preview (lp.desk.labs.zentala.agency) — must not be indexed.
+# BEFORE PUBLIC LAUNCH: restore "Allow: /" and the Sitemap line, and remove the
+# noindex meta tags from src/pages/index.astro, src/pages/blog/index.astro and
+# src/layouts/BlogPost.astro. See TASKS.md -> "Pre-launch blockers".
 User-agent: *
-Allow: /
-
-Sitemap: https://desk.zentala.io/sitemap.xml
+Disallow: /

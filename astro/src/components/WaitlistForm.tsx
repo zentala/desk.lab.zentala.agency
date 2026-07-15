@@ -7,7 +7,7 @@ import { trackEvent } from '../utils/analytics';
 import { isValidEmail } from '../utils/validation';
 
 /** Placeholder endpoint — Cloudflare Worker to be built later */
-const WAITLIST_ENDPOINT = 'https://waitlist.desk.zentala.io/api/signup';
+const WAITLIST_ENDPOINT = 'https://waitlist.lp.desk.labs.zentala.agency/api/signup';
 
 interface Props {
   /** Compact variant for footer placement */

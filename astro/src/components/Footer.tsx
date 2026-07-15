@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="grid gap-12 sm:grid-cols-3">
           {/* Brand */}
           <div>
-            <h3 className="text-lg font-bold text-gray-100">desk.zentala.io</h3>
+            <h3 className="text-lg font-bold text-gray-100">lp.desk.labs.zentala.agency</h3>
             <p className="mt-3 text-sm text-muted">
               Open source desk sensor that actually gets you to stand up.
               Built by a developer, for developers.

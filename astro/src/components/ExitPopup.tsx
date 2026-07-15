@@ -7,7 +7,7 @@ import { trackEvent } from '../utils/analytics';
 import { isValidEmail } from '../utils/validation';
 
 const STORAGE_KEY = 'exit-popup-shown';
-const WAITLIST_ENDPOINT = 'https://waitlist.desk.zentala.io/api/signup';
+const WAITLIST_ENDPOINT = 'https://waitlist.lp.desk.labs.zentala.agency/api/signup';
 
 export default function ExitPopup() {
   const [show, setShow] = useState(false);

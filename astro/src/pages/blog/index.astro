@@ -11,11 +11,13 @@ const posts = (await getCollection('blog')).sort(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Dev preview: not for indexing. Remove before launch — see TASKS.md "Pre-launch blockers". -->
+  <meta name="robots" content="noindex, nofollow">
   <title>Blog — zntlDesk</title>
   <meta name="description" content="Articles about sitting habits, standing desk ergonomics, and the science of movement at work.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate" type="application/rss+xml" title="zntlDesk Blog" href="/blog/rss.xml">
-  <script defer data-domain="desk.zentala.io" src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="lp.desk.labs.zentala.agency" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <div class="mx-auto max-w-6xl px-4 py-16">

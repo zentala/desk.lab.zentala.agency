@@ -76,4 +76,4 @@ If you have a height-adjustable desk and you think you are using it well — you
 
 ---
 
-*zntlDesk is the open source sensor + app that tracked all of this. Pre-order the hardware kit at [desk.zentala.io](https://desk.zentala.io/#pricing) — from EUR 49.*
+*zntlDesk is the open source sensor + app that tracked all of this. Pre-order the hardware kit at [lp.desk.labs.zentala.agency](https://lp.desk.labs.zentala.agency/#pricing) — from EUR 49.*

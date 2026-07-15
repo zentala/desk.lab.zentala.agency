@@ -69,6 +69,38 @@ and the **website** (`astro/` active, `legacy/` preserved).
 
 # Website — astro/ + legacy/
 
+## Pre-launch blockers — MUST clear before the site goes public
+
+The Astro site is deployed to **lp.desk.labs.zentala.agency** as a dev preview only.
+It is `noindex` on purpose and contains fabricated content. Nothing below is optional:
+shipping the site to a real domain with any of these unresolved would mislead visitors.
+
+- [ ] **Remove `noindex`** — `robots.txt` (`Disallow: /` → `Allow: /` + Sitemap line) and the
+      `<meta name="robots" content="noindex, nofollow">` in `src/pages/index.astro`,
+      `src/pages/blog/index.astro`, `src/layouts/BlogPost.astro`.
+- [ ] **Delete fabricated testimonials** — `src/components/SocialProof.tsx` invents
+      Marcus W. / Lisa K. / Erik N. The file is marked TEMPLATE in code but renders as real.
+      There are no users yet, so there are no testimonials.
+- [ ] **Delete fabricated results** — the "Real Results" before/after table (8% → 22%
+      standing time) in `SocialProof.tsx` presents made-up data as measured.
+- [ ] **Delete fake scarcity counters** — `public/preorder-count.json` hardcodes
+      `{basic: 34, pro: 12, founder: 5}`, rendering as "Only 166 spots left" and
+      "Total raised: €3,359". No pre-orders exist.
+- [ ] **Fix or remove pre-order buttons** — `STRIPE_LINKS` in `src/components/Pricing.tsx`
+      point to `checkout.stripe.com/placeholder-*` (404). Do not take money for
+      hardware that does not exist yet.
+- [ ] **Fix or remove the waitlist** — `WaitlistForm.tsx` and `ExitPopup.tsx` POST to
+      `waitlist.lp.desk.labs.zentala.agency/api/signup`, a backend that does not exist.
+      Today it reports success on failure.
+- [ ] **Reconcile the site with `PRD.md`** — the page sells a cloud subscription,
+      smartwatch integration and a phone display; the PRD explicitly rules out all three.
+      It also says `VL53L1X` where the spec says `VL53L0X`, and sells gamification
+      that the PRD defers to Phase 2.
+- [ ] **Confirm `lab` vs `labs`** — CNAME on `master` is `desk.lab.zentala.agency`
+      (singular); this preview uses `desk.labs.zentala.agency` (plural). One is wrong.
+- [ ] **Create the Plausible site** for the final domain, or drop the script —
+      `data-domain` currently points at the preview host.
+
 ## Current Status
 
 - The actively developed website lives in `astro/`.

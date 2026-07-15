@@ -99,4 +99,4 @@ Willpower is not the answer. Automation is.
 
 ---
 
-*zntlDesk is an open source desk sensor that tracks your sitting and standing automatically and nudges you to move. Pre-order at [desk.zentala.io](https://desk.zentala.io/#pricing) — from EUR 49.*
+*zntlDesk is an open source desk sensor that tracks your sitting and standing automatically and nudges you to move. Pre-order at [lp.desk.labs.zentala.agency](https://lp.desk.labs.zentala.agency/#pricing) — from EUR 49.*

@@ -28,7 +28,7 @@ const steps: Step[] = [
   },
 ];
 
-const REFERRAL_LINK = 'desk.zentala.io/?ref=YOUR_CODE';
+const REFERRAL_LINK = 'lp.desk.labs.zentala.agency/?ref=YOUR_CODE';
 
 export default function ReferralProgram() {
   const [copied, setCopied] = useState(false);
