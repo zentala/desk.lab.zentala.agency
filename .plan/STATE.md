@@ -1,7 +1,9 @@
 ---
-updated: 2026-07-15
-focus: E001 site rebuild planned and approved — epic files and article MDX not written yet.
-next: Answer blockers (lab vs labs, is the 8% figure real), then write the E001 epic + the article.
+updated: 2026-07-28T03:25:26
+focus: E001 (infra) + E002 (content/article) — both epics written (2026-07-28). Split done. No execution yet.
+next: Answer blockers (lab vs labs, is the 8% figure real), then write article v0.2 (E002-T08), then execute.
+active_epic: E002
+active_epic_path: .plan/epics/E002-2026-07-28-status-report
 handoff: HANDOFF.md
 ---
 
@@ -9,14 +11,30 @@ handoff: HANDOFF.md
 
 > **Full context: [../HANDOFF.md](../HANDOFF.md)** — read that first. This file is the short version.
 
-## Approved but not started: E001 site rebuild
+## E001 + E002 — both epics written, execution not started
 
 One Astro app, one domain. Homepage becomes a versioned engineering status report aimed at
 CTOs/hiring managers; the pre-order funnel moves to `/lp` behind Cloudflare Access. Repo
-consolidates to one branch; `master` gets frozen. Plan lives at
-`~/.claude/plans/strona-ma-by-artyku-em-keen-hopcroft.md`, summarised in `HANDOFF.md` §5.
+consolidates to one branch; `master` gets frozen. Program map: [ROADMAP.md](ROADMAP.md).
 
-Next session's first job: write `.plan/epics/E001-2026-07-15-site-rebuild/` and the article draft.
+**2026-07-28 — E001 split into two epics** (the old E001 was too broad):
+
+- **[E001](epics/E001-2026-07-15-site-rebuild/PLAN.md)** — infra/plumbing: consolidation,
+  funnel → `/lp` + Cloudflare Access, `noindex` inversion, EXIF strip, CI, cutover, freeze `master`.
+  13 tasks, 3 waves.
+- **[E002](epics/E002-2026-07-28-status-report/PLAN.md)** — content: MDX pipeline, `updates`
+  collection, DecisionRecord, versioned header, report homepage, **the article v0.2**, standing
+  pages, RSS/`/versions`. 10 tasks, 3 waves.
+
+Cross-epic: E001-T08 (funnel → `/lp`) pairs with E002-T07 (report at `/`); E001-T11/T12 (drop
+legacy-source, cutover) wait for E002 content live.
+
+Article framing (owner): about *conclusions + next steps*, not an un-copyable moat — the May
+"protocol/standard is the real product" + data-monetization angle is excluded, shown only as the
+superseded position. New reality: the **W2 hardware is being built now** (RP2040-Tiny + VL53L0X
+over USB), reflected in the article's closing section.
+
+Next: answer blockers, then write article v0.2 (E002-T08), then execute.
 
 ## Branches — read this first
 
@@ -39,7 +57,7 @@ merged by hand into a two-track structure. Backup of the old `master`: tag
 
 | Track | Where | State |
 |---|---|---|
-| Product | `PRD.md`, `research/` | Fully designed, **zero code**. Repo `smart-desk` does not exist yet. |
+| Product | `PRD.md`, `research/` (design) + **separate product repo** (code) | Firmware/daemon/algorithm/app live in their own existing repo — see [ROADMAP.md](ROADMAP.md). This repo holds design + the portfolio site only. |
 | Website | `astro/` (active), `legacy/` | Builds green; deployable as preview only. |
 
 ## Website — current state
@@ -65,8 +83,8 @@ merged by hand into a two-track structure. Backup of the old `master`: tag
 - **Custom domain not wired.** The workflow deploys to `desk-zentala-io` with
   `--branch=dev`, which yields a `*.pages.dev` URL. `lp.desk.labs.zentala.agency`
   needs a Pages custom domain + DNS record — account config, not repo config.
-- **`lab` vs `labs` unresolved.** `master`'s CNAME says `desk.lab.zentala.agency`
-  (singular); the preview uses `desk.labs.zentala.agency` (plural). One of them is wrong.
+- **`lab` vs `labs` — RESOLVED (owner, 2026-07-28): `labs` (plural) is canonical.** `master`'s
+  CNAME `desk.lab.zentala.agency` (singular) is the bug; fix it to `labs` during E001-T05.
 - Waitlist posts to `waitlist.lp.desk.labs.zentala.agency/api/signup` — a backend that
   does not exist (an artifact of the blanket domain swap; the old host was dead too).
   It reports success on failure. Tracked in `TASKS.md`.

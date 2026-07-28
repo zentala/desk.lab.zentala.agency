@@ -1,5 +1,14 @@
 # Backlog
 
+## Program map
+
+- [ROADMAP.md](ROADMAP.md) — the whole program: streams, critical path, the two homes.
+
+## Epics
+
+- [E001 — Site rebuild: consolidation + funnel/infra plumbing + cutover](epics/E001-2026-07-15-site-rebuild/PLAN.md) — planned, approved; infra scope after the 2026-07-28 split.
+- [E002 — Versioned status-report content system + article v0.2](epics/E002-2026-07-28-status-report/PLAN.md) — planned; the portfolio/article half of the old E001.
+
 ## Active
 
 - Finish cleanup after separating the repository into explicit legacy and active website tracks.
