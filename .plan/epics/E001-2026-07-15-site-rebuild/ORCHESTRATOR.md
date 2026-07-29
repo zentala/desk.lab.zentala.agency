@@ -7,11 +7,16 @@ How & when. See [PLAN.md](PLAN.md) for what & why. Content/article are [E002](..
 ## Wave 1 — consolidation (sequential; tasks share doc/CI files)
 
 `master` and `dev` share ancestor `e1a248e` → a **plain `git merge master`** (no
-`--allow-unrelated-histories`). `dev` has no competing asset paths, so they land as clean adds.
+`--allow-unrelated-histories`). Verified by the T01 rehearsal (2026-07-29).
+
+**Master brings three files, not a site:** `.gitignore` (conflict), `CLAUDE.md` (add/add
+conflict), `CNAME` (clean, → `desk.labs.zentala.agency`). The static assets predate the split
+and already live on `dev` under `legacy/` — they are never re-added at the root. This rewrites
+T04 and narrows T05/T07; see [JOURNAL.md](JOURNAL.md).
 
 | # | Task | Status |
 |---|---|---|
-| T01 | [Rehearse the merge in a throwaway worktree; document the conflict set](tasks/E001-T01.md) | [ ] |
+| T01 | [Rehearse the merge in a throwaway worktree; document the conflict set](tasks/E001-T01.md) | [x] |
 | T02 | [Execute merge on `consolidate/site-rebuild`; resolve conflicts by hand](tasks/E001-T02.md) | [ ] |
 | T03 | [Rescue `legacy/notes/*.md`, then `git rm -r legacy/`](tasks/E001-T03.md) | [ ] |
 | T04 | [Move master's assets into the app; keep `index.html` as `legacy-source/`](tasks/E001-T04.md) | [ ] |

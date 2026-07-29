@@ -1,9 +1,9 @@
 ---
 updated: 2026-07-28T03:25:26
-focus: E001 (infra) + E002 (content/article) — both epics written (2026-07-28). Split done. No execution yet.
-next: Answer blockers (lab vs labs, is the 8% figure real), then write article v0.2 (E002-T08), then execute.
-active_epic: E002
-active_epic_path: .plan/epics/E002-2026-07-28-status-report
+focus: E001 Wave 1 started — T01 (merge rehearsal) done 2026-07-29. T02 (the real merge) is next.
+next: E001-T02 — merge master into consolidate/site-rebuild, hand-resolve .gitignore + CLAUDE.md. Open blocker: analytics (GA vs Plausible).
+active_epic: E001
+active_epic_path: .plan/epics/E001-2026-07-15-site-rebuild
 handoff: HANDOFF.md
 ---
 
@@ -11,7 +11,15 @@ handoff: HANDOFF.md
 
 > **Full context: [../HANDOFF.md](../HANDOFF.md)** — read that first. This file is the short version.
 
-## E001 + E002 — both epics written, execution not started
+## E001 Wave 1 in progress; E002 not started
+
+**2026-07-29 — E001-T01 done.** The `master` merge was rehearsed in a throwaway worktree:
+**two conflicts** (`.gitignore`, `CLAUDE.md`), `CNAME` clean at `desk.labs.zentala.agency`,
+merge-base exactly `e1a248e`. Master carries no assets — they already sit on `dev` under
+`legacy/`, duplicated into `astro/public/images/` (19.7 MB twice). T04 was rewritten around
+that, T05/T07 narrowed. Findings: [E001 JOURNAL](epics/E001-2026-07-15-site-rebuild/JOURNAL.md).
+
+## E001 + E002 — the plan as written 2026-07-28
 
 One Astro app, one domain. Homepage becomes a versioned engineering status report aimed at
 CTOs/hiring managers; the pre-order funnel moves to `/lp` behind Cloudflare Access. Repo
