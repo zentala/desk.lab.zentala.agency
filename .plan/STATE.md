@@ -1,5 +1,5 @@
 ---
-updated: 2026-07-28T03:25:26
+updated: 2026-07-29T21:46:57
 focus: E001 Wave 1 started — T01 (merge rehearsal) done 2026-07-29. T02 (the real merge) is next.
 next: E001-T02 — merge master into consolidate/site-rebuild, hand-resolve .gitignore + CLAUDE.md. Open blocker: analytics (GA vs Plausible).
 active_epic: E001
