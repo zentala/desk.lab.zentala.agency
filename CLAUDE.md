@@ -32,6 +32,7 @@ The two tracks are independent: website work does not block product work.
 |---|---|---|
 | **PRD** | `PRD.md` | Product requirements document — start here |
 | Hardware v2 spec | `research/hardware-v2-spec.md` | Done |
+| PCB commission brief | `research/hardware-v2-pcb-commission-brief.md` | Ready to publish |
 | Vision & strategy | `research/vision/` | Done |
 | Notification algorithm | `research/algorithm/` | Designed, not coded yet |
 | App architecture | `research/architecture/` | Designed, not coded yet — includes sensor-daemon |

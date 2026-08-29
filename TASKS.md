@@ -38,6 +38,7 @@ and the **website** (`astro/` active, `legacy/` preserved).
 
 - [ ] **Design PCB v2** — black PCB, RP2040-Tiny + VL53L0X, I2C traces, USB connector.
       Fab: JLCPCB.
+      Brief do zlecenia i kryteria odbioru: [research/hardware-v2-pcb-commission-brief.md](research/hardware-v2-pcb-commission-brief.md)
 
 - [ ] **Design enclosure v2** — smoked graphite plexi, laser cut, much smaller than v1.
       New DXF file in `enclosure/v2/`.
