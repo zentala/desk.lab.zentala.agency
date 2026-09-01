@@ -12,18 +12,18 @@ From this directory:
 
 ```text
 npm ci --ignore-scripts
-npm run validate
-npm run prove:pipeline
-npm run prove:candidate
-npx tsc --noEmit
+npm run check
 ```
 
-`prove:pipeline` exercises a minimal TS Circuit design and writes independent
+`check` runs contract tests, TypeScript checking, both render proofs, electrical
+contract validation and deterministic manifest generation. `prove:pipeline`
+exercises a minimal TS Circuit design and writes independent
 Circuit JSON, schematic SVG and PCB SVG files. `prove:candidate` transpiles the
-placeholder candidate and renders the same artefacts. The `tsci render` and
-`tsci export` scripts are retained for a machine where the CLI's native Rollup
-dependency is permitted; this Windows environment currently blocks that native
-addon, so Gerbers/BOM/placement exports are not claimed.
+placeholder candidate and renders the same artefacts. The manifest records
+source/artifact hashes and all current Circuit JSON diagnostics. The `tsci
+render` and `tsci export` scripts are retained for a machine where the CLI's
+native Rollup dependency is permitted; this Windows environment currently
+blocks that native addon, so Gerbers/BOM/placement exports are not claimed.
 
 ## Review materials
 

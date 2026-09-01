@@ -6,14 +6,21 @@
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate.mjs",
+    "test": "node scripts/validation.test.mjs",
+    "typecheck": "tsc --noEmit",
     "prove:pipeline": "node scripts/prove-pipeline.mjs",
     "prove:candidate": "node scripts/prove-candidate.mjs",
+    "manifest": "node scripts/update-manifest.mjs",
     "render": "tsci render src/carrier.tsx --output-dir artifacts/render",
     "export": "tsci export src/carrier.tsx --output-dir artifacts/manufacturing",
-    "check": "npm run validate"
+    "check": "npm run test && npm run typecheck && npm run prove:pipeline && npm run prove:candidate && npm run validate && npm run manifest"
+  },
+  "engines": {
+    "node": ">=22 <23"
   },
   "license": "MIT",
   "devDependencies": {
+    "@tscircuit/checks": "0.0.178",
     "@tscircuit/core": "0.0.1816",
     "@tscircuit/eval": "0.0.1321",
     "react": "19.2.8",

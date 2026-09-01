@@ -28,8 +28,8 @@ export default () => (
       pinLabels={{
         1: "VIN_OR_3V3_PENDING",
         2: "GND",
-        3: "SDA",
-        4: "SCL",
+        3: "SCL",
+        4: "SDA",
       }}
     />
 

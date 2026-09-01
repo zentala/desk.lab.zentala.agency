@@ -3,23 +3,66 @@
   "revision": "0.1.0-candidate",
   "status": "blocked-before-fabrication",
   "source": "src/carrier.tsx",
-  "tool": { "package": "tscircuit", "version": "0.0.2462", "runtime": "Node.js 22.22.3" },
+  "tool": {
+    "generator": {
+      "package": "@tscircuit/core",
+      "version": "0.0.1816"
+    },
+    "checks": {
+      "package": "@tscircuit/checks",
+      "version": "0.0.178"
+    },
+    "cli": {
+      "package": "tscircuit",
+      "version": "0.0.2462"
+    },
+    "runtime": ">=22 <23"
+  },
   "commands": {
     "validate": "npm run validate",
     "render": "npm run render",
-    "manufacturing": "npm run export"
+    "manufacturing": "npm run export",
+    "check": "npm run check"
   },
   "expectedArtifacts": [
-    { "name": "circuit-json", "path": "artifacts/candidate-proof/circuit.json", "status": "generated-from-placeholder-candidate" },
-    { "name": "schematic-render", "path": "artifacts/candidate-proof/schematic.svg", "status": "generated-from-placeholder-candidate" },
-    { "name": "pcb-render", "path": "artifacts/candidate-proof/pcb.svg", "status": "generated-from-placeholder-candidate" },
-    { "name": "3d-render", "path": "artifacts/render/3d.svg", "status": "not-generated" },
-    { "name": "gerbers-and-drills", "path": "artifacts/manufacturing/", "status": "not-generated" },
-    { "name": "bom", "path": "artifacts/manufacturing/bom.csv", "status": "not-generated" },
-    { "name": "placement", "path": "artifacts/manufacturing/placement.csv", "status": "not-generated" }
+    {
+      "name": "circuit-json",
+      "path": "artifacts/candidate-proof/circuit.json",
+      "status": "generated-from-placeholder-candidate"
+    },
+    {
+      "name": "schematic-render",
+      "path": "artifacts/candidate-proof/schematic.svg",
+      "status": "generated-from-placeholder-candidate"
+    },
+    {
+      "name": "pcb-render",
+      "path": "artifacts/candidate-proof/pcb.svg",
+      "status": "generated-from-placeholder-candidate"
+    },
+    {
+      "name": "3d-render",
+      "path": "artifacts/render/3d.svg",
+      "status": "not-generated"
+    },
+    {
+      "name": "gerbers-and-drills",
+      "path": "artifacts/manufacturing/",
+      "status": "not-generated"
+    },
+    {
+      "name": "bom",
+      "path": "artifacts/manufacturing/bom.csv",
+      "status": "not-generated"
+    },
+    {
+      "name": "placement",
+      "path": "artifacts/manufacturing/placement.csv",
+      "status": "not-generated"
+    }
   ],
   "verification": {
-    "localValidation": "passed: npm run validate",
+    "localValidation": "passed: npm run check",
     "pipelineProof": {
       "command": "npm run prove:pipeline",
       "status": "passed",
@@ -30,7 +73,70 @@
       ],
       "independentOpen": "SVG files are standalone text files; Circuit JSON parses as an array"
     },
-    "independentFileOpen": "pending",
-    "notes": "The minimal core pipeline is proven. The tsci CLI path for the actual TSX candidate is currently blocked on this Windows environment by a native Rollup application-policy error; do not promise unsupported exports."
+    "independentFileOpen": "passed: Circuit JSON arrays parse; standalone SVG roots are present",
+    "notes": "The minimal core pipeline is proven. The tsci CLI path for the actual TSX candidate is currently blocked on this Windows environment by a native Rollup application-policy error; do not promise unsupported exports.",
+    "candidateDiagnostics": {
+      "errors": 0,
+      "warnings": 7,
+      "byType": {
+        "schematic_component_styling_warning": 1,
+        "source_component_pins_underspecified_warning": 2,
+        "source_no_ground_pin_defined_warning": 2,
+        "source_no_power_pin_defined_warning": 2
+      }
+    }
+  },
+  "provenance": {
+    "sources": [
+      {
+        "path": "src/carrier.tsx",
+        "bytes": 2051,
+        "sha256": "ee549ffc903f96350dc3067f7b76d2a67e3835649a37322b105bb831ecd186b5"
+      },
+      {
+        "path": "evidence/pin-truth-table.json",
+        "bytes": 2754,
+        "sha256": "f2edf0a01ca1b925afcd6f3d07fac3edbdc202435ac77722b093232710260188",
+        "formatCheck": "parsed-circuit-json-array"
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "artifacts/pipeline-proof/circuit.json",
+        "bytes": 18180,
+        "sha256": "a337995c7612d000e221ade5f18a4ff6caaf3a9c3cee7251e7b53aec566d9ae7",
+        "formatCheck": "parsed-circuit-json-array"
+      },
+      {
+        "path": "artifacts/pipeline-proof/schematic.svg",
+        "bytes": 7648,
+        "sha256": "203dedac321a777edb7234a37c2753fa0b5ee9f2b256b5b7dc8362446fca349f",
+        "formatCheck": "parsed-standalone-svg"
+      },
+      {
+        "path": "artifacts/pipeline-proof/pcb.svg",
+        "bytes": 4546,
+        "sha256": "03d5822790fc9e6fbe22b5e9a0c3144adea8efee84d964d26ef2f1da0db9b754",
+        "formatCheck": "parsed-standalone-svg"
+      },
+      {
+        "path": "artifacts/candidate-proof/circuit.json",
+        "bytes": 42949,
+        "sha256": "7c7bf5282c3bcbdfb5ef72a2110bd7b6bb6323302e4e973570d616fe85f4be1c",
+        "formatCheck": "parsed-circuit-json-array"
+      },
+      {
+        "path": "artifacts/candidate-proof/schematic.svg",
+        "bytes": 17228,
+        "sha256": "a1e27e254e3c53f72b344356587403641c53bfd0ec4b3a753ba306d908e4e793",
+        "formatCheck": "parsed-standalone-svg"
+      },
+      {
+        "path": "artifacts/candidate-proof/pcb.svg",
+        "bytes": 12263,
+        "sha256": "d872abeb861a85df28ea0d9866ae863d0c0107132385f306d24ab4d31f1e0beb",
+        "formatCheck": "parsed-standalone-svg"
+      }
+    ]
   }
 }
