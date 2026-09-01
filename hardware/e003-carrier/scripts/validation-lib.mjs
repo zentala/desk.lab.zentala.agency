@@ -26,15 +26,16 @@ function validateModule(rows, source, moduleId, marker) {
       throw new Error(`${moduleId} must define exactly one ${fn} row`)
     }
   }
-  const allowedPins = moduleId === "vl53ldk-breakout" ? [1, 2, 3, 4, 5, 6] : [1, 2, 3, 4]
+  const allowedPins = moduleId === "vl53ldk-breakout" ? [1, 2, 3, 4, 5, 6] : [5, 6, 21, 22]
   if (new Set(pins).size !== allowedPins.length || !pins.every((pin) => allowedPins.includes(pin))) {
     throw new Error(`${moduleId} must map unique placeholder pins ${allowedPins.join("-")}`)
   }
   const block = sourceBlock(source, `name="${marker}"`)
   for (const row of moduleRows) {
-    if (!block.includes(`${row.placeholderPin}: "${row.sourceLabel}"`)) {
-      throw new Error(`${moduleId} pin ${row.placeholderPin} must be ${row.sourceLabel}`)
-    }
+    const represented = moduleId === "rp2040-zero"
+      ? source.includes(`"${row.sourceLabel}"`)
+      : source.includes(`${row.placeholderPin}: "${row.sourceLabel}"`)
+    if (!represented) throw new Error(`${moduleId} pin ${row.placeholderPin} must be ${row.sourceLabel}`)
   }
 }
 
@@ -44,7 +45,7 @@ function validateAuxiliaryPads(rows, source) {
       throw new Error("ToF auxiliary X/E pads must remain unresolved")
     }
     const block = sourceBlock(source, 'name="U2_VL53LDK_BLUE_PENDING_FOOTPRINT"')
-    if (!block.includes(`${row.placeholderPin}: "${row.sourceLabel}"`)) {
+    if (!source.includes(`${row.placeholderPin}: "${row.sourceLabel}"`)) {
       throw new Error(`ToF auxiliary pad ${row.sourceLabel} is missing from the source`)
     }
   }
@@ -80,7 +81,7 @@ export function validateAssumptions(assumptions) {
     throw new Error("Design assumptions must keep fabrication blocked")
   }
   const { carrier, modules } = assumptions
-  if (carrier.widthMm !== 48 || carrier.heightMm !== 32 || carrier.thicknessMm !== 1.6) {
+  if (carrier.widthMm !== 52 || carrier.heightMm !== 38 || carrier.thicknessMm !== 1.6) {
     throw new Error("Carrier geometry drifted from the accepted provisional contract")
   }
   if (modules.rp2040Zero.interfacePitchMm !== 2.54 || modules.tofBreakout.interfacePitchMm !== 2.54) {
@@ -109,15 +110,48 @@ export function validateCandidateStructure(circuit, assumptions) {
   if (board.thickness !== expected.thicknessMm || board.num_layers !== expected.layers) {
     throw new Error("Rendered board stack does not match design assumptions")
   }
-  const names = circuit.filter((item) => item.type === "source_component").map((item) => item.name)
-  for (const name of ["TP1_3V3", "TP2_GND", "TP3_SDA", "TP4_SCL"]) {
-    if (!names.includes(name)) throw new Error(`Missing review test point: ${name}`)
+  const sourceComponents = circuit.filter((item) => item.type === "source_component")
+  const moduleNames = sourceComponents.map((item) => item.name)
+  for (const name of ["U1_RP2040_ZERO_PENDING_FOOTPRINT", "U2_VL53LDK_BLUE_PENDING_FOOTPRINT"]) {
+    if (!moduleNames.includes(name)) throw new Error(`Missing received module: ${name}`)
+  }
+  const pcbComponents = new Map(circuit
+    .filter((item) => item.type === "pcb_component")
+    .map((item) => [item.pcb_component_id, item.source_component_id]))
+  const sourceNames = new Map(sourceComponents.map((item) => [item.source_component_id, item.name]))
+  const plated = circuit.filter((item) => item.type === "pcb_plated_hole")
+  const u1 = plated.filter((item) => sourceNames.get(pcbComponents.get(item.pcb_component_id)) === "U1_RP2040_ZERO_PENDING_FOOTPRINT")
+  const u2 = plated.filter((item) => sourceNames.get(pcbComponents.get(item.pcb_component_id)) === "U2_VL53LDK_BLUE_PENDING_FOOTPRINT")
+  if (u1.length !== 23 || u2.length !== 6) {
+    throw new Error(`Received footprints must expose 23 RP2040 pads and 6 ToF pads; got ${u1.length} and ${u2.length}`)
+  }
+  const u1Pins = new Set(u1.flatMap((item) => item.port_hints ?? []).filter((hint) => /^pin\d+$/.test(hint)))
+  const u2Pins = new Set(u2.flatMap((item) => item.port_hints ?? []).filter((hint) => /^pin\d+$/.test(hint)))
+  if (u1Pins.size !== 23 || [...u1Pins].some((pin) => !/^pin([1-9]|1[0-9]|2[0-3])$/.test(pin))) {
+    throw new Error("RP2040 footprint pin map must contain physical pins 1 through 23")
+  }
+  if (u2Pins.size !== 6 || [...u2Pins].some((pin) => !/^pin[1-6]$/.test(pin))) {
+    throw new Error("ToF footprint pin map must contain physical pins 1 through 6")
+  }
+  const moduleHole = circuit.find((item) => item.type === "pcb_hole" && item.x === 6.8 && item.y === 4.7)
+  if (!moduleHole) throw new Error("ToF footprint must expose its measured/provisional corner mounting hole")
+  const holeRadius = moduleHole.hole_diameter / 2
+  for (const pad of u2) {
+    const distance = Math.hypot(pad.x - moduleHole.x, pad.y - moduleHole.y)
+    if (distance < holeRadius + pad.outer_diameter / 2 + 0.1) {
+      throw new Error(`ToF mounting hole overlaps pad ${pad.port_hints?.join("/")}`)
+    }
+  }
+  const opticalKeepout = circuit.find((item) => item.type === "pcb_keepout" && item.shape === "circle")
+  const tofPcbId = [...pcbComponents.entries()].find(([, sourceId]) => sourceNames.get(sourceId) === "U2_VL53LDK_BLUE_PENDING_FOOTPRINT")?.[0]
+  if (!opticalKeepout || !tofPcbId || !opticalKeepout.excluded_pcb_component_ids?.includes(tofPcbId)) {
+    throw new Error("Optical keep-out must be explicit and scoped to the received ToF module")
   }
   if (circuit.filter((item) => item.type === "pcb_keepout").length !== 2) {
     throw new Error("Candidate must contain USB and optical keep-outs")
   }
-  if (circuit.filter((item) => item.type === "pcb_hole").length !== 4) {
-    throw new Error("Candidate must contain four carrier mounting holes")
+  if (circuit.filter((item) => item.type === "pcb_hole").length !== 5) {
+    throw new Error("Candidate must contain one sensor-module hole and four carrier mounting holes")
   }
   if (circuit.filter((item) => item.type === "pcb_silkscreen_rect").length < 2) {
     throw new Error("Candidate must show visible module envelope outlines")

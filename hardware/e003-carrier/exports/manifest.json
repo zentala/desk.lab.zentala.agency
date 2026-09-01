@@ -137,13 +137,11 @@
     "notes": "The minimal core pipeline is proven. The tsci CLI path for the actual TSX candidate is currently blocked on this Windows environment by a native Rollup application-policy error; do not promise unsupported exports.",
     "candidateDiagnostics": {
       "errors": 0,
-      "warnings": 12,
+      "warnings": 4,
       "byType": {
-        "pcb_component_missing_courtyard_warning": 6,
+        "pcb_component_missing_courtyard_warning": 2,
         "source_no_ground_pin_defined_warning": 1,
-        "source_no_power_pin_defined_warning": 1,
-        "source_pin_missing_trace_warning": 2,
-        "source_refdes_convention_warning": 2
+        "source_no_power_pin_defined_warning": 1
       }
     },
     "variantProof": "passed: four variant Circuit JSON/SVG proof sets generated and independently format-checked"
@@ -152,23 +150,23 @@
     "sources": [
       {
         "path": "src/carrier.tsx",
-        "bytes": 5215,
-        "sha256": "da7efddb117bd9901d0408978f5237b57cb6c994c9f27579ec94967b1c15d866"
+        "bytes": 5947,
+        "sha256": "17058ad147323f29589741b6a363656fe514d750c3ecea2e35ab8a17a7077768"
       },
       {
         "path": "src/variant-candidates.tsx",
-        "bytes": 6432,
-        "sha256": "4dc4235b8048aec86146fe845cac0d8e69bd660d28ca856428ec1d424ad51082"
+        "bytes": 6654,
+        "sha256": "e3f7a843fbac1c36eae11331bed3854546a434d1aa8fe8be910425e91d43aadb"
       },
       {
         "path": "src/design-assumptions.json",
-        "bytes": 1161,
-        "sha256": "e04de828bb18f76053eb022c2915ee39f3689f37ba05b25fe2d48a0b10cb3b8e"
+        "bytes": 1165,
+        "sha256": "ca8be43bb4bbb264ba4ba263f0eb87156d958e36bf2b8a338a31d425b7331de1"
       },
       {
         "path": "evidence/pin-truth-table.json",
-        "bytes": 3528,
-        "sha256": "df172c123a1ff031493aa5d615cedf4ff643ce0abbde7aa1ef71d082eaacfe64"
+        "bytes": 3530,
+        "sha256": "6b154e637fada5d240ead0050f1a565e63bcaa048e0428519181a760a1f72dd6"
       },
       {
         "path": "variants/variant-a-bom.json",
@@ -217,20 +215,20 @@
       },
       {
         "path": "artifacts/candidate-proof/circuit.json",
-        "bytes": 115336,
-        "sha256": "d4d1e93982bf4b13cbe944168296e724a96000b13e970be931d7f02df63f6441",
+        "bytes": 88231,
+        "sha256": "52c3620bbb690dcaa9f64ed25c45f3cb682eba4b9705357790d4c7ac95a8ac77",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/candidate-proof/schematic.svg",
-        "bytes": 49574,
-        "sha256": "7d7b93f75cf3fd194d356261ff04c1d799b6bb763e6381cf2fd6fbf4ffb72964",
+        "bytes": 55464,
+        "sha256": "ea3fc7b239e528e7513b7e3577eebe02eaeb83e50ed26b9efd18dfa625628bf0",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/candidate-proof/pcb.svg",
-        "bytes": 72092,
-        "sha256": "87172ddd1c2cd96592457ab4fd6a1843b12aeafde1445d19e5129f1147ccf1ad",
+        "bytes": 25278,
+        "sha256": "784458e386de0f4eee0a897d34b3b95e3d6cdf233815cd68d815281be571702d",
         "formatCheck": "parsed-standalone-svg"
       },
       {

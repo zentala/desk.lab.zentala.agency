@@ -25,6 +25,6 @@ if (diagnostics.errors > 0) throw new Error(`Candidate contains ${diagnostics.er
 
 const unresolved = rows.filter((row) => row.status === "unresolved").length
 console.log(`E003 validation passed: ${rows.length} pin rows; ${unresolved} unresolved evidence rows; four variant BOM contracts.`)
-console.log(`T03 structure passed: provisional geometry, 4 test points, 2 keep-outs, 4 mounting holes.`)
+console.log(`T03 structure passed: provisional geometry, 23 + 6 module pads, 2 keep-outs, 1 module hole and 4 mounting holes.`)
 console.log(`Candidate diagnostics: ${diagnostics.errors} errors; ${diagnostics.warnings} warnings.`)
 console.log("Fabrication gate: BLOCKED until physical evidence and external review are complete.")

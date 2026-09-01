@@ -1,5 +1,9 @@
 import React from "react"
 
+// Parked architecture studies only. The canonical received-board Variant A
+// review lives in carrier.tsx; these four renders intentionally remain
+// lightweight comparison artefacts and must not be sent to fabrication.
+
 type VariantOptions = {
   name: string
   title: string

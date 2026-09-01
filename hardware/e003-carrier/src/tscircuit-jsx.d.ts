@@ -1,6 +1,8 @@
 import type {
   BoardProps,
   ChipProps,
+  CirclePlatedHoleProps,
+  FootprintProps,
   HoleProps,
   PcbKeepoutProps,
   PcbNoteRectProps,
@@ -15,6 +17,8 @@ import type {
 interface TscircuitElements {
   board: BoardProps
   chip: ChipProps
+  footprint: FootprintProps
+  platedhole: CirclePlatedHoleProps
   trace: TraceProps
   hole: HoleProps
   schematicsheet: SchematicSheetProps

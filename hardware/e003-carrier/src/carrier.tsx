@@ -1,15 +1,56 @@
 import React from "react"
 
-/** Provisional module interfaces; neither placeholder is fabrication-ready. */
+const RP2040_ZERO_PINS = [
+  "GPIO0", "GPIO1", "GPIO2", "GPIO3", "GP4_SDA", "GP5_SCL",
+  "GPIO6", "GPIO7", "GPIO8", "GPIO9", "GPIO10", "GPIO11", "GPIO12",
+  "GPIO13", "GPIO14", "GPIO15", "GPIO26", "GPIO27", "GPIO28", "GPIO29",
+  "3V3", "GND", "VSYS",
+] as const
+
+const RP2040_ZERO_PAD_POSITIONS = [
+  ...Array.from({ length: 9 }, (_, index) => ({ pin: index + 1, x: 7.62, y: 10.16 - index * 2.54 })),
+  ...Array.from({ length: 6 }, (_, index) => ({ pin: index + 10, x: 5.08 - index * 2.54, y: -10.16 })),
+  ...Array.from({ length: 8 }, (_, index) => ({ pin: index + 16, x: -7.62, y: -7.62 + index * 2.54 })),
+]
+
+const RP2040ZeroFootprint = () => (
+  <footprint name="rp2040-zero-received-23-pad">
+    {RP2040_ZERO_PAD_POSITIONS.map(({ pin, x, y }) => (
+      <React.Fragment key={`rp2040-pad-${pin}`}><platedhole name={`PAD${pin}`} shape="circle"
+        holeDiameter="0.8mm" outerDiameter="1.8mm" pcbX={x} pcbY={y}
+        portHints={[`pin${pin}`]} /></React.Fragment>
+    ))}
+  </footprint>
+)
+
+const TOF_PAD_POSITIONS = [
+  { pin: 1, x: -3.81, y: -6.0 },
+  { pin: 2, x: -1.27, y: -6.0 },
+  { pin: 3, x: 1.27, y: -6.0 },
+  { pin: 4, x: 3.81, y: -6.0 },
+  { pin: 5, x: -1.27, y: 5.55 },
+  { pin: 6, x: 1.27, y: 5.55 },
+]
+
+const TofBreakoutFootprint = () => (
+  <footprint name="tof-breakout-received-6-pad">
+    {TOF_PAD_POSITIONS.map(({ pin, x, y }) => (
+      <React.Fragment key={`tof-pad-${pin}`}><platedhole name={`PAD${pin}`} shape="circle"
+        holeDiameter="0.8mm" outerDiameter="1.6mm" pcbX={x} pcbY={y}
+        portHints={[`pin${pin}`]} /></React.Fragment>
+    ))}
+  </footprint>
+)
+
+/** Variant A uses explicit received-module geometry; measurements remain provisional. */
 const ModuleInterfaces = () => (
   <>
     <chip
       name="U1_RP2040_ZERO_PENDING_FOOTPRINT"
-      footprint="pinrow4_p2.54mm"
-      pcbX={-3}
+      footprint={<RP2040ZeroFootprint />}
+      pcbX={-12}
       pcbY={0}
-      pcbRotation={90}
-      pinLabels={{ 1: "3V3", 2: "GND", 3: "GP4_SDA", 4: "GP5_SCL" }}
+      pinLabels={Object.fromEntries(RP2040_ZERO_PINS.map((label, index) => [index + 1, label]))}
       pinAttributes={{
         "3V3": { providesPower: true, providesVoltage: "3.3V", mustBeConnected: true },
         GND: { providesGround: true, mustBeConnected: true },
@@ -19,9 +60,9 @@ const ModuleInterfaces = () => (
     />
     <chip
       name="U2_VL53LDK_BLUE_PENDING_FOOTPRINT"
-      footprint="pinrow4_p2.54mm"
-      pcbX={17.5}
-      pcbY={5.2}
+      footprint={<TofBreakoutFootprint />}
+      pcbX={10.5}
+      pcbY={0}
       pinLabels={{ 1: "VIN_OR_3V3_PENDING", 2: "GND", 3: "SCL", 4: "SDA", 5: "X", 6: "E" }}
       noConnect={["X", "E"]}
       pinAttributes={{
@@ -36,28 +77,16 @@ const ModuleInterfaces = () => (
 
 const ModuleNets = () => (
   <>
-    <trace name="NET_3V3_PENDING" width="0.4mm" from=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .3V3" to=".U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .VIN_OR_3V3_PENDING" />
-    <trace name="NET_GND" width="0.4mm" from=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GND" to=".U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .GND" />
-    <trace name="NET_I2C0_SDA" width="0.25mm" from=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP4_SDA" to=".U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .SDA" />
-    <trace name="NET_I2C0_SCL" width="0.25mm" from=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP5_SCL" to=".U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .SCL" />
+    <trace name="NET_3V3_PENDING" width="0.4mm" from=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .3V3" to=".U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .VIN_OR_3V3_PENDING" pcbPath={[{ x: -10, y: 5.08 }, { x: -10, y: -12.7 }, { x: 18.69, y: -12.7 }]} />
+    <trace name="NET_GND" width="0.4mm" from=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GND" to=".U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .GND" pcbPath={[{ x: -11, y: 7.62 }, { x: -11, y: -14 }, { x: 21.23, y: -14 }]} />
+    <trace name="NET_I2C0_SDA" width="0.25mm" from=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP4_SDA" to=".U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .SDA" pcbPath={[{ x: -2, y: 0 }, { x: 26.31, y: 0 }]} />
+    <trace name="NET_I2C0_SCL" width="0.25mm" from=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP5_SCL" to=".U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .SCL" pcbPath={[{ x: 0, y: -2.54 }, { x: 0, y: -1.3 }, { x: 23.77, y: -1.3 }]} />
   </>
 )
 
 const ReviewAccess = () => (
   <>
-    <testpoint name="TP1_3V3" footprintVariant="pad" padDiameter="1.5mm" pcbX={-3} pcbY={9} />
-    <testpoint name="TP2_GND" footprintVariant="pad" padDiameter="1.5mm" pcbX={-1} pcbY={9} />
-    <testpoint name="TP3_SDA" footprintVariant="pad" padDiameter="1.5mm" pcbX={1} pcbY={9} />
-    <testpoint name="TP4_SCL" footprintVariant="pad" padDiameter="1.5mm" pcbX={3} pcbY={9} />
-    <trace name="NET_TP_3V3" width="0.4mm" from=".TP1_3V3 > .pin1" to=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .3V3" />
-    <trace name="NET_TP_GND" width="0.4mm" from=".TP2_GND > .pin1" to=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GND" />
-    <trace name="NET_TP_SDA" width="0.25mm" from=".TP3_SDA > .pin1" to=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP4_SDA" />
-    <trace name="NET_TP_SCL" width="0.25mm" from=".TP4_SCL > .pin1" to=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP5_SCL" />
-    <testpoint name="U2_X_AUX_UNRESOLVED" footprintVariant="pad" padDiameter="1.5mm" pcbX={15} pcbY={-6} />
-    <testpoint name="U2_E_AUX_UNRESOLVED" footprintVariant="pad" padDiameter="1.5mm" pcbX={20} pcbY={-6} />
-    <silkscreentext pcbX={15} pcbY={-4.7} text="X" fontSize="0.8mm" layer="top" />
-    <silkscreentext pcbX={20} pcbY={-4.7} text="E" fontSize="0.8mm" layer="top" />
-    <silkscreentext pcbX={17.5} pcbY={-8.2} text="X / E AUX — NC PENDING" fontSize="0.65mm" layer="top" />
+    <silkscreentext pcbX={10.5} pcbY={-8.2} text="X / E — NC PENDING" fontSize="0.65mm" layer="top" />
   </>
 )
 
@@ -65,16 +94,18 @@ const MechanicalConstraints = () => (
   <>
     <silkscreenrect pcbX={-12} pcbY={0} width="18mm" height="23.5mm" filled={false} stroke="solid" strokeWidth="0.3mm" layer="top" />
     <silkscreentext pcbX={-12} pcbY={-13.2} text="RP2040-ZERO 18 x 23.5 mm" fontSize="0.8mm" layer="top" />
-    <silkscreenrect pcbX={17.5} pcbY={0} width="10.5mm" height="13.3mm" filled={false} stroke="solid" strokeWidth="0.3mm" layer="top" />
-    <silkscreentext pcbX={17.5} pcbY={-7.8} text="TOF 10.5 x 13.3 mm" fontSize="0.8mm" layer="top" />
+    <silkscreenrect pcbX={10.5} pcbY={0} width="10.5mm" height="13.3mm" filled={false} stroke="solid" strokeWidth="0.3mm" layer="top" />
+    <silkscreentext pcbX={10.5} pcbY={-7.8} text="TOF 10.5 x 13.3 mm" fontSize="0.8mm" layer="top" />
     <keepout shape="rect" pcbX={-12} pcbY={13.25} width="12mm" height="5mm" layers={["top", "bottom"]} excludeRefs={[".U1_RP2040_ZERO_PENDING_FOOTPRINT"]} />
-    <keepout shape="circle" pcbX={12} pcbY={4.5} radius="2.5mm" layers={["top", "bottom"]} excludeRefs={[".U2_VL53LDK_BLUE_PENDING_FOOTPRINT"]} />
+    <keepout shape="circle" pcbX={11.8} pcbY={2.8} radius="2.0mm" layers={["top", "bottom"]}
+      excludeRefs={[".U2_VL53LDK_BLUE_PENDING_FOOTPRINT"]} />
+    <hole name="U2_TOF_BREAKOUT_MOUNT" pcbX={6.8} pcbY={4.7} diameter="3.0mm" />
     <silkscreentext pcbX={-12} pcbY={14} text="USB-C ACCESS" fontSize="0.8mm" layer="top" />
-    <silkscreentext pcbX={12} pcbY={4.5} text="OPTICAL PATH — POSITION PENDING" fontSize="0.7mm" layer="top" />
-    <hole name="H1" pcbX={-20} pcbY={-12} diameter="3.2mm" />
-    <hole name="H2" pcbX={20} pcbY={-12} diameter="3.2mm" />
-    <hole name="H3" pcbX={-20} pcbY={12} diameter="3.2mm" />
-    <hole name="H4" pcbX={20} pcbY={12} diameter="3.2mm" />
+    <silkscreentext pcbX={11.8} pcbY={2.8} text="OPTICAL PATH" fontSize="0.7mm" layer="top" />
+    <hole name="H1" pcbX={-23} pcbY={-16} diameter="3.2mm" />
+    <hole name="H2" pcbX={23} pcbY={-16} diameter="3.2mm" />
+    <hole name="H3" pcbX={-23} pcbY={16} diameter="3.2mm" />
+    <hole name="H4" pcbX={23} pcbY={16} diameter="3.2mm" />
   </>
 )
 
@@ -83,8 +114,8 @@ export default () => (
   <board
     name="E003_CARRIER_VARIANT_A_PROVISIONAL"
     title="Open Smart Desk Hardware v2 — Variant A"
-    width="48mm"
-    height="32mm"
+    width="52mm"
+    height="38mm"
     thickness="1.6mm"
     layers={2}
     solderMaskColor="black"

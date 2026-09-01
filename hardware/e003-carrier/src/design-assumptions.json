@@ -4,8 +4,8 @@
   "decisionDate": "2026-09-01",
   "fabricationAllowed": false,
   "carrier": {
-    "widthMm": 48,
-    "heightMm": 32,
+    "widthMm": 52,
+    "heightMm": 38,
     "thicknessMm": 1.6,
     "layers": 2,
     "solderMask": "black",
@@ -24,8 +24,8 @@
       "widthMm": 10.5,
       "heightMm": 13.3,
       "interfacePitchMm": 2.54,
-      "center": { "xMm": 12, "yMm": 0 },
-      "opticalKeepout": { "centerXmm": 12, "centerYmm": 4.5, "radiusMm": 2.5 },
+      "center": { "xMm": 10.5, "yMm": 0 },
+      "opticalKeepout": { "centerXmm": 11.8, "centerYmm": 2.8, "radiusMm": 2.0 },
       "source": "GY-530 family envelope plus received-board visual match"
     }
   },

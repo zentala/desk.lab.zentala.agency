@@ -2,7 +2,7 @@
   {
     "moduleId": "rp2040-zero",
     "module": "RP2040-Zero",
-    "placeholderPin": 1,
+    "placeholderPin": 21,
     "sourceLabel": "3V3",
     "physicalLabel": "3V3",
     "function": "power",
@@ -13,7 +13,7 @@
   {
     "moduleId": "rp2040-zero",
     "module": "RP2040-Zero",
-    "placeholderPin": 2,
+    "placeholderPin": 22,
     "sourceLabel": "GND",
     "physicalLabel": "GND",
     "function": "ground",
@@ -24,7 +24,7 @@
   {
     "moduleId": "rp2040-zero",
     "module": "RP2040-Zero",
-    "placeholderPin": 3,
+    "placeholderPin": 5,
     "sourceLabel": "GP4_SDA",
     "physicalLabel": "GP4",
     "function": "SDA",
@@ -35,7 +35,7 @@
   {
     "moduleId": "rp2040-zero",
     "module": "RP2040-Zero",
-    "placeholderPin": 4,
+    "placeholderPin": 6,
     "sourceLabel": "GP5_SCL",
     "physicalLabel": "GP5",
     "function": "SCL",

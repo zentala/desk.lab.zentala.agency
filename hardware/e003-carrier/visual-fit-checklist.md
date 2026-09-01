@@ -17,6 +17,11 @@ them a scale-accurate overlay: the photos contain no ruler or caliper reference.
 
 The checklist cannot be marked passed from the placeholder source alone.
 
+The generated Variant A review also runs structural checks for 23 RP2040 pads,
+6 ToF pads, the ToF corner hole, keep-out ownership, trace count and generated
+DRC diagnostics. A clean generated DRC is necessary, but it does not replace
+measuring the received boards.
+
 For the RP2040-Zero footprint comparison, use this evidence order:
 
 1. Official Waveshare dimensions/drawing as the geometry authority.

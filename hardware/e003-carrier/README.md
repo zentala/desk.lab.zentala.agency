@@ -41,9 +41,10 @@ blocks that native addon, so Gerbers/BOM/placement exports are not claimed.
 - [Shared prototype protocol](protocol.md)
 - [Portable review portal export](review-portal/export/index.html)
 
-The source uses standard `pinrow4_p2.54mm` interface placeholders inside
-explicit module envelopes. They are sufficient for a provisional review
-candidate, not a manufacturing footprint. The four variant sources generate
-independent Circuit JSON, schematic and PCB proof artefacts; they deliberately
-retain placeholder footprints until the physical and library checks are closed.
-External review must accept or replace them before any fabrication decision.
+Variant A now uses explicit provisional received-board geometry: all 23
+RP2040-Zero edge pads, all four lower ToF pads, both opposite-edge X/e pads,
+the ToF corner hole, module outlines and four routed nets. The coordinates are
+still blocked pending ruler/caliper capture, so this is a review candidate, not
+a manufacturing footprint. Variants B–D remain separate placeholder studies;
+they are not alternatives that Variant A depends on. External review must
+accept or replace the geometry before any fabrication decision.
