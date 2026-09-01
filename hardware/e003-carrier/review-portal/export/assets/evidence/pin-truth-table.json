@@ -1,0 +1,90 @@
+[
+  {
+    "moduleId": "rp2040-zero",
+    "module": "RP2040-Zero",
+    "placeholderPin": 1,
+    "sourceLabel": "3V3",
+    "physicalLabel": "3V3",
+    "function": "power",
+    "voltage": "3.3 V nominal",
+    "evidence": "3V3 marking is visible; exact pad identity and rail continuity remain pending",
+    "status": "unresolved"
+  },
+  {
+    "moduleId": "rp2040-zero",
+    "module": "RP2040-Zero",
+    "placeholderPin": 2,
+    "sourceLabel": "GND",
+    "physicalLabel": "GND",
+    "function": "ground",
+    "voltage": "0 V",
+    "evidence": "GND marking is visible; exact pad identity and rail continuity remain pending",
+    "status": "unresolved"
+  },
+  {
+    "moduleId": "rp2040-zero",
+    "module": "RP2040-Zero",
+    "placeholderPin": 3,
+    "sourceLabel": "GP4_SDA",
+    "physicalLabel": "GP4",
+    "function": "SDA",
+    "voltage": "3.3 V I/O",
+    "evidence": "GP4 marking is visible; RP2040 I2C0 mapping remains a design candidate",
+    "status": "candidate"
+  },
+  {
+    "moduleId": "rp2040-zero",
+    "module": "RP2040-Zero",
+    "placeholderPin": 4,
+    "sourceLabel": "GP5_SCL",
+    "physicalLabel": "GP5",
+    "function": "SCL",
+    "voltage": "3.3 V I/O",
+    "evidence": "GP5 marking is visible; RP2040 I2C0 mapping remains a design candidate",
+    "status": "candidate"
+  },
+  {
+    "moduleId": "vl53ldk-breakout",
+    "module": "VL53LDK-marked GY-530-style breakout",
+    "placeholderPin": 1,
+    "sourceLabel": "VIN_OR_3V3_PENDING",
+    "physicalLabel": "VIN",
+    "function": "power",
+    "voltage": "3.3 V candidate; regulator/level shifting unknown",
+    "evidence": "VIN marking is visible; continuity and voltage inspection remain required",
+    "status": "unresolved"
+  },
+  {
+    "moduleId": "vl53ldk-breakout",
+    "module": "VL53LDK-marked GY-530-style breakout",
+    "placeholderPin": 2,
+    "sourceLabel": "GND",
+    "physicalLabel": "GND",
+    "function": "ground",
+    "voltage": "0 V",
+    "evidence": "GND marking is visible; breakout revision and continuity remain unknown",
+    "status": "unresolved"
+  },
+  {
+    "moduleId": "vl53ldk-breakout",
+    "module": "VL53LDK-marked GY-530-style breakout",
+    "placeholderPin": 3,
+    "sourceLabel": "SCL",
+    "physicalLabel": "SCL",
+    "function": "SCL",
+    "voltage": "Depends on breakout level shifting",
+    "evidence": "SCL is the third visible edge label after VIN and GND",
+    "status": "unresolved"
+  },
+  {
+    "moduleId": "vl53ldk-breakout",
+    "module": "VL53LDK-marked GY-530-style breakout",
+    "placeholderPin": 4,
+    "sourceLabel": "SDA",
+    "physicalLabel": "SDA",
+    "function": "SDA",
+    "voltage": "Depends on breakout level shifting",
+    "evidence": "SDA is the fourth visible edge label after VIN, GND and SCL",
+    "status": "unresolved"
+  }
+]

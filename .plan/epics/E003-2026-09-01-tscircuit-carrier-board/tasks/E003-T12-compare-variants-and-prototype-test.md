@@ -1,6 +1,6 @@
 ---
 id: E003-T12
-title: Compare variants with a shared prototype test protocol
+title: Compare four variants with a shared prototype test protocol
 status: pending
 priority: medium
 effort: medium
@@ -8,17 +8,17 @@ type: docs
 dependencies: [E003-T09, E003-T10, E003-T11, E003-T13]
 tags: [hardware, testing, application]
 epic: E003
-commit: "docs(hardware): add shared three-variant prototype test protocol"
+commit: "docs(hardware): add shared four-variant prototype test protocol"
 group: E003-2026-09-01-tscircuit-carrier-board
 created: 2026-09-01
 completed_at: null
 ---
 
-# E003-T12: Compare variants with a shared prototype test protocol
+# E003-T12: Compare four variants with a shared prototype test protocol
 
 ## Objective
 
-Make the three boards comparable from the desktop application's point of view,
+Make all four boards comparable from the desktop application's point of view,
 so a wrong sensor assumption can be isolated without blocking all experiments.
 
 ## Acceptance criteria
@@ -34,3 +34,9 @@ so a wrong sensor assumption can be isolated without blocking all experiments.
 
 - Automated serial smoke test plus a repeatable manual height sequence.
 - 30-minute USB soak test and power/current log for each assembled board.
+
+## Implementation note
+
+The shared payload, loss semantics and variant-specific gates are documented in
+`hardware/e003-carrier/protocol.md`. No assembled-board logs exist yet; this
+task remains pending fabrication and bring-up.

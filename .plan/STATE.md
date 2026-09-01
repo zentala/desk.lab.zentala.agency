@@ -1,7 +1,7 @@
 ---
-updated: 2026-09-01T09:00:00+02:00
-focus: E003-T04 visual-fit verification for the provisional RP2040-Zero carrier.
-next: Verify the generated PCB and schematic package against the T04 checklist.
+updated: 2026-09-01T12:00:00+02:00
+focus: E003 variant review package and provisional visual-fit verification.
+next: Obtain measured module evidence, verify JLC footprints, and source qualified external review.
 executing_epic: E003
 executing_epic_path: .plan/epics/E003-2026-09-01-tscircuit-carrier-board
 current_wave:
@@ -9,6 +9,8 @@ current_wave:
   - "Wave 2 started: placeholder candidate and static review portal are committed; fabrication remains blocked."
   - "Owner selected RP2040-Zero as the canonical Hardware v2 module; ADR-004 records the decision."
   - "E003-T03 completed: provisional carrier source, constraints, tests and generated review artefacts are committed."
+  - "E003 T02 and T03 are closed; A–D BOM/source contracts, shared test protocol, proof renders and portable portal export are implemented."
+  - "Measured fit, current-library verification, manufacturing CLI export and professional review remain fabrication gates."
 handoff: HANDOFF.md
 ---
 

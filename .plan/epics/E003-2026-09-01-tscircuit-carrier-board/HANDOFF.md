@@ -47,23 +47,23 @@ Gerbers. An electronics professional or firm must review the candidate first.
 ### Wave 1 — establish facts
 
 - [ ] E003-T01 — Capture physical module evidence and pin truth table.
-- [ ] E003-T02 — Prove TS Circuit output pipeline.
+- [x] E003-T02 — Prove TS Circuit output pipeline.
 
 No circuit layout may start until both tasks are complete. A photographed label
 or measured dimension always beats a marketplace listing.
 
 ### Wave 2 — candidate design and review material
 
-- [ ] E003-T03 — Author AI-assisted carrier-board candidate in TS Circuit.
-- [ ] E003-T04 — Produce visual-fit comparison and review-pack artefacts.
+- [x] E003-T03 — Author AI-assisted carrier-board candidate in TS Circuit.
+- [ ] E003-T04 — Produce visual-fit comparison and review-pack artefacts. Provisional photo/render comparison and four variant proof sets now exist; measured 1:1 fit remains open.
 - [ ] E003-T05 — Publish internal review portal and shareable static export.
-- [ ] E003-T08 — Freeze separate BOMs and source contracts for variants A/B/C.
-- [ ] E003-T09 — Design Variant A around the received physical modules.
-- [ ] E003-T10 — Design Variant B as a JLCPCB-only chip-down board.
-- [ ] E003-T11 — Add the JLCPCB accelerometer and buzzer to Variant C.
-- [ ] E003-T12 — Compare all variants with one application-level test protocol.
-- [ ] E003-T13 — Design Variant D around an ESP32-S3 wireless module and a
-      transport-neutral sensor payload.
+- [ ] E003-T08 — Freeze separate BOMs and source contracts for variants A/B/C. Review-time JSON contracts for A–D now exist; current-library verification remains open.
+- [ ] E003-T09 — Design Variant A around the received physical modules. Provisional TS Circuit source and proof render exist; measured footprint remains open.
+- [ ] E003-T10 — Design Variant B as a JLCPCB-only chip-down board. Candidate source/BOM exist; source-backed footprints and power-tree review remain open.
+- [ ] E003-T11 — Add the JLCPCB accelerometer and buzzer to Variant C. Isolated test-point contract exists; driver/current review remains open.
+- [ ] E003-T12 — Compare all variants with one application-level test protocol. Shared protocol exists; prototype logs remain open.
+- [ ] E003-T13 — Design Variant D around an ESP32-C3 wireless module and a
+      transport-neutral sensor payload. Candidate source/BOM exist; RF and transport tests remain open.
 
 ### Wave 3 — human review gate
 

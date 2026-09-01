@@ -33,3 +33,10 @@ blue ToF breakout, preserving USB access and downward optical clearance.
 
 - 1:1 print or CAD overlay against both physical boards.
 - Continuity, power-rail and I²C smoke test before desk installation.
+
+## Implementation note
+
+The provisional Variant A source is exported from
+`src/variant-candidates.tsx` and its BOM contract is in
+`variants/variant-a-bom.json`. The received-board dimensions and electrical
+power path remain unresolved, so this task is not closed.

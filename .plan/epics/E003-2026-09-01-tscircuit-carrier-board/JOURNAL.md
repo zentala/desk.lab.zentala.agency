@@ -129,3 +129,18 @@ The clean-worktree workflow passed `npm ci --ignore-scripts` and the final
 `npm run check` passed eight tests, typecheck, both proof generators,
 validation and manifest hashing. Six warnings remain visible in the manifest;
 fabrication remains blocked. Commits: `bbe2721`, `7ca9b80`.
+
+## 2026-09-01 — A–D variant review package implemented
+
+Added four machine-readable BOM/source contracts, a shared raw-sensor payload and
+prototype test protocol, and a single TS Circuit source that generates independent
+Circuit JSON, schematic and PCB proof artefacts for variants A, B, C and D. Variant
+C exposes separate vibration-interrupt and buzzer-driver test points; Variant D
+uses the same sensor contract with USB power-only and no local buzzer.
+
+Added a photo/render visual-fit page, variant matrix and a packaging script that
+creates `review-portal/export/` with copied assets and relative links. Extended
+validation and the deterministic manifest to cover the variant contracts and 18
+proof artefacts. `npm run check` passes. The work remains a provisional review
+candidate: measured module geometry, JLC library/package verification, native CLI
+manufacturing exports and qualified external review are still open gates.

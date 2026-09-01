@@ -10,8 +10,14 @@ const manifest = JSON.parse(await readFile(manifestPath, "utf8"))
 const packageJson = JSON.parse(await readFile(resolve(root, "package.json"), "utf8"))
 const sourcePaths = [
   "src/carrier.tsx",
+  "src/variant-candidates.tsx",
   "src/design-assumptions.json",
   "evidence/pin-truth-table.json",
+  "variants/variant-a-bom.json",
+  "variants/variant-b-bom.json",
+  "variants/variant-c-bom.json",
+  "variants/variant-d-bom.json",
+  "protocol.md",
 ]
 const artifactPaths = [
   "artifacts/pipeline-proof/circuit.json",
@@ -20,6 +26,11 @@ const artifactPaths = [
   "artifacts/candidate-proof/circuit.json",
   "artifacts/candidate-proof/schematic.svg",
   "artifacts/candidate-proof/pcb.svg",
+  ...["A", "B", "C", "D"].flatMap((id) => [
+    `artifacts/variants/${id}/circuit.json`,
+    `artifacts/variants/${id}/schematic.svg`,
+    `artifacts/variants/${id}/pcb.svg`,
+  ]),
 ]
 
 function validateFormat(path, contents) {
@@ -55,9 +66,18 @@ manifest.tool = {
   runtime: packageJson.engines.node,
 }
 manifest.commands.check = "npm run check"
+manifest.expectedArtifacts = [
+  ...manifest.expectedArtifacts.filter((artifact) => !artifact.path.startsWith("artifacts/variants/")),
+  ...["A", "B", "C", "D"].flatMap((id) => [
+    { name: `variant-${id}-circuit-json`, path: `artifacts/variants/${id}/circuit.json`, status: "generated-review-proof" },
+    { name: `variant-${id}-schematic-render`, path: `artifacts/variants/${id}/schematic.svg`, status: "generated-review-proof" },
+    { name: `variant-${id}-pcb-render`, path: `artifacts/variants/${id}/pcb.svg`, status: "generated-review-proof" },
+  ]),
+]
 manifest.verification.localValidation = "passed: npm run check"
 manifest.verification.candidateDiagnostics = summarizeDiagnostics(candidate)
 manifest.verification.independentFileOpen = "passed: Circuit JSON arrays parse; standalone SVG roots are present"
+manifest.verification.variantProof = "passed: four variant Circuit JSON/SVG proof sets generated and independently format-checked"
 manifest.provenance = {
   sources: await Promise.all(sourcePaths.map((path) => describe(path))),
   artifacts: await Promise.all(artifactPaths.map((path) => describe(path, true))),

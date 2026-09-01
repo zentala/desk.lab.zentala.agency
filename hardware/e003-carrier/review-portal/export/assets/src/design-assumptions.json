@@ -1,0 +1,37 @@
+{
+  "revision": "0.2.0-provisional",
+  "status": "owner-accepted-provisional",
+  "decisionDate": "2026-09-01",
+  "fabricationAllowed": false,
+  "carrier": {
+    "widthMm": 48,
+    "heightMm": 32,
+    "thicknessMm": 1.6,
+    "layers": 2,
+    "solderMask": "black",
+    "mountingHoleDiameterMm": 3.2
+  },
+  "modules": {
+    "rp2040Zero": {
+      "widthMm": 18,
+      "heightMm": 23.5,
+      "interfacePitchMm": 2.54,
+      "center": { "xMm": -12, "yMm": 0 },
+      "usbKeepout": { "centerXmm": -12, "centerYmm": 13.25, "widthMm": 12, "heightMm": 5 },
+      "source": "Waveshare drawing plus received-board visual match"
+    },
+    "tofBreakout": {
+      "widthMm": 10.5,
+      "heightMm": 13.3,
+      "interfacePitchMm": 2.54,
+      "center": { "xMm": 12, "yMm": 0 },
+      "opticalKeepout": { "centerXmm": 12, "centerYmm": 4.5, "radiusMm": 2.5 },
+      "source": "GY-530 family envelope plus received-board visual match"
+    }
+  },
+  "electrical": {
+    "supply": "RP2040-Zero 3V3 to breakout VIN; external review required",
+    "i2c": "I2C0 GP4=SDA and GP5=SCL",
+    "pullups": "Breakout pull-up topology unresolved; add no carrier pull-ups until review"
+  }
+}

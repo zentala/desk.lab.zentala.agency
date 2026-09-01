@@ -2,6 +2,7 @@
 
 ## 2026-09
 
+- **[E003-T02](epics/E003-2026-09-01-tscircuit-carrier-board/tasks/E003-T02-prove-tscircuit-output-pipeline.md)** — proved clean-install TS Circuit render pipeline, independent Circuit JSON/SVG opening, deterministic manifest hashes, and A–D candidate proof generation. Manufacturing CLI exports remain an explicit environment blocker.
 - **[E003-T03](epics/E003-2026-09-01-tscircuit-carrier-board/tasks/E003-T03-author-carrier-board-candidate.md)** —
   Completed the provisional RP2040-Zero carrier candidate with explicit
   assumptions, mechanical constraints, generated review artefacts and a

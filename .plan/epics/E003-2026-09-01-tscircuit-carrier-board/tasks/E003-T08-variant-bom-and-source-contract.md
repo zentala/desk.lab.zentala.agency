@@ -1,6 +1,6 @@
 ---
 id: E003-T08
-title: Freeze three-variant BOM and source contract
+title: Freeze four-variant BOM and source contract
 status: pending
 priority: high
 effort: medium
@@ -14,7 +14,7 @@ created: 2026-09-01
 completed_at: null
 ---
 
-# E003-T08: Freeze three-variant BOM and source contract
+# E003-T08: Freeze four-variant BOM and source contract
 
 ## Objective
 
@@ -39,4 +39,6 @@ IDs, electrical assumptions and substitutions.
 
 Use [`board-variants.md`](../../../../hardware/e003-carrier/board-variants.md)
 and [ADR-003](../../../ADR/003-three-hardware-board-variants.md) as the initial
-contract.
+contract. Review-time machine-readable BOMs now live in
+`hardware/e003-carrier/variants/`; current catalogue, package and assembly
+eligibility checks remain open.

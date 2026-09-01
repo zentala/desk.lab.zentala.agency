@@ -36,6 +36,8 @@ reviewers.
 
 ## Implementation note
 
-`hardware/e003-carrier/review-portal/index.html` is a self-contained seven-
-section static export with relative links to the evidence, design, manifest,
-generated proofs, checklist and finding register. It makes no approval claim.
+`hardware/e003-carrier/review-portal/index.html` is the seven-section portal;
+`scripts/package-review-portal.mjs` creates the self-contained
+`review-portal/export/` directory with copied assets and rewritten relative
+links. Internal-host publication is still an infrastructure action, so no
+hostname is claimed as live here.

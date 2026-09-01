@@ -7,6 +7,7 @@ import {
   validateAssumptions,
   validateCandidateStructure,
   validateContract,
+  validateVariantContracts,
 } from "./validation-lib.mjs"
 
 const root = resolve(fileURLToPath(new URL("../", import.meta.url)))
@@ -14,6 +15,7 @@ const rows = JSON.parse(await readFile(resolve(root, "evidence/pin-truth-table.j
 const assumptions = JSON.parse(await readFile(resolve(root, "src/design-assumptions.json"), "utf8"))
 const circuit = JSON.parse(await readFile(resolve(root, "artifacts/candidate-proof/circuit.json"), "utf8"))
 const source = await readFile(resolve(root, "src/carrier.tsx"), "utf8")
+const variants = await Promise.all(["a", "b", "c", "d"].map((id) => readFile(resolve(root, `variants/variant-${id}-bom.json`), "utf8").then(JSON.parse)))
 
 function test(name, callback) {
   callback()
@@ -67,4 +69,8 @@ test("reports generated warning and error diagnostics", () => {
     { type: "pcb_trace" },
   ])
   assert.deepEqual(diagnostics, { errors: 1, warnings: 1, byType: { source_warning: 1 } })
+})
+
+test("accepts the four explicit variant contracts", () => {
+  validateVariantContracts(variants)
 })

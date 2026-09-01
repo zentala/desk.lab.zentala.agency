@@ -49,3 +49,10 @@ Keep posture state, buffering policy and notifications on the computer.
 Initial candidate: Espressif `ESP32-C3-MINI-1-N4`, JLCPCB `C2838502`.
 ESP32-S3 `C3013946` remains the strongest-compute alternative, and ESP32-C6
 `C5364646` remains the Wi-Fi 6/Thread/Zigbee alternative.
+
+## Implementation note
+
+Variant D has a separate BOM and proof source. It reserves USB for power/debug,
+includes LIS2DW12TR without a local buzzer, and documents transport-neutral raw
+payload semantics in `hardware/e003-carrier/protocol.md`. RF keep-out,
+transport reliability and current tests remain open.

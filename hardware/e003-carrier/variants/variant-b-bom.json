@@ -1,0 +1,16 @@
+{
+  "id": "B",
+  "name": "JLCPCB chip-down",
+  "status": "provisional-sourcing-candidate",
+  "sourceContract": "Every part must be rechecked in the JLCPCB/EasyEDA library immediately before review/export.",
+  "items": [
+    { "ref": "U1", "part": "RP2040", "sourceId": "C2040", "package": "LQFN-56 7x7 mm", "confidence": "catalogue-candidate", "verification": "library/package/orientation recheck required" },
+    { "ref": "U2", "part": "VL53L0X", "sourceId": "C2929940", "package": "LGA-12", "confidence": "selected-hypothesis", "verification": "compare datasheet, optical keep-out and library package" },
+    { "ref": "U2-alt", "part": "VL53L1X", "sourceId": "C2924337", "package": "LGA-12", "confidence": "rejected-alternative", "verification": "retain until die hypothesis is closed" },
+    { "ref": "U3", "part": "QSPI flash", "sourceId": "TBD", "package": "TBD", "confidence": "unresolved", "verification": "select JLC assembly-eligible part" },
+    { "ref": "J1", "part": "USB-C receptacle", "sourceId": "TBD", "package": "TBD", "confidence": "unresolved", "verification": "select footprint with shield/ESD strategy" },
+    { "ref": "U4", "part": "3V3 regulator", "sourceId": "TBD", "package": "TBD", "confidence": "unresolved", "verification": "power-tree and USB input limits" },
+    { "ref": "R/C/Y", "part": "RP2040 support passives and 12 MHz crystal", "sourceId": "TBD", "package": "TBD", "confidence": "unresolved", "verification": "follow Raspberry Pi reference design" }
+  ],
+  "gates": ["source IDs resolve", "RP2040 reference design review", "VL53L0X/L1X decision", "power-tree/ERC/DFM review"]
+}

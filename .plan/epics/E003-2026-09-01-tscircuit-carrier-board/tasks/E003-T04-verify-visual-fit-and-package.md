@@ -38,5 +38,6 @@ physical modules, then assemble the complete reviewer-facing artefact set.
 ## Implementation note
 
 The review package includes `visual-fit-checklist.md`, evidence templates,
-mechanical constraints, source context, generated proofs and the export
-manifest. Visual-fit checks remain pending until real module photos exist.
+mechanical constraints, source context, generated A–D proofs and the export
+manifest. `review-portal/visual-fit.html` provides the photo/render comparison;
+scale-accurate fit checks remain pending until ruler/caliper evidence exists.

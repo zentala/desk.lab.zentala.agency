@@ -1,0 +1,12 @@
+{
+  "id": "A",
+  "name": "Received modules",
+  "status": "provisional-review-candidate",
+  "sourceContract": "Physical evidence is authoritative; no JLCPCB dependency.",
+  "items": [
+    { "ref": "U1", "part": "RP2040-Zero", "source": "received module", "confidence": "visual-match", "verification": "silkscreen visible; dimensions and revision pending" },
+    { "ref": "U2", "part": "UL53LDK/VL53LDK GY-530-style breakout", "source": "received module", "confidence": "visual-match", "verification": "VIN/GND/SCL/SDA visible; die and regulator pending" },
+    { "ref": "TP1-TP4", "part": "3V3, GND, SDA, SCL test pads", "source": "carrier design", "confidence": "candidate", "verification": "to be checked in continuity test" }
+  ],
+  "gates": ["ruler/caliper evidence", "VIN voltage and pull-up inspection", "1:1 footprint overlay", "USB/I2C smoke test"]
+}

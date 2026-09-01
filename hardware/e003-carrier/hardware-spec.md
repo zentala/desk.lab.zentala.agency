@@ -143,3 +143,7 @@ See [`evidence.md`](evidence/evidence.md),
 [`visual-fit-checklist.md`](visual-fit-checklist.md). Next required photos are
 orthogonal ruler/caliper views of each board separately, plus side views of the
 USB connector and sensor optical face.
+
+The four candidate BOMs and their source confidence are in
+[`variants/`](variants/README.md). Their generated proof renders are linked from
+the [review portal variant matrix](review-portal/variants.html).

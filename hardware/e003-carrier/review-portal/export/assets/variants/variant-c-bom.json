@@ -1,0 +1,14 @@
+{
+  "id": "C",
+  "name": "JLCPCB chip-down plus feedback",
+  "status": "provisional-sourcing-candidate",
+  "extends": "B",
+  "items": [
+    { "ref": "U5", "part": "LIS2DW12TR", "sourceId": "C189624", "package": "LGA-12 2x2 mm", "confidence": "catalogue-candidate", "verification": "supply, address and INT routing review required" },
+    { "ref": "BZ1", "part": "TMB12D03 3V active buzzer", "sourceId": "C781856", "package": "through-hole 12 mm", "confidence": "catalogue-candidate", "verification": "current/frequency and mechanical clearance review required" },
+    { "ref": "Q1", "part": "Low-side buzzer transistor/MOSFET", "sourceId": "TBD", "package": "TBD", "confidence": "unresolved", "verification": "select for 30 mA load and GPIO-safe drive" },
+    { "ref": "TP5", "part": "VIB_INT test pad", "source": "carrier design", "confidence": "candidate", "verification": "independent interrupt test" },
+    { "ref": "TP6", "part": "BUZZER_DRV test pad", "source": "carrier design", "confidence": "candidate", "verification": "independent tone/current test" }
+  ],
+  "gates": ["B gates", "accelerometer address/interrupt isolation", "buzzer current measurement", "no brown-out under USB load"]
+}

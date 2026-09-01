@@ -34,3 +34,9 @@ either accessory necessary for the reference sensor test.
 - Measure idle and event current for the accelerometer.
 - Verify buzzer current, tone generation and no brown-out during USB operation.
 - Run the same desk-height application test with feedback disabled and enabled.
+
+## Implementation note
+
+Variant C records LIS2DW12TR, buzzer, isolated driver and `VIB_INT`/
+`BUZZER_DRV` test points in its BOM/source contract. Driver selection, current
+measurements and independent hardware tests remain open.

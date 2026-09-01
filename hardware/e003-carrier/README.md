@@ -16,8 +16,9 @@ npm ci --ignore-scripts
 npm run check
 ```
 
-`check` runs contract tests, TypeScript checking, both render proofs, electrical
-contract validation and deterministic manifest generation. `prove:pipeline`
+`check` runs contract tests, TypeScript checking, the minimal and four-variant
+render proofs, electrical contract validation, deterministic manifest generation
+and the portable portal package. `prove:pipeline`
 exercises a minimal TS Circuit design and writes independent
 Circuit JSON, schematic SVG and PCB SVG files. `prove:candidate` transpiles the
 placeholder candidate and renders the same artefacts. The manifest records
@@ -36,8 +37,13 @@ blocks that native addon, so Gerbers/BOM/placement exports are not claimed.
 - [Visual-fit checklist](visual-fit-checklist.md)
 - [Export manifest](exports/manifest.json)
 - [Review finding register](review-findings.md)
+- [Four-variant BOM contract](variants/README.md)
+- [Shared prototype protocol](protocol.md)
+- [Portable review portal export](review-portal/export/index.html)
 
 The source uses standard `pinrow4_p2.54mm` interface placeholders inside
 explicit module envelopes. They are sufficient for a provisional review
-candidate, not a manufacturing footprint. External review must accept or
-replace them before any fabrication decision.
+candidate, not a manufacturing footprint. The four variant sources generate
+independent Circuit JSON, schematic and PCB proof artefacts; they deliberately
+retain placeholder footprints until the physical and library checks are closed.
+External review must accept or replace them before any fabrication decision.

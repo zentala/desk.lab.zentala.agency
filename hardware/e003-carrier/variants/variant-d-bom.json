@@ -1,0 +1,13 @@
+{
+  "id": "D",
+  "name": "ESP32-C3 wireless",
+  "status": "provisional-sourcing-candidate",
+  "sourceContract": "USB supplies power; sensor data is not dependent on USB data.",
+  "items": [
+    { "ref": "U1", "part": "ESP32-C3-MINI-1-N4", "sourceId": "C2838502", "package": "module with PCB antenna", "confidence": "catalogue-candidate", "verification": "datasheet land pattern and antenna keep-out review required" },
+    { "ref": "U2", "part": "VL53L0X or VL53L1X sensor", "source": "same chip-down contract as B", "confidence": "unresolved", "verification": "select die and JLC source before export" },
+    { "ref": "U3", "part": "LIS2DW12TR", "sourceId": "C189624", "package": "LGA-12 2x2 mm", "confidence": "catalogue-candidate", "verification": "supply, address and interrupt review required" },
+    { "ref": "J1", "part": "USB power input", "sourceId": "TBD", "package": "TBD", "confidence": "unresolved", "verification": "USB data pins optional/debug only" }
+  ],
+  "gates": ["RF keep-out and 3V3 power budget", "BLE/Wi-Fi transport test", "wireless loss observability", "latency/reconnect/current/packet-loss log"]
+}

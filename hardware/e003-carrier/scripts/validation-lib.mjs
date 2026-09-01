@@ -118,3 +118,33 @@ export function summarizeDiagnostics(circuit) {
   ]))
   return { errors, warnings: warningTypes.length, byType }
 }
+
+export function validateVariantContracts(contracts) {
+  if (!Array.isArray(contracts) || contracts.length !== 4) {
+    throw new Error("Variant contract must contain exactly A, B, C and D")
+  }
+  const ids = contracts.map((contract) => contract.id).sort().join("")
+  if (ids !== "ABCD") throw new Error("Variant contract IDs must be A, B, C and D")
+  for (const contract of contracts) {
+    if (!contract.name || !Array.isArray(contract.items) || !Array.isArray(contract.gates)) {
+      throw new Error(`Variant ${contract.id} is missing BOM items or test gates`)
+    }
+    if (contract.items.some((item) => item.confidence === "verified")) {
+      throw new Error(`Variant ${contract.id} cannot claim unreviewed catalogue data is verified`)
+    }
+  }
+  const variantC = contracts.find((contract) => contract.id === "C")
+  const variantD = contracts.find((contract) => contract.id === "D")
+  if (!variantC.items.some((item) => item.ref === "U5" && item.sourceId === "C189624")) {
+    throw new Error("Variant C must include the LIS2DW12TR candidate")
+  }
+  if (!variantC.items.some((item) => item.ref === "Q1") || !variantC.items.some((item) => item.ref === "TP6")) {
+    throw new Error("Variant C must isolate and expose the buzzer driver")
+  }
+  if (variantD.items.some((item) => /buzzer/i.test(item.part))) {
+    throw new Error("Variant D must not include a local buzzer")
+  }
+  if (!/power/i.test(variantD.sourceContract ?? "")) {
+    throw new Error("Variant D must state that USB is power-only")
+  }
+}

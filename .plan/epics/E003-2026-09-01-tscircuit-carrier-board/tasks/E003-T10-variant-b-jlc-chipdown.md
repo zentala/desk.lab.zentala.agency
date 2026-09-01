@@ -35,3 +35,10 @@ preserving the tested USB serial and I²C contract.
 
 - ERC/netlist review and power-tree calculation.
 - DFM/clearance inspection and USB serial bring-up on a prototype.
+
+## Implementation note
+
+The review candidate source and BOM are generated with the A–D proof pipeline.
+JLCPCB IDs are recorded as catalogue candidates only; source-backed footprints,
+power-tree values and current library eligibility must be verified before this
+task can close.
