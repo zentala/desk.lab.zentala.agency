@@ -1,10 +1,10 @@
-# RP2040-Tiny Firmware Specification
+# RP2040-Zero Firmware Specification
 
 ## Hardware
 
-- **MCU**: Waveshare RP2040-Tiny
-- **Sensor**: VL53L0X (ToF laser distance, I2C)
-- **Connection to PC**: USB via FFC cable + USB adapter daughterboard
+- **MCU**: Waveshare RP2040-Zero
+- **Sensor**: received ToF breakout (VL53L0X/VL53L1X identity unresolved)
+- **Connection to PC**: onboard USB-C
 - **Optional**: vibration/accelerometer sensor on desk surface (presence detection)
 
 ---
@@ -164,15 +164,15 @@ Default values used if not calibrated:
 
 ---
 
-## I2C wiring (VL53L0X → RP2040-Tiny)
+## I2C wiring (ToF breakout → RP2040-Zero)
 
-| VL53L0X pin | RP2040-Tiny pin | Notes |
+| Breakout pin | RP2040-Zero pin | Notes |
 |---|---|---|
 | VCC | 3V3 | 3.3V power |
 | GND | GND | Ground |
 | SDA | GP4 | I2C0 SDA |
 | SCL | GP5 | I2C0 SCL |
-| XSHUT | GP6 | Optional: sensor enable/disable |
+| X/aux (unconfirmed) | GP6 candidate | Do not route until the auxiliary pad is identified |
 
 VL53L0X I2C address: `0x29` (default)
 

@@ -93,3 +93,26 @@ physical-evidence rows remain visible in the manifest; fabrication stays
 blocked. Planning corrections for epic scope, review-gate dependencies and the
 RP2040-Tiny/RP2040-Zero source-of-truth conflict are recorded in `IMPRO.md` for
 a separate planning session.
+
+## 2026-09-01 — Owner accepts provisional inputs for T03
+
+The owner directed the project to proceed using the evidence and assumptions
+already recorded in the repository instead of waiting for new ruler, caliper or
+electrical measurements. T03 may therefore develop a review candidate using the
+documented RP2040-Zero and GY-530-style envelopes, 2.54 mm interface pitch and
+the photographed `VIN/GND/SCL/SDA` order.
+
+This is an execution waiver for a provisional design, not a claim that the
+received modules were measured or electrically characterized. The source,
+manifest and review material must preserve that distinction. ADR-002 remains
+unchanged: fabrication is blocked until a qualified reviewer accepts the
+electrical assumptions, mechanical fit and manufacturing outputs.
+
+## 2026-09-01 — RP2040-Zero selected as Hardware v2 source of truth
+
+The owner explicitly selected RP2040-Zero, not RP2040-Tiny. ADR-004 makes the
+choice product-wide: Variant A uses the received RP2040-Zero and its onboard
+USB-C connector, with GP4/GP5 as the provisional I2C0 pair. Active PRD,
+hardware, firmware, architecture, roadmap and repository guidance documents
+were synchronized. Historical session and superseded epic narratives retain
+Tiny only when describing the earlier decision.

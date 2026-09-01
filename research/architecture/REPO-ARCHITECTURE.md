@@ -13,7 +13,7 @@
 ## System architecture
 
 ```
-RP2040-Tiny + VL53L0X
+RP2040-Zero + ToF breakout
       │ USB Serial (JSON Lines, 115200 baud)
       ▼
 [sensor-daemon]                    ← packages/daemon — owns USB port exclusively
@@ -40,7 +40,7 @@ RP2040-Tiny + VL53L0X
 smart-desk/
 │
 ├── packages/
-│   ├── firmware/              # RP2040-Tiny MicroPython firmware
+│   ├── firmware/              # RP2040-Zero MicroPython firmware
 │   │   ├── main.py
 │   │   ├── sensors/
 │   │   │   ├── vl53l0x.py    # laser distance sensor driver

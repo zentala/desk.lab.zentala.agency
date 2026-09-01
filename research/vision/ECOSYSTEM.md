@@ -92,7 +92,7 @@ The "smart" part of a height-adjustable desk is invisible and unused.
 - Goal: users, data, proof of concept
 
 ### Phase 2: Hardware kit (~1000 users)
-- Sell pre-assembled sensor kit (RP2040-Tiny + VL53L0X + PCB + enclosure)
+- Sell pre-assembled sensor kit (RP2040-Zero + ToF breakout + PCB + enclosure)
 - Price: 150-200 PLN
 - Made in Poland (PCB assembly + laser cutting), components from China
 - Revenue: breaks even on hardware, builds supply chain experience

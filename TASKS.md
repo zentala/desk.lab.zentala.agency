@@ -16,7 +16,7 @@ and the **website** (`astro/` active, `legacy/` preserved).
 - [ ] **Sensor-daemon — packages/daemon — priority #1**
       Oddzielony od apki Electron — crash developmentu nie zatrzymuje zbierania danych.
       Architektura: jeden proces Node.js (bez Electron) który:
-        (1) czyta USB Serial z RP2040-Tiny (protokół JSON Lines, 115200 baud)
+        (1) czyta USB Serial z RP2040-Zero (protokół JSON Lines, 115200 baud)
         (2) loguje do ~/.smart-desk/desk.log (append-only CSV, flush co linię)
         (3) serwuje dane przez WebSocket ws://localhost:3847
       Apka Electron łączy się jako klient WS — nie ma dostępu do portu USB bezpośrednio.
@@ -30,13 +30,13 @@ and the **website** (`astro/` active, `legacy/` preserved).
       → See open questions in [research/SESSION-2026-06-25.md](research/SESSION-2026-06-25.md)
 
 - [ ] **Rewrite Electron app from scratch** — clean v1, not patched experiment.
-      Stack: TypeScript + Electron + USB Serial (RP2040-Tiny) + OS notifications.
+      Stack: TypeScript + Electron + USB Serial (RP2040-Zero) + OS notifications.
       Modes: software-only (mouse/keyboard) + hardware (+ VL53L0X height).
 
-- [ ] **Design RP2040-Tiny firmware** — USB Serial, sends height readings as JSON.
+- [ ] **Design RP2040-Zero firmware** — USB Serial, sends height readings as JSON.
       Decide: USB Serial vs HID. Calibration flow.
 
-- [ ] **Design PCB v2** — black PCB, RP2040-Tiny + VL53L0X, I2C traces, USB connector.
+- [ ] **Design PCB v2** — black PCB, RP2040-Zero + ToF breakout, I2C traces, USB-C access.
       Fab: JLCPCB.
       Brief do zlecenia i kryteria odbioru: [research/hardware-v2-pcb-commission-brief.md](research/hardware-v2-pcb-commission-brief.md)
 

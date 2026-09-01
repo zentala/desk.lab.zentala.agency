@@ -1,14 +1,13 @@
 ---
-updated: 2026-09-01T03:30:00+02:00
-focus: E003 implementation — TS Circuit carrier-board candidate and review pack.
-next: Capture actual module photos/measurements, replace placeholder footprints, then obtain external electronics review.
-active_epic: E003
-active_epic_path: .plan/epics/E003-2026-09-01-tscircuit-carrier-board
-planning_epic: E003
-planning_epic_path: .plan/epics/E003-2026-09-01-tscircuit-carrier-board
+updated: 2026-09-01T08:00:00+02:00
+focus: E003-T03 implementation — provisional RP2040-Zero carrier candidate.
+next: Complete T03 from owner-accepted assumptions, then produce visual review artefacts.
+executing_epic: E003
+executing_epic_path: .plan/epics/E003-2026-09-01-tscircuit-carrier-board
 current_wave:
   - "Wave 1 started: evidence template and minimal TS Circuit output proof are committed."
   - "Wave 2 started: placeholder candidate and static review portal are committed; fabrication remains blocked."
+  - "Owner selected RP2040-Zero as the canonical Hardware v2 module; ADR-004 records the decision."
 handoff: HANDOFF.md
 ---
 
@@ -44,8 +43,8 @@ legacy-source, cutover) wait for E002 content live.
 
 Article framing (owner): about *conclusions + next steps*, not an un-copyable moat — the May
 "protocol/standard is the real product" + data-monetization angle is excluded, shown only as the
-superseded position. New reality: the **W2 hardware is being built now** (RP2040-Tiny + VL53L0X
-over USB), reflected in the article's closing section.
+superseded position. New reality: the **W2 hardware is being built now** (RP2040-Zero + ToF
+breakout over USB-C), reflected in the article's closing section.
 
 Next: answer blockers, then write article v0.2 (E002-T08), then execute.
 

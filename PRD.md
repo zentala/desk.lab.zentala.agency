@@ -57,7 +57,7 @@ desk height). Every other reminder app is blind to whether you acted.
 ## Architecture
 
 ```
-RP2040-Tiny + VL53L0X
+RP2040-Zero + ToF breakout
       │ USB Serial (JSON Lines)
       ▼
 [sensor-daemon]                    ← owns the USB port exclusively
@@ -96,7 +96,7 @@ RP2040-Tiny + VL53L0X
 
 | Component | Model | Price | Source |
 |---|---|---|---|
-| Microcontroller | Waveshare RP2040-Tiny + USB adapter | ~20 PLN | AliExpress |
+| Microcontroller | Waveshare RP2040-Zero with onboard USB-C | ~20 PLN | AliExpress |
 | Laser sensor | VL53L0X (ToF, I2C, up to 2m) | ~20 PLN | AliExpress |
 | PCB | Custom black PCB (to be designed) | TBD | JLCPCB |
 | Enclosure | Smoked graphite plexi, laser cut | ~20 PLN | Local |

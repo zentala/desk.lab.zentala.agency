@@ -64,7 +64,7 @@ The two tracks are independent: website work does not block product work.
 research/
 ├── SESSION-2026-06-25.md        ← session handoff, open questions, next steps
 ├── user-quotes.xml              ← 26 real user quotes from forums (market validation)
-├── hardware-v2-spec.md          ← RP2040-Tiny + VL53L0X spec, BOM, wiring
+├── hardware-v2-spec.md          ← RP2040-Zero + ToF breakout spec, BOM, wiring
 │
 ├── vision/
 │   ├── MISSION.md               ← philosophy, personas, what we are NOT building
@@ -83,7 +83,7 @@ research/
 
 ## Product summary
 
-**Hardware v2:** RP2040-Tiny (~20 PLN) + VL53L0X laser sensor (~20 PLN) → USB to PC
+**Hardware v2:** RP2040-Zero (~20 PLN) + ToF breakout (~20 PLN) → USB-C to PC
 
 **Two data sources:**
 - Desk height from laser → knows if sitting or standing

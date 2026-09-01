@@ -21,7 +21,7 @@ Continuous shipping, continuous learning from real users.
 **Goal: first external users, first feedback**
 
 ### Hardware v2
-- [ ] RP2040-Tiny + VL53L0X on black PCB
+- [ ] RP2040-Zero + ToF breakout on black PCB
 - [ ] Smoked graphite plexi enclosure (laser cut)
 - [ ] USB connection to computer
 - [ ] Portable — clips/attaches to any desk
@@ -132,6 +132,6 @@ Continuous shipping, continuous learning from real users.
 ## Key decisions to make (before Stage 1)
 
 1. **Notification algorithm** — design as state machine (most critical)
-2. **USB Serial vs HID** — firmware protocol for RP2040-Tiny
-3. **PCB design** — layout for RP2040-Tiny + VL53L0X + vibration sensor
+2. **USB Serial vs HID** — firmware protocol for RP2040-Zero
+3. **PCB design** — layout for RP2040-Zero + ToF breakout + vibration sensor
 4. **New repo** — clean rewrite, separate from experimental code

@@ -42,7 +42,7 @@ on the algorithm.*
 | Epic | Scope | Status |
 |---|---|---|
 | P01 | Bootstrap / structure the product monorepo (shared types) per `research/architecture/REPO-ARCHITECTURE.md`. | app repo |
-| P02 | **W2 sensor module** — RP2040-Tiny + VL53L0X, USB-serial firmware (`research/architecture/FIRMWARE-SPEC.md`). | **being built now** |
+| P02 | **W2 sensor module** — RP2040-Zero + ToF breakout, USB-serial firmware (`research/architecture/FIRMWARE-SPEC.md`). | **being built now** |
 
 ### Stream 3 — Product: data + algorithm (app repo — this is the MVP)
 

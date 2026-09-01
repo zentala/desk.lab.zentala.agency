@@ -14,8 +14,8 @@ The system only detects desk height and notifies the user when they've been sitt
 
 | Component | Model | Price | Source |
 |---|---|---|---|
-| Microcontroller | Waveshare RP2040-Tiny + USB Adapter Board | ~20 PLN | AliExpress |
-| Laser distance sensor | VL53L0X (ToF, up to 2m) | ~20 PLN | AliExpress |
+| Microcontroller | Waveshare RP2040-Zero with onboard USB-C | ~20 PLN | AliExpress |
+| Laser distance sensor | Received ToF breakout; exact VL53L0X/VL53L1X die unresolved | ~20 PLN | AliExpress |
 | Smoked graphite plexiglass | 3mm, laser-cut enclosure | ~20–30 PLN | Local laser cutting service |
 | Black PCB | Custom (to be designed) | TBD | JLCPCB / PCBWay |
 | Wiring / connectors | I2C cables, headers | ~5 PLN | AliExpress |
@@ -26,16 +26,16 @@ The system only detects desk height and notifies the user when they've been sitt
 
 ## Hardware Components
 
-### Microcontroller: Waveshare RP2040-Tiny
+### Microcontroller: Waveshare RP2040-Zero
 
 - **Chip**: Raspberry Pi RP2040, dual-core ARM Cortex-M0+ @ 133 MHz
 - **RAM**: 264 kB SRAM
 - **Flash**: 2 MB
-- **GPIO**: 20 pins
+- **GPIO**: numbered edge pads including GP4/GP5 for the provisional I2C0 mapping
 - **Dimensions**: 18 × 23.5 mm
-- **USB**: via FFC flat cable + optional USB adapter daughterboard
+- **USB**: onboard USB-C connector
 - **Connection to PC**: USB (appears as USB-HID or USB-Serial device)
-- **Product page**: https://www.waveshare.com/rp2040-tiny.htm
+- **Product page**: https://www.waveshare.com/wiki/RP2040-Zero
 
 ### Laser Distance Sensor: VL53L0X
 
@@ -57,7 +57,7 @@ The system only detects desk height and notifies the user when they've been sitt
 VL53L0X (I2C)                  OS: mouse / keyboard events
     │                                       │
     ▼                                       ▼
-RP2040-Tiny ──── USB Serial ──▶  Electron App (system tray)
+RP2040-Zero ──── USB Serial ──▶  Electron App (system tray)
                                             │
                                   ┌─────────┴──────────┐
                                   │                     │
@@ -73,7 +73,7 @@ RP2040-Tiny ──── USB Serial ──▶  Electron App (system tray)
 
 ### Data sources
 
-**1. Desk height** — from RP2040-Tiny via USB Serial
+**1. Desk height** — from RP2040-Zero via USB Serial
 - VL53L0X measures distance from sensor to floor
 - Low value → desk is down → **sitting**
 - High value → desk is raised → **standing**
@@ -87,7 +87,7 @@ RP2040-Tiny ──── USB Serial ──▶  Electron App (system tray)
 ### Application: Electron app in system tray
 
 - Runs in background, visible as tray icon
-- Reads USB Serial from RP2040-Tiny
+- Reads USB Serial from RP2040-Zero
 - Listens to OS mouse/keyboard events
 - Tracks: how long sitting, how long standing, total active time
 - Sends OS-native notifications when user has been sitting too long
@@ -110,7 +110,7 @@ RP2040-Tiny ──── USB Serial ──▶  Electron App (system tray)
 ## PCB
 
 - **Color**: black
-- **Purpose**: clean wiring between RP2040-Tiny and VL53L0X, mounting points for enclosure
+- **Purpose**: clean wiring between RP2040-Zero and the ToF breakout, mounting points for enclosure
 - **Status**: to be designed
 - **Suggested fab**: JLCPCB (cheap black PCBs, ships to Poland)
 
@@ -120,7 +120,7 @@ RP2040-Tiny ──── USB Serial ──▶  Electron App (system tray)
 
 | v1 Component | Reason removed in v2 |
 |---|---|
-| Raspberry Pi 4 | Overkill; replaced by RP2040-Tiny |
+| Raspberry Pi 4 | Overkill; replaced by RP2040-Zero |
 | Waveshare Relay Board | Not needed — no motor control |
 | PIR HC-SR501 | Replaced by height-based presence inference |
 | Power supply EPS-35-5 | Not needed — powered via USB |
@@ -132,7 +132,7 @@ RP2040-Tiny ──── USB Serial ──▶  Electron App (system tray)
 
 ## Software Interface (to be designed)
 
-The RP2040-Tiny firmware should expose one of:
+The RP2040-Zero firmware should expose one of:
 - **USB Serial** — sends height readings as JSON lines: `{"height_mm": 620, "ts": 1234567890}`
 - **USB HID** — custom HID device (more complex but no driver needed on PC)
 
@@ -186,7 +186,7 @@ A motivation system that adapts, rewards, and builds habits — like Duolingo do
 - [ ] Exact mounting position of VL53L0X (under blat vs. on desk leg)
 - [ ] Calibration: how to set "sitting height" vs "standing height" thresholds
 - [ ] USB Serial vs HID — firmware decision
-- [ ] PCB design: trace RP2040-Tiny + VL53L0X I2C + USB connector
+- [ ] PCB design: trace RP2040-Zero + ToF breakout I2C and preserve USB-C access
 - [ ] Enclosure v2 DXF design (much smaller footprint than v1)
 - [ ] Desktop agent: which platforms? (Linux first, then Windows/Mac?)
 - [ ] Notification design: what does a non-annoying notification look like?
