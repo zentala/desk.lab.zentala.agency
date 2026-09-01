@@ -116,3 +116,16 @@ USB-C connector, with GP4/GP5 as the provisional I2C0 pair. Active PRD,
 hardware, firmware, architecture, roadmap and repository guidance documents
 were synchronized. Historical session and superseded epic narratives retain
 Tiny only when describing the earlier decision.
+
+## 2026-09-01 — T03 provisional carrier candidate completed
+
+The RP2040-Zero carrier candidate now records the owner-accepted 48 × 32 mm
+board, module envelopes, USB-C and optical keep-outs, four mounting holes and
+four diagnostic test points. Generated PCB and schematic SVGs are non-empty,
+the circuit has no error diagnostics, and all schematic components and traces
+are assigned to the `Main` sheet.
+
+The clean-worktree workflow passed `npm ci --ignore-scripts` and the final
+`npm run check` passed eight tests, typecheck, both proof generators,
+validation and manifest hashing. Six warnings remain visible in the manifest;
+fabrication remains blocked. Commits: `bbe2721`, `7ca9b80`.

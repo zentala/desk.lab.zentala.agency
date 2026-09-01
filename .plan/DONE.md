@@ -1,9 +1,16 @@
 # Done
 
+## 2026-09
+
+- **[E003-T03](epics/E003-2026-09-01-tscircuit-carrier-board/tasks/E003-T03-author-carrier-board-candidate.md)** —
+  Completed the provisional RP2040-Zero carrier candidate with explicit
+  assumptions, mechanical constraints, generated review artefacts and a
+  fabrication block. Tests: 8 passing plus typecheck and artefact validation.
+  Commits: `bbe2721` `7ca9b80`.
+
 ## 2026-07
 
 - [E001-T01](epics/E001-2026-07-15-site-rebuild/tasks/E001-T01.md) — rehearse the `master` merge;
   conflict set documented in the epic [JOURNAL](epics/E001-2026-07-15-site-rebuild/JOURNAL.md)
 
 ## 2026-05
-

@@ -1,13 +1,14 @@
 ---
-updated: 2026-09-01T08:00:00+02:00
-focus: E003-T03 implementation — provisional RP2040-Zero carrier candidate.
-next: Complete T03 from owner-accepted assumptions, then produce visual review artefacts.
+updated: 2026-09-01T09:00:00+02:00
+focus: E003-T04 visual-fit verification for the provisional RP2040-Zero carrier.
+next: Verify the generated PCB and schematic package against the T04 checklist.
 executing_epic: E003
 executing_epic_path: .plan/epics/E003-2026-09-01-tscircuit-carrier-board
 current_wave:
   - "Wave 1 started: evidence template and minimal TS Circuit output proof are committed."
   - "Wave 2 started: placeholder candidate and static review portal are committed; fabrication remains blocked."
   - "Owner selected RP2040-Zero as the canonical Hardware v2 module; ADR-004 records the decision."
+  - "E003-T03 completed: provisional carrier source, constraints, tests and generated review artefacts are committed."
 handoff: HANDOFF.md
 ---
 
