@@ -58,6 +58,56 @@ export function validateContract(rows, source) {
   validateNets(rows, source)
 }
 
+export function validateAssumptions(assumptions) {
+  if (assumptions.status !== "owner-accepted-provisional") {
+    throw new Error("Design assumptions must remain owner-accepted-provisional")
+  }
+  if (assumptions.fabricationAllowed !== false) {
+    throw new Error("Design assumptions must keep fabrication blocked")
+  }
+  const { carrier, modules } = assumptions
+  if (carrier.widthMm !== 48 || carrier.heightMm !== 32 || carrier.thicknessMm !== 1.6) {
+    throw new Error("Carrier geometry drifted from the accepted provisional contract")
+  }
+  if (modules.rp2040Zero.interfacePitchMm !== 2.54 || modules.tofBreakout.interfacePitchMm !== 2.54) {
+    throw new Error("Both provisional module interfaces must retain 2.54 mm pitch")
+  }
+}
+
+function validateSchematicSheet(circuit) {
+  const sheets = circuit.filter((item) => item.type === "schematic_sheet")
+  if (sheets.length !== 1) throw new Error("Candidate must contain one schematic sheet")
+  const sheetId = sheets[0].schematic_sheet_id
+  for (const type of ["schematic_component", "schematic_trace"]) {
+    const items = circuit.filter((item) => item.type === type)
+    if (items.length === 0 || items.some((item) => item.schematic_sheet_id !== sheetId)) {
+      throw new Error(`Every ${type} must be assigned to the candidate schematic sheet`)
+    }
+  }
+}
+
+export function validateCandidateStructure(circuit, assumptions) {
+  const board = circuit.find((item) => item.type === "pcb_board")
+  const expected = assumptions.carrier
+  if (!board || board.width !== expected.widthMm || board.height !== expected.heightMm) {
+    throw new Error("Rendered board dimensions do not match design assumptions")
+  }
+  if (board.thickness !== expected.thicknessMm || board.num_layers !== expected.layers) {
+    throw new Error("Rendered board stack does not match design assumptions")
+  }
+  const names = circuit.filter((item) => item.type === "source_component").map((item) => item.name)
+  for (const name of ["TP1_3V3", "TP2_GND", "TP3_SDA", "TP4_SCL"]) {
+    if (!names.includes(name)) throw new Error(`Missing review test point: ${name}`)
+  }
+  if (circuit.filter((item) => item.type === "pcb_keepout").length !== 2) {
+    throw new Error("Candidate must contain USB and optical keep-outs")
+  }
+  if (circuit.filter((item) => item.type === "pcb_hole").length !== 4) {
+    throw new Error("Candidate must contain four carrier mounting holes")
+  }
+  validateSchematicSheet(circuit)
+}
+
 export function summarizeDiagnostics(circuit) {
   const types = circuit.map((item) => String(item.type ?? ""))
   const errors = types.filter((type) => type.includes("error")).length

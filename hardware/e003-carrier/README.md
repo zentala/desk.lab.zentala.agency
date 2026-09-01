@@ -2,9 +2,10 @@
 
 This workspace contains the Open Smart Desk Hardware v2 carrier-board
 candidate and its review pack. It is intentionally **not fabrication-ready**:
-the exact received module revisions, dimensions and voltage behaviour still
-need physical evidence, and a qualified electronics reviewer must close the
-review gate before a prototype can be ordered.
+the owner accepted documented vendor/visual dimensions as provisional design
+inputs, while exact module revisions and voltage behaviour remain unresolved.
+A qualified electronics reviewer must close the review gate before a prototype
+can be ordered.
 
 ## Reproduce the checks
 
@@ -31,10 +32,12 @@ blocks that native addon, so Gerbers/BOM/placement exports are not claimed.
 - [Physical evidence record](evidence/evidence.md)
 - [Received-module hardware specification](hardware-spec.md)
 - [Pin truth table](evidence/pin-truth-table.json)
+- [Provisional design assumptions](src/design-assumptions.json)
 - [Visual-fit checklist](visual-fit-checklist.md)
 - [Export manifest](exports/manifest.json)
 - [Review finding register](review-findings.md)
 
-The source uses a standard `pinrow4_p2.54mm` placeholder footprint solely to
-make the candidate render. Replace it with measured footprints and update the
-truth table before treating any output as a board design.
+The source uses standard `pinrow4_p2.54mm` interface placeholders inside
+explicit module envelopes. They are sufficient for a provisional review
+candidate, not a manufacturing footprint. External review must accept or
+replace them before any fabrication decision.

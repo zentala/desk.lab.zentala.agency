@@ -8,7 +8,11 @@ const root = resolve(fileURLToPath(new URL("../", import.meta.url)))
 const manifestPath = resolve(root, "exports/manifest.json")
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"))
 const packageJson = JSON.parse(await readFile(resolve(root, "package.json"), "utf8"))
-const sourcePaths = ["src/carrier.tsx", "evidence/pin-truth-table.json"]
+const sourcePaths = [
+  "src/carrier.tsx",
+  "src/design-assumptions.json",
+  "evidence/pin-truth-table.json",
+]
 const artifactPaths = [
   "artifacts/pipeline-proof/circuit.json",
   "artifacts/pipeline-proof/schematic.svg",
@@ -55,7 +59,7 @@ manifest.verification.localValidation = "passed: npm run check"
 manifest.verification.candidateDiagnostics = summarizeDiagnostics(candidate)
 manifest.verification.independentFileOpen = "passed: Circuit JSON arrays parse; standalone SVG roots are present"
 manifest.provenance = {
-  sources: await Promise.all(sourcePaths.map(describe)),
+  sources: await Promise.all(sourcePaths.map((path) => describe(path))),
   artifacts: await Promise.all(artifactPaths.map((path) => describe(path, true))),
 }
 await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)

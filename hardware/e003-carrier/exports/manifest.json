@@ -77,12 +77,11 @@
     "notes": "The minimal core pipeline is proven. The tsci CLI path for the actual TSX candidate is currently blocked on this Windows environment by a native Rollup application-policy error; do not promise unsupported exports.",
     "candidateDiagnostics": {
       "errors": 0,
-      "warnings": 7,
+      "warnings": 6,
       "byType": {
-        "schematic_component_styling_warning": 1,
-        "source_component_pins_underspecified_warning": 2,
-        "source_no_ground_pin_defined_warning": 2,
-        "source_no_power_pin_defined_warning": 2
+        "pcb_component_missing_courtyard_warning": 4,
+        "source_no_ground_pin_defined_warning": 1,
+        "source_no_power_pin_defined_warning": 1
       }
     }
   },
@@ -90,14 +89,18 @@
     "sources": [
       {
         "path": "src/carrier.tsx",
-        "bytes": 2051,
-        "sha256": "ee549ffc903f96350dc3067f7b76d2a67e3835649a37322b105bb831ecd186b5"
+        "bytes": 4514,
+        "sha256": "0a34d9a123b2470b4c91cee2ca2cc91d6099dc7b1c9c24daf2210fe086a6b6a8"
+      },
+      {
+        "path": "src/design-assumptions.json",
+        "bytes": 1161,
+        "sha256": "e04de828bb18f76053eb022c2915ee39f3689f37ba05b25fe2d48a0b10cb3b8e"
       },
       {
         "path": "evidence/pin-truth-table.json",
         "bytes": 2754,
-        "sha256": "f2edf0a01ca1b925afcd6f3d07fac3edbdc202435ac77722b093232710260188",
-        "formatCheck": "parsed-circuit-json-array"
+        "sha256": "f2edf0a01ca1b925afcd6f3d07fac3edbdc202435ac77722b093232710260188"
       }
     ],
     "artifacts": [
@@ -121,20 +124,20 @@
       },
       {
         "path": "artifacts/candidate-proof/circuit.json",
-        "bytes": 42949,
-        "sha256": "7c7bf5282c3bcbdfb5ef72a2110bd7b6bb6323302e4e973570d616fe85f4be1c",
+        "bytes": 88471,
+        "sha256": "4be9040c14b4718dea37eb499c9cba5ad31ebe99a006649c74ff67b99dbb3388",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/candidate-proof/schematic.svg",
-        "bytes": 17228,
-        "sha256": "a1e27e254e3c53f72b344356587403641c53bfd0ec4b3a753ba306d908e4e793",
+        "bytes": 44016,
+        "sha256": "0f6637f1a17f84d9eb97a2c048f2abee29bcdc3e7893fbf29730644ac57d6ae2",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/candidate-proof/pcb.svg",
-        "bytes": 12263,
-        "sha256": "d872abeb861a85df28ea0d9866ae863d0c0107132385f306d24ab4d31f1e0beb",
+        "bytes": 46708,
+        "sha256": "ddf81fccfd2e76787eededb8191be626765c8fa3abe44fd33fc5077ccfbf9e2d",
         "formatCheck": "parsed-standalone-svg"
       }
     ]
