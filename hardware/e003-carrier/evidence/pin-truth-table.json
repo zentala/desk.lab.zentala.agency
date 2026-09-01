@@ -86,5 +86,27 @@
     "voltage": "Depends on breakout level shifting",
     "evidence": "SDA is the fourth visible edge label after VIN, GND and SCL",
     "status": "unresolved"
+  },
+  {
+    "moduleId": "vl53ldk-breakout",
+    "module": "VL53LDK-marked GY-530-style breakout",
+    "placeholderPin": 5,
+    "sourceLabel": "X",
+    "physicalLabel": "X",
+    "function": "auxiliary",
+    "voltage": "Unknown; do not connect",
+    "evidence": "X is visible on the opposite edge beside the optical package; electrical function is unverified",
+    "status": "unresolved"
+  },
+  {
+    "moduleId": "vl53ldk-breakout",
+    "module": "VL53LDK-marked GY-530-style breakout",
+    "placeholderPin": 6,
+    "sourceLabel": "E",
+    "physicalLabel": "E",
+    "function": "auxiliary",
+    "voltage": "Unknown; do not connect",
+    "evidence": "E is visible on the opposite edge beside the optical package; electrical function is unverified",
+    "status": "unresolved"
   }
 ]

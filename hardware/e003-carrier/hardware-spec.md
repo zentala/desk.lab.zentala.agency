@@ -14,7 +14,7 @@ pad pitch and pad offsets therefore remain pending measurement.
 | Module | Observed | Still to verify |
 | --- | --- | --- |
 | Waveshare RP2040-Zero | `RP2040-Zero` silkscreen, USB-C, numbered GPIO pads, 5V/GND, BOOT/RESET controls | exact revision, outline, pad pitch/offset, USB keep-out and I2C pin choice |
-| Blue `VL53LDK`-marked breakout | `VIN`, `GND`, `SCL`, `SDA` silkscreen; auxiliary pad area; optical sensor package | exact silicon identity, regulator/level shifting, pull-ups, outline, optical keep-out and pitch |
+| Blue `VL53LDK`-marked breakout | `VIN`, `GND`, `SCL`, `SDA` on one edge; `X` and `e` on the opposite edge; optical sensor package and corner hole | exact silicon identity, regulator/level shifting, pull-ups, outline, optical keep-out and pitch |
 
 ![Labels view of the received RP2040-Zero and blue sensor breakout](evidence/photos/rp2040-zero-vl53ldk-labels-2026-09-01.jpg)
 
@@ -36,6 +36,11 @@ motor control, relays or mains circuitry.
 | GND | RP2040 GND | breakout GND | labels visible; pad positions pending measurement |
 | SDA | RP2040 I2C0 candidate (GP4) | breakout SDA | candidate; confirm against board pinout |
 | SCL | RP2040 I2C0 candidate (GP5) | breakout SCL | candidate; confirm against board pinout |
+
+The breakout's two opposite-edge pads marked `X` and `e` are visible in the
+received photo but their function is unresolved. They are shown in the carrier
+review render as physical pads and explicitly left unconnected; they must not
+be routed until continuity and a module schematic identify them.
 
 No pull-up resistor or level translator is specified yet. The breakout must be
 inspected electrically before those parts are selected.
@@ -99,7 +104,7 @@ Waveshare manufacture versus a compatible clone.
 | Waveshare RP2040-Zero | 18.00 × 23.50 mm; 2.54 mm edge pitch; numbered edge pads; USB-C, BOOT and RESET | **Strong visual match**: same outline, pad numbering pattern and control placement | Keep as provisional footprint reference; verify every edge coordinate on the received board |
 | JLCPCB/EasyEDA Waveshare RP2040-Zero resource | Manufacturer-linked CAD resource for the named part | **Likely strongest package lead**, but the exported footprint still needs an overlay against the official drawing and the received board | Export the CAD package for review; do not freeze until pad numbering, outline and USB keep-out agree |
 | `dj505/RP2040-Zero-KiCAD` | Independent KiCad footprint; 2.54 mm edge pitch and 23-pin SMD/THT pad layout | **Useful second opinion** on the general board envelope; author explicitly marks it untested and pin numbering arbitrary | Geometry cross-check only; never use its pin numbers as the electrical truth |
-| GY-530-style `VL53LDK` board | 10.5 × 13.3 mm; one 3 mm corner hole; four labelled I²C/power pads plus auxiliary pads on some variants | **Strong visual match**: same blue rectangle, corner hole, optical package and VIN/GND/SCL/SDA order | Keep as provisional mechanical envelope only; do not freeze chip, pull-ups or voltage path |
+| GY-530-style `VL53LDK` board | 10.5 × 13.3 mm; one 3 mm corner hole; four labelled I²C/power pads on the lower edge and `X/e` auxiliary pads on the opposite edge | **Strong visual match**: same blue rectangle, corner hole, optical package and VIN/GND/SCL/SDA order | Keep as provisional mechanical envelope only; do not freeze chip, pull-ups, voltage path or X/e function |
 
 ### What the independent footprint actually contains
 

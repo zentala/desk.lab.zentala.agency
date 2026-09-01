@@ -17,7 +17,7 @@ purchase variant in the table below.
 | Module | Received marking | Measured size | Pad pitch/offset | Connector/optic direction | Status |
 | --- | --- | --- | --- | --- | --- |
 | RP2040-Zero | [labels view](photos/rp2040-zero-vl53ldk-labels-2026-09-01.jpg), [components view](photos/rp2040-zero-vl53ldk-components-2026-09-01.jpg) | **PENDING RULER/CALIPER** | **PENDING RULER/CALIPER** | USB-C at board top; BOOT/RESET side visible | photo-captured |
-| `VL53LDK`-marked ToF breakout | [labels view](photos/rp2040-zero-vl53ldk-labels-2026-09-01.jpg), [components view](photos/rp2040-zero-vl53ldk-components-2026-09-01.jpg) | **PENDING RULER/CALIPER** (vendor candidate: 10.5 × 13.3 mm) | **PENDING RULER/CALIPER** | optical package and one corner hole visible; four labelled pads VIN/GND/SCL/SDA plus auxiliary pad area | photo-captured |
+| `VL53LDK`-marked ToF breakout | [labels view](photos/rp2040-zero-vl53ldk-labels-2026-09-01.jpg), [components view](photos/rp2040-zero-vl53ldk-components-2026-09-01.jpg) | **PENDING RULER/CALIPER** (vendor candidate: 10.5 × 13.3 mm) | **PENDING RULER/CALIPER** | optical package and one corner hole visible; four labelled pads VIN/GND/SCL/SDA on the lower edge plus X/e pads on the opposite edge | photo-captured |
 
 The two photos show both boards together. They are useful for markings and
 orientation, but they do not contain a scale reference, so no dimension or pad
@@ -29,8 +29,9 @@ pitch is inferred from pixels.
   exposes numbered GPIO pads plus `5V`, `GND`, `RESET` and `BOOT`/programming
   controls. The exact revision string is not yet legible enough to freeze a
   footprint.
-- The smaller blue board is visibly marked `VL53LDK` and has pads labelled
-  `VIN`, `GND`, `SCL`, and `SDA`, plus an auxiliary pad area. The regulator and
+- The smaller blue board is visibly marked `VL53LDK` and has four lower-edge pads labelled
+  `VIN`, `GND`, `SCL`, and `SDA`, plus two opposite-edge pads labelled `X` and `e`.
+  The regulator and
   logic-level circuitry are visible but their electrical behaviour is not proven
   by a photo. Marketplace listings commonly call this geometry GY-530 or
   `VL53L0X`, but that does not identify the silicon on the received board.

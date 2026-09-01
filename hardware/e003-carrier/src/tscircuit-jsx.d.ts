@@ -5,6 +5,8 @@ import type {
   PcbKeepoutProps,
   PcbNoteRectProps,
   PcbNoteTextProps,
+  SilkscreenRectProps,
+  SilkscreenTextProps,
   SchematicSheetProps,
   TestpointProps,
   TraceProps,
@@ -20,6 +22,8 @@ interface TscircuitElements {
   keepout: PcbKeepoutProps
   pcbnoterect: PcbNoteRectProps
   pcbnotetext: PcbNoteTextProps
+  silkscreenrect: SilkscreenRectProps
+  silkscreentext: SilkscreenTextProps
 }
 
 declare global {

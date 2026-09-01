@@ -6,8 +6,9 @@ const ModuleInterfaces = () => (
     <chip
       name="U1_RP2040_ZERO_PENDING_FOOTPRINT"
       footprint="pinrow4_p2.54mm"
-      pcbX={-12}
+      pcbX={-3}
       pcbY={0}
+      pcbRotation={90}
       pinLabels={{ 1: "3V3", 2: "GND", 3: "GP4_SDA", 4: "GP5_SCL" }}
       pinAttributes={{
         "3V3": { providesPower: true, providesVoltage: "3.3V", mustBeConnected: true },
@@ -19,9 +20,10 @@ const ModuleInterfaces = () => (
     <chip
       name="U2_VL53LDK_BLUE_PENDING_FOOTPRINT"
       footprint="pinrow4_p2.54mm"
-      pcbX={12}
-      pcbY={0}
-      pinLabels={{ 1: "VIN_OR_3V3_PENDING", 2: "GND", 3: "SCL", 4: "SDA" }}
+      pcbX={17.5}
+      pcbY={5.2}
+      pinLabels={{ 1: "VIN_OR_3V3_PENDING", 2: "GND", 3: "SCL", 4: "SDA", 5: "X", 6: "E" }}
+      noConnect={["X", "E"]}
       pinAttributes={{
         VIN_OR_3V3_PENDING: { requiresPower: true, requiresVoltage: "3.3V", mustBeConnected: true },
         GND: { requiresGround: true, mustBeConnected: true },
@@ -51,19 +53,24 @@ const ReviewAccess = () => (
     <trace name="NET_TP_GND" width="0.4mm" from=".TP2_GND > .pin1" to=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GND" />
     <trace name="NET_TP_SDA" width="0.25mm" from=".TP3_SDA > .pin1" to=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP4_SDA" />
     <trace name="NET_TP_SCL" width="0.25mm" from=".TP4_SCL > .pin1" to=".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP5_SCL" />
+    <testpoint name="U2_X_AUX_UNRESOLVED" footprintVariant="pad" padDiameter="1.5mm" pcbX={15} pcbY={-6} />
+    <testpoint name="U2_E_AUX_UNRESOLVED" footprintVariant="pad" padDiameter="1.5mm" pcbX={20} pcbY={-6} />
+    <silkscreentext pcbX={15} pcbY={-4.7} text="X" fontSize="0.8mm" layer="top" />
+    <silkscreentext pcbX={20} pcbY={-4.7} text="E" fontSize="0.8mm" layer="top" />
+    <silkscreentext pcbX={17.5} pcbY={-8.2} text="X / E AUX — NC PENDING" fontSize="0.65mm" layer="top" />
   </>
 )
 
 const MechanicalConstraints = () => (
   <>
-    <pcbnoterect pcbX={-12} pcbY={0} width="18mm" height="23.5mm" isFilled={false} color="#60a5fa" />
-    <pcbnotetext pcbX={-12} pcbY={-13} text="RP2040-Zero 18x23.5 PROVISIONAL" fontSize="0.8mm" />
-    <pcbnoterect pcbX={12} pcbY={0} width="10.5mm" height="13.3mm" isFilled={false} color="#22c55e" />
-    <pcbnotetext pcbX={12} pcbY={-8} text="ToF 10.5x13.3 PROVISIONAL" fontSize="0.8mm" />
+    <silkscreenrect pcbX={-12} pcbY={0} width="18mm" height="23.5mm" filled={false} stroke="solid" strokeWidth="0.3mm" layer="top" />
+    <silkscreentext pcbX={-12} pcbY={-13.2} text="RP2040-ZERO 18 x 23.5 mm" fontSize="0.8mm" layer="top" />
+    <silkscreenrect pcbX={17.5} pcbY={0} width="10.5mm" height="13.3mm" filled={false} stroke="solid" strokeWidth="0.3mm" layer="top" />
+    <silkscreentext pcbX={17.5} pcbY={-7.8} text="TOF 10.5 x 13.3 mm" fontSize="0.8mm" layer="top" />
     <keepout shape="rect" pcbX={-12} pcbY={13.25} width="12mm" height="5mm" layers={["top", "bottom"]} excludeRefs={[".U1_RP2040_ZERO_PENDING_FOOTPRINT"]} />
     <keepout shape="circle" pcbX={12} pcbY={4.5} radius="2.5mm" layers={["top", "bottom"]} excludeRefs={[".U2_VL53LDK_BLUE_PENDING_FOOTPRINT"]} />
-    <pcbnotetext pcbX={-12} pcbY={14} text="USB-C ACCESS" fontSize="0.8mm" />
-    <pcbnotetext pcbX={12} pcbY={4.5} text="OPTICAL PATH" fontSize="0.7mm" />
+    <silkscreentext pcbX={-12} pcbY={14} text="USB-C ACCESS" fontSize="0.8mm" layer="top" />
+    <silkscreentext pcbX={12} pcbY={4.5} text="OPTICAL PATH — POSITION PENDING" fontSize="0.7mm" layer="top" />
     <hole name="H1" pcbX={-20} pcbY={-12} diameter="3.2mm" />
     <hole name="H2" pcbX={20} pcbY={-12} diameter="3.2mm" />
     <hole name="H3" pcbX={-20} pcbY={12} diameter="3.2mm" />

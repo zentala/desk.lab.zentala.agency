@@ -26,13 +26,26 @@ function validateModule(rows, source, moduleId, marker) {
       throw new Error(`${moduleId} must define exactly one ${fn} row`)
     }
   }
-  if (new Set(pins).size !== 4 || !pins.every((pin) => [1, 2, 3, 4].includes(pin))) {
-    throw new Error(`${moduleId} must map unique placeholder pins 1-4`)
+  const allowedPins = moduleId === "vl53ldk-breakout" ? [1, 2, 3, 4, 5, 6] : [1, 2, 3, 4]
+  if (new Set(pins).size !== allowedPins.length || !pins.every((pin) => allowedPins.includes(pin))) {
+    throw new Error(`${moduleId} must map unique placeholder pins ${allowedPins.join("-")}`)
   }
   const block = sourceBlock(source, `name="${marker}"`)
   for (const row of moduleRows) {
     if (!block.includes(`${row.placeholderPin}: "${row.sourceLabel}"`)) {
       throw new Error(`${moduleId} pin ${row.placeholderPin} must be ${row.sourceLabel}`)
+    }
+  }
+}
+
+function validateAuxiliaryPads(rows, source) {
+  for (const row of rows.filter((item) => item.function === "auxiliary")) {
+    if (row.moduleId !== "vl53ldk-breakout" || row.status !== "unresolved") {
+      throw new Error("ToF auxiliary X/E pads must remain unresolved")
+    }
+    const block = sourceBlock(source, 'name="U2_VL53LDK_BLUE_PENDING_FOOTPRINT"')
+    if (!block.includes(`${row.placeholderPin}: "${row.sourceLabel}"`)) {
+      throw new Error(`ToF auxiliary pad ${row.sourceLabel} is missing from the source`)
     }
   }
 }
@@ -55,6 +68,7 @@ export function validateContract(rows, source) {
   for (const [moduleId, marker] of Object.entries(MODULES)) {
     validateModule(rows, source, moduleId, marker)
   }
+  validateAuxiliaryPads(rows, source)
   validateNets(rows, source)
 }
 
@@ -104,6 +118,9 @@ export function validateCandidateStructure(circuit, assumptions) {
   }
   if (circuit.filter((item) => item.type === "pcb_hole").length !== 4) {
     throw new Error("Candidate must contain four carrier mounting holes")
+  }
+  if (circuit.filter((item) => item.type === "pcb_silkscreen_rect").length < 2) {
+    throw new Error("Candidate must show visible module envelope outlines")
   }
   validateSchematicSheet(circuit)
 }

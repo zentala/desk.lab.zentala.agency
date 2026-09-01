@@ -137,11 +137,13 @@
     "notes": "The minimal core pipeline is proven. The tsci CLI path for the actual TSX candidate is currently blocked on this Windows environment by a native Rollup application-policy error; do not promise unsupported exports.",
     "candidateDiagnostics": {
       "errors": 0,
-      "warnings": 6,
+      "warnings": 12,
       "byType": {
-        "pcb_component_missing_courtyard_warning": 4,
+        "pcb_component_missing_courtyard_warning": 6,
         "source_no_ground_pin_defined_warning": 1,
-        "source_no_power_pin_defined_warning": 1
+        "source_no_power_pin_defined_warning": 1,
+        "source_pin_missing_trace_warning": 2,
+        "source_refdes_convention_warning": 2
       }
     },
     "variantProof": "passed: four variant Circuit JSON/SVG proof sets generated and independently format-checked"
@@ -150,13 +152,13 @@
     "sources": [
       {
         "path": "src/carrier.tsx",
-        "bytes": 4514,
-        "sha256": "0a34d9a123b2470b4c91cee2ca2cc91d6099dc7b1c9c24daf2210fe086a6b6a8"
+        "bytes": 5215,
+        "sha256": "da7efddb117bd9901d0408978f5237b57cb6c994c9f27579ec94967b1c15d866"
       },
       {
         "path": "src/variant-candidates.tsx",
-        "bytes": 4586,
-        "sha256": "16ca1fe4170c626f0a7d5c5798248b36223b1044030fbd1577e33e28864069b8"
+        "bytes": 6432,
+        "sha256": "4dc4235b8048aec86146fe845cac0d8e69bd660d28ca856428ec1d424ad51082"
       },
       {
         "path": "src/design-assumptions.json",
@@ -165,8 +167,8 @@
       },
       {
         "path": "evidence/pin-truth-table.json",
-        "bytes": 2754,
-        "sha256": "f2edf0a01ca1b925afcd6f3d07fac3edbdc202435ac77722b093232710260188"
+        "bytes": 3528,
+        "sha256": "df172c123a1ff031493aa5d615cedf4ff643ce0abbde7aa1ef71d082eaacfe64"
       },
       {
         "path": "variants/variant-a-bom.json",
@@ -215,92 +217,92 @@
       },
       {
         "path": "artifacts/candidate-proof/circuit.json",
-        "bytes": 88471,
-        "sha256": "4be9040c14b4718dea37eb499c9cba5ad31ebe99a006649c74ff67b99dbb3388",
+        "bytes": 115336,
+        "sha256": "d4d1e93982bf4b13cbe944168296e724a96000b13e970be931d7f02df63f6441",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/candidate-proof/schematic.svg",
-        "bytes": 44016,
-        "sha256": "0f6637f1a17f84d9eb97a2c048f2abee29bcdc3e7893fbf29730644ac57d6ae2",
+        "bytes": 49574,
+        "sha256": "7d7b93f75cf3fd194d356261ff04c1d799b6bb763e6381cf2fd6fbf4ffb72964",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/candidate-proof/pcb.svg",
-        "bytes": 46708,
-        "sha256": "ddf81fccfd2e76787eededb8191be626765c8fa3abe44fd33fc5077ccfbf9e2d",
+        "bytes": 72092,
+        "sha256": "87172ddd1c2cd96592457ab4fd6a1843b12aeafde1445d19e5129f1147ccf1ad",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/A/circuit.json",
-        "bytes": 51846,
-        "sha256": "a9dc8e838e3b0888f9bd4571f6716b74816955aedbe44840a6d49d6b02134b85",
+        "bytes": 51110,
+        "sha256": "89656b43460300c46f60f523d35114e0e05c484afc6fd96811cd577e61565065",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/variants/A/schematic.svg",
-        "bytes": 27326,
-        "sha256": "b5d30e5b1d23057e68c82f32ea0579503c7e9dea610dbc9451b01f1a519c55fe",
+        "bytes": 32535,
+        "sha256": "12d1fdd31f15aafb931b83639d666545e3e316111065521a93ec8e59f8424d29",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/A/pcb.svg",
-        "bytes": 28049,
-        "sha256": "00a6121afa3c9811f42ece5351a9cbd22202ee35970c1a3200a98a2433207571",
+        "bytes": 12637,
+        "sha256": "d4ba8c6982c8c19c7d5fb0ba99b1e36d15feefe9d80987b4d2d6d3d9fc866ee5",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/B/circuit.json",
-        "bytes": 51730,
-        "sha256": "38b158747b8edbf2670782ffc0c40f07256d7b7c9d9155c8afd1037decf3e945",
+        "bytes": 50981,
+        "sha256": "90e09a3d577bfd08310b2d360760a6e8a7af951035ad1d510862f9eca73ec259",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/variants/B/schematic.svg",
-        "bytes": 27290,
-        "sha256": "cc164200809a05a377a5487019436db9ebf02e2a7adae0a940d6852e6f6a8e39",
+        "bytes": 32455,
+        "sha256": "0f079bc4bb22586b07cf72b5c3aca6d10eb78e5616a2fa5ae906eae236ddc08f",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/B/pcb.svg",
-        "bytes": 28009,
-        "sha256": "251061aac65d3675fdb09e7c962967617183f0cf4b19a3058d4958a3b0232e64",
+        "bytes": 12598,
+        "sha256": "a54a36d75e0c4d47e832d59a43b87c8fa1ef60b7b73651ff9bba33ada408ee9e",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/C/circuit.json",
-        "bytes": 59576,
-        "sha256": "d01056aa6099f158b8161f21bcc5f24348370dbcf57b9934a9e50253bb6ee207",
+        "bytes": 60959,
+        "sha256": "f2527edf1e48a0241ef32072121a6720145058292f1e67ef1ba5711fdea392df",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/variants/C/schematic.svg",
-        "bytes": 32450,
-        "sha256": "19fb71efd2acdb76881b3c3fadf20c9c4a73a7b7f6d67c67c72033bab92da27b",
+        "bytes": 37682,
+        "sha256": "0726e8554ece002674c9ad30abc0572e7e379df040049c6062f880e4ac94d180",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/C/pcb.svg",
-        "bytes": 27989,
-        "sha256": "a551c022c360a7b0dd33203d87000bfbecddb0d48ccfd786d813d0d5b2866911",
+        "bytes": 14214,
+        "sha256": "2420808a3373b868daed552ec556588026adc7e96e0f2a3e9fda1a20d9b7585d",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/D/circuit.json",
-        "bytes": 61410,
-        "sha256": "813814b20ef3cdfe50d7a14db9dac717b25e6e52b638f502bbad7d53f8b5591d",
+        "bytes": 56573,
+        "sha256": "7580cba157adae6cd6ebb5346051a2788955076c5111a796419c5f1565064c77",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/variants/D/schematic.svg",
-        "bytes": 29925,
-        "sha256": "05cc20d5bdd9134e109a1893e941e6241017d13eacc9eccb773cc9381cc9d1c3",
+        "bytes": 35155,
+        "sha256": "b8b6052994119dddb019e60bf2341633c28326250229fd0aa46e5b5eddcbdc41",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/D/pcb.svg",
-        "bytes": 38587,
-        "sha256": "914155dda832fa6dd886582f775d55a2c3671cbfa824d0bc52b2ac5164de3cfe",
+        "bytes": 13830,
+        "sha256": "da0508b46f6afa93741a86a194240a081fe97d529ba9d2cbad0ed8d7621d82c4",
         "formatCheck": "parsed-standalone-svg"
       }
     ]
