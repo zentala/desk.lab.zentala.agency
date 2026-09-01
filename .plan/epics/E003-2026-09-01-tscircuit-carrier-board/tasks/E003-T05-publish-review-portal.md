@@ -1,7 +1,7 @@
 ---
 id: E003-T05
 title: Publish carrier board review portal
-status: in_progress
+status: in-progress
 priority: medium
 effort: medium
 type: feature

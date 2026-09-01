@@ -1,7 +1,7 @@
 ---
 id: E003-T03
 title: Author AI-assisted carrier board candidate
-status: in_progress
+status: in-progress
 priority: high
 effort: large
 type: feature

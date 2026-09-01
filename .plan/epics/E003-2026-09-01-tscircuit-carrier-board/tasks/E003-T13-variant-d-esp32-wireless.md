@@ -3,8 +3,15 @@ id: E003-T13
 title: Design Variant D ESP32 wireless board
 status: pending
 priority: high
-owner: engineering
+effort: large
+type: feature
 dependencies: [E003-T08, E003-T09]
+tags: [hardware, jlcpcb, esp32, wireless]
+epic: E003
+commit: "feat(hardware): add wireless carrier variant"
+group: E003-2026-09-01-tscircuit-carrier-board
+created: 2026-09-01
+completed_at: null
 ---
 
 # E003-T13: Design Variant D ESP32 wireless board

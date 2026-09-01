@@ -1,7 +1,7 @@
 ---
 id: E003-T04
 title: Verify visual fit and assemble review package
-status: in_progress
+status: in-progress
 priority: high
 effort: medium
 type: docs

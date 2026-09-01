@@ -1,7 +1,7 @@
 ---
 id: E003-T01
 title: Capture module evidence and pin truth table
-status: in_progress
+status: in-progress
 priority: critical
 effort: medium
 type: docs
@@ -45,5 +45,7 @@ The actual modules—not an AliExpress image—are authoritative.
 ## Implementation note
 
 The evidence template and candidate truth table live in
-`hardware/e003-carrier/evidence/`. The received-board photos and measurements
-are still required; rows remain explicitly unresolved/candidate.
+`hardware/e003-carrier/evidence/`. The received-board photos are captured;
+measured dimensions, continuity checks and authoritative module-revision
+evidence remain required. A machine check now keeps placeholder pin order and
+nets aligned with the truth table.

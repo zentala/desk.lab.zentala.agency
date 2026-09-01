@@ -66,3 +66,30 @@ compute from transport, the selected first RF prototype is the simpler
 ESP32-C6 remains the Wi-Fi 6/Thread/Zigbee alternative. Variant D now includes
 the LIS2DW12TR so distance and vibration data are both sent wirelessly; it has
 no local buzzer.
+
+## 2026-09-01 — Review blocker remediation started
+
+The E003 audit found two implementation blockers in the existing T01/T02 work:
+the placeholder sensor pin order contradicted the photographed module labels,
+and a clean npm install could not run either proof script because
+`@tscircuit/checks` was not installed at the workspace root. This execution
+session is limited to correcting the physical pin contract, strengthening the
+automated checks and restoring clean-install reproducibility. The separate
+scope problem between pre-fabrication design and post-fabrication prototype
+testing remains deferred for a dedicated planning session.
+
+## 2026-09-01 — Review blockers remediated
+
+Commit `c7ee828` corrected the photographed sensor edge order to
+`VIN/GND/SCL/SDA`, made the pin truth table machine-checkable, and added
+regression tests for pin and net drift. It also pinned the missing
+`@tscircuit/checks` peer, expanded `npm run check` to cover tests, typechecking,
+both render proofs, diagnostics and manifest generation, and added deterministic
+source/artifact hashes plus independent JSON/SVG format checks.
+
+A clean `npm ci --ignore-scripts` followed by `npm run check` passes with zero
+Circuit JSON errors. Seven placeholder-related warnings and six unresolved
+physical-evidence rows remain visible in the manifest; fabrication stays
+blocked. Planning corrections for epic scope, review-gate dependencies and the
+RP2040-Tiny/RP2040-Zero source-of-truth conflict are recorded in `IMPRO.md` for
+a separate planning session.
