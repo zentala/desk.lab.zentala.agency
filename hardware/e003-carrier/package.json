@@ -1,0 +1,23 @@
+{
+  "name": "e003-carrier",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Open Smart Desk Hardware v2 carrier-board review candidate",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "prove:pipeline": "node scripts/prove-pipeline.mjs",
+    "prove:candidate": "node scripts/prove-candidate.mjs",
+    "render": "tsci render src/carrier.tsx --output-dir artifacts/render",
+    "export": "tsci export src/carrier.tsx --output-dir artifacts/manufacturing",
+    "check": "npm run validate"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@tscircuit/core": "0.0.1816",
+    "@tscircuit/eval": "0.0.1321",
+    "react": "19.2.8",
+    "tscircuit": "0.0.2462",
+    "typescript": "5.9.2"
+  }
+}

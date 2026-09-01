@@ -1,0 +1,36 @@
+{
+  "project": "E003 TS Circuit carrier board",
+  "revision": "0.1.0-candidate",
+  "status": "blocked-before-fabrication",
+  "source": "src/carrier.tsx",
+  "tool": { "package": "tscircuit", "version": "0.0.2462", "runtime": "Node.js 22.22.3" },
+  "commands": {
+    "validate": "npm run validate",
+    "render": "npm run render",
+    "manufacturing": "npm run export"
+  },
+  "expectedArtifacts": [
+    { "name": "circuit-json", "path": "artifacts/candidate-proof/circuit.json", "status": "generated-from-placeholder-candidate" },
+    { "name": "schematic-render", "path": "artifacts/candidate-proof/schematic.svg", "status": "generated-from-placeholder-candidate" },
+    { "name": "pcb-render", "path": "artifacts/candidate-proof/pcb.svg", "status": "generated-from-placeholder-candidate" },
+    { "name": "3d-render", "path": "artifacts/render/3d.svg", "status": "not-generated" },
+    { "name": "gerbers-and-drills", "path": "artifacts/manufacturing/", "status": "not-generated" },
+    { "name": "bom", "path": "artifacts/manufacturing/bom.csv", "status": "not-generated" },
+    { "name": "placement", "path": "artifacts/manufacturing/placement.csv", "status": "not-generated" }
+  ],
+  "verification": {
+    "localValidation": "passed: npm run validate",
+    "pipelineProof": {
+      "command": "npm run prove:pipeline",
+      "status": "passed",
+      "artifacts": [
+        "artifacts/pipeline-proof/circuit.json",
+        "artifacts/pipeline-proof/schematic.svg",
+        "artifacts/pipeline-proof/pcb.svg"
+      ],
+      "independentOpen": "SVG files are standalone text files; Circuit JSON parses as an array"
+    },
+    "independentFileOpen": "pending",
+    "notes": "The minimal core pipeline is proven. The tsci CLI path for the actual TSX candidate is currently blocked on this Windows environment by a native Rollup application-policy error; do not promise unsupported exports."
+  }
+}

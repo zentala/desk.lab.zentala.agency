@@ -1,0 +1,10 @@
+[
+  { "module": "RP2040-Zero", "physicalLabel": "3V3 (not visible in supplied view)", "function": "power", "voltage": "3.3 V nominal", "evidence": "Waveshare documentation; supplied photo does not expose this pad label", "status": "unresolved" },
+  { "module": "RP2040-Zero", "physicalLabel": "GND", "function": "ground", "voltage": "0 V", "evidence": "GND marking visible in supplied photo; exact pad identity and rail continuity pending", "status": "unresolved" },
+  { "module": "RP2040-Zero", "physicalLabel": "GP4 (candidate)", "function": "SDA", "voltage": "3.3 V I/O", "evidence": "Candidate RP2040 I2C0 mapping; photo/revision required", "status": "candidate" },
+  { "module": "RP2040-Zero", "physicalLabel": "GP5 (candidate)", "function": "SCL", "voltage": "3.3 V I/O", "evidence": "Candidate RP2040 I2C0 mapping; photo/revision required", "status": "candidate" },
+  { "module": "VL53LDK-marked GY-530-style breakout", "physicalLabel": "VIN / 3V3 (unconfirmed)", "function": "power", "voltage": "3.3 V candidate; regulator/level shifting unknown", "evidence": "VIN marking visible; vendor GY-530 listings claim 2.8–5 V input; continuity/voltage inspection required", "status": "unresolved" },
+  { "module": "VL53LDK-marked GY-530-style breakout", "physicalLabel": "GND", "function": "ground", "voltage": "0 V", "evidence": "GND marking visible in supplied photo; breakout revision and continuity unknown", "status": "unresolved" },
+  { "module": "VL53LDK-marked GY-530-style breakout", "physicalLabel": "SDA (unconfirmed)", "function": "SDA", "voltage": "Depends on breakout level shifting", "evidence": "SDA marking visible in supplied photo; authoritative breakout schematic required", "status": "unresolved" },
+  { "module": "VL53LDK-marked GY-530-style breakout", "physicalLabel": "SCL (unconfirmed)", "function": "SCL", "voltage": "Depends on breakout level shifting", "evidence": "SCL marking visible in supplied photo; authoritative breakout schematic required", "status": "unresolved" }
+]
