@@ -1,9 +1,14 @@
 ---
-updated: 2026-07-29T21:46:57
-focus: E001 Wave 1 started — T01 (merge rehearsal) done 2026-07-29. T02 (the real merge) is next.
-next: E001-T02 — merge master into consolidate/site-rebuild, hand-resolve .gitignore + CLAUDE.md. Open blocker: analytics (GA vs Plausible).
-active_epic: E001
-active_epic_path: .plan/epics/E001-2026-07-15-site-rebuild
+updated: 2026-09-01T03:30:00+02:00
+focus: E003 implementation — TS Circuit carrier-board candidate and review pack.
+next: Capture actual module photos/measurements, replace placeholder footprints, then obtain external electronics review.
+active_epic: E003
+active_epic_path: .plan/epics/E003-2026-09-01-tscircuit-carrier-board
+planning_epic: E003
+planning_epic_path: .plan/epics/E003-2026-09-01-tscircuit-carrier-board
+current_wave:
+  - "Wave 1 started: evidence template and minimal TS Circuit output proof are committed."
+  - "Wave 2 started: placeholder candidate and static review portal are committed; fabrication remains blocked."
 handoff: HANDOFF.md
 ---
 
@@ -11,7 +16,7 @@ handoff: HANDOFF.md
 
 > **Full context: [../HANDOFF.md](../HANDOFF.md)** — read that first. This file is the short version.
 
-## E001 Wave 1 in progress; E002 not started
+## E003 implementation in progress; E001/E002 remain separate website work
 
 **2026-07-29 — E001-T01 done.** The `master` merge was rehearsed in a throwaway worktree:
 **two conflicts** (`.gitignore`, `CLAUDE.md`), `CNAME` clean at `desk.labs.zentala.agency`,
