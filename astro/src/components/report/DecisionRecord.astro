@@ -1,4 +1,19 @@
 ---
+import Icon from '../ui/Icon';
 const { number, title, context, considered, rejected, why, decision, tradeoff, mitigation } = Astro.props;
+const fields = [
+  ['context', 'Context', context], ['alternatives', 'Considered', considered], ['open', 'Rejected', rejected], ['evidence', 'Why', why],
+  ['check', 'Decision', decision], ['next', 'Trade-off', tradeoff], ['next', 'Mitigation', mitigation],
+];
 ---
-<article class="my-8 rounded-2xl border border-report-divider bg-report-surface p-6 sm:p-8"><div class="flex items-center gap-3"><span class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-green">Decision {number}</span><h3 class="text-xl text-gray-100">{title}</h3></div><dl class="mt-7 grid gap-x-8 gap-y-5 text-sm leading-6 sm:grid-cols-2"><div><dt class="font-semibold text-gray-300">Context</dt><dd class="mt-1 text-muted">{context}</dd></div><div><dt class="font-semibold text-gray-300">Considered</dt><dd class="mt-1 text-muted">{considered}</dd></div><div><dt class="font-semibold text-gray-300">Rejected</dt><dd class="mt-1 text-muted">{rejected}</dd></div><div><dt class="font-semibold text-gray-300">Why</dt><dd class="mt-1 text-muted">{why}</dd></div><div class="sm:col-span-2"><dt class="font-semibold text-brand-green">Decision</dt><dd class="mt-1 text-gray-200">{decision}</dd></div><div><dt class="font-semibold text-gray-300">Trade-off</dt><dd class="mt-1 text-muted">{tradeoff}</dd></div><div><dt class="font-semibold text-gray-300">Mitigation</dt><dd class="mt-1 text-muted">{mitigation}</dd></div></dl></article>
+<article class="my-10 overflow-hidden rounded-2xl border border-report-divider bg-report-surface">
+  <header class="flex items-start gap-5 border-b border-report-divider px-6 py-6 sm:px-8">
+    <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-brand-green/40 text-2xl font-semibold text-brand-green" aria-label={'Decision ' + number}>{number}</div>
+    <div><p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-green">Decision record</p><h3 class="mt-1 text-2xl text-gray-100 sm:text-3xl">{title}</h3></div>
+  </header>
+  <dl class="grid gap-x-8 gap-y-0 px-6 sm:grid-cols-2 sm:px-8">
+    {fields.map(([icon, label, value], index) => <div class={'border-b border-report-divider py-5 ' + (index === 4 ? 'sm:col-span-2' : '')}>
+      <dt class={'flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] ' + (index === 4 ? 'text-brand-green' : 'text-gray-300')}><Icon name={icon} size={17} />{label}</dt><dd class={'mt-2 text-sm leading-7 ' + (index === 4 ? 'text-gray-100 sm:text-base' : 'text-muted')}>{value}</dd>
+    </div>)}
+  </dl>
+</article>

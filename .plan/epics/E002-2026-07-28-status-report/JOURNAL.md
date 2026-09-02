@@ -19,3 +19,5 @@ by owner: conclusions + next steps, not a moat. Article draft not yet written (T
 - Moved the pre-order funnel to `/lp` and made `/` the evidence-led status report. The MoveUp card is explicitly unverified because its source is outside this repository.
 - Added the v0.2 status update, standing pages, `/versions` and updates RSS.
 - `npm run build` passed: 12 static routes generated. Root smoke check found no pricing, checkout, pre-order or Product JSON-LD.
+- Follow-up review found and reused `astro/public/favicon.svg` as the existing project mark. Reworked Decision Records into larger numbered panels with field icons, and aligned version timeline markers to the divider.
+- Added the content architecture report separating W1 archive, current evidence, MoveUp provenance, and a future certification/crowdfunding narrative. The meaning of any “200 people” target remains intentionally open until defined.
