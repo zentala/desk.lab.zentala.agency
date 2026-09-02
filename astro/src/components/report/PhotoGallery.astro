@@ -1,0 +1,96 @@
+---
+const { id = 'photo-gallery', eyebrow = 'Prototype gallery', title, description, items = [] } = Astro.props;
+---
+
+<section class="photo-gallery" id={id} aria-labelledby={`${id}-title`}>
+  <div class="photo-gallery__intro">
+    <div>
+      <p class="photo-gallery__eyebrow">{eyebrow}</p>
+      <h3 id={`${id}-title`}>{title}</h3>
+    </div>
+    {description && <p class="photo-gallery__description">{description}</p>}
+  </div>
+
+  <div class="photo-gallery__stage">
+    <button class="photo-gallery__main-button" type="button" aria-label="Open selected photo">
+      <img class="photo-gallery__main-image" src={items[0]?.src} alt={items[0]?.alt} />
+      <span class="photo-gallery__zoom-hint">Click to enlarge</span>
+    </button>
+    <div class="photo-gallery__caption">
+      <span class="photo-gallery__caption-title">{items[0]?.label}</span>
+      <span class="photo-gallery__caption-detail">{items[0]?.detail}</span>
+    </div>
+  </div>
+
+  <div class="photo-gallery__thumbs" role="group" aria-label={`${title} photos`}>
+    {items.map((item, index) => (
+      <button class:list={["photo-gallery__thumb", index === 0 && "is-selected"]} type="button" aria-label={`Show photo: ${item.label}`} aria-pressed={index === 0} data-src={item.src} data-alt={item.alt} data-label={item.label} data-detail={item.detail}>
+        <img src={item.src} alt="" loading={index === 0 ? 'eager' : 'lazy'} />
+      </button>
+    ))}
+  </div>
+</section>
+
+<dialog class="photo-gallery__dialog" aria-label="Enlarged prototype photo">
+  <button class="photo-gallery__close" type="button" aria-label="Close enlarged photo">×</button>
+  <img class="photo-gallery__dialog-image" src={items[0]?.src} alt={items[0]?.alt} />
+</dialog>
+
+<script>
+  document.querySelectorAll('.photo-gallery').forEach((gallery) => {
+    const mainButton = gallery.querySelector('.photo-gallery__main-button');
+    const mainImage = gallery.querySelector('.photo-gallery__main-image');
+    const captionTitle = gallery.querySelector('.photo-gallery__caption-title');
+    const captionDetail = gallery.querySelector('.photo-gallery__caption-detail');
+    const dialog = gallery.nextElementSibling;
+    const dialogImage = dialog?.querySelector('.photo-gallery__dialog-image');
+    const closeButton = dialog?.querySelector('.photo-gallery__close');
+
+    gallery.querySelectorAll('.photo-gallery__thumb').forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        mainImage.src = thumb.dataset.src;
+        mainImage.alt = thumb.dataset.alt;
+        captionTitle.textContent = thumb.dataset.label;
+        captionDetail.textContent = thumb.dataset.detail;
+        gallery.querySelectorAll('.photo-gallery__thumb').forEach((candidate) => {
+          const selected = candidate === thumb;
+          candidate.classList.toggle('is-selected', selected);
+          candidate.setAttribute('aria-pressed', String(selected));
+        });
+      });
+    });
+
+    mainButton?.addEventListener('click', () => {
+      dialogImage.src = mainImage.src;
+      dialogImage.alt = mainImage.alt;
+      dialog?.showModal();
+    });
+    closeButton?.addEventListener('click', () => dialog?.close());
+    dialog?.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+  });
+</script>
+
+<style>
+  .photo-gallery { margin: 2.5rem 0 3rem; }
+  .photo-gallery__intro { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 1rem; }
+  .photo-gallery__eyebrow { margin: 0 0 .35rem; color: var(--color-brand-green); font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+  .photo-gallery h3 { margin: 0; color: var(--color-gray-100); font-size: clamp(1.35rem, 2vw, 1.8rem); }
+  .photo-gallery__description { max-width: 34rem; margin: 0; color: var(--color-muted); font-size: .9rem; line-height: 1.6; }
+  .photo-gallery__stage { overflow: hidden; border: 1px solid var(--color-report-divider); background: #0d0d13; }
+  .photo-gallery__main-button { position: relative; display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+  .photo-gallery__main-image { display: block; width: 100%; height: min(34rem, 62svh); object-fit: contain; background: #09090d; }
+  .photo-gallery__zoom-hint { position: absolute; right: 1rem; bottom: 1rem; padding: .45rem .65rem; color: #e5e7eb; background: rgba(10, 10, 15, .78); font-size: .7rem; letter-spacing: .05em; opacity: 0; transition: opacity .2s ease; }
+  .photo-gallery__main-button:hover .photo-gallery__zoom-hint, .photo-gallery__main-button:focus-visible .photo-gallery__zoom-hint { opacity: 1; }
+  .photo-gallery__caption { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 1rem; border-top: 1px solid var(--color-report-divider); }
+  .photo-gallery__caption-title { color: #f3f4f6; font-size: .9rem; font-weight: 600; }
+  .photo-gallery__caption-detail { color: var(--color-muted); font-size: .8rem; text-align: right; }
+  .photo-gallery__thumbs { display: grid; grid-template-columns: repeat(auto-fit, minmax(4.8rem, 1fr)); gap: .55rem; margin-top: .7rem; }
+  .photo-gallery__thumb { min-width: 0; padding: .2rem; border: 1px solid transparent; background: transparent; cursor: pointer; opacity: .58; transition: border-color .2s ease, opacity .2s ease, transform .2s ease; }
+  .photo-gallery__thumb:hover, .photo-gallery__thumb:focus-visible, .photo-gallery__thumb.is-selected { border-color: var(--color-brand-green); opacity: 1; transform: translateY(-2px); }
+  .photo-gallery__thumb img { display: block; width: 100%; height: 4.5rem; object-fit: cover; }
+  .photo-gallery__dialog { width: min(92vw, 72rem); max-height: 92vh; padding: 2.5rem .75rem .75rem; border: 1px solid var(--color-report-divider); background: #09090d; }
+  .photo-gallery__dialog::backdrop { background: rgba(0, 0, 0, .86); }
+  .photo-gallery__dialog-image { display: block; width: 100%; max-height: 82vh; object-fit: contain; }
+  .photo-gallery__close { position: absolute; top: .35rem; right: .7rem; color: #e5e7eb; border: 0; background: transparent; font-size: 2rem; line-height: 1; cursor: pointer; }
+  @media (max-width: 640px) { .photo-gallery__intro, .photo-gallery__caption { display: block; } .photo-gallery__description { margin-top: .7rem; } .photo-gallery__caption-detail { display: block; margin-top: .25rem; text-align: left; } .photo-gallery__main-image { height: 24rem; } }
+</style>

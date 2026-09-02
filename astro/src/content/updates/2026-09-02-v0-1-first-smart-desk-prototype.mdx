@@ -8,6 +8,8 @@ supersedes: ""
 tags: ["archive", "hardware", "postmortem"]
 ---
 
+import PhotoGallery from '../../components/report/PhotoGallery.astro';
+
 # v0.1: The First Smart Desk Prototype
 
 Version 0.1 was the first integrated Open Smart Desk prototype. It could control the desk, measure its height, detect presence and expose a software interface. It was a real working system, not just a collection of disconnected parts.
@@ -28,7 +30,7 @@ The first version brought several responsibilities into one control unit:
 
 The controller was integrated into the system. Its buttons provided a physical way to operate the desk, while the display could show simple status information such as height or an error. The software interface provided another way to control and inspect the prototype.
 
-![The plexiglass enclosure for the v0.1 control unit](/images/plexi-cutted.jpg)
+<PhotoGallery id="v01-enclosure" eyebrow="v0.1 / enclosure" title="The first enclosure" description="One compact gallery keeps the prototype views together. Select a thumbnail to compare the enclosure and open any image for a closer look." items={[{ src: '/images/plexi-cutted.jpg', alt: 'The plexiglass enclosure for the v0.1 control unit', label: 'Plexiglass enclosure', detail: 'Tall enclosure view' }, { src: '/images/wiring-explained.jpg', alt: 'The wiring inside the prototype enclosure', label: 'Enclosure interior', detail: 'Wiring and component layout' }]} />
 
 The prototype cost approximately 700 PLN / 200 USD, excluding the later v2 work.
 
@@ -48,15 +50,10 @@ The ability to change the desk position was important as a technical capability.
 
 The control unit was the main physical assembly. It contained the computer, power supply, relay board and sensor connections. The v0.1.1 revision replaced the original power supply with a smaller unit, reducing the size of the assembly but not changing the fundamental architecture.
 
-![The assembled v0.1 control unit](/images/20230628_032916.jpg)
-
-![The motor-control connector](/images/20230628_033107.jpg)
+<PhotoGallery id="v01-control-unit" eyebrow="v0.1 / control unit" title="Control unit and physical controller" description="The available photos show the same prototype from different angles. This gallery is also ready for future colour or enclosure variants, such as a yellow controller." items={[{ src: '/images/20230628_032916.jpg', alt: 'The assembled v0.1 control unit', label: 'Assembled control unit', detail: 'Overall build' }, { src: '/images/20230628_033107.jpg', alt: 'The motor-control connector', label: 'Motor-control connector', detail: 'Connection detail' }, { src: '/images/20230628_033806.jpg', alt: 'The user panel', label: 'Physical controller', detail: 'User-facing panel' }, { src: '/images/20230628_043425.jpg', alt: 'The user panel during the prototype work', label: 'Controller during assembly', detail: 'Prototype work in progress' }]} />
 
 The physical controller was a separate user-facing part of that system. It was planned around four buttons—`UP`, `DOWN`, `MEM 1` and `MEM 2`—a seven-segment display driven through a shift register, and a buzzer. Its purpose was straightforward: let a person operate the desk and see basic feedback without needing the web interface.
 
-![The user panel](/images/20230628_033806.jpg)
-
-![The user panel during the prototype work](/images/20230628_043425.jpg)
 
 In retrospect, the controller mattered less as a behaviour-change mechanism than as a way to validate the physical interaction. Pressing a button and seeing the desk move is useful, but it does not answer the harder question: what makes a person want to press the button at the right moment?
 
@@ -72,9 +69,7 @@ The plexiglass enclosure looked coherent, but it did not provide enough airflow.
 
 The relays could stick when switching the desk motors. That created a reliability and safety concern. A prototype that can move a heavy desk must be evaluated as an electrical and mechanical system, not only as a software demo.
 
-![The first wiring assembly](/images/wiring.jpg)
-
-![The wiring explained](/images/wiring-explained.jpg)
+<PhotoGallery id="v01-wiring" eyebrow="v0.1 / wiring" title="Inside the first build" description="Landscape and square source photos share one compact viewing area instead of extending the article with a vertical image stack." items={[{ src: '/images/wiring.jpg', alt: 'The first wiring assembly', label: 'First wiring assembly', detail: 'Original internal wiring' }, { src: '/images/wiring-explained.jpg', alt: 'The wiring explained', label: 'Wiring explained', detail: 'Annotated internal layout' }, { src: '/images/20230628_033525.jpg', alt: 'A close view of the prototype electronics', label: 'Electronics detail', detail: 'Close-up view' }, { src: '/images/20230628_033548.jpg', alt: 'Another view of the prototype electronics', label: 'Electronics variation', detail: 'Second close-up view' }]} />
 
 ### PIR was not a sufficient presence signal
 

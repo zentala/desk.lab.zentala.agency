@@ -3,17 +3,34 @@ import Icon from '../ui/Icon';
 const { number, title, context, considered, rejected, why, decision, tradeoff, mitigation } = Astro.props;
 const fields = [
   ['context', 'Context', context], ['alternatives', 'Considered', considered], ['open', 'Rejected', rejected], ['evidence', 'Why', why],
-  ['check', 'Decision', decision], ['next', 'Trade-off', tradeoff], ['next', 'Mitigation', mitigation],
+  ['check', 'Decision recorded', decision], ['next', 'Trade-off', tradeoff], ['next', 'Mitigation', mitigation],
 ];
 ---
 <article class="my-10 overflow-hidden rounded-2xl border border-report-divider bg-report-surface">
-  <header class="flex items-start gap-5 border-b border-report-divider px-6 py-6 sm:px-8">
-    <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-brand-green/40 text-2xl font-semibold text-brand-green" aria-label={'Decision ' + number}>{number}</div>
-    <div><p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-green">Decision record</p><h3 class="mt-1 text-2xl text-gray-100 sm:text-3xl">{title}</h3></div>
+  <header class="decision-record__header">
+    <div class="decision-record__number" aria-label={'Decision ' + number}>{number}</div>
+    <div class="decision-record__heading"><p>Decision record</p><h3>{title}</h3></div>
   </header>
-  <dl class="grid gap-x-8 gap-y-0 px-6 sm:grid-cols-2 sm:px-8">
-    {fields.map(([icon, label, value], index) => <div class={'border-b border-report-divider py-5 ' + (index === 4 ? 'sm:col-span-2' : '')}>
-      <dt class={'flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] ' + (index === 4 ? 'text-brand-green' : 'text-gray-300')}><Icon name={icon} size={17} />{label}</dt><dd class={'mt-2 text-sm leading-7 ' + (index === 4 ? 'text-gray-100 sm:text-base' : 'text-muted')}>{value}</dd>
+  <dl class="decision-record__fields">
+    {fields.map(([icon, label, value], index) => <div class:list={["decision-record__field", index === 4 && "decision-record__field--decision", index === fields.length - 1 && "decision-record__field--last"]}>
+      <dt><Icon name={icon} size={17} />{label}</dt><dd>{value}</dd>
     </div>)}
   </dl>
 </article>
+
+<style>
+  .decision-record__header { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); align-items: center; gap: 1.25rem; padding: 1.35rem 1.5rem; border-bottom: 1px solid var(--color-report-divider); }
+  .decision-record__number { display: grid; width: 3.5rem; height: 3.5rem; place-items: center; border: 1px solid color-mix(in srgb, var(--color-brand-green) 50%, transparent); color: var(--color-brand-green); font-size: 1.35rem; font-weight: 700; }
+  .decision-record__heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: .65rem 1rem; }
+  .decision-record__heading p { margin: 0; color: var(--color-brand-green); font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; }
+  .decision-record__heading h3 { margin: 0; color: #f3f4f6; font-size: clamp(1.25rem, 2vw, 1.8rem); }
+  .decision-record__fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; padding: 0 1.5rem; }
+  .decision-record__field { min-width: 0; padding: 1.15rem 0 1.25rem; border-bottom: 1px solid var(--color-report-divider); }
+  .decision-record__field--decision { grid-column: 1 / -1; }
+  .decision-record__field--last { border-bottom: 0; }
+  .decision-record__field dt { display: flex; align-items: center; gap: .5rem; color: #d1d5db; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .decision-record__field--decision dt { color: var(--color-brand-green); }
+  .decision-record__field dd { margin: .45rem 0 0; color: var(--color-muted); font-size: .92rem; line-height: 1.75; }
+  .decision-record__field--decision dd { color: #f3f4f6; font-size: 1rem; }
+  @media (max-width: 640px) { .decision-record__header { grid-template-columns: 2.75rem minmax(0, 1fr); gap: .9rem; padding: 1.15rem 1.1rem; } .decision-record__number { width: 2.75rem; height: 2.75rem; } .decision-record__fields { display: block; padding: 0 1.1rem; } }
+</style>
