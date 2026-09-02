@@ -23,3 +23,4 @@ by owner: conclusions + next steps, not a moat. Article draft not yet written (T
 - Added the content architecture report separating W1 archive, current evidence, MoveUp provenance, and a future certification/crowdfunding narrative. The meaning of any “200 people” target remains intentionally open until defined.
 - Owner clarified the target: 200 upfront pre-order customers for the first product. Added this as a labelled funding hypothesis on the report, with certification, iteration, prototype and evidence rationale.
 - Follow-up review confirmed `favicon.svg` is the Astro mark, not project branding. Removed it from the report header because no Smart Desk logo exists in the repository or Git history. Shifted the complete version timeline axis one pixel right so its markers remain aligned with the line.
+- Visual follow-up requested a stronger offset; changed the timeline axis offset to an explicit 2px.
