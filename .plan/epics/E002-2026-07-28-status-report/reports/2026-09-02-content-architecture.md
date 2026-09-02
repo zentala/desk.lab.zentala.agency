@@ -14,13 +14,29 @@ The homepage is the short answer. The update article is the reasoning. The hardw
 
 ## Proposed homepage blocks
 
-### 1. Masthead — current thesis
+### 1. Masthead — vision
 
 Headline: “A desk that helps you change position.”
 
-Explain the system in one sentence: MoveUp runs locally on the computer; a small sensor measures desk height; the person still presses the desk controls. State that this is an active project report, not a finished product page.
+Explain the system in one sentence: MoveUp runs locally on the computer; a small sensor measures desk height; the person still presses the desk controls. Lead with the mission and a sourced global physical-inactivity signal. `Project status` belongs to the update log, not the first screen.
 
-### 2. Current work
+### 2. Mission and problem
+
+Use WHO’s 31% / 1.8 billion estimate and explain that the product addresses the feedback loop around an existing adjustable desk. Keep the founder voice: build universal, ergonomic, multiplatform tools that genuinely improve everyday life, without medical claims.
+
+### 3. What changed
+
+The timeline comes immediately after the mission. It is the narrative spine: v0.1 proof of concept → reduced two-component consumer direction → physical alpha. Keep the current reversal visible.
+
+### 4. Pre-order rationale
+
+Explain that the first product cannot responsibly be sold as an uncertified batch. The working model is a first pre-order round of 200 people paying upfront, so the fixed European certification and preparation costs can be distributed across enough units. Do not call this a live campaign until price, scope, compliance path, refund policy and delivery plan exist.
+
+### 5. Product direction
+
+Show two honest concept blocks: MoveUp and the sensor/enclosure direction. Use approved screenshots or renders when they exist; until then, render the absence of evidence as text.
+
+### 6. Current work
 
 Keep the three-row ledger:
 
@@ -28,19 +44,19 @@ Keep the three-row ledger:
 - Sensor and carrier board — in review; E003 renders and contract checks exist, fabrication is blocked by open electrical/mechanical review.
 - Enclosure — planned; no current design should be presented as validated.
 
-### 3. First version, archived
+### 7. First version, archived
 
 Import the useful W1 material from `legacy/notes/article-draft.md`, `voice-stream.md`, `postmortem.ts` and the real photos. Use four sub-blocks: what worked, what failed, what it cost, and what changed. Preserve the correction that the controller was built but unfinished/unintegrated.
 
-### 4. Decision reversal
+### 8. Decision reversal
 
 Show the May position (modular ecosystem, MQTT, smart-home integration) and the current position (two USB components, computer-owned UX loop) as a deliberate change of mind. The Decision Record component is the visual device for this section.
 
-### 5. Evidence and next test
+### 9. Evidence and next test
 
 Use only sourced numbers: approximately 700 PLN / 200 USD for W1 and approximately 8% standing time in a small sample while nudging. Label both as historical context, not a product-result claim. State the next test: personal daily use with a reproducible sensor and a documented behavioural log.
 
-### 6. Funding, later and separately labelled
+### 10. Funding, later and separately labelled
 
 This belongs after the evidence, not in the masthead. Suggested framing:
 
