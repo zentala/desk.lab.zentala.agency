@@ -22,7 +22,7 @@ Height-adjustable desks already make sitting and standing mechanically possible.
 
 The prototype combined desk control, laser-based height measurement, presence sensing and a basic administrative interface. It worked mechanically and produced useful telemetry. A small sample recorded approximately 8% standing time while the app was nudging. That is not a before/after result: without the nudge, standing was essentially absent. The number is evidence of a difficult behaviour problem, not a product result to advertise.
 
-The physical work also exposed failure modes. The plexiglass enclosure had no airflow and overheated electronics. Relays could stick under motor load. The PIR sensor generated false signals and was difficult to calibrate. The user controller was built as a partially assembled board, but it was never finished or integrated into the system.
+The physical work also exposed failure modes. The plexiglass enclosure had no airflow and overheated electronics. Relays could stick under motor load. The PIR sensor generated false signals and was difficult to calibrate. The physical user controller was integrated and could operate the desk, but it did not solve the harder problem of creating a reliable behaviour loop.
 
 ## Decision 1 — split into modules
 

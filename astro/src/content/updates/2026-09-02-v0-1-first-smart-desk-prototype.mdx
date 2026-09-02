@@ -1,0 +1,115 @@
+---
+title: "v0.1: The First Smart Desk Prototype"
+description: "What the first integrated prototype could do, what it taught me, and why technical feasibility was not the same as a useful behaviour loop."
+statusDate: 2026-09-02
+status: archived
+version: "0.1"
+supersedes: ""
+tags: ["archive", "hardware", "postmortem"]
+---
+
+# v0.1: The First Smart Desk Prototype
+
+Version 0.1 was the first integrated Open Smart Desk prototype. It could control the desk, measure its height, detect presence and expose a software interface. It was a real working system, not just a collection of disconnected parts.
+
+It also taught me that making a desk technically smart is not the same as helping a person change position during the workday.
+
+## What the prototype contained
+
+The first version brought several responsibilities into one control unit:
+
+- a Raspberry Pi computer;
+- relay-based motor control;
+- a laser distance sensor for desk-height measurement;
+- a PIR presence sensor;
+- a software interface for monitoring and control;
+- a physical user controller with buttons and a display;
+- a custom plexiglass enclosure.
+
+The controller was integrated into the system. Its buttons provided a physical way to operate the desk, while the display could show simple status information such as height or an error. The software interface provided another way to control and inspect the prototype.
+
+![The plexiglass enclosure for the v0.1 control unit](/images/plexi-cutted.jpg)
+
+The prototype cost approximately 700 PLN / 200 USD, excluding the later v2 work.
+
+## What worked
+
+The prototype established several important facts:
+
+1. The desk could be controlled electronically.
+2. A distance sensor could provide a useful height signal.
+3. The system could combine hardware signals with software control.
+4. A physical controller and a software interface could coexist.
+5. The project could be built far enough to expose real engineering constraints.
+
+The ability to change the desk position was important as a technical capability. Whether that capability was sufficient to change the user's habits was a separate question—and the answer was no.
+
+## The control unit
+
+The control unit was the main physical assembly. It contained the computer, power supply, relay board and sensor connections. The v0.1.1 revision replaced the original power supply with a smaller unit, reducing the size of the assembly but not changing the fundamental architecture.
+
+![The assembled v0.1 control unit](/images/20230628_032916.jpg)
+
+![The motor-control connector](/images/20230628_033107.jpg)
+
+The physical controller was a separate user-facing part of that system. It was planned around four buttons—`UP`, `DOWN`, `MEM 1` and `MEM 2`—a seven-segment display driven through a shift register, and a buzzer. Its purpose was straightforward: let a person operate the desk and see basic feedback without needing the web interface.
+
+![The user panel](/images/20230628_033806.jpg)
+
+![The user panel during the prototype work](/images/20230628_043425.jpg)
+
+In retrospect, the controller mattered less as a behaviour-change mechanism than as a way to validate the physical interaction. Pressing a button and seeing the desk move is useful, but it does not answer the harder question: what makes a person want to press the button at the right moment?
+
+## What failed in practice
+
+The prototype exposed problems at several layers.
+
+### The enclosure overheated the electronics
+
+The plexiglass enclosure looked coherent, but it did not provide enough airflow. The electronics overheated, which meant that development sometimes happened with the enclosure opened or partly disassembled. The lesson was simple: mechanical design is not decoration around electronics. Airflow, cable routing and serviceability are functional requirements.
+
+### Relay-based motor control was a weak point
+
+The relays could stick when switching the desk motors. That created a reliability and safety concern. A prototype that can move a heavy desk must be evaluated as an electrical and mechanical system, not only as a software demo.
+
+![The first wiring assembly](/images/wiring.jpg)
+
+![The wiring explained](/images/wiring-explained.jpg)
+
+### PIR was not a sufficient presence signal
+
+The PIR sensor produced false signals and was difficult to calibrate for the actual use case. Presence at a desk is not the same as movement in a sensor's field of view. A person can sit still while working, leave briefly, or move in a way that does not produce a useful PIR event.
+
+### The computer was chosen for development convenience
+
+The Raspberry Pi was useful because it allowed a familiar development workflow, including remote development. It was also much more computer than the final sensor needed. The prototype computer reflected the developer's needs rather than the user's needs.
+
+### The system was too much at once
+
+Control, measurement, presence, a physical interface and the decision logic were all treated as parts of one product. This increased the number of things that had to work before the central behavioural question could be tested properly.
+
+## The more important failure
+
+The desk moved. The sensor measured. The controller worked. The system still did not reliably make me change position.
+
+That distinction changed the direction of the project. The core problem was not whether the desk could go up and down. It was whether the system could recognise a useful moment, communicate without becoming irritating, and help the user follow through.
+
+The controller therefore was not a failure. It solved the narrow problem it was designed to solve: physical desk control. It simply was not the missing piece in the behaviour loop.
+
+## What changed after v0.1
+
+The next direction removes the parts that are not necessary for the first behavioural experiment:
+
+- no relay board;
+- no mains motor wiring;
+- no Raspberry Pi inside the desk controller;
+- no assumption that presence must be measured by a sensor inside the desk;
+- no requirement to build a complete smart-home ecosystem first.
+
+The reduced direction uses an RP2040-Zero and a VL53L0X distance sensor connected to the computer over USB. The computer owns the local activity signals, algorithm and notifications. The desk still moves because the user presses the desk's own control button.
+
+This is a smaller experiment, not a claim that every future desk should use exactly the same hardware. It is a way to learn whether the most important interaction works before investing in a broader ecosystem.
+
+## Archive note
+
+The v0.1 BOM, original wiring, photographs and enclosure DXF files remain useful as historical engineering material. They describe an archived prototype and should not be read as the current hardware recommendation.

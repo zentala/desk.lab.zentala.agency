@@ -20,6 +20,13 @@ Current CI deployment behavior:
 - Cloudflare Pages deploys `astro/dist`
 - Branches currently wired in workflow: `dev` and `master`
 
+Local website behavior is separate from CI: every commit runs the repository's
+`.githooks/pre-commit` hook, builds the Astro app and stages three ignored static
+directories under `deploy/`. The shared local Caddy/idomains layer serves them
+at `desk.internal`, `lp.desk.internal` and `old.desk.internal`; no Astro or Node
+application process runs continuously. The reusable workflow is documented in
+the `astro-static-site` skill.
+
 This means moving the old root website into `legacy/` does not affect the current Astro deployment path.
 
 ## Legacy Website

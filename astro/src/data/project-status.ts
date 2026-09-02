@@ -11,7 +11,8 @@ export const workstreams: Workstream[] = [
 ];
 
 export const versions: VersionEntry[] = [
-  { label: 'v0.1', state: 'archived', summary: 'A working but over-complex proof of concept for desk control, sensing and telemetry.', why: 'It established feasibility and exposed the behavioural problem.', href: '/updates/2026-07-15-status-update-v0-2' },
+  { label: 'v0.1', state: 'archived', summary: 'An integrated prototype for desk control, sensing, telemetry and physical control.', why: 'It established technical feasibility and exposed the behavioural problem.', href: '/updates/2026-09-02-v0-1-first-smart-desk-prototype' },
+  { label: 'v0.1.1', state: 'archived', summary: 'A small hardware revision with a smaller power supply.', why: 'The revision reduced the size of the control unit without changing its architecture.' },
   { label: 'Reduced sensor direction', state: 'in review', summary: 'Two USB components: an RP2040-Tiny carrier and a VL53L0X distance sensor; the computer owns the decision loop.', why: 'Cost and iteration speed beat reproducing desk electronics in the device.', href: '/updates/2026-07-15-status-update-v0-2' },
   { label: 'Physical alpha', state: 'planned', summary: 'A measured, reviewable carrier and an enclosure that can be installed without guesswork.', why: 'The design needs physical evidence before it can become a usable prototype.' },
 ];

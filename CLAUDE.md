@@ -144,6 +144,10 @@ still be matched and reviewed against source evidence.
 - Preview build: `cd astro && npm run preview`
 - Package manager: **npm** (not pnpm)
 
+## Local static-site deployment
+
+This repo uses the [`astro-static-site`](C:\Users\zentala\.agents\skills\astro-static-site\SKILL.md) pattern. The domains are `desk.internal`, `lp.desk.internal` and `old.desk.internal`; commits build ignored static artifacts, and shared Caddy/idomains serves them. Do not run Astro dev servers or add PM3 application services here.
+
 ## File structure
 
 - `astro/` — active Astro project

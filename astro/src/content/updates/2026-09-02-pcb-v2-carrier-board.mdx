@@ -1,0 +1,74 @@
+---
+title: "PCB v2: A Carrier Board for the Reduced Sensor"
+description: "Why the next board connects two small modules instead of rebuilding the desk controller, and what must be verified before fabrication."
+statusDate: 2026-09-02
+status: in review
+version: "0.2-pcb"
+supersedes: ""
+tags: ["hardware", "pcb", "v0.2"]
+---
+
+# PCB v2: A Carrier Board for the Reduced Sensor
+
+The next hardware step is deliberately modest: permanently connect the microcontroller and distance-sensor modules on a small carrier PCB, then test the result on a real desk.
+
+This is not a new motor controller. It does not switch relays, handle mains voltage or replace the desk's own control panel. It is a low-voltage USB sensor whose job is to provide a reliable desk-height signal to a computer.
+
+## The architecture
+
+```text
+VL53L0X distance sensor ── I2C ── RP2040-Zero ── USB Serial ── computer
+                                                                  │
+                                                          desktop behaviour loop
+```
+
+The VL53L0X points down from beneath the desktop and measures the distance to the floor. A shorter distance normally means that the desk is in its sitting position; a longer distance normally means that it is raised. The RP2040-Zero reads the sensor and exposes the measurement over USB.
+
+The computer remains responsible for combining that signal with local activity data and deciding when a notification is useful. The user remains responsible for pressing the desk's own button.
+
+## Why a carrier PCB
+
+The first v2 experiments can use jumper wires. That is useful for discovery but poor as a repeatable test kit. Loose wires introduce accidental disconnects, make mechanical mounting difficult and obscure whether a failure comes from the electronics or the assembly.
+
+The carrier board should:
+
+- permanently connect the RP2040-Zero and VL53L0X via I2C;
+- provide USB power and the host connection;
+- preserve access to the RP2040 USB-C connector and BOOTSEL workflow;
+- provide sensible mounting points;
+- protect the assembly from cable pulls and knocks;
+- leave a clear optical path for the downward-facing sensor;
+- remain small enough for a simple future enclosure.
+
+The target deliverables are editable schematic and PCB files, Gerbers, drill files, BOM, a documented pinout, firmware-flashing instructions and a short test report.
+
+## What must be checked first
+
+The component names are not enough to guarantee compatibility. Marketplace breakout boards can differ between revisions, so the supplied modules must be inspected before the layout is treated as final.
+
+The review needs to confirm:
+
+1. the actual dimensions, pad layout and pinout of both modules;
+2. the breakout's regulator and logic-level behaviour;
+3. the required I2C voltage and pull-ups;
+4. the RP2040-Zero I2C pins and boot/debug access;
+5. the mechanical load path around the USB connector;
+6. the sensor's optical clearance and mounting orientation.
+
+The current project status is **in review**. A generated board review pack exists, but that is not the same as a fabrication approval or a tested production board.
+
+## Acceptance criteria for the first board
+
+Before calling the board successful, a computer should enumerate it after reconnects, receive readings at least once per second for a minimum of eight hours, and clearly distinguish the actual sitting and standing heights of the target desk.
+
+Both modules must be secured without loose wires or an accidental-disconnect path. The owner must receive all files needed to reorder the PCB and assemble another unit.
+
+## What comes after this board
+
+Only after the carrier geometry and electrical behaviour are validated should the enclosure be designed. The enclosure must follow measured board and connector geometry, keep the sensor window clear and make mounting under a desk reliable.
+
+The eventual test kit will need more than a pretty PCB: it will need firmware, a calibration flow, a USB protocol, installation instructions and evidence from continuous daily use.
+
+## Source brief
+
+The full commission and acceptance brief is maintained in the repository at `research/hardware-v2-pcb-commission-brief.md`. It is a technical brief for the next step, not a claim that a finished board has already been manufactured.

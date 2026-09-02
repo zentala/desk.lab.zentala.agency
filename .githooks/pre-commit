@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if command -v pwsh.exe >/dev/null 2>&1; then
+  pwsh.exe -NoProfile -ExecutionPolicy Bypass -File scripts/build-static.ps1
+else
+  echo "pre-commit: pwsh.exe is required to build the static Astro sites" >&2
+  exit 1
+fi
