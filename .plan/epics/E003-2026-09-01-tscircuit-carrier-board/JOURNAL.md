@@ -232,3 +232,18 @@ This is still a review candidate, not a fabrication release. B–D deliberately
 do not claim copper routing until the pin-level netlist and exact support-part
 sources are reviewed; received-module measurements, power characterization,
 manufacturing exports and qualified external engineering review remain open.
+
+## 2026-09-02 — session close
+
+The implementation and review package were committed as `61fd3ae`
+(`feat(hardware): implement E003 carrier variants`). `npm run check` passed:
+Variants A–D PASS, zero TS-Circuit errors and zero blocking warnings. The
+portable portal was opened and checked in Chrome; the local portal server was
+stopped before session close. `review-log status` could not run in this
+checkout because its wrapper reported that it was not inside a Git repository.
+
+The worktree was explicitly committed in full at the owner's request,
+including generated review artefacts, screenshots and browser logs. The
+fabrication gate remains intentionally blocked by missing measured physical
+evidence, exact component verification, copper routing for B–D, manufacturing
+exports and qualified external engineering review.
