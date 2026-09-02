@@ -46,7 +46,7 @@ This belongs after the evidence, not in the masthead. Suggested framing:
 
 > The simplest way to reach many people may eventually be to certify the sensor board and release it as a product. In Europe, certification for a board that measures distance and may include wireless communication is a meaningful cost and engineering effort. That is why a future crowdfunding campaign could fund certification, additional sensor research, prototypes and the time needed to test them. It is not a claim that certification is complete, nor a promise of a delivery date.
 
-Do not publish “we are collecting 200 people” until the unit is defined. Decide whether 200 means interested subscribers, first-campaign backers, or prototype users. Those are different audiences and should never share one counter.
+The working target is now explicitly 200 people who will pre-order the first product and pay upfront. They are not subscribers, waitlist contacts or prototype users. The target remains a commercial hypothesis until price, scope, certification path and delivery plan are defined.
 
 ### 7. Email interest
 
@@ -72,7 +72,7 @@ Avoid promising that funding alone will make the product available. The page mus
 
 ## Next content decisions
 
-1. Confirm the exact meaning of “200 people”.
+1. Define the first pre-order unit, price assumptions and refund/delivery policy.
 2. Decide whether the first campaign funds a certified sensor, research/prototypes, or both.
 3. Produce a certification and manufacturing cost range from a scoped quote.
 4. Inventory MoveUp and approve one screenshot plus supported OS wording.

@@ -21,3 +21,4 @@ by owner: conclusions + next steps, not a moat. Article draft not yet written (T
 - `npm run build` passed: 12 static routes generated. Root smoke check found no pricing, checkout, pre-order or Product JSON-LD.
 - Follow-up review found and reused `astro/public/favicon.svg` as the existing project mark. Reworked Decision Records into larger numbered panels with field icons, and aligned version timeline markers to the divider.
 - Added the content architecture report separating W1 archive, current evidence, MoveUp provenance, and a future certification/crowdfunding narrative. The meaning of any “200 people” target remains intentionally open until defined.
+- Owner clarified the target: 200 upfront pre-order customers for the first product. Added this as a labelled funding hypothesis on the report, with certification, iteration, prototype and evidence rationale.
