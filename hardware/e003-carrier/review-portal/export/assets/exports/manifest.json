@@ -150,13 +150,18 @@
     "sources": [
       {
         "path": "src/carrier.tsx",
-        "bytes": 5947,
-        "sha256": "17058ad147323f29589741b6a363656fe514d750c3ecea2e35ab8a17a7077768"
+        "bytes": 6359,
+        "sha256": "c012b15f3614a72fe95f128c72e8b38d0fffc9521308e79276451c42f0ab035d"
       },
       {
         "path": "src/variant-candidates.tsx",
-        "bytes": 6654,
-        "sha256": "e3f7a843fbac1c36eae11331bed3854546a434d1aa8fe8be910425e91d43aadb"
+        "bytes": 14735,
+        "sha256": "14901f4b636294f338c011348652be260a5e3e1ffbd8eb28cb04c2a74872b82d"
+      },
+      {
+        "path": "src/component-assets.md",
+        "bytes": 1769,
+        "sha256": "1e62a2f3c7561d2d517089ad92cc06fa7d3b2b1737edca72df438e96a90900f3"
       },
       {
         "path": "src/design-assumptions.json",
@@ -165,8 +170,13 @@
       },
       {
         "path": "evidence/pin-truth-table.json",
-        "bytes": 3530,
-        "sha256": "6b154e637fada5d240ead0050f1a565e63bcaa048e0428519181a760a1f72dd6"
+        "bytes": 2741,
+        "sha256": "e7bd1de19dd780628597725d86dcf6631ab72ccb9b59425069c0afc486c15845"
+      },
+      {
+        "path": "evidence/source-register.json",
+        "bytes": 9074,
+        "sha256": "4e550f0e6d037610a32d14dcc06b755cc2a8c0279ce6990bcd7760b545edd229"
       },
       {
         "path": "variants/variant-a-bom.json",
@@ -215,92 +225,92 @@
       },
       {
         "path": "artifacts/candidate-proof/circuit.json",
-        "bytes": 88231,
-        "sha256": "52c3620bbb690dcaa9f64ed25c45f3cb682eba4b9705357790d4c7ac95a8ac77",
+        "bytes": 84235,
+        "sha256": "25c8ed2af9b32b2f0a4f0701c426dc768259fdaf3df302d4247a83e9b19bc915",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/candidate-proof/schematic.svg",
-        "bytes": 55464,
-        "sha256": "ea3fc7b239e528e7513b7e3577eebe02eaeb83e50ed26b9efd18dfa625628bf0",
+        "bytes": 51180,
+        "sha256": "3bdaa4482f6985ec0ced4770216a283a43be55869c2389404cb391f931170377",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/candidate-proof/pcb.svg",
-        "bytes": 25278,
-        "sha256": "784458e386de0f4eee0a897d34b3b95e3d6cdf233815cd68d815281be571702d",
+        "bytes": 25007,
+        "sha256": "2bbbb8c80d153514c3aad4d443272c8637847c0cb04f16f7d3aa8e8ed8182b70",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/A/circuit.json",
-        "bytes": 51110,
-        "sha256": "89656b43460300c46f60f523d35114e0e05c484afc6fd96811cd577e61565065",
+        "bytes": 2327,
+        "sha256": "2ce640253aa7a1e94bf02fe883b2c59cd9e4b715c009c2d0814e86787664e73a",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/variants/A/schematic.svg",
-        "bytes": 32535,
-        "sha256": "12d1fdd31f15aafb931b83639d666545e3e316111065521a93ec8e59f8424d29",
+        "bytes": 10460,
+        "sha256": "34151bb8ef0787a2cd4a5ae2dc64f7fc9a90ab884bc3d22dc8f323a1a5e4ba5d",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/A/pcb.svg",
-        "bytes": 12637,
-        "sha256": "d4ba8c6982c8c19c7d5fb0ba99b1e36d15feefe9d80987b4d2d6d3d9fc866ee5",
+        "bytes": 981,
+        "sha256": "06cc26011822fff79ec87e4351c765edfa436943e2fd824a9152d97b36a93316",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/B/circuit.json",
-        "bytes": 50981,
-        "sha256": "90e09a3d577bfd08310b2d360760a6e8a7af951035ad1d510862f9eca73ec259",
+        "bytes": 294224,
+        "sha256": "d10f1a3326df11fb0149dbccd57a3837f50f10241446dc4f63420af26cb0795c",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/variants/B/schematic.svg",
-        "bytes": 32455,
-        "sha256": "0f079bc4bb22586b07cf72b5c3aca6d10eb78e5616a2fa5ae906eae236ddc08f",
+        "bytes": 153782,
+        "sha256": "4d0683ce9826f7dd20e1bd3f08694891fe56181b44bff3d399b22e71b6dc5ecf",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/B/pcb.svg",
-        "bytes": 12598,
-        "sha256": "a54a36d75e0c4d47e832d59a43b87c8fa1ef60b7b73651ff9bba33ada408ee9e",
+        "bytes": 45130,
+        "sha256": "2c7ec2496d20e8a2e7e5ee8ee6013c36fa466ebb56a6d100215540081129ac1f",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/C/circuit.json",
-        "bytes": 60959,
-        "sha256": "f2527edf1e48a0241ef32072121a6720145058292f1e67ef1ba5711fdea392df",
+        "bytes": 358550,
+        "sha256": "3df3b3b11b3185073a5f7975e3eaa34461e8ed765afd09dfc8d5c36f0adc6c33",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/variants/C/schematic.svg",
-        "bytes": 37682,
-        "sha256": "0726e8554ece002674c9ad30abc0572e7e379df040049c6062f880e4ac94d180",
+        "bytes": 180836,
+        "sha256": "c1ed430454d8557bf90c7a038fa1b69435e633da0de4250b2d5ea4d13a79772e",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/C/pcb.svg",
-        "bytes": 14214,
-        "sha256": "2420808a3373b868daed552ec556588026adc7e96e0f2a3e9fda1a20d9b7585d",
+        "bytes": 54727,
+        "sha256": "6b26d1954d79bcfd5d54df74b4743f40592aa4205460e50cbb2391a2dc1093f1",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/D/circuit.json",
-        "bytes": 56573,
-        "sha256": "7580cba157adae6cd6ebb5346051a2788955076c5111a796419c5f1565064c77",
+        "bytes": 300808,
+        "sha256": "5d2fa823bbc0af47cc8e5b1564d3cd567ecf11eb0be0fb9dcec6adb74e6f3f88",
         "formatCheck": "parsed-circuit-json-array"
       },
       {
         "path": "artifacts/variants/D/schematic.svg",
-        "bytes": 35155,
-        "sha256": "b8b6052994119dddb019e60bf2341633c28326250229fd0aa46e5b5eddcbdc41",
+        "bytes": 159650,
+        "sha256": "305e957d2e8218ddd9feb8edfb6426e3650cde290edaf2d1f8e7d8d631aefd50",
         "formatCheck": "parsed-standalone-svg"
       },
       {
         "path": "artifacts/variants/D/pcb.svg",
-        "bytes": 13830,
-        "sha256": "da0508b46f6afa93741a86a194240a081fe97d529ba9d2cbad0ed8d7621d82c4",
+        "bytes": 46492,
+        "sha256": "1fbce92ae46ee7da973cf2f18941b3fe9c1de18b52576fa6adb21e8b5f3a062e",
         "formatCheck": "parsed-standalone-svg"
       }
     ]

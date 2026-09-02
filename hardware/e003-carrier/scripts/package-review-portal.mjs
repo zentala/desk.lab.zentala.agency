@@ -11,13 +11,15 @@ await mkdir(resolve(output, "assets"), { recursive: true })
 const files = [
   "evidence/photos/rp2040-zero-vl53ldk-labels-2026-09-01.jpg",
   "evidence/photos/rp2040-zero-vl53ldk-components-2026-09-01.jpg",
-  "evidence/evidence.md", "evidence/pin-truth-table.json", "hardware-spec.md",
+  "evidence/evidence.md", "evidence/pin-truth-table.json", "evidence/source-register.json", "hardware-spec.md",
   "mechanical-constraints.md", "visual-fit-checklist.md", "design-prompt.md",
   "review-findings.md", "CHANGELOG.md", "protocol.md", "src/carrier.tsx",
-  "src/variant-candidates.tsx", "src/design-assumptions.json", "exports/manifest.json",
+  "src/variant-candidates.tsx", "src/library-preview.tsx", "src/component-assets.md", "src/design-assumptions.json", "exports/manifest.json",
   "variants/variant-a-bom.json", "variants/variant-b-bom.json", "variants/variant-c-bom.json", "variants/variant-d-bom.json",
   "artifacts/candidate-proof/circuit.json", "artifacts/candidate-proof/pcb.svg", "artifacts/candidate-proof/schematic.svg",
+  "artifacts/verification/board-verification.json", "artifacts/verification/board-verification.md",
   "artifacts/pipeline-proof/circuit.json", "artifacts/pipeline-proof/pcb.svg", "artifacts/pipeline-proof/schematic.svg",
+  "artifacts/library-preview/circuit.json", "artifacts/library-preview/pcb.svg", "artifacts/library-preview/schematic.svg",
   ...["A", "B", "C", "D"].flatMap((id) => [
     `artifacts/variants/${id}/circuit.json`,
     `artifacts/variants/${id}/schematic.svg`,

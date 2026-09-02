@@ -7,12 +7,14 @@ import {
   validateAssumptions,
   validateCandidateStructure,
   validateContract,
+  validateSourceRegister,
   validateVariantContracts,
 } from "./validation-lib.mjs"
 
 const root = resolve(fileURLToPath(new URL("../", import.meta.url)))
 const rows = JSON.parse(await readFile(resolve(root, "evidence/pin-truth-table.json"), "utf8"))
 const assumptions = JSON.parse(await readFile(resolve(root, "src/design-assumptions.json"), "utf8"))
+const sourceRegister = JSON.parse(await readFile(resolve(root, "evidence/source-register.json"), "utf8"))
 const circuit = JSON.parse(await readFile(resolve(root, "artifacts/candidate-proof/circuit.json"), "utf8"))
 const source = await readFile(resolve(root, "src/carrier.tsx"), "utf8")
 const variants = await Promise.all(["a", "b", "c", "d"].map((id) => readFile(resolve(root, `variants/variant-${id}-bom.json`), "utf8").then(JSON.parse)))
@@ -73,4 +75,9 @@ test("reports generated warning and error diagnostics", () => {
 
 test("accepts the four explicit variant contracts", () => {
   validateVariantContracts(variants)
+})
+
+test("accepts the complete component source register", () => {
+  assert.doesNotThrow(() => validateSourceRegister(sourceRegister))
+  assert.throws(() => validateSourceRegister({ ...sourceRegister, assets: sourceRegister.assets.slice(0, 1) }), /cover the selected board assets/)
 })

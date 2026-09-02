@@ -17,7 +17,7 @@ purchase variant in the table below.
 | Module | Received marking | Measured size | Pad pitch/offset | Connector/optic direction | Status |
 | --- | --- | --- | --- | --- | --- |
 | RP2040-Zero | [labels view](photos/rp2040-zero-vl53ldk-labels-2026-09-01.jpg), [components view](photos/rp2040-zero-vl53ldk-components-2026-09-01.jpg) | **PENDING RULER/CALIPER** | **PENDING RULER/CALIPER** | USB-C at board top; BOOT/RESET side visible | photo-captured |
-| `VL53LDK`-marked ToF breakout | [labels view](photos/rp2040-zero-vl53ldk-labels-2026-09-01.jpg), [components view](photos/rp2040-zero-vl53ldk-components-2026-09-01.jpg) | **PENDING RULER/CALIPER** (vendor candidate: 10.5 × 13.3 mm) | **PENDING RULER/CALIPER** | optical package and one corner hole visible; four labelled pads VIN/GND/SCL/SDA on the lower edge plus X/e pads on the opposite edge | photo-captured |
+| `VL53LDK`-marked ToF breakout | [labels view](photos/rp2040-zero-vl53ldk-labels-2026-09-01.jpg), [components view](photos/rp2040-zero-vl53ldk-components-2026-09-01.jpg) | **PENDING RULER/CALIPER** (vendor candidate: 10.5 × 13.3 mm) | **PENDING RULER/CALIPER** | optical package and one corner hole visible; four labelled pads VIN/GND/SCL/SDA on the lower edge plus two opposite-edge plated vias marked X/e | photo-captured |
 
 The two photos show both boards together. They are useful for markings and
 orientation, but they do not contain a scale reference, so no dimension or pad
@@ -30,7 +30,7 @@ pitch is inferred from pixels.
   controls. The exact revision string is not yet legible enough to freeze a
   footprint.
 - The smaller blue board is visibly marked `VL53LDK` and has four lower-edge pads labelled
-  `VIN`, `GND`, `SCL`, and `SDA`, plus two opposite-edge pads labelled `X` and `e`.
+  `VIN`, `GND`, `SCL`, and `SDA`, plus two opposite-edge plated vias/holes marked `X` and `e`.
   The regulator and
   logic-level circuitry are visible but their electrical behaviour is not proven
   by a photo. Marketplace listings commonly call this geometry GY-530 or
@@ -68,3 +68,23 @@ The candidate uses RP2040 I2C0 (`GP4=SDA`, `GP5=SCL`) at 3.3 V, with shared
 ground and sensor power. Whether the sensor board accepts 3.3 V directly or
 contains a regulator/level shifter is unresolved. No pull-up value is asserted
 until that inspection is complete.
+
+## Online component-library search (2026-09-01)
+
+The tscircuit ecosystem was searched as a possible source of a ready-made
+module rather than assuming that the footprint had to be drawn from scratch.
+The process and import conventions are recorded in
+[`research/hardware/tscircuit-ecosystem.md`](../../../research/hardware/tscircuit-ecosystem.md).
+
+| Candidate/source | What it proves | Why it is not yet the E003 footprint |
+| --- | --- | --- |
+| [tscircuit JLCPCB footprint support](https://docs.tscircuit.com/footprints/jlcpcb-footprints) | tscircuit can load catalog footprints with the `jlcpcb:` prefix and import component packages | no exact received-board identity was found |
+| [tscircuit KiCad footprint support](https://docs.tscircuit.com/footprints/kicad-footprints) | tscircuit can load official KiCad footprints with the `kicad:` prefix | generic/community entries still require geometry and license review |
+| [tscircuit footprinter](https://github.com/tscircuit/footprinter) | custom reusable footprints can be authored in TypeScript | it supplies the mechanism, not the missing board coordinates |
+| [GY-530 vendor reference](https://www.plexishop.it/it/gy-530-sensore-di-misura-laser-tof-vl53l0x.html) | common GY-530 family claims 10.5 × 13.3 mm, 3 mm hole and four lower-edge pins | received board has two additional opposite-edge vias marked X/e; they are reference geometry, not interface pins |
+| [ST VL53L0X datasheet](https://www.st.com/resource/en/datasheet/vl53l0x.pdf) | device-level functions include XSHUT and GPIO1, which are plausible meanings for extra control pads | the board marking is `VL53LDK`; continuity/schematic evidence is still required |
+
+Conclusion: no exact published tscircuit/KiCad asset is accepted for
+this received board. E003-T21 must record candidate searches, and E003-T22 must
+create an isolated reusable component only after the best source or measured
+datum is selected. The current Variant A geometry remains provisional.

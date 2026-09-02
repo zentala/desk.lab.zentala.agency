@@ -1,7 +1,7 @@
 const REQUIRED_FUNCTIONS = ["power", "ground", "SDA", "SCL"]
 const MODULES = {
   "rp2040-zero": "U1_RP2040_ZERO_PENDING_FOOTPRINT",
-  "vl53ldk-breakout": "U2_VL53LDK_BLUE_PENDING_FOOTPRINT",
+  "vl53ldk-breakout": "U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE",
 }
 const NETS = {
   power: "NET_3V3_PENDING",
@@ -26,7 +26,7 @@ function validateModule(rows, source, moduleId, marker) {
       throw new Error(`${moduleId} must define exactly one ${fn} row`)
     }
   }
-  const allowedPins = moduleId === "vl53ldk-breakout" ? [1, 2, 3, 4, 5, 6] : [5, 6, 21, 22]
+  const allowedPins = moduleId === "vl53ldk-breakout" ? [1, 2, 3, 4] : [5, 6, 21, 22]
   if (new Set(pins).size !== allowedPins.length || !pins.every((pin) => allowedPins.includes(pin))) {
     throw new Error(`${moduleId} must map unique placeholder pins ${allowedPins.join("-")}`)
   }
@@ -39,15 +39,9 @@ function validateModule(rows, source, moduleId, marker) {
   }
 }
 
-function validateAuxiliaryPads(rows, source) {
-  for (const row of rows.filter((item) => item.function === "auxiliary")) {
-    if (row.moduleId !== "vl53ldk-breakout" || row.status !== "unresolved") {
-      throw new Error("ToF auxiliary X/E pads must remain unresolved")
-    }
-    const block = sourceBlock(source, 'name="U2_VL53LDK_BLUE_PENDING_FOOTPRINT"')
-    if (!source.includes(`${row.placeholderPin}: "${row.sourceLabel}"`)) {
-      throw new Error(`ToF auxiliary pad ${row.sourceLabel} is missing from the source`)
-    }
+function validateAuxiliaryVias(source) {
+  if (!source.includes("TOF_AUX_VIA_POSITIONS") || !source.includes("AUX VIAS — NO CONNECTION")) {
+    throw new Error("ToF auxiliary vias must remain reference-only geometry")
   }
 }
 
@@ -69,7 +63,7 @@ export function validateContract(rows, source) {
   for (const [moduleId, marker] of Object.entries(MODULES)) {
     validateModule(rows, source, moduleId, marker)
   }
-  validateAuxiliaryPads(rows, source)
+  validateAuxiliaryVias(source)
   validateNets(rows, source)
 }
 
@@ -112,7 +106,7 @@ export function validateCandidateStructure(circuit, assumptions) {
   }
   const sourceComponents = circuit.filter((item) => item.type === "source_component")
   const moduleNames = sourceComponents.map((item) => item.name)
-  for (const name of ["U1_RP2040_ZERO_PENDING_FOOTPRINT", "U2_VL53LDK_BLUE_PENDING_FOOTPRINT"]) {
+  for (const name of ["U1_RP2040_ZERO_PENDING_FOOTPRINT", "U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE"]) {
     if (!moduleNames.includes(name)) throw new Error(`Missing received module: ${name}`)
   }
   const pcbComponents = new Map(circuit
@@ -121,17 +115,17 @@ export function validateCandidateStructure(circuit, assumptions) {
   const sourceNames = new Map(sourceComponents.map((item) => [item.source_component_id, item.name]))
   const plated = circuit.filter((item) => item.type === "pcb_plated_hole")
   const u1 = plated.filter((item) => sourceNames.get(pcbComponents.get(item.pcb_component_id)) === "U1_RP2040_ZERO_PENDING_FOOTPRINT")
-  const u2 = plated.filter((item) => sourceNames.get(pcbComponents.get(item.pcb_component_id)) === "U2_VL53LDK_BLUE_PENDING_FOOTPRINT")
-  if (u1.length !== 23 || u2.length !== 6) {
-    throw new Error(`Received footprints must expose 23 RP2040 pads and 6 ToF pads; got ${u1.length} and ${u2.length}`)
+  const u2 = plated.filter((item) => sourceNames.get(pcbComponents.get(item.pcb_component_id)) === "U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE")
+  if (u1.length !== 23 || u2.length !== 4) {
+    throw new Error(`Received footprints must expose 23 RP2040 pads and 4 ToF pads; got ${u1.length} and ${u2.length}`)
   }
   const u1Pins = new Set(u1.flatMap((item) => item.port_hints ?? []).filter((hint) => /^pin\d+$/.test(hint)))
   const u2Pins = new Set(u2.flatMap((item) => item.port_hints ?? []).filter((hint) => /^pin\d+$/.test(hint)))
   if (u1Pins.size !== 23 || [...u1Pins].some((pin) => !/^pin([1-9]|1[0-9]|2[0-3])$/.test(pin))) {
     throw new Error("RP2040 footprint pin map must contain physical pins 1 through 23")
   }
-  if (u2Pins.size !== 6 || [...u2Pins].some((pin) => !/^pin[1-6]$/.test(pin))) {
-    throw new Error("ToF footprint pin map must contain physical pins 1 through 6")
+  if (u2Pins.size !== 4 || [...u2Pins].some((pin) => !/^pin[1-4]$/.test(pin))) {
+    throw new Error("ToF footprint pin map must contain physical pins 1 through 4")
   }
   const moduleHole = circuit.find((item) => item.type === "pcb_hole" && item.x === 6.8 && item.y === 4.7)
   if (!moduleHole) throw new Error("ToF footprint must expose its measured/provisional corner mounting hole")
@@ -143,7 +137,7 @@ export function validateCandidateStructure(circuit, assumptions) {
     }
   }
   const opticalKeepout = circuit.find((item) => item.type === "pcb_keepout" && item.shape === "circle")
-  const tofPcbId = [...pcbComponents.entries()].find(([, sourceId]) => sourceNames.get(sourceId) === "U2_VL53LDK_BLUE_PENDING_FOOTPRINT")?.[0]
+  const tofPcbId = [...pcbComponents.entries()].find(([, sourceId]) => sourceNames.get(sourceId) === "U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE")?.[0]
   if (!opticalKeepout || !tofPcbId || !opticalKeepout.excluded_pcb_component_ids?.includes(tofPcbId)) {
     throw new Error("Optical keep-out must be explicit and scoped to the received ToF module")
   }
@@ -197,5 +191,35 @@ export function validateVariantContracts(contracts) {
   }
   if (!/power/i.test(variantD.sourceContract ?? "")) {
     throw new Error("Variant D must state that USB is power-only")
+  }
+}
+
+export function validateSourceRegister(register) {
+  if (!register || register.schema !== "e003-component-source-register-v1") {
+    throw new Error("Source register schema is missing or unsupported")
+  }
+  if (register.fabricationAllowed !== false) {
+    throw new Error("Source register must keep fabrication blocked")
+  }
+  if (!Array.isArray(register.assets) || register.assets.length < 9) {
+    throw new Error("Source register must cover the selected board assets")
+  }
+  const required = ["ref", "part", "orderableIdentifier", "assetKind", "package", "orientation", "sourceUrls", "provenance", "license", "confidence", "openFields"]
+  const allowedConfidence = new Set(["verified", "catalogue-candidate", "selected-hypothesis", "provisional", "catalogue-alternative", "catalogue-candidate-plus-local-geometry", "unresolved", "rejected-alternative"])
+  for (const asset of register.assets) {
+    for (const field of required) {
+      if (asset[field] === undefined || asset[field] === null || asset[field] === "") {
+        throw new Error(`Source register asset ${asset.ref ?? "<unknown>"} is missing ${field}`)
+      }
+    }
+    if (!Array.isArray(asset.sourceUrls) || asset.sourceUrls.length === 0) {
+      throw new Error(`Source register asset ${asset.ref} needs at least one source URL`)
+    }
+    if (!allowedConfidence.has(asset.confidence)) {
+      throw new Error(`Source register asset ${asset.ref} has unsupported confidence ${asset.confidence}`)
+    }
+    if (!Array.isArray(asset.openFields)) {
+      throw new Error(`Source register asset ${asset.ref} must list open fields`)
+    }
   }
 }

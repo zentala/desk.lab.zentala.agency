@@ -9,9 +9,9 @@ data over a wireless transport while using USB for power only.
 | Variant | Hardware source | Distance sensor | Extra feedback | Purpose |
 | --- | --- | --- | --- | --- |
 | **A — received modules** | Physical RP2040-Zero + received blue `UL53LDK`/`VL53LDK` breakout | Marketplace-labelled ToF module; exact die unresolved | None | Fastest fit, wiring and application test |
-| **B — JLC chip-down** | JLCPCB parts and assembly only | Select one: bare VL53L0X `C2929940` or VL53L1X `C2924337` | None | Validate a reproducible production-oriented BOM |
-| **C — JLC feedback** | Same as B | Same selected die as B | LIS2DW12TR `C189624` + active 3 V buzzer `C781856` | Test vibration sensing and local audio feedback |
-| **D — ESP32 wireless** | JLCPCB-assembled Espressif ESP32-C3 module | Same ToF sensor contract as A/B | LIS2DW12TR `C189624`; no buzzer | Test wireless ToF and vibration transport; USB is power-only |
+| **B — JLC chip-down** | JLCPCB parts and assembly only | VL53L0X `C2929940` candidate | RP2040 support, USB, flash, regulator and clock geometry | Validate a reproducible production-oriented BOM |
+| **C — JLC feedback** | Same as B | Same selected die as B | LIS2DW12TR `C189624` + active 3 V buzzer `C781856` + low-side driver | Test vibration sensing and local audio feedback |
+| **D — ESP32 wireless** | JLCPCB-assembled Espressif ESP32-C3 module `C2838502` | VL53L0X `C2929940` candidate | LIS2DW12TR `C189624`; no buzzer | Test wireless ToF and vibration transport; USB is power-only |
 
 ## Shared contract
 
@@ -59,6 +59,16 @@ is still ESP32-S3 (`ESP32-S3-WROOM-1U-N16R8`, `C3013946`: dual-core 240 MHz,
 512 KB SRAM, 16 MB flash, 8 MB PSRAM), but it is deliberately not the default
 for D. ESP32-C6 (`C5364646`) remains an alternative when Wi-Fi 6/Thread/Zigbee
 is specifically required.
+
+## Implementation status
+
+The generated B–D candidates contain complete named package footprints and
+mechanical keep-outs; they do not claim a finished routed netlist. Their
+support parts are local review geometry until exact orderable IDs are selected.
+The source register is the authoritative list of those open fields. A narrow
+decorative frame is not used: the current 48 × 32 mm candidate envelope is a
+compact review envelope with a technical edge margin and must be checked
+against final component bodies, underside adhesive and service access.
 
 ## Assumptions to test, not freeze
 

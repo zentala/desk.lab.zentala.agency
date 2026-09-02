@@ -14,8 +14,8 @@
     "sheet_width": 297,
     "sheet_height": 210,
     "center": {
-      "x": 0.27499999999999947,
-      "y": 1.1
+      "x": 1.2000000000000002,
+      "y": -0.0050000000000000044
     }
   },
   {
@@ -348,10 +348,10 @@
   {
     "type": "source_port",
     "source_port_id": "source_port_23",
-    "name": "VIN_OR_3V3_PENDING",
+    "name": "VIN",
     "pin_number": 1,
     "port_hints": [
-      "VIN_OR_3V3_PENDING",
+      "VIN",
       "pin1",
       "1"
     ],
@@ -411,38 +411,10 @@
     "subcircuit_connectivity_map_key": "E003_CARRIER_VARIANT_A_PROVISIONAL_connectivity_net2"
   },
   {
-    "type": "source_port",
-    "source_port_id": "source_port_27",
-    "name": "X",
-    "pin_number": 5,
-    "port_hints": [
-      "X",
-      "pin5",
-      "5"
-    ],
-    "source_component_id": "source_component_1",
-    "subcircuit_id": "subcircuit_source_group_0",
-    "do_not_connect": true
-  },
-  {
-    "type": "source_port",
-    "source_port_id": "source_port_28",
-    "name": "E",
-    "pin_number": 6,
-    "port_hints": [
-      "E",
-      "pin6",
-      "6"
-    ],
-    "source_component_id": "source_component_1",
-    "subcircuit_id": "subcircuit_source_group_0",
-    "do_not_connect": true
-  },
-  {
     "type": "source_component",
     "source_component_id": "source_component_1",
     "ftype": "simple_chip",
-    "name": "U2_VL53LDK_BLUE_PENDING_FOOTPRINT",
+    "name": "U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE",
     "source_group_id": "source_group_0"
   },
   {
@@ -461,7 +433,7 @@
     "connected_source_net_ids": [],
     "subcircuit_id": "subcircuit_source_group_0",
     "name": "NET_3V3_PENDING",
-    "display_name": ".U1_RP2040_ZERO_PENDING_FOOTPRINT > .3V3 to .U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .VIN_OR_3V3_PENDING",
+    "display_name": ".U1_RP2040_ZERO_PENDING_FOOTPRINT > .3V3 to .U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE > .VIN",
     "min_trace_thickness": 0.4,
     "subcircuit_connectivity_map_key": "E003_CARRIER_VARIANT_A_PROVISIONAL_connectivity_net0"
   },
@@ -475,7 +447,7 @@
     "connected_source_net_ids": [],
     "subcircuit_id": "subcircuit_source_group_0",
     "name": "NET_GND",
-    "display_name": ".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GND to .U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .GND",
+    "display_name": ".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GND to .U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE > .GND",
     "min_trace_thickness": 0.4,
     "subcircuit_connectivity_map_key": "E003_CARRIER_VARIANT_A_PROVISIONAL_connectivity_net1"
   },
@@ -489,7 +461,7 @@
     "connected_source_net_ids": [],
     "subcircuit_id": "subcircuit_source_group_0",
     "name": "NET_I2C0_SDA",
-    "display_name": ".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP4_SDA to .U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .SDA",
+    "display_name": ".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP4_SDA to .U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE > .SDA",
     "min_trace_thickness": 0.25,
     "subcircuit_connectivity_map_key": "E003_CARRIER_VARIANT_A_PROVISIONAL_connectivity_net2"
   },
@@ -503,7 +475,7 @@
     "connected_source_net_ids": [],
     "subcircuit_id": "subcircuit_source_group_0",
     "name": "NET_I2C0_SCL",
-    "display_name": ".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP5_SCL to .U2_VL53LDK_BLUE_PENDING_FOOTPRINT > .SCL",
+    "display_name": ".U1_RP2040_ZERO_PENDING_FOOTPRINT > .GP5_SCL to .U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE > .SCL",
     "min_trace_thickness": 0.25,
     "subcircuit_connectivity_map_key": "E003_CARRIER_VARIANT_A_PROVISIONAL_connectivity_net3"
   },
@@ -583,22 +555,20 @@
     "type": "schematic_component",
     "schematic_component_id": "schematic_component_1",
     "center": {
-      "x": 0.5499999999999998,
-      "y": 3.0999999999999996
+      "x": 3.1000000000000005,
+      "y": 0.5000000000000009
     },
     "rotation": 0,
     "size": {
-      "width": 2.9000000000000004,
-      "height": 0.8
+      "width": 1.4000000000000001,
+      "height": 0.6000000000000001
     },
     "pin_spacing": 0.2,
     "port_labels": {
-      "1": "VIN_OR_3V3_PENDING",
+      "1": "VIN",
       "2": "GND",
       "3": "SCL",
-      "4": "SDA",
-      "5": "X",
-      "6": "E"
+      "4": "SDA"
     },
     "source_component_id": "source_component_1",
     "schematic_sheet_id": "schematic_sheet_0",
@@ -612,8 +582,8 @@
     "anchor": "left",
     "rotation": 0,
     "position": {
-      "x": -0.9000000000000004,
-      "y": 2.5699999999999994
+      "x": 2.4000000000000004,
+      "y": 0.07000000000000084
     },
     "color": "#006464",
     "font_size": 0.18,
@@ -622,13 +592,13 @@
   {
     "type": "schematic_text",
     "schematic_text_id": "schematic_text_3",
-    "text": "U2_VL53LDK_BLUE_PENDING_FOOTPRINT",
+    "text": "U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE",
     "schematic_component_id": "schematic_component_1",
     "anchor": "left",
     "rotation": 0,
     "position": {
-      "x": -0.9000000000000004,
-      "y": 3.63
+      "x": 2.4000000000000004,
+      "y": 0.9300000000000009
     },
     "color": "#006464",
     "font_size": 0.18,
@@ -1070,8 +1040,8 @@
     "schematic_port_id": "schematic_port_23",
     "schematic_component_id": "schematic_component_1",
     "center": {
-      "x": -1.3000000000000003,
-      "y": 3.3
+      "x": 2.0000000000000004,
+      "y": 0.6000000000000009
     },
     "source_port_id": "source_port_23",
     "facing_direction": "left",
@@ -1079,7 +1049,7 @@
     "side_of_component": "left",
     "pin_number": 1,
     "true_ccw_index": 0,
-    "display_pin_label": "VIN_OR_3V3_PENDING",
+    "display_pin_label": "VIN",
     "is_connected": true,
     "schematic_sheet_id": "schematic_sheet_0",
     "has_input_arrow": true
@@ -1089,8 +1059,8 @@
     "schematic_port_id": "schematic_port_24",
     "schematic_component_id": "schematic_component_1",
     "center": {
-      "x": -1.3000000000000003,
-      "y": 3.0999999999999996
+      "x": 2.0000000000000004,
+      "y": 0.4000000000000009
     },
     "source_port_id": "source_port_24",
     "facing_direction": "left",
@@ -1107,13 +1077,13 @@
     "schematic_port_id": "schematic_port_25",
     "schematic_component_id": "schematic_component_1",
     "center": {
-      "x": -1.3000000000000003,
-      "y": 2.8999999999999995
+      "x": 4.200000000000001,
+      "y": 0.4000000000000009
     },
     "source_port_id": "source_port_25",
-    "facing_direction": "left",
+    "facing_direction": "right",
     "distance_from_component_edge": 0.4,
-    "side_of_component": "left",
+    "side_of_component": "right",
     "pin_number": 3,
     "true_ccw_index": 2,
     "display_pin_label": "SCL",
@@ -1125,8 +1095,8 @@
     "schematic_port_id": "schematic_port_26",
     "schematic_component_id": "schematic_component_1",
     "center": {
-      "x": 2.4,
-      "y": 2.8999999999999995
+      "x": 4.200000000000001,
+      "y": 0.6000000000000009
     },
     "source_port_id": "source_port_26",
     "facing_direction": "right",
@@ -1136,42 +1106,6 @@
     "true_ccw_index": 3,
     "display_pin_label": "SDA",
     "is_connected": true,
-    "schematic_sheet_id": "schematic_sheet_0"
-  },
-  {
-    "type": "schematic_port",
-    "schematic_port_id": "schematic_port_27",
-    "schematic_component_id": "schematic_component_1",
-    "center": {
-      "x": 2.4,
-      "y": 3.0999999999999996
-    },
-    "source_port_id": "source_port_27",
-    "facing_direction": "right",
-    "distance_from_component_edge": 0.4,
-    "side_of_component": "right",
-    "pin_number": 5,
-    "true_ccw_index": 4,
-    "display_pin_label": "X",
-    "is_connected": false,
-    "schematic_sheet_id": "schematic_sheet_0"
-  },
-  {
-    "type": "schematic_port",
-    "schematic_port_id": "schematic_port_28",
-    "schematic_component_id": "schematic_component_1",
-    "center": {
-      "x": 2.4,
-      "y": 3.3
-    },
-    "source_port_id": "source_port_28",
-    "facing_direction": "right",
-    "distance_from_component_edge": 0.4,
-    "side_of_component": "right",
-    "pin_number": 6,
-    "true_ccw_index": 5,
-    "display_pin_label": "E",
-    "is_connected": false,
     "schematic_sheet_id": "schematic_sheet_0"
   },
   {
@@ -1185,48 +1119,29 @@
           "y": 0.6
         },
         "to": {
-          "x": 3.1999999999999997,
-          "y": 0.6
+          "x": 1.6125000000000003,
+          "y": 0.6000000000000004
         }
       },
       {
         "from": {
-          "x": 3.1999999999999997,
-          "y": 0.6
+          "x": 1.6125000000000003,
+          "y": 0.6000000000000004
         },
         "to": {
-          "x": 3.1999999999999997,
-          "y": 1.95
-        }
+          "x": 1.6875000000000002,
+          "y": 0.6000000000000004
+        },
+        "is_crossing": true
       },
       {
         "from": {
-          "x": 3.1999999999999997,
-          "y": 1.95
+          "x": 1.6875000000000002,
+          "y": 0.6000000000000004
         },
         "to": {
-          "x": -2.961,
-          "y": 1.95
-        }
-      },
-      {
-        "from": {
-          "x": -2.961,
-          "y": 1.95
-        },
-        "to": {
-          "x": -2.961,
-          "y": 3.3
-        }
-      },
-      {
-        "from": {
-          "x": -2.961,
-          "y": 3.3
-        },
-        "to": {
-          "x": -1.3000000000000003,
-          "y": 3.3
+          "x": 2,
+          "y": 0.6000000000000009
         }
       }
     ],
@@ -1235,24 +1150,9 @@
     "schematic_sheet_id": "schematic_sheet_0"
   },
   {
-    "type": "schematic_text",
-    "schematic_text_id": "schematic_text_4",
-    "text": "NET_3V3_PENDING",
-    "source_trace_id": "source_trace_0",
-    "anchor": "center",
-    "position": {
-      "x": 0.11949999999999994,
-      "y": 2.01
-    },
-    "rotation": 0,
-    "font_size": 0.12,
-    "color": "rgb(132, 0, 0)",
-    "schematic_sheet_id": "schematic_sheet_0"
-  },
-  {
     "type": "schematic_trace",
     "schematic_trace_id": "schematic_trace_1",
-    "source_trace_id": "source_trace_1",
+    "source_trace_id": "schematic_port_21-schematic_port_24",
     "edges": [
       {
         "from": {
@@ -1260,8 +1160,28 @@
           "y": 0.7999999999999999
         },
         "to": {
-          "x": 2.1400000000000006,
+          "x": 1.6500000000000001,
           "y": 0.7999999999999999
+        }
+      },
+      {
+        "from": {
+          "x": 1.6500000000000001,
+          "y": 0.7999999999999999
+        },
+        "to": {
+          "x": 1.6500000000000001,
+          "y": 0.4000000000000009
+        }
+      },
+      {
+        "from": {
+          "x": 1.6500000000000001,
+          "y": 0.4000000000000009
+        },
+        "to": {
+          "x": 2,
+          "y": 0.4000000000000009
         }
       }
     ],
@@ -1270,13 +1190,93 @@
     "schematic_sheet_id": "schematic_sheet_0"
   },
   {
+    "type": "schematic_trace",
+    "schematic_trace_id": "schematic_trace_2",
+    "source_trace_id": "schematic_port_4-schematic_port_26",
+    "edges": [
+      {
+        "from": {
+          "x": -1.3000000000000003,
+          "y": 0.2999999999999998
+        },
+        "to": {
+          "x": -1.5000000000000002,
+          "y": 0.2999999999999998
+        }
+      },
+      {
+        "from": {
+          "x": -1.5000000000000002,
+          "y": 0.2999999999999998
+        },
+        "to": {
+          "x": -1.5000000000000002,
+          "y": 0.5999999999999999
+        }
+      },
+      {
+        "from": {
+          "x": -1.5000000000000002,
+          "y": 0.5999999999999999
+        },
+        "to": {
+          "x": -3.2609999999999997,
+          "y": 0.5999999999999999
+        }
+      },
+      {
+        "from": {
+          "x": -3.2609999999999997,
+          "y": 0.5999999999999999
+        },
+        "to": {
+          "x": -3.2609999999999997,
+          "y": -1.4999999999999998
+        }
+      },
+      {
+        "from": {
+          "x": -3.2609999999999997,
+          "y": -1.4999999999999998
+        },
+        "to": {
+          "x": 5.8610000000000015,
+          "y": -1.4999999999999998
+        }
+      },
+      {
+        "from": {
+          "x": 5.8610000000000015,
+          "y": -1.4999999999999998
+        },
+        "to": {
+          "x": 5.8610000000000015,
+          "y": 0.6000000000000009
+        }
+      },
+      {
+        "from": {
+          "x": 5.8610000000000015,
+          "y": 0.6000000000000009
+        },
+        "to": {
+          "x": 4.200000000000001,
+          "y": 0.6000000000000009
+        }
+      }
+    ],
+    "junctions": [],
+    "subcircuit_connectivity_map_key": "E003_CARRIER_VARIANT_A_PROVISIONAL_connectivity_net2",
+    "schematic_sheet_id": "schematic_sheet_0"
+  },
+  {
     "type": "schematic_text",
-    "schematic_text_id": "schematic_text_5",
+    "schematic_text_id": "schematic_text_4",
     "text": "NET_GND",
     "source_trace_id": "source_trace_1",
-    "anchor": "left",
+    "anchor": "center",
     "position": {
-      "x": 1.4000000000000004,
+      "x": 1.6500000000000001,
       "y": 0.8599999999999999
     },
     "rotation": 0,
@@ -1285,34 +1285,14 @@
     "schematic_sheet_id": "schematic_sheet_0"
   },
   {
-    "type": "schematic_trace",
-    "schematic_trace_id": "schematic_trace_2",
-    "source_trace_id": "source_trace_1",
-    "edges": [
-      {
-        "from": {
-          "x": -1.3000000000000003,
-          "y": 3.0999999999999996
-        },
-        "to": {
-          "x": -2.54,
-          "y": 3.0999999999999996
-        }
-      }
-    ],
-    "junctions": [],
-    "subcircuit_connectivity_map_key": "E003_CARRIER_VARIANT_A_PROVISIONAL_connectivity_net1",
-    "schematic_sheet_id": "schematic_sheet_0"
-  },
-  {
     "type": "schematic_text",
-    "schematic_text_id": "schematic_text_6",
-    "text": "NET_GND",
-    "source_trace_id": "source_trace_1",
-    "anchor": "right",
+    "schematic_text_id": "schematic_text_5",
+    "text": "NET_I2C0_SDA",
+    "source_trace_id": "source_trace_2",
+    "anchor": "center",
     "position": {
-      "x": -1.4000000000000004,
-      "y": 3.1599999999999997
+      "x": 1.300000000000001,
+      "y": -1.4399999999999997
     },
     "rotation": 0,
     "font_size": 0.12,
@@ -1322,76 +1302,6 @@
   {
     "type": "schematic_trace",
     "schematic_trace_id": "schematic_trace_3",
-    "source_trace_id": "source_trace_2",
-    "edges": [
-      {
-        "from": {
-          "x": -1.3000000000000003,
-          "y": 0.2999999999999998
-        },
-        "to": {
-          "x": -2.54,
-          "y": 0.2999999999999998
-        }
-      }
-    ],
-    "junctions": [],
-    "subcircuit_connectivity_map_key": "E003_CARRIER_VARIANT_A_PROVISIONAL_connectivity_net2",
-    "schematic_sheet_id": "schematic_sheet_0"
-  },
-  {
-    "type": "schematic_text",
-    "schematic_text_id": "schematic_text_7",
-    "text": "NET_I2C0_SDA",
-    "source_trace_id": "source_trace_2",
-    "anchor": "right",
-    "position": {
-      "x": -1.4000000000000001,
-      "y": 0.3599999999999998
-    },
-    "rotation": 0,
-    "font_size": 0.12,
-    "color": "rgb(132, 0, 0)",
-    "schematic_sheet_id": "schematic_sheet_0"
-  },
-  {
-    "type": "schematic_trace",
-    "schematic_trace_id": "schematic_trace_4",
-    "source_trace_id": "source_trace_2",
-    "edges": [
-      {
-        "from": {
-          "x": 2.4,
-          "y": 2.8999999999999995
-        },
-        "to": {
-          "x": 3.6399999999999997,
-          "y": 2.8999999999999995
-        }
-      }
-    ],
-    "junctions": [],
-    "subcircuit_connectivity_map_key": "E003_CARRIER_VARIANT_A_PROVISIONAL_connectivity_net2",
-    "schematic_sheet_id": "schematic_sheet_0"
-  },
-  {
-    "type": "schematic_text",
-    "schematic_text_id": "schematic_text_8",
-    "text": "NET_I2C0_SDA",
-    "source_trace_id": "source_trace_2",
-    "anchor": "left",
-    "position": {
-      "x": 2.4999999999999996,
-      "y": 2.9599999999999995
-    },
-    "rotation": 0,
-    "font_size": 0.12,
-    "color": "rgb(132, 0, 0)",
-    "schematic_sheet_id": "schematic_sheet_0"
-  },
-  {
-    "type": "schematic_trace",
-    "schematic_trace_id": "schematic_trace_5",
     "source_trace_id": "source_trace_3",
     "edges": [
       {
@@ -1411,7 +1321,7 @@
   },
   {
     "type": "schematic_text",
-    "schematic_text_id": "schematic_text_9",
+    "schematic_text_id": "schematic_text_6",
     "text": "NET_I2C0_SCL",
     "source_trace_id": "source_trace_3",
     "anchor": "right",
@@ -1426,17 +1336,17 @@
   },
   {
     "type": "schematic_trace",
-    "schematic_trace_id": "schematic_trace_6",
+    "schematic_trace_id": "schematic_trace_4",
     "source_trace_id": "source_trace_3",
     "edges": [
       {
         "from": {
-          "x": -1.3000000000000003,
-          "y": 2.8999999999999995
+          "x": 4.200000000000001,
+          "y": 0.4000000000000009
         },
         "to": {
-          "x": -2.54,
-          "y": 2.8999999999999995
+          "x": 5.440000000000001,
+          "y": 0.4000000000000009
         }
       }
     ],
@@ -1446,13 +1356,13 @@
   },
   {
     "type": "schematic_text",
-    "schematic_text_id": "schematic_text_10",
+    "schematic_text_id": "schematic_text_7",
     "text": "NET_I2C0_SCL",
     "source_trace_id": "source_trace_3",
-    "anchor": "right",
+    "anchor": "left",
     "position": {
-      "x": -1.4000000000000001,
-      "y": 2.9599999999999995
+      "x": 4.300000000000001,
+      "y": 0.4600000000000009
     },
     "rotation": 0,
     "font_size": 0.12,
@@ -1485,10 +1395,10 @@
     "pcb_component_id": "pcb_component_1",
     "center": {
       "x": 10.5,
-      "y": -0.2250000000000001
+      "y": -6
     },
     "width": 9.220000000000002,
-    "height": 13.149999999999999,
+    "height": 1.5999999999999996,
     "layer": "top",
     "rotation": 0,
     "source_component_id": "source_component_1",
@@ -2632,86 +2542,34 @@
     "subcircuit_id": "subcircuit_source_group_0"
   },
   {
-    "type": "pcb_plated_hole",
-    "pcb_plated_hole_id": "pcb_plated_hole_27",
+    "type": "pcb_silkscreen_rect",
+    "pcb_silkscreen_rect_id": "pcb_silkscreen_rect_0",
     "pcb_component_id": "pcb_component_1",
-    "pcb_port_id": "pcb_port_27",
-    "outer_diameter": 1.6,
-    "hole_diameter": 0.8,
-    "shape": "circle",
-    "port_hints": [
-      "PAD5",
-      "pin5"
-    ],
-    "x": 9.23,
-    "y": 5.55,
-    "layers": [
-      "top",
-      "bottom"
-    ],
-    "is_covered_with_solder_mask": false,
-    "subcircuit_id": "subcircuit_source_group_0"
-  },
-  {
-    "type": "pcb_solder_paste",
-    "pcb_solder_paste_id": "pcb_solder_paste_54",
     "layer": "top",
-    "shape": "circle",
-    "radius": 0.8,
-    "x": 9.23,
-    "y": 5.55,
-    "subcircuit_id": "subcircuit_source_group_0"
+    "center": {
+      "x": 9.23,
+      "y": 5.55
+    },
+    "width": 0.8,
+    "height": 0.8,
+    "subcircuit_id": "subcircuit_source_group_0",
+    "stroke_width": 0.15,
+    "is_filled": false
   },
   {
-    "type": "pcb_solder_paste",
-    "pcb_solder_paste_id": "pcb_solder_paste_55",
-    "layer": "bottom",
-    "shape": "circle",
-    "radius": 0.8,
-    "x": 9.23,
-    "y": 5.55,
-    "subcircuit_id": "subcircuit_source_group_0"
-  },
-  {
-    "type": "pcb_plated_hole",
-    "pcb_plated_hole_id": "pcb_plated_hole_28",
+    "type": "pcb_silkscreen_rect",
+    "pcb_silkscreen_rect_id": "pcb_silkscreen_rect_1",
     "pcb_component_id": "pcb_component_1",
-    "pcb_port_id": "pcb_port_28",
-    "outer_diameter": 1.6,
-    "hole_diameter": 0.8,
-    "shape": "circle",
-    "port_hints": [
-      "PAD6",
-      "pin6"
-    ],
-    "x": 11.77,
-    "y": 5.55,
-    "layers": [
-      "top",
-      "bottom"
-    ],
-    "is_covered_with_solder_mask": false,
-    "subcircuit_id": "subcircuit_source_group_0"
-  },
-  {
-    "type": "pcb_solder_paste",
-    "pcb_solder_paste_id": "pcb_solder_paste_56",
     "layer": "top",
-    "shape": "circle",
-    "radius": 0.8,
-    "x": 11.77,
-    "y": 5.55,
-    "subcircuit_id": "subcircuit_source_group_0"
-  },
-  {
-    "type": "pcb_solder_paste",
-    "pcb_solder_paste_id": "pcb_solder_paste_57",
-    "layer": "bottom",
-    "shape": "circle",
-    "radius": 0.8,
-    "x": 11.77,
-    "y": 5.55,
-    "subcircuit_id": "subcircuit_source_group_0"
+    "center": {
+      "x": 11.77,
+      "y": 5.55
+    },
+    "width": 0.8,
+    "height": 0.8,
+    "subcircuit_id": "subcircuit_source_group_0",
+    "stroke_width": 0.15,
+    "is_filled": false
   },
   {
     "type": "pcb_silkscreen_text",
@@ -2724,14 +2582,14 @@
     "font": "tscircuit2024",
     "font_size": 0.65,
     "layer": "top",
-    "text": "X / E — NC PENDING",
+    "text": "AUX VIAS — NO CONNECTION",
     "ccw_rotation": 0,
     "pcb_component_id": null,
     "subcircuit_id": "subcircuit_source_group_0"
   },
   {
     "type": "pcb_silkscreen_rect",
-    "pcb_silkscreen_rect_id": "pcb_silkscreen_rect_0",
+    "pcb_silkscreen_rect_id": "pcb_silkscreen_rect_2",
     "pcb_component_id": null,
     "layer": "top",
     "center": {
@@ -2762,7 +2620,7 @@
   },
   {
     "type": "pcb_silkscreen_rect",
-    "pcb_silkscreen_rect_id": "pcb_silkscreen_rect_1",
+    "pcb_silkscreen_rect_id": "pcb_silkscreen_rect_3",
     "pcb_component_id": null,
     "layer": "top",
     "center": {
@@ -3267,32 +3125,6 @@
     "source_port_id": "source_port_26"
   },
   {
-    "type": "pcb_port",
-    "pcb_port_id": "pcb_port_27",
-    "pcb_component_id": "pcb_component_1",
-    "layers": [
-      "top",
-      "bottom"
-    ],
-    "subcircuit_id": "subcircuit_source_group_0",
-    "x": 9.23,
-    "y": 5.55,
-    "source_port_id": "source_port_27"
-  },
-  {
-    "type": "pcb_port",
-    "pcb_port_id": "pcb_port_28",
-    "pcb_component_id": "pcb_component_1",
-    "layers": [
-      "top",
-      "bottom"
-    ],
-    "subcircuit_id": "subcircuit_source_group_0",
-    "x": 11.77,
-    "y": 5.55,
-    "source_port_id": "source_port_28"
-  },
-  {
     "type": "pcb_trace",
     "pcb_trace_id": "pcb_trace_0",
     "route": [
@@ -3493,7 +3325,7 @@
     "cad_component_id": "cad_component_1",
     "position": {
       "x": 10.5,
-      "y": -0.2250000000000001,
+      "y": -6,
       "z": 0.8
     },
     "rotation": {
@@ -3520,7 +3352,7 @@
     "type": "pcb_component_missing_courtyard_warning",
     "pcb_component_missing_courtyard_warning_id": "pcb_component_missing_courtyard_warning_1",
     "warning_type": "pcb_component_missing_courtyard_warning",
-    "message": "U2_VL53LDK_BLUE_PENDING_FOOTPRINT has no courtyard",
+    "message": "U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE has no courtyard",
     "pcb_component_id": "pcb_component_1",
     "source_component_id": "source_component_1",
     "subcircuit_id": "subcircuit_source_group_0"

@@ -7,16 +7,19 @@
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "test": "node scripts/validation.test.mjs",
+    "test:verification": "node scripts/verification.test.mjs",
+    "verify:boards": "node scripts/verify-boards.mjs",
     "typecheck": "tsc --noEmit",
     "prove:pipeline": "node scripts/prove-pipeline.mjs",
     "prove:candidate": "node scripts/prove-candidate.mjs",
+    "prove:library": "node scripts/prove-library-preview.mjs",
     "prove:variants": "node scripts/prove-variants.mjs",
     "manifest": "node scripts/update-manifest.mjs",
     "package:portal": "node scripts/package-review-portal.mjs",
     "serve:portal": "node scripts/serve-portal.mjs",
     "render": "tsci render src/carrier.tsx --output-dir artifacts/render",
     "export": "tsci export src/carrier.tsx --output-dir artifacts/manufacturing",
-    "check": "npm run test && npm run typecheck && npm run prove:pipeline && npm run prove:candidate && npm run prove:variants && npm run validate && npm run manifest && npm run package:portal"
+    "check": "npm run test && npm run test:verification && npm run typecheck && npm run prove:pipeline && npm run prove:candidate && npm run prove:library && npm run prove:variants && npm run verify:boards && npm run validate && npm run manifest && npm run package:portal"
   },
   "engines": {
     "node": ">=22 <23"

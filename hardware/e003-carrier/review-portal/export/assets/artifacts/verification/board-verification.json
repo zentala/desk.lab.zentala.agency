@@ -1,0 +1,686 @@
+{
+  "generatedAt": "2026-09-02T00:40:47.431Z",
+  "boards": [
+    {
+      "id": "A",
+      "artifact": "artifacts/candidate-proof",
+      "source": "src/carrier.tsx",
+      "description": "canonical received-module carrier",
+      "status": "PASS",
+      "board": {
+        "type": "pcb_board",
+        "pcb_board_id": "pcb_board_0",
+        "source_board_id": "source_board_0",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "thickness": 1.6,
+        "num_layers": 2,
+        "width": 52,
+        "height": 38,
+        "material": "fr4",
+        "solder_mask_color": "black",
+        "min_trace_width": 0.2,
+        "min_via_hole_diameter": 0.2,
+        "min_via_pad_diameter": 0.3,
+        "min_via_hole_edge_to_via_hole_edge_clearance": 0.1,
+        "min_trace_to_pad_edge_clearance": 0.1,
+        "min_pad_edge_to_pad_edge_clearance": 0.1,
+        "min_plated_hole_drill_edge_to_drill_edge_clearance": 0.15,
+        "min_board_edge_clearance": 0.2
+      },
+      "components": {
+        "U1_RP2040_ZERO_PENDING_FOOTPRINT": {
+          "pads": 23,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE": {
+          "pads": 4,
+          "footprints": [
+            "unknown"
+          ]
+        }
+      },
+      "checks": {
+        "errors": 0,
+        "warnings": 4,
+        "blockingWarnings": 0,
+        "messages": [
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "U1_RP2040_ZERO_PENDING_FOOTPRINT has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "U2_GY530_STYLE_TOF_FOUR_PIN_INTERFACE has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "U1_RP2040_ZERO_PENDING_FOOTPRINT has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "U1_RP2040_ZERO_PENDING_FOOTPRINT has no pin with requires_ground=true"
+          }
+        ]
+      },
+      "renders": {
+        "pcbBytes": 25007,
+        "schematicBytes": 51180,
+        "pcbSha256": "2bbbb8c80d153514c3aad4d443272c8637847c0cb04f16f7d3aa8e8ed8182b70",
+        "schematicSha256": "3bdaa4482f6985ec0ced4770216a283a43be55869c2389404cb391f931170377",
+        "hasSvgRoot": true
+      },
+      "issues": []
+    },
+    {
+      "id": "B",
+      "artifact": "artifacts/variants/B",
+      "source": "src/variant-candidates.tsx",
+      "description": "JLCPCB chip-down candidate",
+      "status": "PASS",
+      "board": {
+        "type": "pcb_board",
+        "pcb_board_id": "pcb_board_0",
+        "source_board_id": "source_board_0",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "thickness": 1.6,
+        "num_layers": 2,
+        "width": 48,
+        "height": 32,
+        "material": "fr4",
+        "solder_mask_color": "black",
+        "min_trace_width": 0.2,
+        "min_via_hole_diameter": 0.2,
+        "min_via_pad_diameter": 0.3,
+        "min_via_hole_edge_to_via_hole_edge_clearance": 0.1,
+        "min_trace_to_pad_edge_clearance": 0.1,
+        "min_pad_edge_to_pad_edge_clearance": 0.1,
+        "min_plated_hole_drill_edge_to_drill_edge_clearance": 0.15,
+        "min_board_edge_clearance": 0.2
+      },
+      "components": {
+        "J1_USB_C_POWER_DEBUG_PROVISIONAL": {
+          "pads": 16,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "U3_QSPI_FLASH_PROVISIONAL": {
+          "pads": 8,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "Y1_12MHZ_CRYSTAL_PROVISIONAL": {
+          "pads": 2,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "U4_3V3_REGULATOR_PROVISIONAL": {
+          "pads": 5,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "C1_VBUS_BYPASS": {
+          "pads": 2,
+          "footprints": [
+            "cap0603"
+          ]
+        },
+        "C2_3V3_BYPASS": {
+          "pads": 2,
+          "footprints": [
+            "cap0603"
+          ]
+        },
+        "R1_RUN_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "R2_XSHUT_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "R3_SDA_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "R4_SCL_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "U1_RP2040_C2040": {
+          "pads": 57,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "U2_VL53L0X_C2929940": {
+          "pads": 12,
+          "footprints": [
+            "unknown"
+          ]
+        }
+      },
+      "checks": {
+        "errors": 0,
+        "warnings": 15,
+        "blockingWarnings": 0,
+        "messages": [
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "J1_USB_C_POWER_DEBUG_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "U3_QSPI_FLASH_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "Y1_12MHZ_CRYSTAL_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "U4_3V3_REGULATOR_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "source_component_pins_underspecified_warning",
+            "message": "All pins on J1_USB_C_POWER_DEBUG_PROVISIONAL are underspecified (no pinAttributes set)"
+          },
+          {
+            "severity": "warning",
+            "type": "source_component_pins_underspecified_warning",
+            "message": "All pins on U3_QSPI_FLASH_PROVISIONAL are underspecified (no pinAttributes set)"
+          },
+          {
+            "severity": "warning",
+            "type": "source_component_pins_underspecified_warning",
+            "message": "All pins on Y1_12MHZ_CRYSTAL_PROVISIONAL are underspecified (no pinAttributes set)"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "U1_RP2040_C2040 has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "J1_USB_C_POWER_DEBUG_PROVISIONAL has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "U3_QSPI_FLASH_PROVISIONAL has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "Y1_12MHZ_CRYSTAL_PROVISIONAL has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "U1_RP2040_C2040 has no pin with requires_ground=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "J1_USB_C_POWER_DEBUG_PROVISIONAL has no pin with requires_ground=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "U3_QSPI_FLASH_PROVISIONAL has no pin with requires_ground=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "Y1_12MHZ_CRYSTAL_PROVISIONAL has no pin with requires_ground=true"
+          }
+        ]
+      },
+      "renders": {
+        "pcbBytes": 45130,
+        "schematicBytes": 153782,
+        "pcbSha256": "2c7ec2496d20e8a2e7e5ee8ee6013c36fa466ebb56a6d100215540081129ac1f",
+        "schematicSha256": "4d0683ce9826f7dd20e1bd3f08694891fe56181b44bff3d399b22e71b6dc5ecf",
+        "hasSvgRoot": true
+      },
+      "issues": []
+    },
+    {
+      "id": "C",
+      "artifact": "artifacts/variants/C",
+      "source": "src/variant-candidates.tsx",
+      "description": "chip-down candidate with feedback hardware",
+      "status": "PASS",
+      "board": {
+        "type": "pcb_board",
+        "pcb_board_id": "pcb_board_0",
+        "source_board_id": "source_board_0",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "thickness": 1.6,
+        "num_layers": 2,
+        "width": 48,
+        "height": 32,
+        "material": "fr4",
+        "solder_mask_color": "black",
+        "min_trace_width": 0.2,
+        "min_via_hole_diameter": 0.2,
+        "min_via_pad_diameter": 0.3,
+        "min_via_hole_edge_to_via_hole_edge_clearance": 0.1,
+        "min_trace_to_pad_edge_clearance": 0.1,
+        "min_pad_edge_to_pad_edge_clearance": 0.1,
+        "min_plated_hole_drill_edge_to_drill_edge_clearance": 0.15,
+        "min_board_edge_clearance": 0.2
+      },
+      "components": {
+        "BZ1_TMB12D03_ACTIVE_3V_PROVISIONAL": {
+          "pads": 2,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "Q1_BUZZER_LOW_SIDE_DRIVER_PROVISIONAL": {
+          "pads": 3,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "R5_BUZZER_GATE": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "J1_USB_C_POWER_DEBUG_PROVISIONAL": {
+          "pads": 16,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "U3_QSPI_FLASH_PROVISIONAL": {
+          "pads": 8,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "Y1_12MHZ_CRYSTAL_PROVISIONAL": {
+          "pads": 2,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "U4_3V3_REGULATOR_PROVISIONAL": {
+          "pads": 5,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "C1_VBUS_BYPASS": {
+          "pads": 2,
+          "footprints": [
+            "cap0603"
+          ]
+        },
+        "C2_3V3_BYPASS": {
+          "pads": 2,
+          "footprints": [
+            "cap0603"
+          ]
+        },
+        "R1_RUN_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "R2_XSHUT_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "R3_SDA_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "R4_SCL_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "U1_RP2040_C2040": {
+          "pads": 57,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "U2_VL53L0X_C2929940": {
+          "pads": 12,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "U5_LIS2DW12TR_C189624": {
+          "pads": 12,
+          "footprints": [
+            "unknown"
+          ]
+        }
+      },
+      "checks": {
+        "errors": 0,
+        "warnings": 23,
+        "blockingWarnings": 0,
+        "messages": [
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "BZ1_TMB12D03_ACTIVE_3V_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "Q1_BUZZER_LOW_SIDE_DRIVER_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "J1_USB_C_POWER_DEBUG_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "U3_QSPI_FLASH_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "Y1_12MHZ_CRYSTAL_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "U4_3V3_REGULATOR_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "source_component_pins_underspecified_warning",
+            "message": "All pins on BZ1_TMB12D03_ACTIVE_3V_PROVISIONAL are underspecified (no pinAttributes set)"
+          },
+          {
+            "severity": "warning",
+            "type": "source_component_pins_underspecified_warning",
+            "message": "All pins on Q1_BUZZER_LOW_SIDE_DRIVER_PROVISIONAL are underspecified (no pinAttributes set)"
+          },
+          {
+            "severity": "warning",
+            "type": "source_component_pins_underspecified_warning",
+            "message": "All pins on J1_USB_C_POWER_DEBUG_PROVISIONAL are underspecified (no pinAttributes set)"
+          },
+          {
+            "severity": "warning",
+            "type": "source_component_pins_underspecified_warning",
+            "message": "All pins on U3_QSPI_FLASH_PROVISIONAL are underspecified (no pinAttributes set)"
+          },
+          {
+            "severity": "warning",
+            "type": "source_component_pins_underspecified_warning",
+            "message": "All pins on Y1_12MHZ_CRYSTAL_PROVISIONAL are underspecified (no pinAttributes set)"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "U1_RP2040_C2040 has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "BZ1_TMB12D03_ACTIVE_3V_PROVISIONAL has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "Q1_BUZZER_LOW_SIDE_DRIVER_PROVISIONAL has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "J1_USB_C_POWER_DEBUG_PROVISIONAL has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "U3_QSPI_FLASH_PROVISIONAL has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "Y1_12MHZ_CRYSTAL_PROVISIONAL has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "U1_RP2040_C2040 has no pin with requires_ground=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "BZ1_TMB12D03_ACTIVE_3V_PROVISIONAL has no pin with requires_ground=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "Q1_BUZZER_LOW_SIDE_DRIVER_PROVISIONAL has no pin with requires_ground=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "J1_USB_C_POWER_DEBUG_PROVISIONAL has no pin with requires_ground=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "U3_QSPI_FLASH_PROVISIONAL has no pin with requires_ground=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "Y1_12MHZ_CRYSTAL_PROVISIONAL has no pin with requires_ground=true"
+          }
+        ]
+      },
+      "renders": {
+        "pcbBytes": 54727,
+        "schematicBytes": 180836,
+        "pcbSha256": "6b26d1954d79bcfd5d54df74b4743f40592aa4205460e50cbb2391a2dc1093f1",
+        "schematicSha256": "c1ed430454d8557bf90c7a038fa1b69435e633da0de4250b2d5ea4d13a79772e",
+        "hasSvgRoot": true
+      },
+      "issues": []
+    },
+    {
+      "id": "D",
+      "artifact": "artifacts/variants/D",
+      "source": "src/variant-candidates.tsx",
+      "description": "ESP32-C3 wireless candidate",
+      "status": "PASS",
+      "board": {
+        "type": "pcb_board",
+        "pcb_board_id": "pcb_board_0",
+        "source_board_id": "source_board_0",
+        "center": {
+          "x": 0,
+          "y": 0
+        },
+        "thickness": 1.6,
+        "num_layers": 2,
+        "width": 48,
+        "height": 32,
+        "material": "fr4",
+        "solder_mask_color": "black",
+        "min_trace_width": 0.2,
+        "min_via_hole_diameter": 0.2,
+        "min_via_pad_diameter": 0.3,
+        "min_via_hole_edge_to_via_hole_edge_clearance": 0.1,
+        "min_trace_to_pad_edge_clearance": 0.1,
+        "min_pad_edge_to_pad_edge_clearance": 0.1,
+        "min_plated_hole_drill_edge_to_drill_edge_clearance": 0.15,
+        "min_board_edge_clearance": 0.2
+      },
+      "components": {
+        "J1_USB_C_POWER_DEBUG_PROVISIONAL": {
+          "pads": 16,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "U4_3V3_REGULATOR_PROVISIONAL": {
+          "pads": 5,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "C1_VBUS_BYPASS": {
+          "pads": 2,
+          "footprints": [
+            "cap0603"
+          ]
+        },
+        "C2_3V3_BYPASS": {
+          "pads": 2,
+          "footprints": [
+            "cap0603"
+          ]
+        },
+        "R1_RUN_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "R2_XSHUT_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "R3_SDA_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "R4_SCL_PULLUP": {
+          "pads": 2,
+          "footprints": [
+            "res0603"
+          ]
+        },
+        "U1_ESP32_C3_MINI_1_N4_C2838502": {
+          "pads": 61,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "U2_VL53L0X_C2929940": {
+          "pads": 12,
+          "footprints": [
+            "unknown"
+          ]
+        },
+        "U3_LIS2DW12TR_C189624": {
+          "pads": 12,
+          "footprints": [
+            "unknown"
+          ]
+        }
+      },
+      "checks": {
+        "errors": 0,
+        "warnings": 7,
+        "blockingWarnings": 0,
+        "messages": [
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "J1_USB_C_POWER_DEBUG_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "pcb_component_missing_courtyard_warning",
+            "message": "U4_3V3_REGULATOR_PROVISIONAL has no courtyard"
+          },
+          {
+            "severity": "warning",
+            "type": "source_component_pins_underspecified_warning",
+            "message": "All pins on J1_USB_C_POWER_DEBUG_PROVISIONAL are underspecified (no pinAttributes set)"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "U1_ESP32_C3_MINI_1_N4_C2838502 has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_power_pin_defined_warning",
+            "message": "J1_USB_C_POWER_DEBUG_PROVISIONAL has no pin with requires_power=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "U1_ESP32_C3_MINI_1_N4_C2838502 has no pin with requires_ground=true"
+          },
+          {
+            "severity": "warning",
+            "type": "source_no_ground_pin_defined_warning",
+            "message": "J1_USB_C_POWER_DEBUG_PROVISIONAL has no pin with requires_ground=true"
+          }
+        ]
+      },
+      "renders": {
+        "pcbBytes": 46492,
+        "schematicBytes": 159650,
+        "pcbSha256": "1fbce92ae46ee7da973cf2f18941b3fe9c1de18b52576fa6adb21e8b5f3a062e",
+        "schematicSha256": "305e957d2e8218ddd9feb8edfb6426e3650cde290edaf2d1f8e7d8d631aefd50",
+        "hasSvgRoot": true
+      },
+      "issues": []
+    }
+  ],
+  "globalIssues": [],
+  "status": "PASS"
+}

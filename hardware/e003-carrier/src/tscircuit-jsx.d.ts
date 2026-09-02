@@ -10,6 +10,9 @@ import type {
   SilkscreenRectProps,
   SilkscreenTextProps,
   SchematicSheetProps,
+  SmtPadProps,
+  ResistorProps,
+  CapacitorProps,
   TestpointProps,
   TraceProps,
 } from "@tscircuit/props"
@@ -28,6 +31,9 @@ interface TscircuitElements {
   pcbnotetext: PcbNoteTextProps
   silkscreenrect: SilkscreenRectProps
   silkscreentext: SilkscreenTextProps
+  smtpad: SmtPadProps
+  resistor: ResistorProps
+  capacitor: CapacitorProps
 }
 
 declare global {

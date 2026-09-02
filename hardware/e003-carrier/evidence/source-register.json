@@ -1,0 +1,175 @@
+{
+  "schema": "e003-component-source-register-v1",
+  "retrievedAt": "2026-09-02",
+  "status": "review-candidate",
+  "fabricationAllowed": false,
+  "notes": [
+    "Catalogue IDs prove that a catalogue record exists; they do not prove package orientation, assembly eligibility or fit on the received hardware.",
+    "Local provisional assets are authored geometry and remain blocked until a datasheet, CAD export or measured overlay closes the open fields.",
+    "The two X/e features on the received ToF board are reference-only auxiliary vias, not electrical pins."
+  ],
+  "assets": [
+    {
+      "ref": "U1-A",
+      "part": "RP2040-Zero received module",
+      "manufacturer": "Waveshare / received board",
+      "orderableIdentifier": "RP2040-Zero",
+      "assetKind": "received-module",
+      "package": "module, 23 carrier pads, onboard USB-C",
+      "padCount": 23,
+      "orientation": "USB-C and BOOT/RESET access at the module top/side; local datum is module centre",
+      "sourceUrls": [
+        "https://files.waveshare.com/upload/4/4c/RP2040_Zero.pdf",
+        "https://jlcpcb.com/partdetail/Waveshare-RP2040Zero/C5350143",
+        "https://easyeda.com/modules/RP2040-Zero_7b24158791074d248c4530b7d4e6639c"
+      ],
+      "provenance": "received-board photographs in evidence/photos; local footprint authored from visible pad contract",
+      "license": "source terms require review; local geometry is project-authored",
+      "confidence": "provisional",
+      "openFields": ["exact board revision", "calibrated outline", "pad centres", "BOOT/RESET access envelope"]
+    },
+    {
+      "ref": "U2-A",
+      "part": "VL53LDK-marked ToF breakout",
+      "manufacturer": "unresolved marketplace module",
+      "orderableIdentifier": "VL53LDK / UL53LDK marking",
+      "assetKind": "received-module",
+      "package": "four-pin breakout, one corner hole, optical package, two X/e auxiliary vias",
+      "padCount": 4,
+      "padNames": ["VIN", "GND", "SCL", "SDA"],
+      "orientation": "labelled electrical pads on lower edge; optical package faces downward in installed orientation",
+      "sourceUrls": [
+        "https://robocraze.com/products/robocraze-vl53ldk-time-of-flight-tof-lidar-laser-distance-sensor",
+        "https://www.plexishop.it/it/gy-530-sensore-di-misura-laser-tof-vl53l0x.html",
+        "https://community.st.com/t5/imaging-sensors/vl53ldk-can-be-used-for-toys-6-age-and-pass-ul-ce-toys/td-p/247612"
+      ],
+      "provenance": "received-board photographs and evidence/pin-truth-table.json; exact published matching footprint not found",
+      "license": "local project-authored geometry; vendor pages are reference sources",
+      "confidence": "provisional",
+      "openFields": ["silicon identity", "VIN rail and pull-ups", "calibrated outline", "pad centres", "hole datum", "optical aperture"]
+    },
+    {
+      "ref": "U1-B-C",
+      "part": "RP2040",
+      "manufacturer": "Raspberry Pi",
+      "orderableIdentifier": "JLCPCB C2040",
+      "assetKind": "catalogue-footprint",
+      "package": "LQFN-56, 7 x 7 mm, exposed ground pad",
+      "padCount": 57,
+      "orientation": "catalogue orientation retained; pin labels mapped to the RP2040 datasheet, exposed pad is GND",
+      "sourceUrls": [
+        "https://jlcpcb.com/partdetail/-RP2040/C2040",
+        "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf"
+      ],
+      "provenance": "tscircuit JLCPCB resolver; generated probe confirms 57 PCB SMT pads",
+      "license": "JLCPCB catalogue asset; use subject to supplier terms",
+      "confidence": "catalogue-candidate",
+      "openFields": ["current library orientation and assembly eligibility before order", "reference-design support network"]
+    },
+    {
+      "ref": "U2-B-C-D",
+      "part": "VL53L0X",
+      "manufacturer": "STMicroelectronics",
+      "orderableIdentifier": "JLCPCB C2929940",
+      "assetKind": "catalogue-footprint",
+      "package": "LGA-12",
+      "padCount": 12,
+      "orientation": "catalogue orientation retained; optical package and all 12 pads are preserved",
+      "sourceUrls": [
+        "https://jlcpcb.com/partdetail/-VL53L0X/C2929940",
+        "https://www.st.com/resource/en/datasheet/vl53l0x.pdf"
+      ],
+      "provenance": "tscircuit JLCPCB resolver; generated probe confirms 12 PCB SMT pads",
+      "license": "JLCPCB catalogue asset; ST datasheet reference",
+      "confidence": "selected-hypothesis",
+      "openFields": ["final die choice versus VL53L1X", "optical stack and keep-out", "assembly eligibility"]
+    },
+    {
+      "ref": "U2-alt",
+      "part": "VL53L1X alternative",
+      "manufacturer": "STMicroelectronics",
+      "orderableIdentifier": "JLCPCB C2924337",
+      "assetKind": "catalogue-alternative",
+      "package": "LGA-12",
+      "padCount": 12,
+      "orientation": "not used in the current generated candidates",
+      "sourceUrls": [
+        "https://jlcpcb.com/partdetail/STMicroelectronics-VL53L1X/C2924337",
+        "https://www.st.com/resource/en/datasheet/vl53l1x.pdf"
+      ],
+      "provenance": "BOM alternative retained until sensor-driver and optical review closes",
+      "license": "JLCPCB catalogue asset; ST datasheet reference",
+      "confidence": "rejected-alternative",
+      "openFields": ["range/driver selection", "optical stack", "final B/C selection"]
+    },
+    {
+      "ref": "U3-C-D",
+      "part": "LIS2DW12TR",
+      "manufacturer": "STMicroelectronics",
+      "orderableIdentifier": "JLCPCB C189624",
+      "assetKind": "catalogue-footprint",
+      "package": "LGA-12, 2 x 2 mm",
+      "padCount": 12,
+      "orientation": "catalogue orientation retained; pin 9 VDD, pin 10 VDDIO, pin 11 INT2 and pin 12 INT1",
+      "sourceUrls": [
+        "https://jlcpcb.com/partdetail/STMicroelectronics-LIS2DW12TR/C189624",
+        "https://www.st.com/resource/en/datasheet/lis2dw12.pdf"
+      ],
+      "provenance": "tscircuit JLCPCB resolver; generated probe confirms 12 PCB SMT pads",
+      "license": "JLCPCB catalogue asset; ST datasheet reference",
+      "confidence": "catalogue-candidate",
+      "openFields": ["I2C address strap", "interrupt polarity and routing", "decoupling and motion test"]
+    },
+    {
+      "ref": "BZ1-C",
+      "part": "TMB12D03 3 V active buzzer",
+      "manufacturer": "unresolved catalogue manufacturer",
+      "orderableIdentifier": "JLCPCB C781856",
+      "assetKind": "catalogue-candidate-plus-local-geometry",
+      "package": "through-hole, 12 mm body, 2 leads",
+      "padCount": 2,
+      "orientation": "positive lead marked on local silkscreen; body clearance is a top-side mechanical review item",
+      "sourceUrls": ["https://jlcpcb.com/partdetail/TMB12D03/C781856"],
+      "provenance": "BOM catalogue record plus local two-hole footprint; exact supplier drawing must be attached before fabrication",
+      "license": "supplier catalogue asset; local geometry project-authored",
+      "confidence": "catalogue-candidate",
+      "openFields": ["30 mA load confirmation", "frequency and sound pressure", "exact lead pitch and polarity"]
+    },
+    {
+      "ref": "U1-D",
+      "part": "ESP32-C3-MINI-1-N4",
+      "manufacturer": "Espressif",
+      "orderableIdentifier": "JLCPCB C2838502",
+      "assetKind": "catalogue-footprint",
+      "package": "module with integrated PCB antenna",
+      "padCount": 61,
+      "orientation": "antenna end is on the right in Variant D; antenna keep-out is explicit and excludes the module",
+      "sourceUrls": [
+        "https://jlcpcb.com/partdetail/Espressif-Systems-ESP32C3MINI1N4/C2838502",
+        "https://www.espressif.com/sites/default/files/documentation/esp32-c3-mini-1_datasheet_en.pdf"
+      ],
+      "provenance": "tscircuit JLCPCB resolver; generated probe confirms 61 PCB SMT pads",
+      "license": "JLCPCB catalogue asset; Espressif datasheet reference",
+      "confidence": "catalogue-candidate",
+      "openFields": ["current module revision", "RF keep-out validation", "3V3 peak-current budget", "assembly eligibility"]
+    },
+    {
+      "ref": "J1/U3/U4/support",
+      "part": "USB-C receptacle, QSPI flash, 3V3 regulator, crystal, passives and buzzer driver",
+      "manufacturer": "unresolved",
+      "orderableIdentifier": "TBD",
+      "assetKind": "local-provisional-geometry",
+      "package": "USB-C 16-pad preview; SOIC-8 flash; 5-pin SOT-23 regulator; 3225 crystal; 0603 passives; SOT-23 driver",
+      "padCount": "varies by part",
+      "orientation": "local datums and pin labels are explicit in src/variant-candidates.tsx",
+      "sourceUrls": [
+        "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf",
+        "https://www.usb.org/document-library/usb-type-cr-cable-and-connector-specification-release-24"
+      ],
+      "provenance": "project-authored review geometry; no exact orderable part selected",
+      "license": "local project-authored geometry; external references remain subject to their terms",
+      "confidence": "unresolved",
+      "openFields": ["exact orderable IDs", "manufacturer drawings", "ESD strategy", "power-tree values", "assembly eligibility"]
+    }
+  ]
+}

@@ -11,8 +11,10 @@ const packageJson = JSON.parse(await readFile(resolve(root, "package.json"), "ut
 const sourcePaths = [
   "src/carrier.tsx",
   "src/variant-candidates.tsx",
+  "src/component-assets.md",
   "src/design-assumptions.json",
   "evidence/pin-truth-table.json",
+  "evidence/source-register.json",
   "variants/variant-a-bom.json",
   "variants/variant-b-bom.json",
   "variants/variant-c-bom.json",

@@ -144,3 +144,91 @@ validation and the deterministic manifest to cover the variant contracts and 18
 proof artefacts. `npm run check` passes. The work remains a provisional review
 candidate: measured module geometry, JLC library/package verification, native CLI
 manufacturing exports and qualified external review are still open gates.
+
+## 2026-09-01 — Variant A post-visual review and remediation plan
+
+The browser review of the current Variant A render confirms progress over the
+previous four-pad placeholder: all 23 RP2040-Zero pads, four ToF interface pads
+and two auxiliary via features,
+module outlines, a ToF clearance hole and four named nets are present. It also
+confirms that the ToF is still only a provisional envelope. The optical area is
+modelled as a generic circle, the USB/access legend is insufficient for a human
+review, the power input is electrically unresolved, and the routes are
+connected but visually indirect.
+
+Findings E003-F010 through E003-F017 were added to the review register. The
+implementation plan is appended to `PLAN.md` and expanded in
+`reports/2026-09-01-variant-a-post-visual-review-v0.2.md`. The next loop is
+ordered as measured evidence and electrical characterization, measured ToF
+footprint/optics, placement and routing, collision regression tests, portal
+refresh and qualified external review. Variant D remains parked; fabrication
+remains blocked.
+
+## 2026-09-01 — tscircuit ecosystem and reusable component workflow
+
+Researched the official tscircuit documentation and repositories, including the
+registry/package model, `@tsci/*` packages, JLCPCB and KiCad import prefixes,
+`@tscircuit/footprinter`, Circuit JSON conversion and the `jlc100` example
+library. The result is recorded in
+`research/hardware/tscircuit-ecosystem.md` and encoded as the local
+`.claude/skills/tscircuit-hardware` skill, linked from `CLAUDE.md` (and therefore
+the repository's `AGENTS.md` symlink).
+
+The search did not find an exact published tscircuit/KiCad asset for the
+received ToF board. Most public GY-530 references describe the same four-pin
+interface; the two extra markings on the received board are now treated as
+auxiliary plated vias, not electrical pins. E003-T21/T22/T23 were added so
+future work first searches and records candidate assets, then creates an
+isolated reusable component only if no exact source exists. Fabrication remains
+blocked until the geometry and electrical power path are verified.
+
+## 2026-09-01 — full cross-variant review
+
+Completed a second review pass across Variants A–D and recorded it in
+`reports/2026-09-01-full-board-review-v0.3.md`. The result is intentionally
+uneven: A is the only active implementation target; B and C are candidate
+architecture studies; D is parked. The review identifies provisional ToF
+geometry, unresolved power/pull-ups, indirect routing, incomplete collision
+assertions, access-legend gaps, manufacturing-export limitations and the
+missing qualified external review as the next gates. The portal was regenerated,
+opened in the browser and checked with zero console errors.
+
+## 2026-09-02 — owner accepts compact all-variant implementation
+
+The owner accepted implementation of the variants and requested a materially
+smaller board. The agreed default is a frameless compact carrier: the outline
+must come from measured module/component envelopes, access and keep-outs, with
+only a technical edge margin. A narrow frame is a fallback after mechanical
+review, not a decorative default. Underside adhesive mounting and removable
+module options must be evaluated explicitly against direct soldering.
+
+The implementation wave is now planned as E003-T21–T31. It first fixes source
+truth and real footprints, then freezes the mechanical contract, implements
+complete A/B/C/D variants, routes them deliberately, verifies collisions and
+pad counts, and publishes one progressive review portal. The current B/C/D
+four-pad previews remain review blockers until replaced; fabrication remains
+blocked by ADR-002.
+
+## 2026-09-02 — all-variant footprint implementation
+
+Implemented the first execution wave from E003-T21 through the package and
+verification gates. The source register now records provenance, license,
+package identity, pad counts, orientation and unresolved fields for received
+modules, JLCPCB catalogue parts and local support geometries. B/C use the
+complete 57-pad RP2040 C2040 and 12-pad VL53L0X C2929940 footprints. C adds the
+12-pad LIS2DW12TR, a two-lead active-buzzer body and a three-pad low-side
+driver. D uses all 61 pads of the ESP32-C3 C2838502 module and an explicit RF
+keep-out. The LIS2DW12 pin map was aligned to the catalogue pad hints: VDD pin
+9, VDDIO pin 10, INT2 pin 11 and INT1 pin 12.
+
+The board verification report now checks those variant-specific pad contracts,
+including C's feedback parts and D's complete module. A–D regenerate with zero
+TS-Circuit errors after fixing compact-placement collisions. The compact
+48 × 32 mm B–D envelope, frameless policy, underside tape constraints and
+direct-solder versus removable-header trade-off are documented, and the portal
+now exposes the implementation status and source register.
+
+This is still a review candidate, not a fabrication release. B–D deliberately
+do not claim copper routing until the pin-level netlist and exact support-part
+sources are reviewed; received-module measurements, power characterization,
+manufacturing exports and qualified external engineering review remain open.

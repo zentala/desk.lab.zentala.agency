@@ -97,6 +97,14 @@ All other reminder apps are blind to whether you acted. We have the sensor.
 **Business model:** Open source software + OEM sensor kit sold to desk manufacturers
 per unit (recurring revenue). See [research/vision/ECOSYSTEM.md](research/vision/ECOSYSTEM.md).
 
+**Hardware component tooling:** For tscircuit component/footprint work, read
+[the repository tscircuit ecosystem guide](research/hardware/tscircuit-ecosystem.md)
+and use the local [tscircuit-hardware skill](.claude/skills/tscircuit-hardware/SKILL.md).
+The ecosystem includes reusable `@tsci/*` packages, JLCPCB/KiCad imports,
+GitHub libraries and custom `@tscircuit/footprinter` components, but it is not
+a single catalogue of every breakout-module variant. Exact board geometry must
+still be matched and reviewed against source evidence.
+
 ## What to build next
 
 **Immediate (before any code):**

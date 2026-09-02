@@ -65,6 +65,32 @@ or measured dimension always beats a marketplace listing.
 - [ ] E003-T13 — Design Variant D around an ESP32-C3 wireless module and a
       transport-neutral sensor payload. Candidate source/BOM exist; RF and transport tests remain open.
 
+### Next implementation loop — Variant A remediation
+
+The latest visual review is recorded in
+`reports/2026-09-01-variant-a-post-visual-review-v0.2.md`; findings
+E003-F010–F017 are in the hardware review register. Work in this order:
+
+1. E003-T14 — capture 1:1 ToF/RP2040 geometry and characterize VIN and pull-ups; record X/E as auxiliary vias.
+2. E003-T15/T16 — replace the provisional ToF/optical model and resolve the power/interface truth.
+3. E003-T17 — re-place, route with explicit layer intent and add the USB/access legend.
+4. E003-T18/T19 — add collision regression tests and regenerate the review package.
+5. E003-T20 — run 1:1 overlay and obtain qualified external feedback.
+
+Do not polish or fabricate Variant D during this loop. Do not treat a green
+generated DRC as proof of physical fit or electrical safety.
+
+### Reusable component research
+
+The repository guide [`research/hardware/tscircuit-ecosystem.md`](../../../research/hardware/tscircuit-ecosystem.md)
+and local skill [`.claude/skills/tscircuit-hardware/SKILL.md`](../../../.claude/skills/tscircuit-hardware/SKILL.md)
+now define the source-search/import workflow. Use E003-T21 before changing the
+ToF geometry: the received module has four interface pads, matching most online
+GY-530 references, plus two auxiliary vias. No exact package with the
+same optical/hole geometry was found in the initial registry/GitHub search, so
+a local reusable component may be needed, but it must retain source evidence
+and provisional status until verified.
+
 ### Wave 3 — human review gate
 
 - [ ] E003-T06 — Source a reviewer/firm and send the review pack.
@@ -83,3 +109,35 @@ passes, create a dedicated follow-on epic for prototype fabrication and testing.
    suitable for a continuously installed under-desk device?
 4. Is the export package sufficient and manufacturable by the intended PCB house?
 5. What must change before a first prototype is ordered?
+
+## Full board review — 2026-09-01
+
+The cross-variant review is recorded in
+[`reports/2026-09-01-full-board-review-v0.3.md`](reports/2026-09-01-full-board-review-v0.3.md).
+Only Variant A received the current four-pin ToF correction. B and C remain
+placeholder/candidate studies, and D remains a parked ESP32-C3 alternative.
+The next implementation loop is measured geometry and power characterization,
+then reusable-component comparison, optical/access correction, deliberate
+routing, collision regression tests and qualified external review. The browser
+review is open at `http://127.0.0.1:4173/visual-fit.html?rev=20260901-v03`.
+
+## Execution checkpoint — 2026-09-02
+
+The initial placeholder state described above has been superseded by the
+current source in `hardware/e003-carrier/src/variant-candidates.tsx`:
+
+- B/C use JLCPCB `C2040` (57 pads including exposed GND) and `C2929940`
+  (12-pad VL53L0X) footprints.
+- C adds the 12-pad `C189624` LIS2DW12TR, a two-lead buzzer body and a
+  three-pad low-side driver body.
+- D uses all 61 pads of `C2838502` ESP32-C3, the accelerometer and an antenna
+  keep-out.
+- A remains the received-module reference with 23 RP2040-Zero pads, four ToF
+  pads and X/e reference-only geometry.
+
+`npm run check` passes with A–D verification PASS, zero generated TS-Circuit
+errors, complete source-register validation and a packaged static portal. B–D
+still have no claimed copper routes until the pin-level netlist and exact
+support-part sources are reviewed. Physical measurements, power
+characterization, manufacturing exports and qualified external review remain
+open; fabrication is blocked.
