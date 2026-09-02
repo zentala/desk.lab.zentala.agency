@@ -2,6 +2,10 @@
 
 ## 2026-09
 
+- **E002 status report implementation** — added validated MDX updates, evidence-led homepage, typed project status data, report primitives, v0.2 decision article, standing pages, `/versions`, RSS, and isolated the funnel at `/lp`. Verification: `npm run build` passed with 12 static routes.
+
+## 2026-09
+
 - **E003-T21–T31 implementation pass** — added the source register and reusable
   component assets; implemented candidate Variants A–D; regenerated proof,
   verification and portable portal artefacts; and documented the compact,

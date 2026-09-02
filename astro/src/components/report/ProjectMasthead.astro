@@ -1,0 +1,13 @@
+---
+import Icon from '../ui/Icon';
+import StatusPill from './StatusPill.astro';
+---
+<section class="report-container pb-16 pt-20 md:pb-24 md:pt-28">
+  <div class="max-w-3xl">
+    <div class="mb-5 flex items-center gap-3 text-sm text-muted"><Icon name="evidence" size={18} /><span>Project status · updated 2 September 2026</span><StatusPill state="in review" /></div>
+    <h1 class="max-w-3xl text-5xl leading-[1.05] text-gray-100 sm:text-6xl">A desk that helps you change position.</h1>
+    <p class="mt-7 max-w-2xl text-lg leading-8 text-muted">Open Smart Desk combines MoveUp, a desktop application, with a small sensor that measures desk height. The computer turns that signal into a gentle, context-aware nudge.</p>
+    <p class="mt-5 text-sm text-muted">This is a working record of what exists, what is still uncertain, and what happens next.</p>
+    <a class="focus-ring report-link mt-8 inline-flex items-center gap-2" href="/versions">Read the full version log <Icon name="external" size={16} /></a>
+  </div>
+</section>

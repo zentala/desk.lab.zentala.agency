@@ -7,9 +7,5 @@ type Props = {
 };
 
 export default function Section({ id, className, children }: Props) {
-  return (
-    <section id={id} className={`py-12 ${className ?? ''}`}>
-      <div className="mx-auto max-w-6xl px-4">{children}</div>
-    </section>
-  );
+  return <section id={id} className={'py-16 md:py-20 ' + (className ?? '')}><div className="report-container">{children}</div></section>;
 }

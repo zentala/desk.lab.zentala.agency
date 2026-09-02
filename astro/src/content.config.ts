@@ -1,6 +1,6 @@
 /**
  * Astro Content Collections configuration.
- * Defines the blog collection schema for markdown posts.
+ * Defines the public blog and versioned project-update collections.
  */
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
@@ -17,4 +17,17 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+const updates = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/updates' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    statusDate: z.coerce.date(),
+    status: z.enum(['archived', 'current', 'in review', 'planned']),
+    version: z.string(),
+    supersedes: z.string().default(''),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { blog, updates };

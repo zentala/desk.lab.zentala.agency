@@ -6,24 +6,8 @@ type Props = {
   items: string[];
 };
 
-const toneStyles: Record<Tone, string> = {
-  success: 'border-emerald-200 bg-emerald-50/70',
-  danger: 'border-rose-200 bg-rose-50/70',
-  learn: 'border-sky-200 bg-sky-50/70',
-};
+const toneStyles: Record<Tone, string> = { success: 'border-status-in-use/40', danger: 'border-red-400/40', learn: 'border-status-planned/40' };
 
 export default function InfoCard({ tone, title, items }: Props) {
-  return (
-    <div className={`card border ${toneStyles[tone]}`}>
-      <div className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-ink/60">{title}</div>
-      <ul className="space-y-2 text-sm text-ink/80">
-        {items.map((item) => (
-          <li key={item} className="flex gap-2">
-            <span className="mt-1 h-2 w-2 flex-none rounded-full bg-ink/40" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  return <div className={'rounded-2xl border bg-report-surface p-6 ' + toneStyles[tone]}><h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-300">{title}</h3><ul className="mt-4 space-y-3 text-sm leading-6 text-muted">{items.map((item) => <li key={item} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-green" />{item}</li>)}</ul></div>;
 }

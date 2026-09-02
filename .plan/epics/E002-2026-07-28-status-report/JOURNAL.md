@@ -11,3 +11,11 @@ by owner: conclusions + next steps, not a moat. Article draft not yet written (T
 - **Note**: Session ended without `done.` command. No journal was written.
 - **State at exit**: see STATE.md for last known state
 - **Action needed**: next session should review what happened and write proper journal
+
+## Session 2026-09-02 — implementation
+
+- Added the Astro MDX pipeline and validated `updates` collection with coerced dates and constrained states.
+- Built the report token layer, Lucide icon map, status ledger, version timeline, evidence summary, roadmap and archive components.
+- Moved the pre-order funnel to `/lp` and made `/` the evidence-led status report. The MoveUp card is explicitly unverified because its source is outside this repository.
+- Added the v0.2 status update, standing pages, `/versions` and updates RSS.
+- `npm run build` passed: 12 static routes generated. Root smoke check found no pricing, checkout, pre-order or Product JSON-LD.

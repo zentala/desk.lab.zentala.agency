@@ -1,0 +1,5 @@
+---
+const { state } = Astro.props;
+const classes = { archived: 'text-status-archived border-status-archived/40', 'in use': 'text-status-in-use border-status-in-use/40', 'in review': 'text-status-in-review border-status-in-review/40', 'in design': 'text-status-in-design border-status-in-design/40', planned: 'text-status-planned border-status-planned/40' };
+---
+<span class={`inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold uppercase tracking-wider ${classes[state]}`}>{state}</span>

@@ -1,5 +1,6 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@plugin "@tailwindcss/typography";
 
 /* Tailwind v4 theme configuration via CSS */
 @theme {
@@ -17,6 +18,14 @@
 
   --shadow-glow: 0 0 40px rgba(34, 197, 94, 0.15);
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --color-report-surface: #111118;
+  --color-report-muted: #94a3b8;
+  --color-report-divider: #2d2d3a;
+  --color-status-archived: #94a3b8;
+  --color-status-in-use: #4ade80;
+  --color-status-in-review: #fbbf24;
+  --color-status-in-design: #c084fc;
+  --color-status-planned: #60a5fa;
 }
 
 @layer base {
@@ -27,12 +36,12 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     letter-spacing: -0.025em;
     font-weight: 700;
   }
@@ -60,4 +69,8 @@
   .section-container {
     @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
   }
+  .report-container { @apply mx-auto max-w-5xl px-5 sm:px-8; }
+  .report-link { @apply text-brand-green underline decoration-brand-green/40 underline-offset-4 transition hover:text-brand-green-light; }
+  .report-divider { @apply border-t border-report-divider; }
+  .focus-ring { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900; }
 }

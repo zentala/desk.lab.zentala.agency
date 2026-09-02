@@ -1,0 +1,53 @@
+---
+title: "Status update v0.2: from desk controller to behaviour loop"
+description: "What the first prototype proved, what it got wrong, and why the next version is deliberately smaller."
+statusDate: 2026-07-15
+status: current
+version: "0.2"
+supersedes: "v0.1"
+tags: ["status", "hardware", "decisions"]
+---
+
+import DecisionRecord from '../../components/report/DecisionRecord.astro';
+
+# Status update v0.2
+
+This is a record of a change in direction. The first version proved that a desk can be measured and controlled. It did not prove that a person will change position consistently. The next version treats the nudge and the decision loop as the product, and the hardware as a replaceable input.
+
+## Context
+
+Height-adjustable desks already make sitting and standing mechanically possible. The harder problem is remembering to use that capability at the right moment, without turning work into a stream of interruptions. A small prototype cost approximately 700 PLN / 200 USD and made that distinction concrete.
+
+## What v0.1 actually did
+
+The prototype combined desk control, laser-based height measurement, presence sensing and a basic administrative interface. It worked mechanically and produced useful telemetry. A small sample recorded approximately 8% standing time while the app was nudging. That is not a before/after result: without the nudge, standing was essentially absent. The number is evidence of a difficult behaviour problem, not a product result to advertise.
+
+The physical work also exposed failure modes. The plexiglass enclosure had no airflow and overheated electronics. Relays could stick under motor load. The PIR sensor generated false signals and was difficult to calibrate. The user controller was built as a partially assembled board, but it was never finished or integrated into the system.
+
+## Decision 1 — split into modules
+
+The first response was to separate the motor, sensing, presence, controls and decision engine. A modular MQTT and smart-home architecture was attractive: each part could evolve independently and an open protocol could connect different desks and sensors.
+
+That direction was parked because it moved too much complexity into integration before the basic habit loop had been validated. I had started optimizing an ecosystem before learning whether the smallest useful interaction worked.
+
+<DecisionRecord number="1" title="Park the ecosystem architecture" context="The prototype contained too many coupled responsibilities and unreliable physical parts." considered="Separate modules, MQTT, Home Assistant and an open protocol." rejected="Making interoperability the next milestone." why="Integration breadth would delay the behavioural experiment." decision="Keep the architectural lesson, but reduce the next experiment to the smallest useful loop." tradeoff="Less portability and fewer ready-made integrations in the short term." mitigation="Keep interfaces simple and documented while the local MVP is tested." />
+
+## Decision 2 — reduce it to two USB components
+
+The current direction is deliberately smaller: an RP2040-Tiny carrier and a VL53L0X distance sensor connected over USB. The computer owns the algorithm, local activity signals and notifications. The sensor measures desk height; it does not pretend to understand the user's behaviour by itself.
+
+This breaks when someone switches machines or cannot plug a sensor into a locked-down company laptop. That is a real trade-off. The mitigation is equally direct: the design should be flashable and reproducible, so a user can make or modify their own sensor. The reason for accepting the limitation is economics and learning speed. Desks already contain the motor and controls. The scarce work is turning a height signal into a timely, non-annoying change in behaviour.
+
+<DecisionRecord number="2" title="Make the computer the decision engine" context="The useful product question is whether a nudge changes behaviour, not whether a desk can expose every possible protocol." considered="A networked, modular controller with more independent hardware modules." rejected="Building a general desk ecosystem before validating the MVP loop." why="A small USB sensor is cheaper to iterate and keeps the experiment focused." decision="Use two USB-connected components and concentrate effort on the algorithm and UX." tradeoff="The sensor is tied to the computer used for the experiment." mitigation="Publish enough design and firmware detail for users to flash their own hardware." />
+
+## What I got wrong
+
+The first version was over-engineered for the question it needed to answer. It treated control, sensing, presence and a physical interface as if they all needed to become a finished product at once. Each failure now has a useful consequence: airflow is a mechanical requirement, relay behaviour needs safer validation, PIR is not a trustworthy shortcut, and a controller should not be built before its interaction is understood.
+
+The larger correction is about emphasis. I previously described protocol standardization as the product. I no longer believe that. The product hypothesis is the algorithm and the UX: knowing when a person is actually working, choosing a tolerable moment, and learning whether the nudge helped.
+
+## Where I am now
+
+The carrier-board work is in review, not fabrication-ready. The next physical step is to measure the received modules, characterize the power and I2C assumptions, and obtain an external electronics review. MoveUp exists as the companion application, but its source, supported platforms and approved screenshots still need to be inventoried before public feature claims are made.
+
+The immediate experiment is therefore modest: make the reduced sensor direction work, use it personally, and record what happens. An enclosure, broader user testing, compliance scope and any commercial decision come later, after the evidence exists.
