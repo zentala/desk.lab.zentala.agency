@@ -12,3 +12,6 @@
       routing, geometry collision tests, portal refresh and external review.
       Tracked as E003-T14 through E003-T20 and findings E003-F010 through
       E003-F017.
+- [ ] Parametric component, netlist and routed-variant architecture. Promoted
+      to [E004](../E004-2026-09-02-tscircuit-parametric-routing-system/PLAN.md),
+      which owns the generator refactor and B–D routing system.

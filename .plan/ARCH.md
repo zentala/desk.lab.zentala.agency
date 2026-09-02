@@ -1,5 +1,22 @@
 # Architecture
 
+## Product and hardware research track
+
+The repository also contains the Open Smart Desk product research and the
+TS-Circuit carrier-board review workspace in `hardware/e003-carrier/`. E003 is
+the current review candidate: it generates four board variants and a static
+portal, but it is not fabrication-ready. Its physical evidence, exact module
+geometry, support-part sourcing, routing and qualified external review remain
+explicit gates.
+
+E004 defines the planned next architecture for that workspace. It is not yet
+implemented: reusable typed components feed a composed variant configuration,
+which resolves a canonical netlist, placement plan and routing result before
+the tscircuit renderer and review portal consume them. See E004 `PLAN.md` and
+ADR-006 through ADR-011 for the ownership boundaries and decisions. The target
+uses a functional core, typed physical geometry and one versioned resolved
+design whose maturity is computed from evidence and verification gates.
+
 ## Repository Shape
 
 This repository currently contains two parallel website layers:

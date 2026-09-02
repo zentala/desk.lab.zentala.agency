@@ -1,9 +1,11 @@
 ---
-updated: 2026-09-02T00:45:00+02:00
-focus: E003 A–D candidate implementation, verification and portable review portal.
-next: Obtain measured module evidence, verify JLC footprints, complete copper routing for B–D, and source qualified external review.
-executing_epic: E003
-executing_epic_path: .plan/epics/E003-2026-09-01-tscircuit-carrier-board
+updated: 2026-09-02T01:05:00+02:00
+focus: E004 planning — parametric TS Circuit components, netlist and routing system.
+next: Start a new implementation session from E004 HANDOFF.md; do not mix planning with code migration.
+executing_epic: null
+executing_epic_path: null
+planning_epic: E004
+planning_epic_path: .plan/epics/E004-2026-09-02-tscircuit-parametric-routing-system
 current_wave:
   - "Wave 1 started: evidence template and minimal TS Circuit output proof are committed."
   - "Wave 2 started: placeholder candidate and static review portal are committed; fabrication remains blocked."
@@ -13,6 +15,8 @@ current_wave:
   - "E003-T21–T31 implementation pass completed: source register, reusable assets, A–D candidate geometry, verification gates and browser-reviewed portal are committed for handoff."
   - "npm run check passed: A–D PASS, 0 tscircuit errors, 0 blocking warnings; fabrication remains blocked by physical evidence, B–D routing and external review."
   - "Measured fit, current-library verification, manufacturing CLI export and professional review remain fabrication gates."
+  - "E004 planned: typed composition, canonical netlist, parametric placement, constrained autorouting, routed B–D migration and extension/reproducibility gates."
+  - "E004 hardened with ADR-009–011: functional core/adapters, typed units/datums, versioned resolved-design schema, computed maturity and semantic impact reports."
 handoff: HANDOFF.md
 ---
 
@@ -20,7 +24,7 @@ handoff: HANDOFF.md
 
 > **Full context: [../HANDOFF.md](../HANDOFF.md)** — read that first. This file is the short version.
 
-## E003 implementation in progress; E001/E002 remain separate website work
+## E003 candidate complete; E004 architecture planned; E001/E002 remain separate website work
 
 **2026-07-29 — E001-T01 done.** The `master` merge was rehearsed in a throwaway worktree:
 **two conflicts** (`.gitignore`, `CLAUDE.md`), `CNAME` clean at `desk.labs.zentala.agency`,
