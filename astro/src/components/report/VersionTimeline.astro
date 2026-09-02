@@ -5,7 +5,7 @@ import { versions } from '../../data/project-status';
 ---
 <section id="versions" class="report-container py-16 md:py-20">
   <div class="mb-10 flex items-end justify-between gap-4"><div><p class="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-brand-green">Version history</p><h2 class="text-3xl text-gray-100 md:text-4xl">What changed</h2></div><a class="report-link hidden text-sm sm:block" href="/versions">All updates</a></div>
-  <div class="space-y-0 border-l border-report-divider">
+  <div class="relative left-px space-y-0 border-l border-report-divider">
     {versions.map((entry) => <article class="relative ml-5 border-b border-report-divider py-6 pl-6 first:pt-0">
       <span class="absolute -left-6 top-7 h-2 w-2 rounded-full bg-brand-green ring-4 ring-dark-900"></span>
       <div class="flex flex-wrap items-center gap-3"><h3 class="text-xl text-gray-100">{entry.label}</h3><StatusPill state={entry.state} /></div>
